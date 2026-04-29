@@ -109,7 +109,7 @@ export default function Navbar() {
         position: "fixed",
         top: 0, left: 0, right: 0,
         zIndex: 100,
-        background: scrolled ? "#212121" : "transparent",
+        background: scrolled ? "#111111" : "transparent",
         borderBottom: scrolled
           ? "1px solid rgba(255,255,255,0.08)"
           : "1px solid rgba(255,255,255,0.06)",

@@ -38,7 +38,7 @@ const slides = [
     heading: ["Pure Classic", "Roadster"],
     highlight: "Spirit",
     description:
-      "Timeless styling meets modern engineering. Every curve tells a story of heritage — refined for the open road, built for riders who cherish the journey as much as the destination.",
+      "Timeless styling meets modern engineering. Every curve tells a story of heritage refined for the open road, built for riders who cherish the journey as much as the destination.",
     heroImg: img.bulletimg, 
     thumbnails: [
       { id: 1, img: img.bullethandlebar, label: "Handlebars" },

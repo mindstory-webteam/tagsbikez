@@ -1,3 +1,4 @@
+import Footer from '@/components/layout/footer/Footer'
 import Navbar from '@/components/layout/header/Navbar'
 import AboutSection from '@/components/sections/home/AboutSection'
 import HeroSection from '@/components/sections/home/HeroSection'
@@ -15,7 +16,6 @@ const Home = () => {
       <WhatWeDoSection/>
       <AboutSection/>
       <TestDriveSection/>
-
     </>
   )
 }

@@ -39,7 +39,7 @@ export default function WhatWeDoSection() {
     <motion.section
       ref={ref}
       animate={{
-        background: isInView ? "#212121" : "#ffffff",
+        background: isInView ? "#111111" : "#ffffff",
       }}
       transition={{ duration: 0.8, ease: "easeInOut" }}
       style={{ padding: "60px 40px" }}
