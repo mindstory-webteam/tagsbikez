@@ -7,6 +7,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [visible, setVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,11 +15,14 @@ export default function Navbar() {
 
       if (currentScrollY < 10) {
         setVisible(true);
+        setScrolled(false);
       } else if (currentScrollY > lastScrollY) {
         setVisible(false);
+        setScrolled(true);
         setOpen(false);
       } else {
         setVisible(true);
+        setScrolled(true);
       }
 
       setLastScrollY(currentScrollY);
@@ -105,8 +109,10 @@ export default function Navbar() {
         position: "fixed",
         top: 0, left: 0, right: 0,
         zIndex: 100,
-        background: "transparent",
-        borderBottom: "1px solid rgba(255,255,255,0.06)",
+        background: scrolled ? "#212121" : "transparent",
+        borderBottom: scrolled
+          ? "1px solid rgba(255,255,255,0.08)"
+          : "1px solid rgba(255,255,255,0.06)",
         padding: "0 32px",
         height: 80,
         display: "flex",
@@ -114,10 +120,10 @@ export default function Navbar() {
         justifyContent: "space-between",
         transform: visible ? "translateY(0)" : "translateY(-100%)",
         opacity: visible ? 1 : 0,
-        transition: "transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.35s ease",
+        transition: "transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.35s ease, background 0.3s ease",
       }}>
         {/* Logo */}
-        <div style={{ display: "flex", alignItems: "center", position: "relative", height: 48, width: 160 }}>
+        <div style={{ position: "relative", height: 48, width: 160 }}>
           <Image
             src={img.tagsbikezwhite}
             alt="Logo"
@@ -179,7 +185,6 @@ export default function Navbar() {
             onClick={() => setOpen(false)}
           >{link}</a>
         ))}
-
         <div className="mobile-cta">
           <button style={{
             border: "none", color: "#000",

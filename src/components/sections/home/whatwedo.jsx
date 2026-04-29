@@ -1,6 +1,8 @@
 "use client";
 import Image from "next/image";
 import { img } from "@/assets/assest";
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 
 const steps = [
   {
@@ -30,25 +32,33 @@ const steps = [
 ];
 
 export default function WhatWeDoSection() {
-  return (
-    <section style={{
-      background: "#fff",
-      padding: "50px 40px",
-    }}>
-      <div style={{
-        maxWidth: 1100,
-        margin: "0 auto",
-      }}>
+  const ref = useRef(null);
+  const isInView = useInView(ref, { margin: "-10% 0px -10% 0px" });
 
-        <h2 style={{
-          fontSize: "clamp(28px, 4vw, 42px)",
-          color: "#000",
-          lineHeight: 1.25,
-          marginBottom: 48,
-          maxWidth: 320,
-        }}>
+  return (
+    <motion.section
+      ref={ref}
+      animate={{
+        background: isInView ? "#212121" : "#ffffff",
+      }}
+      transition={{ duration: 0.8, ease: "easeInOut" }}
+      style={{ padding: "60px 40px" }}
+    >
+      <div style={{ maxWidth: 1300, margin: "0 auto" }}>
+
+        {/* Heading */}
+        <motion.h2
+          animate={{ color: isInView ? "#ffffff" : "#000000" }}
+          transition={{ duration: 0.8, ease: "easeInOut" }}
+          style={{
+            fontSize: "clamp(36px, 3vw, 48px)",
+            lineHeight: 1.25,
+            marginBottom: 48,
+            maxWidth: 320,
+          }}
+        >
           WHAT WE DO
-        </h2>
+        </motion.h2>
 
         <div style={{
           display: "flex",
@@ -57,6 +67,7 @@ export default function WhatWeDoSection() {
           flexWrap: "wrap",
         }}>
 
+          {/* Image */}
           <div style={{
             flex: "0 0 300px",
             borderRadius: 16,
@@ -65,66 +76,83 @@ export default function WhatWeDoSection() {
             height: 340,
           }}>
             <Image
-              src={img.banner1}
+              src={img.banner2}
               alt="What we do"
               fill
               style={{ objectFit: "cover", objectPosition: "center" }}
             />
           </div>
 
+          {/* Steps Grid */}
           <div style={{ flex: 1, minWidth: 280 }}>
             <div style={{
               display: "grid",
               gridTemplateColumns: "1fr 1fr",
               gap: "36px 40px",
             }}>
-              {steps.map((step) => (
-                <div key={step.number}>
-                  <p style={{
-                    fontSize: 36,
-                    fontWeight: 700,
-                    color: "red",
-                    margin: "0 0 10px 0",
-                    lineHeight: 1,
-                  }}>
+              {steps.map((step, i) => (
+                <motion.div
+                  key={step.number}
+                  initial={{ opacity: 0, y: 24 }}
+                  animate={isInView
+                    ? { opacity: 1, y: 0 }
+                    : { opacity: 0, y: 24 }
+                  }
+                  transition={{ duration: 0.5, delay: i * 0.1, ease: "easeOut" }}
+                >
+                  <motion.p
+                    animate={{ color: isInView ? "#f51b24" : "#f51b24" }}
+                    style={{
+                      fontSize: 36,
+                      fontWeight: 700,
+                      margin: "0 0 10px 0",
+                      lineHeight: 1,
+                      fontFamily: "'DM Sans', sans-serif",
+                    }}
+                  >
                     {step.number}
-                  </p>
-                  <p style={{
-                    fontSize: 13,
-                    color: "#555",
-                    lineHeight: 1.7,
-                    margin: 0,
-                  }}>
+                  </motion.p>
+                  <motion.p
+                    animate={{ color: isInView ? "rgba(255,255,255,0.65)" : "#555555" }}
+                    transition={{ duration: 0.8, ease: "easeInOut" }}
+                    style={{
+                      fontSize: 13,
+                      lineHeight: 1.7,
+                      margin: 0,
+                      fontFamily: "'DM Sans', sans-serif",
+                    }}
+                  >
                     {step.description}
-                  </p>
-                </div>
+                  </motion.p>
+                </motion.div>
               ))}
             </div>
 
+            {/* CTA */}
             <div style={{ marginTop: 40 }}>
-              <button style={{
-                background: "transparent",
-                border: "2px solid black",
-                color: "#000",
-                padding: "13px 36px",
-                fontSize: 13,
-                fontWeight: 700,
-                letterSpacing: 1.5,
-                cursor: "pointer",
-                borderRadius: 4,
-                transition: "all 0.3s",
-              }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.background = "black";
-                  e.currentTarget.style.color = "#fff";
+              <motion.button
+                animate={{
+                  borderColor: isInView ? "#ffffff" : "#000000",
+                  color: isInView ? "#ffffff" : "#000000",
                 }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.background = "transparent";
-                  e.currentTarget.style.color = "#000";
+                transition={{ duration: 0.8, ease: "easeInOut" }}
+                whileHover={{
+                  backgroundColor: isInView ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.08)",
+                }}
+                style={{
+                  background: "transparent",
+                  border: "2px solid",
+                  padding: "13px 36px",
+                  fontSize: 13,
+                  fontWeight: 700,
+                  letterSpacing: 1.5,
+                  cursor: "pointer",
+                  borderRadius: 4,
+                  fontFamily: "'DM Sans', sans-serif",
                 }}
               >
                 CONTACT US
-              </button>
+              </motion.button>
             </div>
           </div>
 
@@ -138,6 +166,6 @@ export default function WhatWeDoSection() {
           }
         }
       `}</style>
-    </section>
+    </motion.section>
   );
 }
