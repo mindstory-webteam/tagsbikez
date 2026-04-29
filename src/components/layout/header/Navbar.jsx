@@ -1,5 +1,7 @@
+"use client";
 import { useState, useEffect } from "react";
-import { img } from "../assets/assest";
+import Image from "next/image";
+import { img } from "@/assets/assest";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -11,14 +13,11 @@ export default function Navbar() {
       const currentScrollY = window.scrollY;
 
       if (currentScrollY < 10) {
-        // Always show at top
         setVisible(true);
       } else if (currentScrollY > lastScrollY) {
-        // Scrolling down — hide
         setVisible(false);
-        setOpen(false); // close mobile menu when hiding
+        setOpen(false);
       } else {
-        // Scrolling up — show
         setVisible(true);
       }
 
@@ -113,17 +112,18 @@ export default function Navbar() {
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        // Slide up/down transform + fade
         transform: visible ? "translateY(0)" : "translateY(-100%)",
         opacity: visible ? 1 : 0,
         transition: "transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.35s ease",
       }}>
         {/* Logo */}
-        <div style={{ display: "flex", alignItems: "center" }}>
-          <img
+        <div style={{ display: "flex", alignItems: "center", position: "relative", height: 48, width: 160 }}>
+          <Image
             src={img.tagsbikezwhite}
             alt="Logo"
-            style={{ height: 48, width: "auto", objectFit: "contain" }}
+            fill
+            style={{ objectFit: "contain" }}
+            priority
           />
         </div>
 
@@ -143,18 +143,15 @@ export default function Navbar() {
 
         {/* Desktop CTA */}
         <div className="nav-cta">
-
           <button style={{
             background: "#f51b24",
             border: "none",
             color: "#fff",
-            padding: "8px 20px", 
+            padding: "8px 20px",
             fontSize: 13, fontWeight: 700,
             fontFamily: "'DM Sans', sans-serif",
             cursor: "pointer",
-          }}
-
-          >Book Now</button>
+          }}>Book Now</button>
         </div>
 
         {/* Hamburger */}
@@ -169,7 +166,7 @@ export default function Navbar() {
         </button>
       </nav>
 
-      {/* Mobile Menu  */}
+      {/* Mobile Menu */}
       <div
         className={`mobile-menu ${open ? "open" : ""}`}
         style={{ top: visible ? 64 : 0 }}
@@ -184,8 +181,6 @@ export default function Navbar() {
         ))}
 
         <div className="mobile-cta">
-
-
           <button style={{
             border: "none", color: "#000",
             padding: "13px", borderRadius: 10,

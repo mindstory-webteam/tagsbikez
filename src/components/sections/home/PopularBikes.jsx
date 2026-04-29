@@ -1,6 +1,10 @@
+"use client";
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { img } from "../assets/assest";
+import Image from "next/image";
+import { img } from "@/assets/assest";
+
+const MotionImage = motion.create(Image);
 
 const slides = [
   {
@@ -285,7 +289,7 @@ export default function PopularBikes() {
         {/* LEFT — Bike image */}
         <div className="bike-image-wrap">
           <AnimatePresence mode="wait" custom={direction}>
-            <motion.img
+            <MotionImage
               key={`hero-${current}`}
               src={slide.heroImg}
               alt={slide.highlight}
@@ -295,6 +299,7 @@ export default function PopularBikes() {
               initial="enter"
               animate="center"
               exit="exit"
+              priority
             />
           </AnimatePresence>
         </div>
@@ -329,7 +334,7 @@ export default function PopularBikes() {
                     className={`thumb-item ${activeThumb === i ? "active" : ""}`}
                     onClick={() => setActiveThumb(i)}
                   >
-                    <img src={t.img} alt={t.label} />
+                    <Image src={t.img} alt={t.label} />
                   </div>
                 ))}
               </motion.div>

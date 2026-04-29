@@ -1,29 +1,29 @@
+"use client";
 import React, { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay, EffectFade } from "swiper/modules";
+import { Autoplay, EffectFade } from "swiper/modules";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-// Import Swiper styles
 import "swiper/css";
-import "swiper/css/pagination";
 import "swiper/css/effect-fade";
-import { img } from "../assets/assest";
+import Image from "next/image";
+import { img } from "@/assets/assest";
 
 const bikeData = [
   {
     title: "THE CLASSIC 350",
     subtitle: "A timeless icon redefined for the modern road.",
-    img: `${img.banner1}`,
+    img: img.banner1,
   },
   {
     title: "INTERCEPTOR 650",
     subtitle: "Raw power meets classic British roadster soul.",
-    img:`${img.banner2}`,
+    img: img.banner2,
   },
   {
     title: "CONTINENTAL GT",
     subtitle: "The ultimate cafe racer experience for the purist.",
-    img:`${img.banner3}`,
+    img: img.banner3,
   },
 ];
 
@@ -31,48 +31,85 @@ export default function HeroSection() {
   const swiperRef = useRef(null);
 
   return (
-    <div className="relative w-full h-screen bg-black">
-      <style>{`
-        .swiper-pagination-bullet-active { opacity: 1; transform: scale(1.2); }
-      `}</style>
+    <div style={{ position: "relative", width: "100%", height: "100vh", background: "#000", overflow: "hidden" }}>
+
+      <Swiper
+        onSwiper={(swiper) => (swiperRef.current = swiper)}
+        modules={[Autoplay, EffectFade]}
+        effect="fade"
+        speed={1000}
+        pagination={false}
+        autoplay={{ delay: 4000, disableOnInteraction: false }}
+        loop={true}
+        style={{ width: "100%", height: "100%" }}
+      >
+        {bikeData.map((bike, index) => (
+          <SwiperSlide
+            key={index}
+            style={{ position: "relative", width: "100%", minHeight: "100vh" }}
+          >
+            <Image
+              src={bike.img}
+              alt={bike.title}
+              fill
+              style={{ objectFit: "cover", objectPosition: "center" }}
+              priority={index === 0}
+            />
+            <div style={{
+              position: "absolute", inset: 0,
+              background: "linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.4), transparent)",
+              zIndex: 1
+            }} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
 
       <button
         onClick={() => swiperRef.current?.slidePrev()}
-        className="absolute left-6 top-1/2 -translate-y-1/2 z-20 w-15 h-15 flex items-center justify-center rounded-full text-white transition-all duration-300"
+        style={{
+          position: "absolute",
+          left: 24,
+          top: "50%",
+          transform: "translateY(-50%)",
+          zIndex: 9999,
+          width: 44, height: 44,
+          display: "flex", alignItems: "center", justifyContent: "center",
+          borderRadius: "50%",
+          border: "1px solid rgba(255,255,255,0.3)",
+          background: "rgba(255,255,255,0.1)",
+          color: "#fff",
+          cursor: "pointer",
+          transition: "background 0.3s",
+        }}
+        onMouseEnter={e => e.currentTarget.style.background = "rgba(255,255,255,0.25)"}
+        onMouseLeave={e => e.currentTarget.style.background = "rgba(255,255,255,0.1)"}
       >
-        <ChevronLeft size={24} strokeWidth={2} />
+        <ChevronLeft size={20} strokeWidth={2} />
       </button>
 
       <button
         onClick={() => swiperRef.current?.slideNext()}
-        className="absolute right-6 top-1/2 -translate-y-1/2 z-20 w-15 h-15 flex items-center justify-center  rounded-full text-white transition-all duration-300"
+        style={{
+          position: "absolute",
+          right: 24,
+          top: "50%",
+          transform: "translateY(-50%)",
+          zIndex: 9999,
+          width: 44, height: 44,
+          display: "flex", alignItems: "center", justifyContent: "center",
+          borderRadius: "50%",
+          border: "1px solid rgba(255,255,255,0.3)",
+          background: "rgba(255,255,255,0.1)",
+          color: "#fff",
+          cursor: "pointer",
+          transition: "background 0.3s",
+        }}
+        onMouseEnter={e => e.currentTarget.style.background = "rgba(255,255,255,0.25)"}
+        onMouseLeave={e => e.currentTarget.style.background = "rgba(255,255,255,0.1)"}
       >
-        <ChevronRight size={24} strokeWidth={2} />
+        <ChevronRight size={20} strokeWidth={2} />
       </button>
 
-      <Swiper
-        onSwiper={(swiper) => (swiperRef.current = swiper)}
-        modules={[Pagination, Autoplay, EffectFade]}
-        effect="fade"
-        speed={1000}
-        pagination={{ clickable: true }}
-        autoplay={{ delay: 2000 }}
-        loop={true}
-        className="w-full h-full"
-      >
-        {bikeData.map((bike, index) => (
-          <SwiperSlide key={index} className="relative w-full h-full">
-            {/* Background Image with Overlay */}
-            <div
-              className="absolute inset-0 bg-cover bg-center transition-transform duration-2000 scale-105"
-              style={{ backgroundImage: `url(${bike.img})` }}
-            >
-              <div className="absolute inset-0 bg-linear-to-r from-black/80 via-black/40 to-transparent" />
-            </div>
-
-          </SwiperSlide>
-        ))}
-      </Swiper>
     </div>
   );
 }
