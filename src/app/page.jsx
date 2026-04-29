@@ -1,6 +1,7 @@
 import Navbar from '@/components/layout/header/Navbar'
 import HeroSection from '@/components/sections/home/HeroSection'
 import PopularBikes from '@/components/sections/home/PopularBikes'
+import WhatWeDoSection from '@/components/sections/home/whatwedo'
 import React from 'react'
 
 const Home = () => {
@@ -9,6 +10,7 @@ const Home = () => {
       <Navbar />
       <HeroSection />
       <PopularBikes />
+      <WhatWeDoSection/>
     </>
   )
 }

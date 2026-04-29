@@ -108,7 +108,6 @@ export default function PopularBikes() {
         @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@400;500&display=swap');
 
         .pb-section {
-          font-family: 'Barlow Condensed', sans-serif;
           background: #fff;
           padding: 60px 0;
           overflow: hidden;
@@ -158,9 +157,7 @@ export default function PopularBikes() {
         }
 
         .heading {
-          font-family: 'Barlow Condensed', sans-serif;
-          font-size: clamp(36px, 5vw, 58px);
-          font-weight: 800;
+          font-size: clamp(36px, 3vw, 48px);
           line-height: 1.0;
           color: #1a1a1a;
           text-transform: uppercase;
@@ -286,7 +283,6 @@ export default function PopularBikes() {
 
       <div className="adventure-section">
 
-        {/* LEFT — Bike image */}
         <div className="bike-image-wrap">
           <AnimatePresence mode="wait" custom={direction}>
             <MotionImage
@@ -304,7 +300,6 @@ export default function PopularBikes() {
           </AnimatePresence>
         </div>
 
-        {/* RIGHT — Content */}
         <div className="content-col">
           <AnimatePresence mode="wait" custom={direction}>
             <motion.div
@@ -318,7 +313,7 @@ export default function PopularBikes() {
               {/* Heading */}
               <motion.h2 className="heading" variants={childVariants}>
                 {slide.heading[0]}<br />
-                {slide.heading[1]} <span>{slide.highlight}</span>
+                {slide.heading[1]} {slide.highlight}
               </motion.h2>
 
               {/* Description */}
@@ -339,7 +334,6 @@ export default function PopularBikes() {
                 ))}
               </motion.div>
 
-              {/* CTA + Dots */}
               <motion.div className="pb-bottom-row" variants={childVariants}>
                 <button className="cta-btn">Shop Now</button>
               </motion.div>
