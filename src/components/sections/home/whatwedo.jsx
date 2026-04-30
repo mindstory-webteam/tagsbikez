@@ -69,8 +69,7 @@ export default function WhatWeDoSection() {
 
           {/* Image */}
           <div style={{
-            flex: "0 0 300px",
-            borderRadius: 16,
+            flex: "0 0 400px",
             overflow: "hidden",
             position: "relative",
             height: 340,
@@ -131,16 +130,10 @@ export default function WhatWeDoSection() {
             {/* CTA */}
             <div style={{ marginTop: 40 }}>
               <motion.button
-                animate={{
-                  borderColor: isInView ? "#ffffff" : "#000000",
-                  color: isInView ? "#ffffff" : "#000000",
-                }}
-                transition={{ duration: 0.8, ease: "easeInOut" }}
-                whileHover={{
-                  backgroundColor: isInView ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.08)",
-                }}
+               
+              
                 style={{
-                  background: "transparent",
+                  background: "#f51b24",
                   border: "2px solid",
                   padding: "13px 36px",
                   fontSize: 13,
@@ -148,7 +141,6 @@ export default function WhatWeDoSection() {
                   letterSpacing: 1.5,
                   cursor: "pointer",
                   borderRadius: 4,
-                  fontFamily: "'DM Sans', sans-serif",
                 }}
               >
                 CONTACT US

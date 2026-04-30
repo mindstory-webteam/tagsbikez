@@ -1,6 +1,8 @@
-import Footer from '@/components/layout/footer/Footer'
 import Navbar from '@/components/layout/header/Navbar'
 import AboutSection from '@/components/sections/home/AboutSection'
+import BikeScrollAnimation from '@/components/sections/home/BikeScrollAnimation'
+import BikeSectionSwiper from '@/components/sections/home/BikeSectionSwiper'
+import FAQSection from '@/components/sections/home/FAQSection'
 import HeroSection from '@/components/sections/home/HeroSection'
 import PopularBikes from '@/components/sections/home/PopularBikes'
 import TestDriveSection from '@/components/sections/home/TestDriveSection'
@@ -16,6 +18,9 @@ const Home = () => {
       <WhatWeDoSection/>
       <AboutSection/>
       <TestDriveSection/>
+      <BikeSectionSwiper/>
+      <BikeScrollAnimation/>
+      <FAQSection/>
     </>
   )
 }

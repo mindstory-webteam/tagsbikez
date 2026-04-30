@@ -223,7 +223,7 @@ export default function PopularBikes() {
           display: inline-flex;
           align-items: center;
           gap: 10px;
-          background: #1a1a1a;
+          background: #f51b24;
           color: #fff;
           font-family: 'Barlow Condensed', sans-serif;
           font-size: 13px;
@@ -237,7 +237,7 @@ export default function PopularBikes() {
           transition: background 0.25s ease;
         }
 
-        .cta-btn:hover { background: #e63020; }
+        .cta-btn:hover { background: black; }
 
         /* Dots */
         .pb-dots {

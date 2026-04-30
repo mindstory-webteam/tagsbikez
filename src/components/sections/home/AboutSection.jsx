@@ -4,13 +4,13 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 
 const stats = [
-  { value: "10+", label: "Years of Excellence in Bikes & Rentals" },
-  { value: "500+", label: "Bikes Successfully Rented" },
-  { value: "98%", label: "Our Client Retention Rate" },
+  { value: "10+", label: "Years of Excellence" },
+  { value: "500+", label: "Bikes Successfully delivered" },
+  { value: "98%", label: "Our Client Satisfied" },
   { value: "15+", label: "Cities with Our Service" },
 ];
 
-const partners = ["Royal Enfield", "Honda", "Bajaj", "TVS", "Yamaha", "KTM"];
+const partners = ["brand1", "brand2", "brand3", "brand4", "brand5", "brand6"];
 
 export default function AboutSection() {
   return (
