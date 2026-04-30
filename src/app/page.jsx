@@ -15,11 +15,11 @@ const Home = () => {
       <Navbar />
       <HeroSection />
       <PopularBikes />
-      <WhatWeDoSection/>
-      <AboutSection/>
-      <TestDriveSection/>
-      <BikeSectionSwiper/>
       <BikeScrollAnimation/>
+      <AboutSection/>
+      <WhatWeDoSection/>
+      <BikeSectionSwiper/>
+      <TestDriveSection/>
       <FAQSection/>
     </>
   )

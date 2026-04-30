@@ -224,21 +224,7 @@ export default function BikeScrollAnimation() {
           </div>
         ))}
 
-        <div style={{
-          position     : 'absolute',
-          bottom       : '5%',
-          right        : '2.5rem',
-          display      : 'flex',
-          alignItems   : 'center',
-          gap          : '0.55rem',
-          color        : 'rgba(255,255,255,0.4)',
-          fontSize     : '0.6rem',
-          letterSpacing: '0.28em',
-          textTransform: 'uppercase',
-          fontFamily   : 'system-ui, sans-serif',
-        }}>
-          <div style={{ width: '28px', height: '1px', background: 'rgba(255,255,255,0.3)' }} />
-        </div>
+       
 
       </div>
     </section>
