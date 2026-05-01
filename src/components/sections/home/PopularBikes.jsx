@@ -26,6 +26,7 @@ const slides = [
       { id: 1, img: img.bulletfront, label: "Frame Detail" },
       { id: 2, img: img.bullet350engine, label: "Motor Unit" },
       { id: 3, img: img.bulletback, label: "Handlebar" },
+      { id: 4, img: img.bulletback, label: "side" },
     ],
   },
   {
@@ -46,6 +47,8 @@ const slides = [
       { id: 1, img: img.bullethandlebar, label: "Handlebars" },
       { id: 2, img: img.bulletback, label: "Rear Profile" },
       { id: 3, img: img.bullet350engine, label: "Engine" },
+      { id: 4, img: img.bulletback, label: "side" },
+
     ],
   },
   {
@@ -66,6 +69,7 @@ const slides = [
       { id: 1, img: img.bulletfront, label: "Front Fascia" },
       { id: 2, img: img.bulletback, label: "Exhaust" },
       { id: 3, img: img.bullet350engine, label: "Twin Engine" },
+      { id: 4, img: img.bulletback, label: "side" },
     ],
   },
   {
@@ -74,7 +78,7 @@ const slides = [
     heading: ["Himalayan", "Explorer"],
     highlight: "Trail",
     description:
-      "Engineered for the Himalayas, perfected for every road beyond. Long-travel suspension, rugged build quality, and a heart that never quits — wherever you point it, it delivers.",
+      "Engineered for the Himalayas, perfected for every road beyond. Long-travel suspension, rugged build quality, and a heart that never quits wherever you point it, it delivers.",
     specs: [
       { label: "Engine", value: "452cc" },
       { label: "Power", value: "40 BHP" },
@@ -86,6 +90,8 @@ const slides = [
       { id: 1, img: img.bulletfront, label: "Front Guard" },
       { id: 2, img: img.bullet350engine, label: "Engine Bay" },
       { id: 3, img: img.bulletback, label: "Luggage Rack" },
+      { id: 4, img: img.bulletback, label: "side" },
+
     ],
   },
 ];
@@ -431,7 +437,7 @@ export default function PopularBikes() {
 
             {/* Bottom row */}
             <div className="pb-bottom-row">
-              <button className="cta-btn">Shop Now</button>
+              <button className="cta-btn">Know More</button>
               <button className="cta-ghost">Test Ride</button>
               <div className="slide-dots">
                 {slides.map((_, i) => (
