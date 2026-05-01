@@ -38,11 +38,15 @@ export default function WhatWeDoSection() {
   const sectionRef = useRef(null);
   const headingRef = useRef(null);
   const stepRefs = useRef([]);
+  const cardBorderRefs = useRef([]);
+  const gridWrapRef = useRef(null);
 
   useEffect(() => {
     const section = sectionRef.current;
     const heading = headingRef.current;
     const stepEls = stepRefs.current;
+    const cardBorderEls = cardBorderRefs.current;
+    const gridWrap = gridWrapRef.current;
 
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
@@ -62,6 +66,20 @@ export default function WhatWeDoSection() {
 
       tl.to(heading, {
         color: "#ffffff",
+        duration: 0.8,
+        ease: "power2.inOut",
+      }, 0);
+
+      tl.to(gridWrap, {
+        borderTopColor: "#2a2a2a",
+        borderLeftColor: "#2a2a2a",
+        duration: 0.8,
+        ease: "power2.inOut",
+      }, 0);
+
+      tl.to(cardBorderEls, {
+        borderRightColor: "#2a2a2a",
+        borderBottomColor: "#2a2a2a",
         duration: 0.8,
         ease: "power2.inOut",
       }, 0);
@@ -113,7 +131,6 @@ export default function WhatWeDoSection() {
           style={{
             fontSize: "clamp(36px, 3vw, 52px)",
             lineHeight: 1.15,
-            marginBottom: 56,
             maxWidth: 480,
             color: "#000000",
             fontWeight: 700,
@@ -135,8 +152,8 @@ export default function WhatWeDoSection() {
             flex: "0 0 400px",
             overflow: "hidden",
             position: "relative",
-            borderRadius: "10px",
-            height: 440,
+            borderRadius: "5px",
+            height: 425,
           }}>
             <Image
               src={img.banner2}
@@ -147,57 +164,72 @@ export default function WhatWeDoSection() {
           </div>
 
           <div style={{ flex: 1, minWidth: 280 }}>
-            <div style={{
-              display: "grid",
-              gridTemplateColumns: "1fr 1fr",
-              gap: "40px 60px",
-            }}>
+            <div
+              ref={gridWrapRef}
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr",
+                borderTop: "1px solid #e0e0e0",
+                borderLeft: "1px solid #e0e0e0",
+              }}
+            >
               {steps.map((step, i) => (
                 <div
                   key={step.number}
                   ref={(el) => (stepRefs.current[i] = el)}
                   style={{ opacity: 0 }}
                 >
-                  <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 10 }}>
-                    <p style={{
-                      fontSize: 36,
-                      fontWeight: 700,
-                      margin: 0,
-                      lineHeight: 1,
-                      fontFamily: "'DM Sans', sans-serif",
-                      flexShrink: 0,
-                      color: "#f51b24",
-                    }}>
-                      {step.number}
-                    </p>
-                    <p
-                      className="step-title"
-                      style={{
-                        fontSize: 13,
-                        fontWeight: 700,
-                        letterSpacing: "0.05em",
-                        margin: 0,
-                        lineHeight: 1.3,
-                        fontFamily: "'DM Sans', sans-serif",
-                        textTransform: "uppercase",
-                        color: "#000000",
-                      }}
-                    >
-                      {step.title}
-                    </p>
-                  </div>
-                  <p
-                    className="step-desc"
+                  <div
+                    ref={(el) => (cardBorderRefs.current[i] = el)}
                     style={{
-                      fontSize: 13,
-                      lineHeight: 1.7,
-                      margin: 0,
-                      fontFamily: "'DM Sans', sans-serif",
-                      color: "#555555",
+                      borderRight: "1px solid #e0e0e0",
+                      borderBottom: "1px solid #e0e0e0",
+                      padding: "28px 24px",
+                      boxSizing: "border-box",
+                      height: "100%",
                     }}
                   >
-                    {step.description}
-                  </p>
+                    <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 10 }}>
+                      <p style={{
+                        fontSize: 36,
+                        fontWeight: 700,
+                        margin: 0,
+                        lineHeight: 1,
+                        fontFamily: "'DM Sans', sans-serif",
+                        flexShrink: 0,
+                        color: "#f51b24",
+                      }}>
+                        {step.number}
+                      </p>
+                      <p
+                        className="step-title"
+                        style={{
+                          fontSize: 13,
+                          fontWeight: 700,
+                          letterSpacing: "0.05em",
+                          margin: 0,
+                          lineHeight: 1.3,
+                          fontFamily: "'DM Sans', sans-serif",
+                          textTransform: "uppercase",
+                          color: "#000000",
+                        }}
+                      >
+                        {step.title}
+                      </p>
+                    </div>
+                    <p
+                      className="step-desc"
+                      style={{
+                        fontSize: 13,
+                        lineHeight: 1.7,
+                        margin: 0,
+                        fontFamily: "'DM Sans', sans-serif",
+                        color: "#555555",
+                      }}
+                    >
+                      {step.description}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -227,7 +259,7 @@ export default function WhatWeDoSection() {
 
       <style>{`
         @media (max-width: 700px) {
-          div[style*="gridTemplateColumns: 1fr 1fr"] {
+          .steps-grid {
             grid-template-columns: 1fr !important;
           }
         }

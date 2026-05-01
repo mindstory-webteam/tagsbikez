@@ -1,7 +1,16 @@
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { img } from "@/assets/assest";
+
+const navLinks = [
+  { name: "HOME", path: "/" },
+  { name: "MODEL", path: "/models" },
+  { name: "ABOUT", path: "/about" },
+  { name: "SERVICE", path: "/service" },
+  { name: "CONTACT US", path: "/contact" }
+];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -129,7 +138,7 @@ export default function Navbar() {
         transition: "transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.35s ease, background 0.3s ease",
       }}>
         {/* Logo */}
-        <div style={{ position: "relative", height: 48, width: 160 }}>
+        <Link href="/" style={{ position: "relative", height: 48, width: 160 }}>
           <Image
             src={img.tagsbikezwhite}
             alt="Logo"
@@ -137,19 +146,19 @@ export default function Navbar() {
             style={{ objectFit: "contain" }}
             priority
           />
-        </div>
+        </Link>
 
         {/* Desktop Links */}
         <div className="nav-links-desktop">
-          {["HOME", "MODEL", "ABOUT", "SERVICE", "CONTACT US"].map(link => (
-            <a key={link} href="#" style={{
+          {navLinks.map(link => (
+            <Link key={link.name} href={link.path} style={{
               color: "#fff", fontSize: 13, fontWeight: 500,
               fontFamily: "'DM Sans', sans-serif", textDecoration: "none",
               letterSpacing: 0.3, transition: "color 0.2s",
             }}
-              onMouseEnter={e => e.target.style.color = "#ccc"}
+              onMouseEnter={e => e.target.style.color = "#f51b24"}
               onMouseLeave={e => e.target.style.color = "#fff"}
-            >{link}</a>
+            >{link.name}</Link>
           ))}
         </div>
 
@@ -183,13 +192,13 @@ export default function Navbar() {
         className={`mobile-menu ${open ? "open" : ""}`}
         style={{ top: visible ? 64 : 0 }}
       >
-        {["Home", "Bikes", "About", "Contact"].map(link => (
-          <a
-            key={link}
-            href="#"
+        {navLinks.map(link => (
+          <Link
+            key={link.name}
+            href={link.path}
             className="mobile-link"
             onClick={() => setOpen(false)}
-          >{link}</a>
+          >{link.name}</Link>
         ))}
         <div className="mobile-cta">
           <button style={{

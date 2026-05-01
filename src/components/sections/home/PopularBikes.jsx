@@ -26,7 +26,7 @@ const slides = [
       { id: 1, img: img.bulletfront, label: "Frame Detail" },
       { id: 2, img: img.bullet350engine, label: "Motor Unit" },
       { id: 3, img: img.bulletback, label: "Handlebar" },
-      { id: 4, img: img.bulletback, label: "side" },
+      { id: 4, img: img.bulletback, label: "Side" },
     ],
   },
   {
@@ -47,8 +47,7 @@ const slides = [
       { id: 1, img: img.bullethandlebar, label: "Handlebars" },
       { id: 2, img: img.bulletback, label: "Rear Profile" },
       { id: 3, img: img.bullet350engine, label: "Engine" },
-      { id: 4, img: img.bulletback, label: "side" },
-
+      { id: 4, img: img.bulletback, label: "Side" },
     ],
   },
   {
@@ -69,7 +68,7 @@ const slides = [
       { id: 1, img: img.bulletfront, label: "Front Fascia" },
       { id: 2, img: img.bulletback, label: "Exhaust" },
       { id: 3, img: img.bullet350engine, label: "Twin Engine" },
-      { id: 4, img: img.bulletback, label: "side" },
+      { id: 4, img: img.bulletback, label: "Side" },
     ],
   },
   {
@@ -90,8 +89,7 @@ const slides = [
       { id: 1, img: img.bulletfront, label: "Front Guard" },
       { id: 2, img: img.bullet350engine, label: "Engine Bay" },
       { id: 3, img: img.bulletback, label: "Luggage Rack" },
-      { id: 4, img: img.bulletback, label: "side" },
-
+      { id: 4, img: img.bulletback, label: "Side" },
     ],
   },
 ];
@@ -200,24 +198,24 @@ export default function PopularBikes() {
           margin: 0 0 24px;
         }
 
-        /* Specs */
+        /* ── SPECS — outer border + right dividers, no gap ── */
         .specs-row {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
-          gap: 0;
-          margin-bottom: 28px;
-          border: 1px solid #ececec;
+          border-top: 1px solid #e0e0e0;
+          border-left: 1px solid #e0e0e0;
+          margin-bottom: 0;
         }
 
         .spec-item {
           padding: 14px 16px;
-          border-right: 1px solid #ececec;
+          border-right: 1px solid #e0e0e0;
+          border-bottom: 1px solid #e0e0e0;
           display: flex;
           flex-direction: column;
           gap: 3px;
+          box-sizing: border-box;
         }
-
-        .spec-item:last-child { border-right: none; }
 
         .spec-value {
           font-size: 20px;
@@ -234,26 +232,29 @@ export default function PopularBikes() {
           letter-spacing: 0.1em;
         }
 
-        /* Thumbnails */
+        /* ── THUMBNAILS — outer border + right dividers, flush under specs ── */
         .thumb-strip {
-          display: flex;
-          gap: 10px;
-          margin-bottom: 28px;
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          border-left: 1px solid #e0e0e0;
+          border-bottom: 1px solid #e0e0e0;
+          margin-bottom: 0;
         }
 
         .thumb-item {
-          width: 120px;
-          height: 90px;
-          border-radius: 4px;
+          border-right: 1px solid #e0e0e0;
           overflow: hidden;
           cursor: pointer;
           position: relative;
-          border: 2px solid transparent;
-          transition: border-color 0.25s ease, transform 0.25s ease;
-          flex-shrink: 0;
+          height: 90px;
+          box-sizing: border-box;
+          transition: opacity 0.25s ease;
         }
 
-     
+        // .thumb-item.active {
+        //   outline: 2px solid #e63020;
+        //   outline-offset: -2px;
+        // }
 
         .thumb-item img {
           width: 100%;
@@ -262,25 +263,25 @@ export default function PopularBikes() {
           transition: transform 0.4s ease;
         }
 
+        // .thumb-item:hover img { transform: scale(1.06); }
 
-        /* Slide counter */
-        .slide-counter {
-          font-size: 13px;
-          font-weight: 600;
-          color: #bbb;
-          letter-spacing: 0.08em;
-        }
-
-        .slide-counter strong {
-          color: #111;
-          font-size: 18px;
-        }
-
-        /* CTA */
+        /* ── BOTTOM ROW — outer border flush under thumbs ── */
         .pb-bottom-row {
           display: flex;
+          align-items: stretch;
+          border-left: 1px solid #e0e0e0;
+          border-right: 1px solid #e0e0e0;
+          border-bottom: 1px solid #e0e0e0;
+        }
+
+        .pb-bottom-cell {
+          display: flex;
           align-items: center;
-          gap: 20px;
+          padding: 0;
+        }
+
+        .pb-bottom-cell:not(:last-child) {
+          border-right: 1px solid #e0e0e0;
         }
 
         .cta-btn {
@@ -296,8 +297,9 @@ export default function PopularBikes() {
           padding: 14px 28px;
           border: none;
           cursor: pointer;
-          width: fit-content;
           transition: background 0.25s ease;
+          height: 100%;
+          white-space: nowrap;
         }
 
         .cta-btn:hover { background: #111; }
@@ -312,37 +314,39 @@ export default function PopularBikes() {
           font-weight: 700;
           letter-spacing: 0.18em;
           text-transform: uppercase;
-          padding: 13px 24px;
-          border: 1.5px solid #ddd;
+          padding: 14px 24px;
+          border: none;
           cursor: pointer;
-          transition: border-color 0.25s, color 0.25s;
+          transition: color 0.25s, background 0.25s;
+          height: 100%;
+          white-space: nowrap;
         }
 
-        .cta-ghost:hover { border-color: #111; }
+        .cta-ghost:hover { background: #f5f5f5; }
 
-        /* Nav dots */
-        // .slide-dots {
-        //   display: flex;
-        //   gap: 6px;
-        //   align-items: center;
-        //   margin-left: auto;
-        // }
+        /* Dots cell — flex: 1 so it fills remaining width */
+        .pb-dots-cell {
+          flex: 1;
+          justify-content: flex-end;
+          padding: 0 20px;
+          gap: 8px;
+        }
 
-        // .slide-dot {
-        //   width: 6px;
-        //   height: 6px;
-        //   border-radius: 50%;
-        //   background: #ddd;
-        //   cursor: pointer;
-        //   transition: background 0.2s, transform 0.2s;
-        //   border: none;
-        //   padding: 0;
-        // }
+        .slide-dot {
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          background: #ddd;
+          cursor: pointer;
+          transition: background 0.2s, transform 0.2s;
+          border: none;
+          padding: 0;
+        }
 
-        // .slide-dot.active {
-        //   background: #e63020;
-        //   transform: scale(1.4);
-        // }
+        .slide-dot.active {
+          background: #e63020;
+          transform: scale(1.4);
+        }
 
         /* Slide-in content transition */
         .content-col-inner {
@@ -364,11 +368,9 @@ export default function PopularBikes() {
           .bike-swiper-wrap { margin-left: 0; }
           .bike-swiper-clip { width: 100%; }
           .content-col { padding-left: 0; margin-top: 24px; }
-          .thumb-item { width: 100px; height: 80px; }
           .specs-row { grid-template-columns: repeat(2, 1fr); }
-          .spec-item:nth-child(2) { border-right: none; }
-          .spec-item:nth-child(1),
-          .spec-item:nth-child(2) { border-bottom: 1px solid #ececec; }
+          .thumb-strip { grid-template-columns: repeat(2, 1fr); }
+          .thumb-item { height: 80px; }
         }
       `}</style>
 
@@ -412,7 +414,7 @@ export default function PopularBikes() {
 
             <p className="description">{slide.description}</p>
 
-            {/* Specs */}
+            {/* Specs — top+left border, each cell right+bottom */}
             <div className="specs-row">
               {slide.specs.map((spec, i) => (
                 <div className="spec-item" key={i}>
@@ -422,7 +424,7 @@ export default function PopularBikes() {
               ))}
             </div>
 
-            {/* Thumbnails */}
+            {/* Thumbnails — left+bottom border, each cell right border, flush under specs */}
             <div className="thumb-strip">
               {slide.thumbnails.map((t, i) => (
                 <div
@@ -430,16 +432,20 @@ export default function PopularBikes() {
                   className={`thumb-item ${activeThumb === i ? "active" : ""}`}
                   onClick={() => setActiveThumb(i)}
                 >
-                  <Image src={t.img} alt={t.label} />
+                  <Image src={t.img} alt={t.label} fill style={{ objectFit: "cover" }} />
                 </div>
               ))}
             </div>
 
-            {/* Bottom row */}
+            {/* Bottom row — left+right+bottom border, cells divided by right border */}
             <div className="pb-bottom-row">
-              <button className="cta-btn">Know More</button>
-              <button className="cta-ghost">Test Ride</button>
-              <div className="slide-dots">
+              <div className="pb-bottom-cell">
+                <button className="cta-btn">Know More</button>
+              </div>
+              <div className="pb-bottom-cell">
+                <button className="cta-ghost">Test Ride</button>
+              </div>
+              <div className="pb-bottom-cell pb-dots-cell">
                 {slides.map((_, i) => (
                   <button
                     key={i}

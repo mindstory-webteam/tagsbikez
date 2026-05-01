@@ -197,9 +197,7 @@ export default function AboutSection() {
         }
 
         .as-pill {
-          background: rgba(255,255,255,0.08);
           border: 1px solid rgba(255,255,255,0.1);
-          border-radius: 100px;
           padding: 8px 16px;
           font-size: 12px;
           color: #fff;

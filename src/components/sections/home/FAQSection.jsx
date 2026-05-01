@@ -136,7 +136,6 @@ const FAQSection = () => {
         }
 
         .faq-item {
-          border-radius: 12px;
           border: 1px solid #ececec;
           overflow: hidden;
           background: #fff;
