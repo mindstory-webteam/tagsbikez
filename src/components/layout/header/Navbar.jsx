@@ -83,7 +83,6 @@ export default function Navbar() {
           color: #aaa;
           font-size: 15px;
           font-weight: 500;
-          font-family: 'DM Sans', sans-serif;
           text-decoration: none;
           padding: 12px 0;
           border-bottom: 1px solid rgba(255,255,255,0.05);

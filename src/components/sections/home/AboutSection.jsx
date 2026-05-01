@@ -1,127 +1,285 @@
 "use client";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
-import "swiper/css";
+import { useEffect, useRef } from "react";
+import { ShieldCheck, Wrench, Clock } from "lucide-react";
+import { img } from "@/assets/assest";
 
-const stats = [
-  { value: "10+", label: "Years of Excellence" },
-  { value: "500+", label: "Bikes Successfully delivered" },
-  { value: "98%", label: "Our Client Satisfied" },
-  { value: "15+", label: "Cities with Our Service" },
+const colA = [img.Himalayan, img.royalenfieldfury, img.Himalayan2, img.royalenfield1, img.scram1];
+const colB = [img.scram1, img.Himalayan2, img.royalenfield1, img.royalenfieldfury, img.Himalayan];
+
+const features = [
+  {
+    icon: <ShieldCheck size={20} strokeWidth={1.6} color="#e8282b" />,
+    title: "Authorised RE Dealer",
+    desc: "Official Royal Enfield dealership in Thrissur certified, trusted, and factory-backed since day one.",
+  },
+  {
+    icon: <ShieldCheck size={20} strokeWidth={1.6} color="#e8282b" />,
+    title: "Genuine Parts & Service",
+    desc: "Every service uses 100% genuine Royal Enfield parts. Your motorcycle deserves nothing less.",
+  },
+  {
+    icon: <Wrench size={20} strokeWidth={1.6} color="#e8282b" />,
+    title: "Expert Technicians",
+    desc: "Our RE-certified technicians are trained directly at Royal Enfield service academies.",
+  },
+  {
+    icon: <Clock size={20} strokeWidth={1.6} color="#e8282b" />,
+    title: "Easy Test Rides",
+    desc: "Walk in, pick your model, and ride. Hassle-free test rides available every day at our Thrissur showroom.",
+  },
 ];
 
-const partners = ["brand1", "brand2", "brand3", "brand4", "brand5", "brand6"];
-
 export default function AboutSection() {
+  const sectionRef = useRef(null);
+  const colARef = useRef(null);
+  const colBRef = useRef(null);
+
+  useEffect(() => {
+    let ctx;
+
+    const init = async () => {
+      const { default: gsap } = await import("gsap");
+      const { ScrollTrigger } = await import("gsap/ScrollTrigger");
+      gsap.registerPlugin(ScrollTrigger);
+
+      ctx = gsap.context(() => {
+        gsap.to(colARef.current, {
+          y: -140,
+          ease: "none",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: 1.4,
+          },
+        });
+
+        gsap.to(colBRef.current, {
+          y: 140,
+          ease: "none",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: 1.4,
+          },
+        });
+      }, sectionRef);
+    };
+
+    init();
+
+    return () => {
+      if (ctx) ctx.revert();
+    };
+  }, []);
+
   return (
-    <section style={{
-      background: "#fff",
-      padding: "120px 20px",
-    }}>
-      <div style={{
-        maxWidth: 1300,
-        margin: "0 auto",
-        display: "flex",
-        alignItems: "flex-start",
-        gap: 320,
-        flexWrap: "wrap",
-      }}>
+    <section ref={sectionRef} className="as-root">
+      <style>{`
+        
+        .as-root {
+          background: #fff;
+          width: 100%;
+          overflow: hidden;
+          padding-bottom: 50px;
+        }
 
-        {/* Left — About Text + Partner Swiper */}
-        <div style={{ flex: "0 0 300px", minWidth: 460 }}>
-          <h2 style={{
-            fontSize: "clamp(36px, 3vw, 48px)",
-            color: "#111",
-            margin: "0 0 16px 0",
-            letterSpacing: "-0.3px",
-          }}>
-            About Us
-          </h2>
-          <p style={{
-            fontSize: 15,
-            color: "#555",
-            lineHeight: 1.7,
-            margin: "0 0 48px 0",
-          }}>
-            At TagsBikez, we believe riding is more than just transport
-            it's about freedom, thrill, and experiences that stay with you forever.
-          </p>
+        .as-features {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 72px 48px 56px;
+        }
 
-          {/* Partner Swiper */}
-          <Swiper
-            modules={[Autoplay]}
-            autoplay={{ delay: 1800, disableOnInteraction: false }}
-            loop={true}
-            slidesPerView={3}
-            spaceBetween={24}
-            allowTouchMove={false}
-            style={{ width: "100%" }}
-          >
-            {partners.map((name) => (
-              <SwiperSlide key={name}>
-                <span style={{
-                  fontSize: 13,
-                  fontWeight: 700,
-                  color: "#999",
-                  letterSpacing: 1,
-                  textTransform: "uppercase",
-                  whiteSpace: "nowrap",
-                }}>
-                  {name}
-                </span>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
+        .as-feat-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 32px;
+        }
 
-        {/* Right — Stats Grid */}
-        <div style={{
-          flex: 1,
-          minWidth: 280,
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          rowGap: 48,
-          columnGap: 40,
-        }}>
-          {stats.map((stat) => (
-            <div key={stat.value}>
-              <p style={{
-                fontSize: "clamp(36px, 5vw, 52px)",
-                fontWeight: 800,
-                color: "#111",
-                margin: "0 0 8px 0",
-                lineHeight: 1,
-                letterSpacing: "-1px",
-              }}>
-                {stat.value}
-              </p>
-              <p style={{
-                fontSize: 14,
-                color: "#777",
-                lineHeight: 1.5,
-                margin: 0,
-                maxWidth: 160,
-              }}>
-                {stat.label}
-              </p>
+        .as-feat-item {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          gap: 10px;
+        }
+
+        .as-feat-icon {
+          width: 52px;
+          height: 52px;
+          border: 1.5px solid #e8282b;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: rgba(232,40,43,0.04);
+        }
+
+        .as-feat-name {
+          font-size: 14px;
+          font-weight: 700;
+          color: #111;
+          margin: 0;
+        }
+
+        .as-feat-desc {
+          font-size: 12.5px;
+          color: #999;
+          line-height: 1.65;
+          margin: 0;
+        }
+
+        .as-banner {
+          margin: 0 40px 64px;
+          background: #1a1a1a;
+          border-radius: 5px;
+          overflow: hidden;
+          display: grid;
+          grid-template-columns: 1fr 640px;
+          height: 460px;
+        }
+
+        .as-banner-left {
+          padding: 52px 48px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+
+        .as-banner-heading {
+          font-size: clamp(32px, 3.2vw, 54px);
+          font-weight: 900;
+          text-transform: uppercase;
+          color: #fff;
+          line-height: 1.0;
+          margin: 0 0 16px 0;
+          letter-spacing: 0.01em;
+        }
+
+        .as-banner-sub {
+          font-size: 13.5px;
+          color: rgba(255,255,255,0.45);
+          line-height: 1.75;
+          margin: 0 0 28px 0;
+          max-width: 400px;
+        }
+
+        .as-info-pills {
+          display: flex;
+          gap: 10px;
+          flex-wrap: wrap;
+          margin-bottom: 32px;
+        }
+
+        .as-pill {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          background: rgba(255,255,255,0.06);
+          border: 1px solid rgba(255,255,255,0.1);
+          border-radius: 10px;
+          padding: 6px 14px;
+          font-size: 11.5px;
+          color: rgba(255,255,255,0.6);
+        }
+
+        .as-banner-right {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 6px;
+          overflow: hidden;
+          position: relative;
+        }
+
+        .as-img-col {
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+          will-change: transform;
+        }
+
+        .as-img-col-b {
+          margin-top: -103px;
+        }
+
+        .as-img-box {
+          height: 300px;
+          overflow: hidden;
+        }
+
+        .as-img-box img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+          transition: transform 0.5s ease;
+        }
+
+        .as-img-box:hover img { transform: scale(1.06); }
+
+        @media (max-width: 960px) {
+          .as-feat-grid { grid-template-columns: 1fr 1fr; }
+          .as-banner {
+            grid-template-columns: 1fr;
+            height: auto;
+            margin: 0 16px 40px;
+          }
+          .as-banner-right { height: 280px; }
+        }
+
+        @media (max-width: 560px) {
+          .as-feat-grid { grid-template-columns: 1fr; }
+        }
+      `}</style>
+
+      {/*  FEATURES  */}
+      <div className="as-features">
+        <div className="as-feat-grid">
+          {features.map((f, i) => (
+            <div className="as-feat-item" key={i}>
+              <div className="as-feat-icon">{f.icon}</div>
+              <p className="as-feat-name">{f.title}</p>
+              <p className="as-feat-desc">{f.desc}</p>
             </div>
           ))}
         </div>
-
       </div>
 
-      <style>{`
-        @media (max-width: 768px) {
-          div[style*="gridTemplateColumns"] {
-            grid-template-columns: 1fr 1fr !important;
-          }
-        }
-        @media (max-width: 500px) {
-          div[style*="gridTemplateColumns"] {
-            grid-template-columns: 1fr !important;
-          }
-        }
-      `}</style>
+      {/*  BANNER  */}
+      <div className="as-banner">
+        <div className="as-banner-left">
+          <h3 className="as-banner-heading">
+            Your Trusted<br />Royal Enfield<br />Showroom.
+          </h3>
+          <p className="as-banner-sub">
+            TagsBikez is Thrissur's authorised Royal Enfield dealership offering the full 2024–25 lineup and expert servicing.
+          </p>
+
+          <div className="as-info-pills">
+            <div className="as-pill">2024–25 Models Available</div>
+            <div className="as-pill">Genuine RE Accessories</div>
+            <div className="as-pill">EMI Options Available</div>
+          </div>
+        </div>
+
+        <div className="as-banner-right">
+          <div className="as-img-col" ref={colARef}>
+            {colA.map((src, i) => (
+              <div className="as-img-box" key={`a-${i}`}>
+                <img src={src?.src || src} alt={`Royal Enfield ${i}`} loading="lazy" />
+              </div>
+            ))}
+          </div>
+          <div className="as-img-col as-img-col-b" ref={colBRef}>
+            {colB.map((src, i) => (
+              <div className="as-img-box" key={`b-${i}`}>
+                <img src={src?.src || src} alt={`Royal Enfield ${i}`} loading="lazy" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

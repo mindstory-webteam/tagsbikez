@@ -9,10 +9,21 @@ import bullet350engine from './bullet350engine.jpg'
 import bulletback from './bulletback.jpg'
 import bulletfront from './bulletfront.webp'
 
+import Himalayan from './models/Himalayan.jpg'
+import Himalayan2 from './models/Himalayan2.jpg'
+import royalenfield1 from './models/royalenfield1.jpg'
+import royalenfieldfury from './models/royalenfieldfury.jpg'
+import scram1 from './models/scram1.jpg'
+
 
 
 export const img = {
   tagsbikezlogo,
+  Himalayan,
+  Himalayan2,
+  scram1,
+  royalenfieldfury,
+  royalenfield1, 
   tagsbikezwhite,
   bullethandlebar,
   bullet350engine,

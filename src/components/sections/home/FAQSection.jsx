@@ -51,15 +51,14 @@ const FAQSection = () => {
         @import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap');
 
         .faq-section {
-          font-family: 'DM Sans', sans-serif;
           background: #fff;
-          padding: 80px 40px;
+          padding: 0px 40px 80px 40px;
           box-sizing: border-box;
           width: 100%;
         }
 
         .faq-inner {
-          max-width: 1400px;
+          max-width: 1450px;
           margin: 0 auto;
           display: grid;
           grid-template-columns: 1fr 1.5fr;
@@ -69,7 +68,6 @@ const FAQSection = () => {
 
         /* ── Left ── */
         .faq-left {
-          position: sticky;
           top: 40px;
         }
 
@@ -83,7 +81,6 @@ const FAQSection = () => {
         }
 
         .faq-heading {
-          font-family: 'Sora', sans-serif;
           font-size: clamp(28px, 3.5vw, 44px);
           font-weight: 700;
           color: #111;
@@ -245,7 +242,7 @@ const FAQSection = () => {
             </p>
             <button className="faq-contact-btn">
               Contact Us
-            
+
             </button>
           </div>
 

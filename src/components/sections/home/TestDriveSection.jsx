@@ -35,7 +35,7 @@ export default function TestDriveSection() {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        padding: "0 clamp(24px, 6vw, 80px)",
+        padding: "0 clamp(24px, 6vw, 40px)",
         maxWidth: 640,
       }}>
         {/* Heading */}

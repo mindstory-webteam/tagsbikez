@@ -14,13 +14,13 @@ const Home = () => {
     <>
       <Navbar />
       <HeroSection />
-      <PopularBikes />
-      <BikeScrollAnimation/>
-      <AboutSection/>
-      <WhatWeDoSection/>
       <BikeSectionSwiper/>
-      <TestDriveSection/>
+      <BikeScrollAnimation/>
+      <PopularBikes />
+      <WhatWeDoSection/>
+      <AboutSection/>
       <FAQSection/>
+      <TestDriveSection/>
     </>
   )
 }

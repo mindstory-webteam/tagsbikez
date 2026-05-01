@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-const TOTAL_FRAMES = 240
+const TOTAL_FRAMES = 170
 const FRAME_SRCS = Array.from(
   { length: TOTAL_FRAMES },
   (_, i) => `/bike/frame${i + 1}.png`
