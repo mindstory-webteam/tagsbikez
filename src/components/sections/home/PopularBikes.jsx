@@ -1,25 +1,13 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
 import { img } from "@/assets/assest";
 
-const MotionImage = motion.create(Image);
-
 const slides = [
-  {
-    id: 0,
-    heading: ["Best Adventure", "Tourer"],
-    highlight: "Bikes",
-    description:
-      "A born-again design built for going through the hills of the countryside. Discovering new roads with powerful performance and premium components for every terrain.",
-    heroImg: img.bulletimg,
-    thumbnails: [
-      { id: 1, img: img.bulletfront, label: "Frame Detail" },
-      { id: 2, img: img.bullet350engine, label: "Motor Unit" },
-      { id: 3, img: img.bulletback, label: "Handlebar" },
-    ],
-  },
   {
     id: 0,
     heading: ["Best Adventure", "Tourer"],
@@ -39,7 +27,7 @@ const slides = [
     highlight: "Spirit",
     description:
       "Timeless styling meets modern engineering. Every curve tells a story of heritage refined for the open road, built for riders who cherish the journey as much as the destination.",
-    heroImg: img.bulletimg, 
+    heroImg: img.bulletimg,
     thumbnails: [
       { id: 1, img: img.bullethandlebar, label: "Handlebars" },
       { id: 2, img: img.bulletback, label: "Rear Profile" },
@@ -48,58 +36,16 @@ const slides = [
   },
 ];
 
-const SLIDE_DURATION = 4000;
-
 export default function PopularBikes() {
   const [current, setCurrent] = useState(0);
   const [activeThumb, setActiveThumb] = useState(0);
-  const [direction, setDirection] = useState(1);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setDirection(1);
-      setCurrent((prev) => (prev + 1) % slides.length);
-      setActiveThumb(0);
-    }, SLIDE_DURATION);
-    return () => clearInterval(timer);
-  }, []);
-
-  const goTo = (i) => {
-    setDirection(i > current ? 1 : -1);
-    setCurrent(i);
-    setActiveThumb(0);
-  };
+  const swiperRef = useRef(null);
 
   const slide = slides[current];
 
-  const imgVariants = {
-    enter: (d) => ({ x: d > 0 ? 100 : -100, opacity: 0, scale: 0.95 }),
-    center: {
-      x: 0, opacity: 1, scale: 1,
-      transition: { duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94] },
-    },
-    exit: (d) => ({
-      x: d > 0 ? -80 : 80, opacity: 0, scale: 0.95,
-      transition: { duration: 0.4, ease: "easeIn" },
-    }),
-  };
-
-  const contentVariants = {
-    enter: (d) => ({ y: d > 0 ? 50 : -50, opacity: 0 }),
-    center: {
-      y: 0, opacity: 1,
-      transition: { duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94], staggerChildren: 0.08, delayChildren: 0.1 },
-    },
-    exit: (d) => ({
-      y: d > 0 ? -30 : 30, opacity: 0,
-      transition: { duration: 0.3, ease: "easeIn" },
-    }),
-  };
-
-  const childVariants = {
-    enter: { y: 24, opacity: 0 },
-    center: { y: 0, opacity: 1, transition: { duration: 0.45, ease: "easeOut" } },
-    exit: { y: -10, opacity: 0 },
+  const handleSlideChange = (swiper) => {
+    setCurrent(swiper.realIndex);
+    setActiveThumb(0);
   };
 
   return (
@@ -114,13 +60,6 @@ export default function PopularBikes() {
           position: relative;
         }
 
-    
-
-        @keyframes pbAnim {
-          from { width: 0%; }
-          to   { width: 100%; }
-        }
-
         .adventure-section {
           max-width: 1200px;
           margin: 0 auto;
@@ -132,21 +71,77 @@ export default function PopularBikes() {
           min-height: 480px;
         }
 
-        /* LEFT */
-        .bike-image-wrap {
+        /* LEFT — Swiper wrapper */
+        .bike-swiper-wrap {
           position: relative;
           margin-left: -80px;
           display: flex;
           align-items: center;
         }
 
-        .bike-img {
+        /* Clip overflow so off-screen slides stay hidden */
+        .bike-swiper-clip {
+          overflow: hidden;
           width: 110%;
           max-width: 640px;
+          position: relative;
+          /* padding keeps drop-shadow visible while clip hides slides */
+          padding: 30px 0;
+          margin: -30px 0;
+        }
+
+        .bike-swiper-clip .swiper {
+          width: 100%;
+          overflow: hidden;
+        }
+
+        .bike-img {
+          width: 100%;
           object-fit: contain;
-          filter: drop-shadow(0 20px 60px rgba(0,0,0,0.18));
           display: block;
         }
+
+        // /* Custom Swiper nav arrows */
+        // .pb-swiper-btn {
+        //   position: absolute;
+        //   top: 50%;
+        //   transform: translateY(-50%);
+        //   z-index: 10;
+        //   width: 40px;
+        //   height: 40px;
+        //   border-radius: 50%;
+        //   background: #000;
+        //   border: 2px solid black;
+        //   color: #fff;
+        //   display: flex;
+        //   align-items: center;
+        //   justify-content: center;
+        //   cursor: pointer;
+        //   transition: background 0.25s, color 0.25s;
+        //   box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+        // }
+
+        // .pb-swiper-btn:hover {
+        //   background: #000;
+        //   color: #fff;
+        // }
+
+        // .pb-swiper-prev { left: 10px; }
+        // .pb-swiper-next { right: 10px; left: auto; }
+
+        // .pb-swiper-btn svg {
+        //   width: 16px;
+        //   height: 16px;
+        //   stroke: currentColor;
+        //   fill: none;
+        //   stroke-width: 2.5;
+        //   stroke-linecap: round;
+        //   stroke-linejoin: round;
+        // }
+
+        /* Hide default swiper arrows */
+        .swiper-button-next,
+        .swiper-button-prev { display: none !important; }
 
         /* RIGHT */
         .content-col {
@@ -157,6 +152,7 @@ export default function PopularBikes() {
         }
 
         .heading {
+          font-family: 'Barlow Condensed', sans-serif;
           font-size: clamp(36px, 3vw, 48px);
           line-height: 1.0;
           color: #1a1a1a;
@@ -195,8 +191,7 @@ export default function PopularBikes() {
           flex-shrink: 0;
         }
 
-      
-
+     
         .thumb-item img {
           width: 100%;
           height: 100%;
@@ -204,20 +199,8 @@ export default function PopularBikes() {
           transition: transform 0.4s ease;
         }
 
-        .thumb-item:hover img { transform: scale(1.08); }
 
-        .thumb-item::after {
-          content: '';
-          position: absolute;
-          inset: 0;
-          background: rgba(0,0,0,0.15);
-          transition: background 0.25s;
-          pointer-events: none;
-        }
-
-        .thumb-item.active::after,
-        .thumb-item:hover::after { background: rgba(0,0,0,0); }
-
+     
         /* CTA */
         .cta-btn {
           display: inline-flex;
@@ -239,33 +222,21 @@ export default function PopularBikes() {
 
         .cta-btn:hover { background: black; }
 
-        /* Dots */
-        .pb-dots {
-          display: flex;
-          gap: 8px;
-          align-items: center;
-        }
-
-        .pb-dot {
-          width: 8px;
-          height: 8px;
-          border-radius: 50%;
-          background: #ccc;
-          border: none;
-          cursor: pointer;
-          padding: 0;
-          transition: background 0.3s, transform 0.3s;
-        }
-
-        .pb-dot.active {
-          background: #e63020;
-          transform: scale(1.35);
-        }
-
         .pb-bottom-row {
           display: flex;
           align-items: center;
           gap: 20px;
+        }
+
+        /* Slide-in content transition */
+        .content-col-inner {
+          opacity: 0;
+          transform: translateY(20px);
+          animation: contentFadeIn 0.5s ease forwards;
+        }
+
+        @keyframes contentFadeIn {
+          to { opacity: 1; transform: translateY(0); }
         }
 
         @media (max-width: 768px) {
@@ -273,72 +244,84 @@ export default function PopularBikes() {
             grid-template-columns: 1fr;
             padding: 0 20px;
           }
-          .bike-image-wrap { margin-left: 0; }
-          .bike-img { width: 100%; }
-          .content-col { padding-left: 0; }
+          .bike-swiper-wrap { margin-left: 0; }
+          .bike-swiper-clip { width: 100%; }
+          .content-col { padding-left: 0; margin-top: 24px; }
           .thumb-item { width: 100px; height: 90px; }
+          .pb-swiper-prev { left: 10px; }
+          .pb-swiper-next { right: 10px; }
         }
       `}</style>
 
-
       <div className="adventure-section">
 
-        <div className="bike-image-wrap">
-          <AnimatePresence mode="wait" custom={direction}>
-            <MotionImage
-              key={`hero-${current}`}
-              src={slide.heroImg}
-              alt={slide.highlight}
-              className="bike-img"
-              custom={direction}
-              variants={imgVariants}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              priority
-            />
-          </AnimatePresence>
+        {/* LEFT — Swiper hero image */}
+        <div className="bike-swiper-wrap">
+          <div className="bike-swiper-clip">
+            <button
+              className="pb-swiper-btn pb-swiper-prev"
+              onClick={() => swiperRef.current?.slidePrev()}
+              aria-label="Previous slide"
+            >
+              <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6" /></svg>
+            </button>
+
+            <Swiper
+              modules={[Navigation, Autoplay]}
+              loop={true}
+              autoplay={{ delay: 4000, disableOnInteraction: false }}
+              speed={650}
+              onSwiper={(swiper) => (swiperRef.current = swiper)}
+              onSlideChange={handleSlideChange}
+            >
+              {slides.map((s, i) => (
+                <SwiperSlide key={i}>
+                  <Image
+                    src={s.heroImg}
+                    alt={s.highlight}
+                    className="bike-img"
+                    priority={i === 0}
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+
+            <button
+              className="pb-swiper-btn pb-swiper-next"
+              onClick={() => swiperRef.current?.slideNext()}
+              aria-label="Next slide"
+            >
+              <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6" /></svg>
+            </button>
+          </div>
         </div>
 
+        {/* RIGHT — content synced to slide */}
         <div className="content-col">
-          <AnimatePresence mode="wait" custom={direction}>
-            <motion.div
-              key={`content-${current}`}
-              custom={direction}
-              variants={contentVariants}
-              initial="enter"
-              animate="center"
-              exit="exit"
-            >
-              {/* Heading */}
-              <motion.h2 className="heading" variants={childVariants}>
-                {slide.heading[0]}<br />
-                {slide.heading[1]} {slide.highlight}
-              </motion.h2>
+          <div className="content-col-inner" key={current}>
+            <h2 className="heading">
+              {slide.heading[0]}<br />
+              {slide.heading[1]} <span>{slide.highlight}</span>
+            </h2>
 
-              {/* Description */}
-              <motion.p className="description" variants={childVariants}>
-                {slide.description}
-              </motion.p>
+            <p className="description">{slide.description}</p>
 
-              {/* Thumbnails */}
-              <motion.div className="thumb-strip" variants={childVariants}>
-                {slide.thumbnails.map((t, i) => (
-                  <div
-                    key={t.id}
-                    className={`thumb-item ${activeThumb === i ? "active" : ""}`}
-                    onClick={() => setActiveThumb(i)}
-                  >
-                    <Image src={t.img} alt={t.label} />
-                  </div>
-                ))}
-              </motion.div>
+            <div className="thumb-strip">
+              {slide.thumbnails.map((t, i) => (
+                <div
+                  key={t.id}
+                  className={`thumb-item ${activeThumb === i ? "active" : ""}`}
+                  onClick={() => setActiveThumb(i)}
+                >
+                  <Image src={t.img} alt={t.label} />
+                </div>
+              ))}
+            </div>
 
-              <motion.div className="pb-bottom-row" variants={childVariants}>
-                <button className="cta-btn">Shop Now</button>
-              </motion.div>
-            </motion.div>
-          </AnimatePresence>
+            <div className="pb-bottom-row">
+              <button className="cta-btn">Shop Now</button>
+            </div>
+          </div>
         </div>
 
       </div>

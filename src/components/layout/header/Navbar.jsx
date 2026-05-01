@@ -102,6 +102,13 @@ export default function Navbar() {
           .nav-cta { display: none !important; }
           .hamburger { display: flex !important; }
         }
+        body.hide-navbar-force nav,
+        body.hide-navbar-force .mobile-menu {
+          transform: translateY(-100%) !important;
+          opacity: 0 !important;
+          pointer-events: none !important;
+          display: none !important;
+        }
       `}</style>
 
       {/* Navbar */}
