@@ -143,7 +143,7 @@ export default function BikeSectionSwiper2() {
         }
 
         .fv-heading {
-          font-size: 22px;
+          font-size: 42px;
           font-weight: 700;
           text-transform: uppercase;
           color: #111;

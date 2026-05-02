@@ -7,6 +7,7 @@ import HeroSection from '@/components/sections/home/HeroSection'
 import PopularBikes from '@/components/sections/home/PopularBikes'
 import TestDriveSection from '@/components/sections/home/TestDriveSection'
 import WhatWeDoSection from '@/components/sections/home/whatwedo'
+import SocialFeed from '@/components/sections/home/SocialFeed'
 import React from 'react'
 
 const Home = () => {
@@ -21,6 +22,7 @@ const Home = () => {
       <AboutSection/>
       <FAQSection/>
       <TestDriveSection/>
+      <SocialFeed />
     </>
   )
 }

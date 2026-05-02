@@ -52,7 +52,7 @@ const FAQSection = () => {
 
         .faq-section {
           background: #fff;
-          padding: 0px 40px 80px 40px;
+          padding: 0px 50px 80px 50px;
           box-sizing: border-box;
           width: 100%;
         }

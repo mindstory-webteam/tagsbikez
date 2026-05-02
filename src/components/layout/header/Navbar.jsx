@@ -9,7 +9,7 @@ const navLinks = [
   { name: "MODEL", path: "/models" },
   { name: "ABOUT", path: "/about" },
   { name: "SERVICE", path: "/service" },
-  { name: "CONTACT US", path: "/contact" }
+  { name: "CONTACT", path: "/contact" }
 ];
 
 export default function Navbar() {

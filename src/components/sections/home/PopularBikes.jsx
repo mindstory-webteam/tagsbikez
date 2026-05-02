@@ -115,7 +115,7 @@ export default function PopularBikes() {
           background: #fff;
           overflow: hidden;
           position: relative;
-          min-height: 100vh;
+          min-height: 85vh;
           display: flex;
           align-items: center;
         }
@@ -265,13 +265,12 @@ export default function PopularBikes() {
 
         // .thumb-item:hover img { transform: scale(1.06); }
 
-        /* ── BOTTOM ROW — outer border flush under thumbs ── */
+        /* ── BOTTOM ROW — separated with gap ── */
         .pb-bottom-row {
           display: flex;
           align-items: stretch;
-          border-left: 1px solid #e0e0e0;
-          border-right: 1px solid #e0e0e0;
-          border-bottom: 1px solid #e0e0e0;
+          border: 1px solid #e0e0e0;
+          margin-top: 30px;
         }
 
         .pb-bottom-cell {

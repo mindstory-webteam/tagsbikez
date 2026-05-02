@@ -1,5 +1,7 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
+import { img } from "@/assets/assest";
 
 const navLinks = [
   { name: "HOME", path: "/" },
@@ -41,7 +43,7 @@ export default function Footer() {
       backgroundColor: "#0f0f0f",
       color: "#fff",
       fontFamily: "'DM Sans', sans-serif",
-      padding: "0 40px",
+      padding: "0 50px",
       boxSizing: "border-box",
     }}>
       <style>{`
@@ -268,7 +270,13 @@ export default function Footer() {
 
           {/* Col 1 — Brand + nav */}
           <div className="ft-col">
-            <p className="ft-logo">Tagsbikez</p>
+            <Image 
+              src={img.tagsbikezwhite} 
+              alt="Tagsbikez Logo" 
+              width={160} 
+              height={50} 
+              style={{ objectFit: "contain", marginBottom: "20px" }}
+            />
             <p className="ft-tagline">
               Authorized Royal Enfield dealership in Thrissur, serving riders since 2010.
             </p>
