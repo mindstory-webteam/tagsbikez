@@ -2,47 +2,90 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { img } from '@/assets/assest';
 import { ChevronRight, Home } from 'lucide-react';
 
 const Breadcrumb = () => {
   const pathname = usePathname();
-  const pathSegments = pathname.split('/').filter((segment) => segment !== '');
-
   if (pathname === '/') return null;
 
+  const pathSegments = pathname.split('/').filter(s => s);
+  const pageName = pathSegments[pathSegments.length - 1]?.replace(/-/g, ' ') || 'Page';
+
+  // Find a suitable background image
+  const bgImage = img.bulletimg?.src || img.bulletimg;
+
   return (
-    <nav aria-label="Breadcrumb" className="breadcrumb-nav">
+    <div className="hero-breadcrumb">
       <style>{`
-        .breadcrumb-nav {
-          padding: 20px 0;
-          max-width: 1300px;
-          margin: 80px auto 0 auto;
-          width: 100%;
+        .hero-breadcrumb {
           position: relative;
-          z-index: 10;
-        }
-
-        .breadcrumb-list {
+          width: 100%;
+          height: 320px;
           display: flex;
           align-items: center;
-          list-style: none;
+          justify-content: center;
+          overflow: hidden;
+          background: #000;
+        }
+
+        .breadcrumb-bg {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          opacity: 0.6;
+          filter: grayscale(0.2) brightness(0.8);
+          transform: scale(1.05);
+          transition: transform 10s linear;
+        }
+
+        .hero-breadcrumb:hover .breadcrumb-bg {
+          transform: scale(1);
+        }
+
+        .breadcrumb-overlay {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(to bottom, rgba(10,10,10,0.8) 0%, rgba(10,10,10,0.4) 50%, rgba(10,10,10,0.9) 100%);
+        }
+
+        .breadcrumb-content {
+          position: relative;
+          z-index: 2;
+          text-align: center;
           padding: 0 20px;
-          margin: 0;
-          gap: 8px;
+          max-width: 1300px;
+          width: 100%;
         }
 
-        .breadcrumb-item {
+        .breadcrumb-content h1 {
+          font-family: 'Syne', sans-serif;
+          font-size: clamp(40px, 8vw, 84px);
+          font-weight: 800;
+          text-transform: uppercase;
+          letter-spacing: -0.04em;
+          color: #fff;
+          margin: 0 0 16px;
+          line-height: 1;
+        }
+
+        .breadcrumb-links {
           display: flex;
           align-items: center;
-          font-size: 12px;
+          justify-content: center;
+          gap: 12px;
+          font-family: 'Inter', sans-serif;
+          font-size: 13px;
           font-weight: 500;
-          color: #666;
           text-transform: uppercase;
-          letter-spacing: 0.05em;
+          letter-spacing: 0.1em;
         }
 
-        .breadcrumb-link {
-          color: #fff;
+        .crumb-link {
+          color: rgba(255, 255, 255, 0.6);
           text-decoration: none;
           transition: color 0.3s;
           display: flex;
@@ -50,60 +93,73 @@ const Breadcrumb = () => {
           gap: 6px;
         }
 
-        .breadcrumb-link:hover {
+        .crumb-link:hover {
+          color: #fff;
+        }
+
+        .crumb-sep {
+          color: rgba(255, 255, 255, 0.2);
+        }
+
+        .crumb-current {
           color: #e63020;
+          font-weight: 700;
         }
 
-        .breadcrumb-separator {
-          color: #444;
-          display: flex;
-          align-items: center;
-        }
-
-        .breadcrumb-current {
-          color: #666;
-          font-weight: 400;
+        /* ── Bottom Edge Decoration ── */
+        .breadcrumb-edge {
+          position: absolute;
+          bottom: -1px;
+          left: 0;
+          width: 100%;
+          height: 60px;
+          background: #0a0a0a;
+          clip-path: polygon(0 100%, 100% 100%, 100% 0, 50% 100%, 0 0);
         }
 
         @media (max-width: 768px) {
-          .breadcrumb-nav {
-            margin-top: 80px;
-            padding: 15px 0;
+          .hero-breadcrumb {
+            height: 260px;
+          }
+          .breadcrumb-content h1 {
+            font-size: 40px;
           }
         }
       `}</style>
 
-      <ol className="breadcrumb-list">
-        <li className="breadcrumb-item">
-          <Link href="/" className="breadcrumb-link">
+      <img src={bgImage} alt="Breadcrumb Background" className="breadcrumb-bg" />
+      <div className="breadcrumb-overlay" />
+      
+      <div className="breadcrumb-content">
+        <h1>{pageName}</h1>
+        <div className="breadcrumb-links">
+          <Link href="/" className="crumb-link">
             <Home size={14} />
             <span>Home</span>
           </Link>
-        </li>
+          
+          {pathSegments.map((segment, index) => {
+            const href = `/${pathSegments.slice(0, index + 1).join('/')}`;
+            const isLast = index === pathSegments.length - 1;
 
-        {pathSegments.map((segment, index) => {
-          const href = `/${pathSegments.slice(0, index + 1).join('/')}`;
-          const isLast = index === pathSegments.length - 1;
-
-          return (
-            <React.Fragment key={href}>
-              <li className="breadcrumb-separator">
-                <ChevronRight size={14} />
-              </li>
-              <li className="breadcrumb-item">
+            return (
+              <React.Fragment key={href}>
+                <span className="crumb-sep"><ChevronRight size={14} /></span>
                 {isLast ? (
-                  <span className="breadcrumb-current">{segment.replace(/-/g, ' ')}</span>
+                  <span className="crumb-current">{segment.replace(/-/g, ' ')}</span>
                 ) : (
-                  <Link href={href} className="breadcrumb-link">
+                  <Link href={href} className="crumb-link">
                     {segment.replace(/-/g, ' ')}
                   </Link>
                 )}
-              </li>
-            </React.Fragment>
-          );
-        })}
-      </ol>
-    </nav>
+              </React.Fragment>
+            );
+          })}
+        </div>
+      </div>
+
+      <div className="breadcrumb-edge" />
+    </div>
   );
 };
 
