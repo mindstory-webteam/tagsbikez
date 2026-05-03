@@ -153,7 +153,7 @@ export default function Navbar() {
           {navLinks.map(link => (
             <Link key={link.name} href={link.path} style={{
               color: "#fff", fontSize: 13, fontWeight: 500,
-              fontFamily: "'DM Sans', sans-serif", textDecoration: "none",
+              textDecoration: "none",
               letterSpacing: 0.3, transition: "color 0.2s",
             }}
               onMouseEnter={e => e.target.style.color = "#f51b24"}
@@ -170,7 +170,6 @@ export default function Navbar() {
             color: "#fff",
             padding: "8px 20px",
             fontSize: 13, fontWeight: 700,
-            fontFamily: "'DM Sans', sans-serif",
             cursor: "pointer",
           }}>Book Now</button>
         </div>
@@ -205,7 +204,6 @@ export default function Navbar() {
             border: "none", color: "#000",
             padding: "13px", borderRadius: 10,
             fontSize: 14, fontWeight: 700,
-            fontFamily: "'DM Sans', sans-serif",
             cursor: "pointer", width: "100%",
           }}>Book Now</button>
         </div>

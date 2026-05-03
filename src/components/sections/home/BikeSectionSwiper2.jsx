@@ -138,7 +138,6 @@ export default function BikeSectionSwiper2() {
           width: 100%;
           padding: 48px 0 56px;
           box-sizing: border-box;
-          font-family: sans-serif;
           overflow: hidden;
         }
 

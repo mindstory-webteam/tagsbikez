@@ -84,7 +84,6 @@ const ContactSection = () => {
       <style>{`
         .contact-section {
           background: #fff;
-          font-family: 'Inter', sans-serif;
           color: #111;
         }
 
@@ -96,24 +95,57 @@ const ContactSection = () => {
 
         .contact-header {
           margin-bottom: 80px;
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-end;
+          gap: 40px;
         }
 
         .contact-header h1 {
-          font-family: 'Syne', sans-serif;
           font-size: clamp(32px, 5vw, 48px);
           font-weight: 800;
           line-height: 1.1;
           text-transform: uppercase;
           letter-spacing: -0.02em;
           margin: 0;
+          flex: 1;
+        }
+
+        .contact-header-right {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 16px;
+          text-align: left;
+          max-width: 320px;
         }
 
         .contact-header p {
           font-size: 16px;
           color: #666;
-          max-width: 500px;
-          margin-top: 16px;
+          margin: 0;
           line-height: 1.6;
+        }
+
+        .contact-insta-link {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          color: #111;
+          text-decoration: none;
+          font-size: 12px;
+          font-weight: 700;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          padding: 10px 18px;
+          border: 1px solid #e0e0e0;
+          transition: all 0.3s ease;
+        }
+
+        .contact-insta-link:hover {
+          background: #111;
+          color: #fff;
+          border-color: #111;
         }
 
         /* ── GRID LAYOUT ── */
@@ -143,7 +175,6 @@ const ContactSection = () => {
         }
 
         .locations-list-header h3 {
-          font-family: 'Syne', sans-serif;
           font-size: 14px;
           text-transform: uppercase;
           letter-spacing: 0.15em;
@@ -188,7 +219,6 @@ const ContactSection = () => {
         }
 
         .loc-list-item h4 {
-          font-family: 'Syne', sans-serif;
           font-size: 18px;
           margin: 0 0 16px;
           font-weight: 700;
@@ -235,7 +265,6 @@ const ContactSection = () => {
         }
 
         .social-footer-cell h3 {
-          font-family: 'Syne', sans-serif;
           font-size: 11px;
           text-transform: uppercase;
           letter-spacing: 0.15em;
@@ -297,7 +326,6 @@ const ContactSection = () => {
           border-bottom: 1px solid #e0e0e0;
           padding: 12px 0;
           font-size: 16px;
-          font-family: inherit;
           outline: none;
           transition: border-color 0.3s;
         }
@@ -313,7 +341,6 @@ const ContactSection = () => {
           background: #e63020;
           color: #fff;
           border: none;
-          font-family: 'Syne', sans-serif;
           font-size: 16px;
           font-weight: 700;
           text-transform: uppercase;
@@ -356,7 +383,6 @@ const ContactSection = () => {
         }
 
         .map-title-overlay h2 {
-          font-family: 'Syne', sans-serif;
           font-size: 20px;
           margin: 0 0 8px;
           text-transform: uppercase;
@@ -401,7 +427,6 @@ const ContactSection = () => {
         }
 
         .loc-cell h4 {
-          font-family: 'Syne', sans-serif;
           font-size: 20px;
           margin: 0 0 20px;
           font-weight: 700;
@@ -448,6 +473,7 @@ const ContactSection = () => {
         }
 
         @media (max-width: 768px) {
+          .contact-header { flex-direction: column; align-items: flex-start; gap: 24px; }
           .contact-header h1 { font-size: 32px; }
           .form-cell { padding: 40px 20px; }
           .locations-grid { grid-template-columns: 1fr; }
@@ -459,7 +485,13 @@ const ContactSection = () => {
       <div className="contact-container">
         <header className="contact-header">
           <h1>Let's Start a<br />Conversation.</h1>
-          <p>Get in touch with our nearest showroom for sales, service, or any inquiries.</p>
+          <div className="contact-header-right">
+            <a href="https://www.instagram.com/tagsbikez/" target="_blank" rel="noopener noreferrer" className="contact-insta-link">
+              <FaInstagram size={16} />
+              @TAGSBIKEZ
+            </a>
+            <p>Get in touch with our nearest showroom for sales, service, or any inquiries.</p>
+          </div>
         </header>
 
         <div className="main-grid">

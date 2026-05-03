@@ -74,7 +74,6 @@ export default function TestDriveSection() {
               padding: "14px 28px",
               fontSize: 15,
               fontWeight: 700,
-              fontFamily: "'DM Sans', sans-serif",
               cursor: "pointer",
               borderRadius: 4,
               letterSpacing: 0.3,

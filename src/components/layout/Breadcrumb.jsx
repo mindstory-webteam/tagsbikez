@@ -3,7 +3,7 @@ import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { img } from '@/assets/assest';
-import { ChevronRight, Home } from 'lucide-react';
+import { ChevronRight, } from 'lucide-react';
 
 const Breadcrumb = () => {
   const pathname = usePathname();
@@ -62,7 +62,6 @@ const Breadcrumb = () => {
         }
 
         .breadcrumb-content h1 {
-          font-family: 'Syne', sans-serif;
           font-size: clamp(40px, 8vw, 84px);
           font-weight: 800;
           text-transform: uppercase;
@@ -77,7 +76,6 @@ const Breadcrumb = () => {
           align-items: center;
           justify-content: center;
           gap: 12px;
-          font-family: 'Inter', sans-serif;
           font-size: 13px;
           font-weight: 500;
           text-transform: uppercase;
@@ -134,7 +132,6 @@ const Breadcrumb = () => {
         <h1>{pageName}</h1>
         <div className="breadcrumb-links">
           <Link href="/" className="crumb-link">
-            <Home size={14} />
             <span>Home</span>
           </Link>
           

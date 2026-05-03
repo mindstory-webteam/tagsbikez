@@ -42,7 +42,6 @@ export default function Footer() {
     <footer style={{
       backgroundColor: "#0f0f0f",
       color: "#fff",
-      fontFamily: "'DM Sans', sans-serif",
       padding: "0 50px",
       boxSizing: "border-box",
     }}>
