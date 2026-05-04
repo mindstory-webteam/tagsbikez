@@ -269,11 +269,11 @@ export default function Footer() {
 
           {/* Col 1 — Brand + nav */}
           <div className="ft-col">
-            <Image 
-              src={img.tagsbikezwhite} 
-              alt="Tagsbikez Logo" 
-              width={160} 
-              height={50} 
+            <Image
+              src={img.tagsbikezwhite}
+              alt="Tagsbikez Logo"
+              width={160}
+              height={50}
               style={{ objectFit: "contain", marginBottom: "20px" }}
             />
             <p className="ft-tagline">
@@ -290,19 +290,20 @@ export default function Footer() {
           <div className="ft-col">
             <p className="ft-label">Address:</p>
             <p className="ft-address">
-              Thrissur, Kerala,<br />
-              NH 66, Edapally, 682024
+              TagsBikez,
+              <br />
+              Kuriachira, Thrissur
             </p>
-            <p className="ft-hours">Mon–Sat: 09:00 to 18:00</p>
-            <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="ft-redirect">View on Map</a>
+            <a href="https://share.google/9sW99PQ6cnIW0NHxz" target="_blank" rel="noopener noreferrer" className="ft-redirect">View on Map</a>
 
-           <p className="ft-label" style={{ marginTop: '20px' }}>Service Center:</p>
+            <p className="ft-label" style={{ marginTop: '20px' }}>Service Center:</p>
             <p className="ft-address">
-              Thrissur, Kerala,<br />
-              NH 66, Edapally, 682024
+              TagsBikez,
+              <br />
+              Kuriachira, Thrissur
             </p>
             <p className="ft-hours">Mon–Sat: 09:00 to 18:00</p>
-            
+
           </div>
 
           {/* Col 3 — Phone + email + socials */}

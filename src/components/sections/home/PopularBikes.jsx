@@ -98,17 +98,21 @@ export default function PopularBikes() {
   const [current, setCurrent] = useState(0);
   const [activeThumb, setActiveThumb] = useState(0);
   const swiperRef = useRef(null);
+  const [mobileCurrent, setMobileCurrent] = useState(0);
+  const [mobileActiveThumb, setMobileActiveThumb] = useState(0);
+  const mobileSwiperRef = useRef(null);
 
   const slide = slides[current];
-
-  const handleSlideChange = (swiper) => {
-    setCurrent(swiper.realIndex);
-    setActiveThumb(0);
-  };
+  const mobileSlide = slides[mobileCurrent];
 
   return (
     <section className="pb-section">
       <style>{`
+
+        /* ═══════════════════════════════════════
+           DESKTOP LAYOUT (>768px) — untouched
+        ═══════════════════════════════════════ */
+
         .pb-section {
           background: #fff;
           overflow: hidden;
@@ -116,6 +120,15 @@ export default function PopularBikes() {
           min-height: 85vh;
           display: flex;
           align-items: center;
+        }
+
+        /* Desktop wrapper */
+        .desktop-layout {
+          display: block;
+          width: 100%;
+        }
+        .mobile-layout {
+          display: none;
         }
 
         .adventure-section {
@@ -145,21 +158,18 @@ export default function PopularBikes() {
           margin: -30px 0;
         }
 
-        .bike-swiper-clip .swiper {
-          width: 100%;
-          overflow: hidden;
-        }
+        .bike-swiper-clip .swiper { width: 100%; overflow: hidden; }
 
-        .bike-img {
+        /* Desktop hero image — keep original behaviour */
+        .hero-img-wrap {
+          position: relative;
           width: 100%;
-          object-fit: contain;
-          display: block;
+          height: 420px;
         }
 
         .swiper-button-next,
         .swiper-button-prev { display: none !important; }
 
-        /* RIGHT */
         .content-col {
           padding-left: 40px;
           display: flex;
@@ -196,7 +206,6 @@ export default function PopularBikes() {
           margin: 0 0 24px;
         }
 
-        /* ── SPECS — outer border + right dividers, no gap ── */
         .specs-row {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
@@ -230,7 +239,6 @@ export default function PopularBikes() {
           letter-spacing: 0.1em;
         }
 
-        /* ── THUMBNAILS — outer border + right dividers, flush under specs ── */
         .thumb-strip {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
@@ -249,11 +257,6 @@ export default function PopularBikes() {
           transition: opacity 0.25s ease;
         }
 
-        // .thumb-item.active {
-        //   outline: 2px solid #e63020;
-        //   outline-offset: -2px;
-        // }
-
         .thumb-item img {
           width: 100%;
           height: 100%;
@@ -261,9 +264,6 @@ export default function PopularBikes() {
           transition: transform 0.4s ease;
         }
 
-        // .thumb-item:hover img { transform: scale(1.06); }
-
-        /* ── BOTTOM ROW — separated with gap ── */
         .pb-bottom-row {
           display: flex;
           align-items: stretch;
@@ -277,9 +277,7 @@ export default function PopularBikes() {
           padding: 0;
         }
 
-        .pb-bottom-cell:not(:last-child) {
-          border-right: 1px solid #e0e0e0;
-        }
+        .pb-bottom-cell:not(:last-child) { border-right: 1px solid #e0e0e0; }
 
         .cta-btn {
           display: inline-flex;
@@ -321,7 +319,6 @@ export default function PopularBikes() {
 
         .cta-ghost:hover { background: #f5f5f5; }
 
-        /* Dots cell — flex: 1 so it fills remaining width */
         .pb-dots-cell {
           flex: 1;
           justify-content: flex-end;
@@ -345,7 +342,6 @@ export default function PopularBikes() {
           transform: scale(1.4);
         }
 
-        /* Slide-in content transition */
         .content-col-inner {
           opacity: 0;
           transform: translateY(20px);
@@ -356,98 +352,372 @@ export default function PopularBikes() {
           to { opacity: 1; transform: translateY(0); }
         }
 
+
+    
+
         @media (max-width: 768px) {
-          .pb-section { min-height: auto; padding: 60px 0; }
-          .adventure-section {
-            grid-template-columns: 1fr;
-            padding: 0 20px;
+
+          .pb-section {
+            min-height: auto;
+            padding: 0 0 40px;
+            align-items: flex-start;
           }
-          .bike-swiper-wrap { margin-left: 0; }
-          .bike-swiper-clip { width: 100%; }
-          .content-col { padding-left: 0; margin-top: 24px; }
-          .specs-row { grid-template-columns: repeat(2, 1fr); }
-          .thumb-strip { grid-template-columns: repeat(2, 1fr); }
-          .thumb-item { height: 80px; }
+
+          /* Swap which layout is visible */
+          .desktop-layout { display: none; }
+          .mobile-layout  { display: block; width: 100%; }
+
+          /* ── Hero image strip — full bleed ── */
+          .m-hero-wrap {
+            width: 100%;
+            position: relative;
+            height: 240px;
+            background: #f5f5f5;
+          }
+
+          /* ── Content card below ── */
+          .m-content {
+            padding: 18px 16px 0;
+          }
+
+          .m-tag {
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #e63020;
+            margin-bottom: 5px;
+            display: block;
+          }
+
+          .m-heading {
+            font-size: 22px;
+            font-weight: 800;
+            line-height: 1.08;
+            color: #1a1a1a;
+            text-transform: uppercase;
+            margin: 0 0 8px;
+            letter-spacing: -0.01em;
+          }
+
+          .m-heading span { color: #e63020; }
+
+          .m-description {
+            font-size: 11.5px;
+            line-height: 1.55;
+            color: #777;
+            margin: 0 0 14px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+          }
+
+          /* Specs — 4 col */
+          .m-specs {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border-top: 1px solid #e8e8e8;
+            border-left: 1px solid #e8e8e8;
+          }
+
+          .m-spec-item {
+            padding: 8px 8px;
+            border-right: 1px solid #e8e8e8;
+            border-bottom: 1px solid #e8e8e8;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            box-sizing: border-box;
+          }
+
+          .m-spec-value {
+            font-size: 14px;
+            font-weight: 700;
+            color: #111;
+            line-height: 1;
+          }
+
+          .m-spec-label {
+            font-size: 7.5px;
+            font-weight: 600;
+            color: #bbb;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+          }
+
+          /* Thumbnails — 4 col */
+          .m-thumbs {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border-left: 1px solid #e8e8e8;
+            border-bottom: 1px solid #e8e8e8;
+          }
+
+          .m-thumb {
+            border-right: 1px solid #e8e8e8;
+            position: relative;
+            height: 54px;
+            overflow: hidden;
+            cursor: pointer;
+          }
+
+          .m-thumb.active::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1;
+          }
+
+          /* Bottom row */
+          .m-bottom {
+            display: flex;
+            align-items: stretch;
+            border: 1px solid #e8e8e8;
+            margin-top: 12px;
+          }
+
+          .m-bottom-cell {
+            display: flex;
+            align-items: center;
+          }
+
+          .m-bottom-cell:not(:last-child) { border-right: 1px solid #e8e8e8; }
+
+          .m-cta-btn {
+            background: #f51b24;
+            color: #fff;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 11px 14px;
+            border: none;
+            cursor: pointer;
+            white-space: nowrap;
+            height: 100%;
+          }
+
+          .m-cta-ghost {
+            background: transparent;
+            color: #111;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 11px 12px;
+            border: none;
+            cursor: pointer;
+            white-space: nowrap;
+            height: 100%;
+          }
+
+          .m-dots-cell {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 0 12px;
+            gap: 6px;
+          }
+
+          .m-dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: #ddd;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+          }
+
+          .m-dot.active {
+            background: #e63020;
+            transform: scale(1.4);
+          }
+
+          /* Animate mobile content on slide change */
+          .m-content-inner {
+            opacity: 0;
+            transform: translateY(12px);
+            animation: mFadeIn 0.4s ease forwards;
+          }
+
+          @keyframes mFadeIn {
+            to { opacity: 1; transform: translateY(0); }
+          }
         }
       `}</style>
 
-      <div className="adventure-section">
+      <div className="desktop-layout">
+        <div className="adventure-section">
 
-        {/* LEFT — Swiper hero image */}
-        <div className="bike-swiper-wrap">
-          <div className="bike-swiper-clip">
-            <Swiper
-              modules={[Navigation, Autoplay]}
-              loop={true}
-              autoplay={{ delay: 4000, disableOnInteraction: false }}
-              speed={650}
-              onSwiper={(swiper) => (swiperRef.current = swiper)}
-              onSlideChange={handleSlideChange}
-            >
-              {slides.map((s, i) => (
-                <SwiperSlide key={i}>
-                  <Image
-                    src={s.heroImg}
-                    alt={s.highlight}
-                    className="bike-img"
-                    priority={i === 0}
-                  />
-                </SwiperSlide>
-              ))}
-            </Swiper>
+          {/* LEFT — Swiper hero */}
+          <div className="bike-swiper-wrap">
+            <div className="bike-swiper-clip">
+              <Swiper
+                modules={[Navigation, Autoplay]}
+                loop={true}
+                autoplay={{ delay: 4000, disableOnInteraction: false }}
+                speed={650}
+                onSwiper={(swiper) => (swiperRef.current = swiper)}
+                onSlideChange={(swiper) => {
+                  setCurrent(swiper.realIndex);
+                  setActiveThumb(0);
+                }}
+              >
+                {slides.map((s, i) => (
+                  <SwiperSlide key={i}>
+                    <div className="hero-img-wrap">
+                      <Image
+                        src={s.heroImg}
+                        alt={s.highlight}
+                        fill
+                        sizes="50vw"
+                        style={{ objectFit: "contain" }}
+                        priority={i === 0}
+                      />
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
           </div>
+
+          {/* RIGHT — content */}
+          <div className="content-col">
+            <div className="content-col-inner" key={current}>
+              <span className="slide-tag">{slide.tag}</span>
+              <h2 className="heading">
+                {slide.heading[0]}<br />
+                {slide.heading[1]} <span>{slide.highlight}</span>
+              </h2>
+              <p className="description">{slide.description}</p>
+
+              <div className="specs-row">
+                {slide.specs.map((spec, i) => (
+                  <div className="spec-item" key={i}>
+                    <span className="spec-value">{spec.value}</span>
+                    <span className="spec-label">{spec.label}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="thumb-strip">
+                {slide.thumbnails.map((t, i) => (
+                  <div
+                    key={t.id}
+                    className={`thumb-item ${activeThumb === i ? "active" : ""}`}
+                    onClick={() => setActiveThumb(i)}
+                  >
+                    <Image src={t.img} alt={t.label} fill sizes="12vw" style={{ objectFit: "cover" }} />
+                  </div>
+                ))}
+              </div>
+
+              <div className="pb-bottom-row">
+                <div className="pb-bottom-cell">
+                  <button className="cta-btn">Know More</button>
+                </div>
+                <div className="pb-bottom-cell">
+                  <button className="cta-ghost">Test Ride</button>
+                </div>
+                <div className="pb-bottom-cell pb-dots-cell">
+                  {slides.map((_, i) => (
+                    <button
+                      key={i}
+                      className={`slide-dot ${current === i ? "active" : ""}`}
+                      onClick={() => swiperRef.current?.slideToLoop(i)}
+                      aria-label={`Go to slide ${i + 1}`}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
+      </div>
 
-        {/* RIGHT — content synced to slide */}
-        <div className="content-col">
-          <div className="content-col-inner" key={current}>
 
-            <span className="slide-tag">{slide.tag}</span>
+      <div className="mobile-layout">
 
-            <h2 className="heading">
-              {slide.heading[0]}<br />
-              {slide.heading[1]} <span>{slide.highlight}</span>
+        <Swiper
+          modules={[Autoplay]}
+          loop={true}
+          autoplay={{ delay: 4000, disableOnInteraction: false }}
+          speed={600}
+          onSwiper={(swiper) => (mobileSwiperRef.current = swiper)}
+          onSlideChange={(swiper) => {
+            setMobileCurrent(swiper.realIndex);
+            setMobileActiveThumb(0);
+          }}
+        >
+          {slides.map((s, i) => (
+            <SwiperSlide key={i}>
+              <div className="m-hero-wrap">
+                <Image
+                  src={s.heroImg}
+                  alt={s.highlight}
+                  fill
+                  sizes="100vw"
+                  style={{ objectFit: "contain" }}
+                  priority={i === 0}
+                />
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+
+        <div className="m-content">
+          <div className="m-content-inner" key={mobileCurrent}>
+
+            <span className="m-tag">{mobileSlide.tag}</span>
+            <h2 className="m-heading">
+              {mobileSlide.heading[0]}<br />
+              {mobileSlide.heading[1]} <span>{mobileSlide.highlight}</span>
             </h2>
+            <p className="m-description">{mobileSlide.description}</p>
 
-            <p className="description">{slide.description}</p>
-
-            {/* Specs — top+left border, each cell right+bottom */}
-            <div className="specs-row">
-              {slide.specs.map((spec, i) => (
-                <div className="spec-item" key={i}>
-                  <span className="spec-value">{spec.value}</span>
-                  <span className="spec-label">{spec.label}</span>
+            {/* Specs */}
+            <div className="m-specs">
+              {mobileSlide.specs.map((spec, i) => (
+                <div className="m-spec-item" key={i}>
+                  <span className="m-spec-value">{spec.value}</span>
+                  <span className="m-spec-label">{spec.label}</span>
                 </div>
               ))}
             </div>
 
-            {/* Thumbnails — left+bottom border, each cell right border, flush under specs */}
-            <div className="thumb-strip">
-              {slide.thumbnails.map((t, i) => (
+            {/* Thumbnails */}
+            <div className="m-thumbs">
+              {mobileSlide.thumbnails.map((t, i) => (
                 <div
                   key={t.id}
-                  className={`thumb-item ${activeThumb === i ? "active" : ""}`}
-                  onClick={() => setActiveThumb(i)}
+                  className={`m-thumb ${mobileActiveThumb === i ? "active" : ""}`}
+                  onClick={() => setMobileActiveThumb(i)}
                 >
-                  <Image src={t.img} alt={t.label} fill style={{ objectFit: "cover" }} />
+                  <Image src={t.img} alt={t.label} fill sizes="25vw" style={{ objectFit: "cover" }} />
                 </div>
               ))}
             </div>
 
-            {/* Bottom row — left+right+bottom border, cells divided by right border */}
-            <div className="pb-bottom-row">
-              <div className="pb-bottom-cell">
-                <button className="cta-btn">Know More</button>
+            {/* Bottom row */}
+            <div className="m-bottom">
+              <div className="m-bottom-cell">
+                <button className="m-cta-btn">Know More</button>
               </div>
-              <div className="pb-bottom-cell">
-                <button className="cta-ghost">Test Ride</button>
+              <div className="m-bottom-cell">
+                <button className="m-cta-ghost">Test Ride</button>
               </div>
-              <div className="pb-bottom-cell pb-dots-cell">
+              <div className="m-dots-cell">
                 {slides.map((_, i) => (
                   <button
                     key={i}
-                    className={`slide-dot ${current === i ? "active" : ""}`}
-                    onClick={() => swiperRef.current?.slideToLoop(i)}
+                    className={`m-dot ${mobileCurrent === i ? "active" : ""}`}
+                    onClick={() => mobileSwiperRef.current?.slideToLoop(i)}
                     aria-label={`Go to slide ${i + 1}`}
                   />
                 ))}
@@ -456,8 +726,8 @@ export default function PopularBikes() {
 
           </div>
         </div>
-
       </div>
+
     </section>
   );
 }
