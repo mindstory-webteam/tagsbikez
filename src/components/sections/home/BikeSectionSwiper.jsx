@@ -44,14 +44,13 @@ const FALLBACK = "https://placehold.co/400x220/f0f0f0/999?text=Bike";
 const VISIBLE = 3.4;
 const AUTO_INTERVAL = 2500;
 
-// Clone first few cards at end + last few at start for seamless loop
 const CLONE_COUNT = Math.ceil(VISIBLE) + 1;
 const clonedBikes = [
   ...bikes.slice(-CLONE_COUNT).map((b, i) => ({ ...b, id: `pre-${i}` })),
   ...bikes,
   ...bikes.slice(0, CLONE_COUNT).map((b, i) => ({ ...b, id: `post-${i}` })),
 ];
-const OFFSET = CLONE_COUNT; // real items start at this index
+const OFFSET = CLONE_COUNT; 
 
 const BikeSectionSwiper = () => {
   const [index, setIndex] = useState(OFFSET);
@@ -59,7 +58,6 @@ const BikeSectionSwiper = () => {
   const timerRef = useRef(null);
   const trackRef = useRef(null);
 
-  // After jumping silently, re-enable animation
   const jumpTo = (i) => {
     setAnimated(false);
     setIndex(i);
@@ -74,19 +72,16 @@ const BikeSectionSwiper = () => {
     setIndex((i) => i - 1);
   };
 
-  // Seamless loop: after transition ends, silently jump if at clone zone
   const handleTransitionEnd = () => {
     const lastReal = OFFSET + bikes.length - 1;
     const firstCloneEnd = OFFSET + bikes.length + CLONE_COUNT - 1;
 
     setIndex((i) => {
       if (i >= OFFSET + bikes.length) {
-        // Jumped past real end → snap to real start
         setTimeout(() => jumpTo(OFFSET + (i - (OFFSET + bikes.length))), 0);
         return i;
       }
       if (i < OFFSET) {
-        // Jumped before real start → snap to real end
         setTimeout(() => jumpTo(OFFSET + bikes.length + i - OFFSET), 0);
         return i;
       }

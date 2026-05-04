@@ -10,29 +10,33 @@ const features = [
   {
     icon: <ShieldCheck size={20} strokeWidth={1.6} color="#e8282b" />,
     title: "Authorised RE Dealer",
-    desc: "Official Royal Enfield dealership in Thrissur certified, trusted, and factory-backed since day one. Official Royal Enfield dealership in Thrissur certified, trusted, and factory-backed since day one.",
+    desc: "Official Royal Enfield dealership in Thrissur certified, trusted, and factory-backed since day one.",
   },
   {
     icon: <ShieldCheck size={20} strokeWidth={1.6} color="#e8282b" />,
     title: "Genuine Parts & Service",
-    desc: "Every service uses 100% genuine Royal Enfield parts. Your motorcycle deserves nothing less. Official Royal Enfield dealership in Thrissur certified, trusted, and factory-backed since day one.",
+    desc: "Every service uses 100% genuine Royal Enfield parts. Your motorcycle deserves nothing less.",
   },
   {
     icon: <Wrench size={20} strokeWidth={1.6} color="#e8282b" />,
     title: "Expert Technicians",
-    desc: "Our RE-certified technicians are trained directly at Royal Enfield service academies. Official Royal Enfield dealership in Thrissur certified, trusted, and factory-backed since day one.",
+    desc: "Our RE-certified technicians are trained directly at Royal Enfield service academies.",
   },
   {
     icon: <Clock size={20} strokeWidth={1.6} color="#e8282b" />,
     title: "Easy Test Rides",
-    desc: "Walk in, pick your model, and ride. Hassle-free test rides available every day at our Thrissur showroom. Official Royal Enfield dealership in Thrissur certified, trusted, and factory-backed since day one.",
+    desc: "Walk in, pick your model, and ride. Hassle-free test rides available every day at our Thrissur showroom.",
   },
 ];
+
+// All images merged for the horizontal mobile strip
+const allImgs = [...colA, ...colB];
 
 export default function AboutSection() {
   const sectionRef = useRef(null);
   const colARef = useRef(null);
   const colBRef = useRef(null);
+  const scrollStripRef = useRef(null);
 
   useEffect(() => {
     let ctx;
@@ -42,26 +46,46 @@ export default function AboutSection() {
       gsap.registerPlugin(ScrollTrigger);
 
       ctx = gsap.context(() => {
-        gsap.to(colARef.current, {
-          y: -140,
-          ease: "none",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: 1.4,
-          },
+        // Only run vertical parallax on large screens
+        const mm = gsap.matchMedia();
+
+        mm.add("(min-width: 1101px)", () => {
+          gsap.to(colARef.current, {
+            y: -140,
+            ease: "none",
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 1.4,
+            },
+          });
+          gsap.to(colBRef.current, {
+            y: 140,
+            ease: "none",
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 1.4,
+            },
+          });
         });
 
-        gsap.to(colBRef.current, {
-          y: 140,
-          ease: "none",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: 1.4,
-          },
+        // Auto-scroll the horizontal strip on mobile
+        mm.add("(max-width: 1100px)", () => {
+          const strip = scrollStripRef.current;
+          if (!strip) return;
+
+          gsap.to(strip, {
+            x: () => -(strip.scrollWidth / 2),
+            ease: "none",
+            duration: 18,
+            repeat: -1,
+            modifiers: {
+              x: gsap.utils.unitize(x => parseFloat(x) % (strip.scrollWidth / 2)),
+            },
+          });
         });
       }, sectionRef);
     };
@@ -76,10 +100,9 @@ export default function AboutSection() {
         .as-root {
           background: #fff;
           width: 100%;
-          padding: 80px 0; /* Added padding top and bottom */
+          padding: 80px 0;
         }
 
-        /* ── MAX WIDTH CONTAINER ── */
         .as-container {
           max-width: 1450px;
           margin: 0 auto;
@@ -135,8 +158,8 @@ export default function AboutSection() {
         .as-feat-info {
           padding: 24px 20px;
           display: flex;
-          align-items:center;
-          text-align:justify;
+          align-items: center;
+          text-align: justify;
           flex-direction: column;
         }
 
@@ -203,6 +226,7 @@ export default function AboutSection() {
           color: #fff;
         }
 
+        /* ── DESKTOP image columns ── */
         .as-banner-right {
           display: grid;
           grid-template-columns: 1fr 1fr;
@@ -223,17 +247,75 @@ export default function AboutSection() {
           height: 280px;
           border-radius: 6px;
           overflow: hidden;
+          flex-shrink: 0;
         }
 
         .as-img-box img {
           width: 100%;
           height: 100%;
           object-fit: cover;
+          display: block;
         }
 
+        /* ── MOBILE horizontal scroll strip ── */
+        .as-mobile-img-section {
+          display: none;
+          background: #111;
+          border-radius: 0 0 12px 12px;
+          overflow: hidden;
+          padding: 16px 0;
+        }
+
+        .as-scroll-viewport {
+          overflow: hidden;
+          width: 100%;
+        }
+
+        .as-scroll-strip {
+          display: flex;
+          gap: 12px;
+          width: max-content;
+          will-change: transform;
+        }
+
+        .as-scroll-img {
+          width: 200px;
+          height: 140px;
+          border-radius: 8px;
+          overflow: hidden;
+          flex-shrink: 0;
+        }
+
+        .as-scroll-img img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+        }
+
+        /* fade edges */
+        .as-scroll-viewport::before,
+        .as-scroll-viewport::after {
+          content: "";
+          position: absolute;
+          top: 0; bottom: 0;
+          width: 40px;
+          z-index: 2;
+          pointer-events: none;
+        }
+        .as-scroll-viewport { position: relative; }
+        .as-scroll-viewport::before { left: 0; background: linear-gradient(to right, #111, transparent); }
+        .as-scroll-viewport::after  { right: 0; background: linear-gradient(to left,  #111, transparent); }
+
+        /* ── BREAKPOINTS ── */
         @media (max-width: 1100px) {
-          .as-banner { grid-template-columns: 1fr; height: auto; }
-          .as-banner-right { height: 400px; }
+          .as-banner {
+            grid-template-columns: 1fr;
+            height: auto;
+            border-radius: 12px 12px 0 0;
+          }
+          .as-banner-right { display: none; }           /* hide desktop columns */
+          .as-mobile-img-section { display: block; }    /* show mobile strip */
         }
 
         @media (max-width: 960px) {
@@ -242,7 +324,8 @@ export default function AboutSection() {
 
         @media (max-width: 560px) {
           .as-feat-grid { grid-template-columns: 1fr; }
-          .as-banner-left { padding: 40px 20px; }
+          .as-banner-left { padding: 36px 20px; }
+          .as-scroll-img { width: 160px; height: 110px; }
         }
       `}</style>
 
@@ -264,7 +347,7 @@ export default function AboutSection() {
           </div>
         </div>
 
-        {/* Parallax Banner */}
+        {/* ── BANNER ── */}
         <div className="as-banner">
           <div className="as-banner-left">
             <h3 className="as-banner-heading">
@@ -280,6 +363,7 @@ export default function AboutSection() {
             </div>
           </div>
 
+          {/* Desktop: two parallax columns */}
           <div className="as-banner-right">
             <div className="as-img-col" ref={colARef}>
               {colA.map((src, i) => (
@@ -297,6 +381,19 @@ export default function AboutSection() {
             </div>
           </div>
         </div>
+
+        <div className="as-mobile-img-section">
+          <div className="as-scroll-viewport">
+            <div className="as-scroll-strip" ref={scrollStripRef}>
+              {[...allImgs, ...allImgs].map((src, i) => (
+                <div className="as-scroll-img" key={i}>
+                  <img src={src?.src || src} alt="Bike" loading="lazy" />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
   );

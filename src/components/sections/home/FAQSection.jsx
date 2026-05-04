@@ -113,7 +113,6 @@ const FAQSection = () => {
           font-size: 14px;
           font-weight: 500;
           padding: 13px 24px;
-          border-radius: 8px;
           text-decoration: none;
           border: none;
           cursor: pointer;

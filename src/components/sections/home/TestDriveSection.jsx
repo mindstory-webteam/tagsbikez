@@ -75,7 +75,6 @@ export default function TestDriveSection() {
               fontSize: 15,
               fontWeight: 700,
               cursor: "pointer",
-              borderRadius: 4,
               letterSpacing: 0.3,
               transition: "background 0.3s, transform 0.2s",
             }}

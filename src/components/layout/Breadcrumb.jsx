@@ -12,7 +12,6 @@ const Breadcrumb = () => {
   const pathSegments = pathname.split('/').filter(s => s);
   const pageName = pathSegments[pathSegments.length - 1]?.replace(/-/g, ' ') || 'Page';
 
-  // Find a suitable background image
   const bgImage = img.bulletimg?.src || img.bulletimg;
 
   return (

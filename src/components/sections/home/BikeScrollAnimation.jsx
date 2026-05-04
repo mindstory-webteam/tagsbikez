@@ -90,35 +90,46 @@ export default function BikeScrollAnimation() {
   }, [])
 
   return (
-    <section ref={sectionRef} style={{ position: 'relative', height: '500vh' }}>
-      <div
-        style={{
-          position: 'sticky',
-          top: 0,
-          height: '100vh',
-          overflow: 'hidden',
-          background: '#000',
-        }}
+    <>
+      <style>{`
+        @media (max-width: 768px) {
+          .bike-scroll-section { display: none !important; }
+        }
+      `}</style>
+      <section
+        ref={sectionRef}
+        className="bike-scroll-section"
+        style={{ position: 'relative', height: '500vh' }}
       >
-        <canvas
-          ref={canvasRef}
-          style={{
-            position: 'absolute',
-            inset: 0,
-            width: '100%',
-            height: '100%',
-            display: 'block',
-          }}
-        />
         <div
           style={{
-            position: 'absolute',
-            inset: 0,
-            background: 'linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, transparent 30%, rgba(0,0,0,0.1) 65%, rgba(0,0,0,0.65) 100%)',
-            pointerEvents: 'none',
+            position: 'sticky',
+            top: 0,
+            height: '100vh',
+            overflow: 'hidden',
+            background: '#000',
           }}
-        />
-      </div>
-    </section>
+        >
+          <canvas
+            ref={canvasRef}
+            style={{
+              position: 'absolute',
+              inset: 0,
+              width: '100%',
+              height: '100%',
+              display: 'block',
+            }}
+          />
+          <div
+            style={{
+              position: 'absolute',
+              inset: 0,
+              background: 'linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, transparent 30%, rgba(0,0,0,0.1) 65%, rgba(0,0,0,0.65) 100%)',
+              pointerEvents: 'none',
+            }}
+          />
+        </div>
+      </section>
+    </>
   )
 }

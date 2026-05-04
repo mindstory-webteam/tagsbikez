@@ -202,7 +202,7 @@ export default function Navbar() {
         <div className="mobile-cta">
           <button style={{
             border: "none", color: "#000",
-            padding: "13px", borderRadius: 10,
+            padding: "13px", 
             fontSize: 14, fontWeight: 700,
             cursor: "pointer", width: "100%",
           }}>Book Now</button>

@@ -41,18 +41,15 @@ const CARD_WIDTH = 300;
 export default function BikeSectionSwiper2() {
   const [activeTab, setActiveTab] = useState("All");
   const trackRef = useRef(null);
-  const autoRef = useRef(null);
   const isDragging = useRef(false);
   const startX = useRef(0);
   const savedScroll = useRef(0);
   const animFrameRef = useRef(null);
 
   const items = bikes[activeTab] || [];
-  // Repeat enough times so scroll never runs out — 6x for safety
   const loopedItems = [...items, ...items, ...items, ...items, ...items, ...items];
   const singleSetWidth = items.length * CARD_WIDTH;
 
-  // ── Auto scroll via requestAnimationFrame (smoother than setInterval) ──
   const startAuto = () => {
     stopAuto();
     let last = null;
@@ -61,7 +58,6 @@ export default function BikeSectionSwiper2() {
         const el = trackRef.current;
         if (el) {
           el.scrollLeft += 1.0;
-          // Reset to start of second set to loop seamlessly
           if (el.scrollLeft >= singleSetWidth * 3) {
             el.scrollLeft -= singleSetWidth * 2;
           }
@@ -79,15 +75,11 @@ export default function BikeSectionSwiper2() {
 
   useEffect(() => {
     const el = trackRef.current;
-    if (el) {
-      // Start at second set so we can loop both directions
-      el.scrollLeft = singleSetWidth * 2;
-    }
+    if (el) el.scrollLeft = singleSetWidth * 2;
     startAuto();
     return () => stopAuto();
   }, [activeTab]);
 
-  // ── Drag scroll ──
   const onMouseDown = (e) => {
     isDragging.current = true;
     startX.current = e.pageX - trackRef.current.offsetLeft;
@@ -102,8 +94,6 @@ export default function BikeSectionSwiper2() {
     const walk = x - startX.current;
     const el = trackRef.current;
     el.scrollLeft = savedScroll.current - walk;
-
-    // Loop check while dragging
     if (el.scrollLeft >= singleSetWidth * 4) el.scrollLeft -= singleSetWidth * 2;
     if (el.scrollLeft <= singleSetWidth) el.scrollLeft += singleSetWidth * 2;
   };
@@ -114,7 +104,6 @@ export default function BikeSectionSwiper2() {
     startAuto();
   };
 
-  // ── Touch ──
   const onTouchStart = () => stopAuto();
   const onTouchMove = () => {
     const el = trackRef.current;
@@ -164,6 +153,7 @@ export default function BikeSectionSwiper2() {
           border: 1px solid #ddd;
           overflow: hidden;
           width: fit-content;
+          flex-wrap: wrap;
         }
 
         .fv-tab {
@@ -176,6 +166,7 @@ export default function BikeSectionSwiper2() {
           background: #fff;
           color: #555;
           border-right: 1px solid #ddd;
+          border-bottom: 1px solid #ddd;
           transition: background 0.2s, color 0.2s;
           white-space: nowrap;
         }
@@ -261,7 +252,7 @@ export default function BikeSectionSwiper2() {
           margin-bottom: 12px;
         }
 
-        /* ── INFO ROW: 72% info | divider | 28% icons ── */
+        /* ── INFO ROW ── */
         .fv-card-info-row {
           display: flex;
           align-items: stretch;
@@ -301,13 +292,6 @@ export default function BikeSectionSwiper2() {
           font-weight: 500;
         }
 
-        .fv-card-vdivider {
-          width: 1px;
-          background: #e0e0e0;
-          flex-shrink: 0;
-          align-self: stretch;
-        }
-
         .fv-card-actions {
           flex: 1;
           display: flex;
@@ -336,18 +320,19 @@ export default function BikeSectionSwiper2() {
         .fv-icon-btn:hover svg path { stroke: #fff; }
         .fv-icon-btn svg path { stroke: #666; transition: stroke 0.15s; }
 
+        /* ── MOBILE ── */
         @media (max-width: 768px) {
           .fv-root { padding: 28px 0 36px; }
-          .fv-heading { padding: 0 20px; font-size: 18px; }
+          .fv-heading { padding: 0 20px; font-size: 28px; }
           .fv-top-row { padding: 0 20px; margin-bottom: 20px; }
-          .fv-tab { padding: 9px 16px; font-size: 12px; }
+          .fv-tab { padding: 7px 12px; font-size: 11px; }
         }
       `}</style>
 
       {/* Heading */}
       <h2 className="fv-heading">Our Models</h2>
 
-      {/* Tabs — with bottom gap before cards */}
+      {/* Tabs */}
       <div className="fv-top-row">
         <div className="fv-tabs">
           {categories.map((tab) => (
@@ -381,7 +366,6 @@ export default function BikeSectionSwiper2() {
           {loopedItems.map((bike, i) => (
             <div className="fv-card" key={`${bike.id}-${i}`}>
 
-              {/* Image */}
               <div className="fv-card-img-wrap">
                 <Image
                   src={bike.heroImg}
@@ -394,10 +378,8 @@ export default function BikeSectionSwiper2() {
                 />
               </div>
 
-              {/* Bottom border under image */}
               <div className="fv-card-img-border" />
 
-              {/* Info + divider + icons */}
               <div className="fv-card-info-row">
                 <div className="fv-card-info">
                   <p className="fv-card-name">{bike.name}</p>
@@ -405,17 +387,13 @@ export default function BikeSectionSwiper2() {
                   <p className="fv-card-price">{bike.price}</p>
                 </div>
 
-                {/* <div className="fv-card-vdivider" /> */}
-
                 <div className="fv-card-actions">
-                  {/* Mail */}
                   <button className="fv-icon-btn" aria-label="Enquire">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
                       <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
                       <path d="M22 6l-10 7L2 6" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </button>
-                  {/* Call */}
                   <button className="fv-icon-btn" aria-label="Call">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
                       <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.04 2.18 2 2 0 012.03 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
