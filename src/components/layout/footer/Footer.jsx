@@ -48,56 +48,26 @@ export default function Footer() {
       <style>{`
         .ft-wrap {
           border: 1px solid #222;
-          margin-top:60px;
+          margin-top: 60px;
           box-sizing: border-box;
         }
 
         /* ── Main 3-col row ── */
         .ft-main {
           display: grid;
-          
           grid-template-columns: 1fr 1fr 1fr;
         }
 
-        /* Each column */
         .ft-col {
           padding: 52px 36px;
           box-sizing: border-box;
         }
 
-        /* Vertical dividers between cols */
         .ft-col:not(:last-child) {
           border-right: 1px solid #222;
         }
 
-        /* ── Bottom bar ── */
-        .ft-bottom {
-          border-top: 1px solid #222;
-          display: grid;
-          grid-template-columns: 1fr 1fr 1fr;
-        }
-
-        .ft-bottom-cell {
-          padding: 18px 36px;
-          box-sizing: border-box;
-          display: flex;
-          align-items: center;
-        }
-
-        .ft-bottom-cell:not(:last-child) {
-          border-right: 1px solid #222;
-        }
-
         /* ── Logo ── */
-        .ft-logo {
-          font-size: 26px;
-          font-weight: 900;
-          letter-spacing: 0.06em;
-          color: #fff;
-          text-transform: uppercase;
-          margin: 0 0 14px 0;
-        }
-
         .ft-tagline {
           font-size: 12px;
           color: #555;
@@ -148,7 +118,6 @@ export default function Footer() {
           margin: 0 0 32px 0;
         }
 
-        /* ── Contact col ── */
         .ft-phone {
           font-size: 18px;
           font-weight: 600;
@@ -196,7 +165,38 @@ export default function Footer() {
           background: #f51b24;
         }
 
-        /* ── Bottom text ── */
+        .ft-redirect {
+          color: #f51b24;
+          font-size: 12px;
+          text-decoration: underline;
+          margin-top: 5px;
+          display: inline-block;
+          transition: opacity 0.2s;
+        }
+        .ft-redirect:hover { opacity: 0.8; }
+
+        /* ── Bottom bar ── */
+        .ft-bottom {
+          border-top: 1px solid #222;
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        .ft-bottom-cell {
+          padding: 16px 36px;
+          box-sizing: border-box;
+          display: flex;
+          align-items: center;
+        }
+
+        .ft-bottom-cell:not(:last-child) {
+          border-right: 1px solid #222;
+        }
+
+        .ft-bottom-dev {
+          justify-content: flex-end;
+        }
+
         .ft-bottom-link {
           font-size: 11px;
           color: #444;
@@ -214,26 +214,15 @@ export default function Footer() {
           letter-spacing: 0.03em;
         }
 
-        .ft-bottom-dev {
+        .ft-bottom-sep {
+          color: #333;
+          margin: 0 10px;
           font-size: 11px;
-          color: #444;
-          letter-spacing: 0.07em;
-          text-transform: uppercase;
-          justify-content: flex-end;
         }
 
-        .ft-redirect {
-           color: #f51b24;
-           font-size: 12px;
-           text-decoration: underline;
-           margin-top: 5px;
-           display: inline-block;
-           transition: opacity 0.2s;
-        }
-        .ft-redirect:hover { opacity: 0.8; }
-
+        /* ── Tablet ── */
         @media (max-width: 900px) {
-          .ft-main, .ft-bottom {
+          .ft-main {
             grid-template-columns: 1fr 1fr;
           }
           .ft-col:nth-child(2) { border-right: none; }
@@ -242,22 +231,51 @@ export default function Footer() {
             border-right: none;
             grid-column: 1 / -1;
           }
-          .ft-bottom-cell:last-child { border-right: none; }
+          .ft-bottom {
+            grid-template-columns: 1fr 1fr;
+          }
+          .ft-bottom-cell:last-child {
+            border-right: none;
+            grid-column: 1 / -1;
+            border-top: 1px solid #222;
+            justify-content: center;
+          }
         }
 
+        /* ── Mobile ── */
         @media (max-width: 600px) {
           footer { padding: 0 16px !important; }
-          .ft-main, .ft-bottom { grid-template-columns: 1fr; }
-          .ft-col { padding: 36px 24px; }
+
+          .ft-main { grid-template-columns: 1fr; }
+          .ft-col { padding: 32px 20px; }
           .ft-col:not(:last-child) {
             border-right: none;
             border-bottom: 1px solid #222;
           }
-          .ft-col:nth-child(3) { grid-column: unset; border-top: none; }
-          .ft-bottom-cell { padding: 14px 24px; }
+          .ft-col:nth-child(3) {
+            grid-column: unset;
+            border-top: none;
+          }
+
+          .ft-bottom {
+            grid-template-columns: 1fr;
+          }
+          .ft-bottom-cell {
+            padding: 13px 20px;
+            justify-content: center;
+            text-align: center;
+          }
           .ft-bottom-cell:not(:last-child) {
             border-right: none;
             border-bottom: 1px solid #222;
+          }
+          .ft-bottom-cell:last-child {
+            grid-column: unset;
+            border-top: none;
+            justify-content: center;
+          }
+          .ft-bottom-dev {
+            justify-content: center;
           }
         }
       `}</style>
@@ -286,34 +304,40 @@ export default function Footer() {
             </nav>
           </div>
 
-          {/* Col 2 — Address + docs */}
+          {/* Col 2 — Address */}
           <div className="ft-col">
             <p className="ft-label">Address:</p>
             <p className="ft-address">
-             ATTOKARANS TAGSBIKEZ Chiyyaram, Village, Kuriachira,
+              ATTOKARANS TAGSBIKEZ Chiyyaram, Village, Kuriachira,
               <br />
-               Thrissur, Kerala 680006
+              Thrissur, Kerala 680006
             </p>
-            <a href="https://share.google/9sW99PQ6cnIW0NHxz" target="_blank" rel="noopener noreferrer" className="ft-redirect">View on Map</a>
+            <a
+              href="https://share.google/9sW99PQ6cnIW0NHxz"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ft-redirect"
+            >
+              View on Map
+            </a>
 
-            <p className="ft-label" style={{ marginTop: '20px' }}>Service Center:</p>
+            <p className="ft-label" style={{ marginTop: "20px" }}>Service Center:</p>
             <p className="ft-address">
               TagsBikez,
               <br />
               Kuriachira, Thrissur
             </p>
             <p className="ft-hours">Mon–Sat: 09:00 to 18:00</p>
-
           </div>
 
-          {/* Col 3 — Phone + email + socials */}
+          {/* Col 3 — Contact + socials */}
           <div className="ft-col">
             <p className="ft-label">Phone:</p>
             <p className="ft-phone">+91 7594960023</p>
 
             <p className="ft-label">Email:</p>
-            <a href="mailto:info@tagsbikez.com" className="ft-email">
-               info.tags.tcr@gmail.com
+            <a href="mailto:info.tags.tcr@gmail.com" className="ft-email">
+              info.tags.tcr@gmail.com
             </a>
 
             <div className="ft-socials">
@@ -336,17 +360,18 @@ export default function Footer() {
         <div className="ft-bottom">
           <div className="ft-bottom-cell">
             <Link href="/privacy" className="ft-bottom-link">Privacy Policy</Link>
-          </div>
-          <div className="ft-bottom-cell">
+            <span className="ft-bottom-sep">·</span>
             <Link href="/terms" className="ft-bottom-link">Terms &amp; Conditions</Link>
           </div>
-          <div className="ft-bottom-cell ft-bottom-dev">
+          <div className="ft-bottom-cell" style={{ justifyContent: "center" }}>
             <span className="ft-bottom-copy">© 2024 Tagsbikez. All rights reserved.</span>
+          </div>
+          <div className="ft-bottom-cell ft-bottom-dev">
+            <span className="ft-bottom-copy">Crafted by MyndPixel.</span>
           </div>
         </div>
 
       </div>
-
     </footer>
   );
 }
