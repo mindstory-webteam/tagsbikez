@@ -290,9 +290,9 @@ export default function Footer() {
           <div className="ft-col">
             <p className="ft-label">Address:</p>
             <p className="ft-address">
-              TagsBikez,
+             ATTOKARANS TAGSBIKEZ Chiyyaram, Village, Kuriachira,
               <br />
-              Kuriachira, Thrissur
+               Thrissur, Kerala 680006
             </p>
             <a href="https://share.google/9sW99PQ6cnIW0NHxz" target="_blank" rel="noopener noreferrer" className="ft-redirect">View on Map</a>
 
@@ -309,11 +309,11 @@ export default function Footer() {
           {/* Col 3 — Phone + email + socials */}
           <div className="ft-col">
             <p className="ft-label">Phone:</p>
-            <p className="ft-phone">+91 98470 00000</p>
+            <p className="ft-phone">+91 7594960023</p>
 
             <p className="ft-label">Email:</p>
             <a href="mailto:info@tagsbikez.com" className="ft-email">
-              info@tagsbikez.com
+               info.tags.tcr@gmail.com
             </a>
 
             <div className="ft-socials">
