@@ -40,7 +40,7 @@ export default function TestDriveSection() {
       }}>
         {/* Heading */}
         <h2 style={{
-          fontSize: "clamp(28px, 4.5vw, 52px)",
+          fontSize: "42px",
           color: "#fff",
           lineHeight: 1.15,
           margin: "0 0 16px 0",

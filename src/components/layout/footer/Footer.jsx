@@ -364,10 +364,10 @@ export default function Footer() {
             <Link href="/terms" className="ft-bottom-link">Terms &amp; Conditions</Link>
           </div>
           <div className="ft-bottom-cell" style={{ justifyContent: "center" }}>
-            <span className="ft-bottom-copy">© 2024 Tagsbikez. All rights reserved.</span>
+            <span className="ft-bottom-copy">© 2024 <spam className="text-red-500">Tagsbikez.</spam> All rights reserved.</span>
           </div>
           <div className="ft-bottom-cell ft-bottom-dev">
-            <span className="ft-bottom-copy">Crafted by MyndPixel.</span>
+            <span className="ft-bottom-copy">Crafted by <spam className="text-[#95257b]">MyndPixel.</spam></span>
           </div>
         </div>
 

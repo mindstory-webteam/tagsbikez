@@ -170,7 +170,7 @@ export default function Navbar() {
             padding: "8px 20px",
             fontSize: 13, fontWeight: 700,
             cursor: "pointer",
-          }}>Book Now</button>
+          }}>GET A QUOTE</button>
         </div>
 
         {/* Hamburger */}
@@ -204,7 +204,7 @@ export default function Navbar() {
             padding: "13px", 
             fontSize: 14, fontWeight: 700,
             cursor: "pointer", width: "100%",
-          }}>Book Now</button>
+          }}>GET A QUOTE</button>
         </div>
       </div>
     </>

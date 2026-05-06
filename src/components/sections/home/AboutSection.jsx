@@ -197,8 +197,8 @@ export default function AboutSection() {
         }
 
         .as-banner-heading {
-          font-size: clamp(32px, 3.5vw, 48px);
-          font-weight: 900;
+          font-size: 42px;
+          font-weight: 400;
           text-transform: uppercase;
           color: #fff;
           line-height: 1.1;
@@ -314,8 +314,8 @@ export default function AboutSection() {
             height: auto;
             border-radius: 12px 12px 0 0;
           }
-          .as-banner-right { display: none; }           /* hide desktop columns */
-          .as-mobile-img-section { display: block; }    /* show mobile strip */
+          .as-banner-right { display: none; }           
+          .as-mobile-img-section { display: block; }   
         }
 
         @media (max-width: 960px) {
@@ -351,7 +351,7 @@ export default function AboutSection() {
         <div className="as-banner">
           <div className="as-banner-left">
             <h3 className="as-banner-heading">
-              Your Trusted<br />Royal Enfield<br />Showroom.
+              Your Trusted Royal Enfield<br />Showroom.
             </h3>
             <p className="as-banner-sub">
               TagsBikez is Thrissur's authorised Royal Enfield dealership offering the full 2024–25 lineup and expert servicing.

@@ -87,7 +87,7 @@ const SocialFeed = () => {
         }
 
         .sf-heading {
-          font-size: clamp(24px, 3vw, 36px);
+          font-size: 42px;
           font-weight: 700;
           color: #111;
           margin: 0;

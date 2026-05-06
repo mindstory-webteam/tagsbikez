@@ -94,11 +94,11 @@ export default function WhatWeDoSection() {
         }
 
         .wwd-heading {
-          font-size: clamp(36px, 3vw, 52px);
+          font-size:42px;
           line-height: 1.15;
           max-width: 480px;
           color: #000000;
-          font-weight: 700;
+          font-weight: 400;
           margin: 0 0 56px 0;
         }
 

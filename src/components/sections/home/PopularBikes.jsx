@@ -188,10 +188,10 @@ export default function PopularBikes() {
         }
 
         .heading {
-          font-size: clamp(36px, 3vw, 52px);
+          font-size: 42px;
           line-height: 1.0;
           color: #1a1a1a;
-          text-transform: uppercase;
+          font-weight: 400;
           margin: 0 0 14px;
           letter-spacing: -0.01em;
         }
@@ -392,7 +392,7 @@ export default function PopularBikes() {
 
           .m-heading {
             font-size: 22px;
-            font-weight: 800;
+            font-weight: 400;
             line-height: 1.08;
             color: #1a1a1a;
             text-transform: uppercase;

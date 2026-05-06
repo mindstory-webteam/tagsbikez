@@ -81,8 +81,8 @@ const FAQSection = () => {
         }
 
         .faq-heading {
-          font-size: clamp(28px, 3.5vw, 44px);
-          font-weight: 700;
+          font-size: 42px;
+          font-weight: 400;
           color: #111;
           line-height: 1.15;
           margin: 0 0 20px;
