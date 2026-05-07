@@ -239,8 +239,9 @@ const FAQSection = () => {
               We're here to make your rental experience easy and enjoyable. Browse through our most common questions to get started with confidence.
             </p>
             <button className="faq-contact-btn">
+              <a href="/contact"  >
               Contact Us
-
+              </a>
             </button>
           </div>
 

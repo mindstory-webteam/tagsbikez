@@ -170,7 +170,11 @@ export default function Navbar() {
             padding: "8px 20px",
             fontSize: 13, fontWeight: 700,
             cursor: "pointer",
-          }}>GET A QUOTE</button>
+          }}>
+            <a href="/contact">
+              GET A QUOTE
+            </a>
+          </button>
         </div>
 
         {/* Hamburger */}
@@ -201,10 +205,12 @@ export default function Navbar() {
         <div className="mobile-cta">
           <button style={{
             border: "none", color: "#000",
-            padding: "13px", 
+            padding: "13px",
             fontSize: 14, fontWeight: 700,
             cursor: "pointer", width: "100%",
-          }}>GET A QUOTE</button>
+          }}> <a href="/contact">
+              GET A QUOTE
+            </a></button>
         </div>
       </div>
     </>
