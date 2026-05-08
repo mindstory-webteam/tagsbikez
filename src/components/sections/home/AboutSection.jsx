@@ -110,7 +110,7 @@ export default function AboutSection() {
           box-sizing: border-box;
         }
 
-        /* ── FEATURES GRID ── */
+        /*  FEATURES GRID  */
         .as-features {
           width: 100%;
           margin-bottom: 80px;
@@ -179,7 +179,7 @@ export default function AboutSection() {
           margin: 0;
         }
 
-        /* ── BANNER ── */
+        /*  BANNER  */
         .as-banner {
           background: #1a1a1a;
           border-radius: 12px;
@@ -226,7 +226,7 @@ export default function AboutSection() {
           color: #fff;
         }
 
-        /* ── DESKTOP image columns ── */
+        /*  DESKTOP image columns  */
         .as-banner-right {
           display: grid;
           grid-template-columns: 1fr 1fr;
@@ -257,7 +257,7 @@ export default function AboutSection() {
           display: block;
         }
 
-        /* ── MOBILE horizontal scroll strip ── */
+        /*  MOBILE horizontal scroll strip  */
         .as-mobile-img-section {
           display: none;
           background: #111;
@@ -307,7 +307,7 @@ export default function AboutSection() {
         .as-scroll-viewport::before { left: 0; background: linear-gradient(to right, #111, transparent); }
         .as-scroll-viewport::after  { right: 0; background: linear-gradient(to left,  #111, transparent); }
 
-        /* ── BREAKPOINTS ── */
+        /*  BREAKPOINTS  */
         @media (max-width: 1100px) {
           .as-banner {
             grid-template-columns: 1fr;
@@ -347,7 +347,7 @@ export default function AboutSection() {
           </div>
         </div>
 
-        {/* ── BANNER ── */}
+        {/*  BANNER  */}
         <div className="as-banner">
           <div className="as-banner-left">
             <h3 className="as-banner-heading">

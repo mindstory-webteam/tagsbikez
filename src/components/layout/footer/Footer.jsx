@@ -312,14 +312,6 @@ export default function Footer() {
               <br />
               Thrissur, Kerala 680006
             </p>
-            <a
-              href="https://share.google/9sW99PQ6cnIW0NHxz"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="ft-redirect"
-            >
-              View on Map
-            </a>
 
             <p className="ft-label" style={{ marginTop: "20px" }}>Service Center:</p>
             <p className="ft-address">
@@ -328,6 +320,14 @@ export default function Footer() {
               Kuriachira, Thrissur
             </p>
             <p className="ft-hours">Mon–Sat: 09:00 to 18:00</p>
+            <a
+              href="https://share.google/9sW99PQ6cnIW0NHxz"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ft-redirect"
+            >
+              View on Map
+            </a>
           </div>
 
           {/* Col 3 — Contact + socials */}
@@ -368,7 +368,7 @@ export default function Footer() {
           </div>
           <div className="ft-bottom-cell ft-bottom-dev">
             <a href="https://mpxcode.com/">
-            <span className="ft-bottom-copy">Crafted by <spam className="text-[#95257b]">MyndPixel.</spam></span>
+              <span className="ft-bottom-copy">Crafted by <spam className="text-[#95257b]">MyndPixel.</spam></span>
             </a>
           </div>
         </div>
