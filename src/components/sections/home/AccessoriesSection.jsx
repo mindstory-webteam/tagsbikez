@@ -67,9 +67,7 @@ const AccessoriesSection = () => {
           background: #fff;
         }
 
-        .acc-card:hover {
-          background: #f9f9f9;
-        }
+      
 
         .acc-img-wrap {
           width: 100%;

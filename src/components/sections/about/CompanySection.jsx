@@ -41,9 +41,6 @@ const CompanySection = () => {
         .cp-content-side {
           display: flex;
           flex-direction: column;
-          border-top: 1px solid #e0e0e0;
-          border-left: 1px solid #e0e0e0;
-          border-right: 1px solid #e0e0e0;
         }
 
         .cp-text-wrap {
@@ -78,20 +75,18 @@ const CompanySection = () => {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
           background: #fff;
+          border-left: 1px solid #e0e0e0;
         }
 
         .cp-stat-item {
           padding: 32px 20px;
+          border-right: 1px solid #e0e0e0;
           border-bottom: 1px solid #e0e0e0;
           display: flex;
           flex-direction: column;
           align-items: center;
           text-align: center;
           transition: background 0.3s ease;
-        }
-
-        .cp-stat-item:not(:last-child) {
-          border-right: 1px solid #e0e0e0;
         }
 
         .cp-stat-item:hover {
@@ -145,19 +140,15 @@ const CompanySection = () => {
           .cp-stats-grid {
             grid-template-columns: 1fr;
           }
-          .cp-stat-item:not(:last-child) {
-            border-right: none;
-            border-bottom: 1px solid #e0e0e0;
-          }
         }
       `}</style>
 
       <div className="cp-inner">
         <div className="cp-flex-container">
           <div className="cp-img-side">
-            <Image 
-              src={img.banner1} 
-              alt="TagsBikez Showroom" 
+            <Image
+              src={img.banner1}
+              alt="TagsBikez Showroom"
               fill
               priority
               sizes="(max-width: 1100px) 100vw, 50vw"
