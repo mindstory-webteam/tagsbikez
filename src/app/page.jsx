@@ -10,6 +10,7 @@ import WhatWeDoSection from '@/components/sections/home/whatwedo'
 import SocialFeed from '@/components/sections/home/SocialFeed'
 import React from 'react'
 import UpcomingEvents from '@/components/sections/home/Event'
+import AccessoriesSection from '@/components/sections/home/AccessoriesSection'
 
 const Home = () => {
   return (
@@ -22,6 +23,7 @@ const Home = () => {
       <WhatWeDoSection/>
       <AboutSection/>
       <UpcomingEvents/>
+      <AccessoriesSection/>
       <FAQSection/>
       <TestDriveSection/>
       <SocialFeed />

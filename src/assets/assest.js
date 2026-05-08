@@ -8,6 +8,10 @@ import bullethandlebar from './bullethandlebar.webp'
 import bullet350engine from './bullet350engine.jpg'
 import bulletback from './bulletback.jpg'
 import bulletfront from './bulletfront.webp'
+import accessories from './accessories.png'
+import parts from './parts.png'
+import gear from './gear.png'
+
 
 import Himalayan from './homeaboutsection/Himalayan.jpg'
 import Himalayan2 from './homeaboutsection/Himalayan2.jpg'
@@ -49,5 +53,9 @@ export const img = {
   bulletfront,
   banner1,
   banner2,
-  banner3
+  banner3,
+  accessories,
+  parts,
+  gear
+
 }

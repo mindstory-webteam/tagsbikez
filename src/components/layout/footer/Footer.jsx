@@ -367,7 +367,9 @@ export default function Footer() {
             <span className="ft-bottom-copy">© 2024 <spam className="text-red-500">Tagsbikez.</spam> All rights reserved.</span>
           </div>
           <div className="ft-bottom-cell ft-bottom-dev">
+            <a href="https://mpxcode.com/">
             <span className="ft-bottom-copy">Crafted by <spam className="text-[#95257b]">MyndPixel.</spam></span>
+            </a>
           </div>
         </div>
 

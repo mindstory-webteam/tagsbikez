@@ -115,7 +115,6 @@ export default function UpcomingEvents() {
   const canPrev = page > 0;
   const canNext = page < totalPages - 1;
 
-  // Recalculate cardsPerPage on resize; clamp page so it stays valid
   const handleResize = useCallback(() => {
     const w = outerRef.current?.offsetWidth ?? window.innerWidth;
     const cpp = getCardsPerPage(w);
@@ -132,8 +131,6 @@ export default function UpcomingEvents() {
     return () => window.removeEventListener("resize", handleResize);
   }, [handleResize]);
 
-  // translateX shift: each "page" = cardsPerPage cards = (100% / cardsPerPage * cardsPerPage) = 100% of the outer
-  // Since each card is (100% / cardsPerPage) of the outer, one page = outer width = 100%
   const shift = page * 100;
 
   return (
@@ -141,7 +138,7 @@ export default function UpcomingEvents() {
       <style>{`
         .ev-section {
           background: #fff;
-          padding: 0 0 80px 0;
+          padding: 0 0 0px 0;
         }
 
         .ev-inner {
@@ -306,7 +303,6 @@ export default function UpcomingEvents() {
           -webkit-user-drag: none;
         }
 
-        .ev-card:hover .ev-img { transform: scale(1.04); }
 
         .ev-actions {
           display: flex;
