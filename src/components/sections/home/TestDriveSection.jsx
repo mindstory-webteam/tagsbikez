@@ -64,25 +64,25 @@ export default function TestDriveSection() {
         {/* CTA Button */}
         <div>
           <a href="https://wa.me/917594960020?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Royal%20Enfield.">
-          <button
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 10,
-              background: "#f51b24",
-              border: "none",
-              color: "#fff",
-              padding: "14px 28px",
-              fontSize: 15,
-              fontWeight: 700,
-              cursor: "pointer",
-              letterSpacing: 0.3,
-              transition: "background 0.3s, transform 0.2s",
-            }}
+            <button
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 10,
+                background: "#f51b24",
+                border: "none",
+                color: "#fff",
+                padding: "14px 28px",
+                fontSize: 15,
+                fontWeight: 700,
+                cursor: "pointer",
+                letterSpacing: 0.3,
+                transition: "background 0.3s, transform 0.2s",
+              }}
             >
-            Book a Ride
-          </button>
-            </a>
+              Book a Ride
+            </button>
+          </a>
         </div>
       </div>
     </section>

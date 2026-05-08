@@ -705,12 +705,12 @@ export default function PopularBikes() {
             <div className="m-bottom">
               <div className="m-bottom-cell">
                 <a href="/models">
-                <button className="m-cta-btn">Know More</button>
+                  <button className="m-cta-btn">Know More</button>
                 </a>
               </div>
               <div className="m-bottom-cell">
                 <a href="https://wa.me/917594960023?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Royal%20Enfield.">
-                <button className="m-cta-ghost">Test Ride</button>
+                  <button className="m-cta-ghost">Test Ride</button>
                 </a>
               </div>
               <div className="m-dots-cell">
