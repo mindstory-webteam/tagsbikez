@@ -58,7 +58,7 @@ export default function WhatWeDoSection() {
         },
       });
 
-      tl.to(section, { backgroundColor: "#111111", duration: 0.8, ease: "power2.inOut" }, 0);
+      tl.to(section, { backgroundColor: "#1a1a1a", duration: 0.8, ease: "power2.inOut" }, 0);
       tl.to(heading, { color: "#ffffff", duration: 0.8, ease: "power2.inOut" }, 0);
       tl.to(gridWrap, { borderTopColor: "#2a2a2a", borderLeftColor: "#2a2a2a", duration: 0.8, ease: "power2.inOut" }, 0);
       tl.to(cardBorderEls, { borderRightColor: "#2a2a2a", borderBottomColor: "#2a2a2a", duration: 0.8, ease: "power2.inOut" }, 0);

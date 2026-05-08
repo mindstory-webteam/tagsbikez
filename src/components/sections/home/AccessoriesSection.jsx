@@ -1,7 +1,11 @@
 "use client";
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { img } from "@/assets/assest";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const categories = [
   {
@@ -28,8 +32,54 @@ const categories = [
 ];
 
 const AccessoriesSection = () => {
+  const sectionRef = useRef(null);
+  const gridRef = useRef(null);
+  const cardRefs = useRef([]);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    const grid = gridRef.current;
+    const cards = cardRefs.current;
+
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: "top 60%",
+          end: "bottom 40%",
+          toggleActions: "play reverse play reverse",
+        },
+      });
+
+      tl.to(grid, { 
+        borderTopColor: "#2a2a2a", 
+        borderLeftColor: "#2a2a2a", 
+        duration: 0.8, 
+        ease: "power2.inOut" 
+      }, 0);
+
+      tl.to(cards, { 
+        backgroundColor: "#1a1a1a", 
+        borderRightColor: "#2a2a2a",
+        borderBottomColor: "#2a2a2a",
+        duration: 0.8, 
+        ease: "power2.inOut" 
+      }, 0);
+
+      cards.forEach((card) => {
+        if (!card) return;
+        const title = card.querySelector(".acc-title");
+        const desc = card.querySelector(".acc-desc");
+        tl.to(title, { color: "#ffffff", duration: 0.8, ease: "power2.inOut" }, 0);
+        tl.to(desc, { color: "rgba(255,255,255,0.6)", duration: 0.8, ease: "power2.inOut" }, 0);
+      });
+    }, section);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="acc-section">
+    <section ref={sectionRef} className="acc-section">
       <style>{`
         .acc-section {
           background: #fff;
@@ -169,9 +219,13 @@ const AccessoriesSection = () => {
       <div className="acc-inner">
         <h2 className="acc-heading">Essentials & Gear</h2>
 
-        <div className="acc-grid">
-          {categories.map((cat) => (
-            <div key={cat.id} className="acc-card">
+        <div ref={gridRef} className="acc-grid">
+          {categories.map((cat, i) => (
+            <div 
+              key={cat.id} 
+              className="acc-card"
+              ref={(el) => (cardRefs.current[i] = el)}
+            >
               <div className="acc-img-wrap">
                 <Image 
                   src={cat.image} 

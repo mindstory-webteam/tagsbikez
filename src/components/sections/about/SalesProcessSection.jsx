@@ -1,11 +1,57 @@
 "use client";
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { img } from '@/assets/assest';
 import { Bike, Gauge, FileText, Trophy } from 'lucide-react';
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const SalesProcessSection = () => {
-  const steps = [
+  const sectionRef = useRef(null);
+  const headingRef = useRef(null);
+  const stepRefs = useRef([]);
+  const contentSideRef = useRef(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    const heading = headingRef.current;
+    const steps = stepRefs.current;
+    const contentSide = contentSideRef.current;
+
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: "top 60%",
+          end: "bottom 40%",
+          toggleActions: "play reverse play reverse",
+        },
+      });
+
+      tl.to(heading, { color: "#ffffff", duration: 0.8, ease: "power2.inOut" }, 0);
+      tl.to(contentSide, { 
+        borderColor: "#2a2a2a", 
+        backgroundColor: "#1a1a1a",
+        duration: 0.8, 
+        ease: "power2.inOut" 
+      }, 0);
+
+      steps.forEach((step) => {
+        if (!step) return;
+        const h4 = step.querySelector("h4");
+        const p = step.querySelector("p");
+        tl.to(step, { borderColor: "#2a2a2a", duration: 0.8, ease: "power2.inOut" }, 0);
+        tl.to(h4, { color: "#ffffff", duration: 0.8, ease: "power2.inOut" }, 0);
+        tl.to(p, { color: "rgba(255,255,255,0.6)", duration: 0.8, ease: "power2.inOut" }, 0);
+      });
+    }, section);
+
+    return () => ctx.revert();
+  }, []);
+
+  const stepsData = [
     {
       title: "Choose Your Ride",
       desc: "Explore our wide range of Royal Enfield models and find the one that speaks to your soul.",
@@ -29,7 +75,7 @@ const SalesProcessSection = () => {
   ];
 
   return (
-    <section className="sp-section">
+      <section ref={sectionRef} className="sp-section">
       <style>{`
         .sp-section {
           background: #fff;
@@ -92,10 +138,7 @@ const SalesProcessSection = () => {
           border-right: 1px solid #e0e0e0;
         }
 
-        .sp-step-box:hover {
-          background: #fafafa;
-        }
-
+    
         .sp-step-icon {
           color: #f51b24;
           display: flex;
@@ -167,17 +210,20 @@ const SalesProcessSection = () => {
 
       <div className="sp-inner">
         <div className="sp-flex-container">
-          {/* Left Side: Content & Steps Grid */}
-          <div className="sp-content-side">
+          <div ref={contentSideRef} className="sp-content-side">
             <div className="sp-header-wrap">
-              <h2 className="sp-heading">
+              <h2 ref={headingRef} className="sp-heading">
                 How We Get You on Your Dream.
               </h2>
             </div>
 
             <div className="sp-steps-grid">
-              {steps.map((step, index) => (
-                <div className="sp-step-box" key={index}>
+              {stepsData.map((step, index) => (
+                <div 
+                  className="sp-step-box" 
+                  key={index}
+                  ref={(el) => (stepRefs.current[index] = el)}
+                >
                   <div className="sp-step-icon">
                     {step.icon}
                   </div>
