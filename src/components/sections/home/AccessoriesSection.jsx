@@ -13,21 +13,21 @@ const categories = [
     title: "Motorcycle Accessories",
     description: "Enhance your ride with our range of precision-engineered genuine accessories built for performance and style.",
     image: img.accessories,
-    link: "https://wa.me/91XXXXXXXXXX?text=I'm%20interested%20in%20Royal%20Enfield%20Spare%20Parts"
+    link: "https://wa.me/917594960023?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Royal%20Enfield."
   },
   {
     id: "parts",
     title: "Lifestyle Apparels",
     description: "Keep your machine running like new with authentic spare parts designed specifically for your motorcycle.",
     image: img.parts,
-    link: "https://wa.me/91XXXXXXXXXX?text=I'm%20interested%20in%20Royal%20Enfield%20Accessories"
+    link: "https://wa.me/917594960023?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Royal%20Enfield."
   },
   {
     id: "gear",
     title: "Riding Gear",
     description: "Stay safe and look sharp with our collection of premium riding jackets, helmets, and protective equipment.",
     image: img.gear,
-    link: "https://wa.me/91XXXXXXXXXX?text=I'm%20interested%20in%20Royal%20Enfield%20Riding%20Gear"
+    link: "https://wa.me/917594960023?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Royal%20Enfield."
   }
 ];
 

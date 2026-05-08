@@ -1,11 +1,48 @@
 "use client";
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { img } from '@/assets/assest';
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const CompanySection = () => {
+  const sectionRef = useRef(null);
+  const showroomRef = useRef(null);
+  const serviceRef = useRef(null);
+  const legacyRef = useRef(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    
+    const animateCounter = (ref, target) => {
+      const obj = { val: 0 };
+      gsap.to(obj, {
+        val: target,
+        duration: 2,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: section,
+          start: "top 80%",
+        },
+        onUpdate: () => {
+          if (ref.current) ref.current.innerText = Math.ceil(obj.val);
+        }
+      });
+    };
+
+    const ctx = gsap.context(() => {
+      animateCounter(showroomRef, 4);
+      animateCounter(serviceRef, 6);
+      animateCounter(legacyRef, 35);
+    }, section);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="cp-section">
+    <section ref={sectionRef} className="cp-section">
       <style>{`
         .cp-section {
           background: #fff;
@@ -161,22 +198,21 @@ const CompanySection = () => {
                 The Ultimate <span>Royal Enfield</span> Experience in Thrissur.
               </h2>
               <p className="cp-desc">
-                TagsBikez has been a beacon for motorcycle enthusiasts in Thrissur, Kerala. As an authorized Royal Enfield dealership, we don't just sell bikes; we build a community of riders who share a passion for the legendary engine.
-              </p>
+Tags Bikez was born from decades of entrepreneurial heritage and a shared belief that every motorcycle journey deserves a partner you can trust. From a single showroom in Thrissur to a multi-branch group spanning Central Kerala, we have grown alongside every rider we serve.              </p>
             </div>
 
             <div className="cp-stats-grid">
               <div className="cp-stat-item">
-                <h4>15<span>+</span></h4>
-                <p>Years Excellence</p>
+                <h4><span ref={showroomRef}>0</span><span>+</span></h4>
+                <p>Showroom locations</p>
               </div>
               <div className="cp-stat-item">
-                <h4>10k<span>+</span></h4>
-                <p>Happy Riders</p>
+                <h4><span ref={serviceRef}>0</span><span>+</span></h4>
+                <p>Service centres</p>
               </div>
               <div className="cp-stat-item">
-                <h4>100<span>%</span></h4>
-                <p>Genuine Service</p>
+                <h4><span ref={legacyRef}>0</span><span>+</span></h4>
+                <p>Years family business legacy</p>
               </div>
             </div>
           </div>

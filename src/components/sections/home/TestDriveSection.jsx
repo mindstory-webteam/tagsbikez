@@ -63,6 +63,7 @@ export default function TestDriveSection() {
 
         {/* CTA Button */}
         <div>
+          <a href="https://wa.me/917594960020?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Royal%20Enfield.">
           <button
             style={{
               display: "inline-flex",
@@ -78,17 +79,10 @@ export default function TestDriveSection() {
               letterSpacing: 0.3,
               transition: "background 0.3s, transform 0.2s",
             }}
-            onMouseEnter={e => {
-              e.currentTarget.style.background = "#d0151d";
-              e.currentTarget.style.transform = "translateY(-1px)";
-            }}
-            onMouseLeave={e => {
-              e.currentTarget.style.background = "#f51b24";
-              e.currentTarget.style.transform = "translateY(0)";
-            }}
-          >
+            >
             Book a Ride
           </button>
+            </a>
         </div>
       </div>
     </section>
