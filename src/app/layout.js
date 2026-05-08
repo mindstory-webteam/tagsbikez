@@ -4,6 +4,8 @@ import LenisProvider from "@/components/providers/LenisProvider";
 import Navbar from "@/components/layout/header/Navbar";
 import Footer from "@/components/layout/footer/Footer";
 import Breadcrumb from "@/components/layout/Breadcrumb";
+import FloatingActionButton from "@/components/layout/FloatingActionButton";
+
 
 const oswald = Oswald({
   variable: "--font-oswald",
@@ -34,7 +36,9 @@ export default function RootLayout({ children }) {
           <Breadcrumb />
           <main className="flex-grow">{children}</main>
           <Footer />
+          <FloatingActionButton />
         </LenisProvider>
+
       </body>
     </html>
   );

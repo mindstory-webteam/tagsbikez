@@ -18,7 +18,6 @@ const reels = [
   "https://www.instagram.com/reel/DXtw1XeT9vS/",
   "https://www.instagram.com/reel/DXEnETFhjl9/",
   "https://www.instagram.com/reel/DW86ZWKgYGO/",
-  "https://www.instagram.com/reel/DQEkHByEyWq/",
   "https://www.instagram.com/reel/DQWklAik04g/",
   "https://www.instagram.com/reel/C4GDnzwhD_s/",
 ];

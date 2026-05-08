@@ -30,6 +30,8 @@ import shotgun650 from './models/shotgun-650.webp'
 
 
 
+import about_bike from './about_bike.png'
+
 export const img = {
   bullet350, 
   classic350,
@@ -56,6 +58,6 @@ export const img = {
   banner3,
   accessories,
   parts,
-  gear
-
+  gear,
+  about_bike
 }

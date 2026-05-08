@@ -33,12 +33,12 @@ const AccessoriesSection = () => {
       <style>{`
         .acc-section {
           background: #fff;
-          padding: 80px 40px;
+          padding: 60px 40px 80px 40px;
           overflow: hidden;
         }
 
         .acc-inner {
-          max-width: 1400px;
+          max-width: 1425px;
           margin: 0 auto;
         }
 
@@ -150,7 +150,7 @@ const AccessoriesSection = () => {
 
         @media (max-width: 768px) {
           .acc-section {
-            padding: 60px 20px;
+            padding: 0px 20px;
           }
           .acc-heading {
             font-size: 32px;

@@ -16,7 +16,9 @@ const Home = () => {
   return (
     <>
       <HeroSection />
-      <PopularBikes />
+      <div id="models">
+        <PopularBikes />
+      </div>
       <BikeScrollAnimation/>
       <BikeSectionSwiper2/>
       {/* <BikeSectionSwiper/> */}
@@ -25,7 +27,9 @@ const Home = () => {
       <UpcomingEvents/>
       <AccessoriesSection/>
       <FAQSection/>
-      <TestDriveSection/>
+      <div id="test-ride">
+        <TestDriveSection />
+      </div>
       <SocialFeed />
     </>
   )
