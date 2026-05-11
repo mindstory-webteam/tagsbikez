@@ -240,7 +240,7 @@ const FAQSection = () => {
             </p>
             <button className="faq-contact-btn">
               <a href="/contact"  >
-              Contact Us
+              Contact
               </a>
             </button>
           </div>

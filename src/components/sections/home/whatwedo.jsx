@@ -286,7 +286,7 @@ export default function WhatWeDoSection() {
               </div>
 
               <div className="wwd-cta">
-                <button className="wwd-btn">CONTACT US</button>
+                <button className="wwd-btn">CONTACT</button>
               </div>
             </div>
 

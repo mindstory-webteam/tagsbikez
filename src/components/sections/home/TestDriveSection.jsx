@@ -12,7 +12,7 @@ export default function TestDriveSection() {
     }}>
       {/* Background Image */}
       <Image
-        src={img.banner1}
+        src={img.banner2}
         alt="Test Drive"
         fill
         style={{ objectFit: "cover", objectPosition: "center" }}

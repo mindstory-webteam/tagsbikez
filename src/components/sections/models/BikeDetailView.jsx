@@ -182,10 +182,10 @@ const BikeDetailView = ({ bike }) => {
 
       <div className="bdv-inner">
         <div className="bdv-img-side">
-          <Image 
-            src={bike.image} 
-            alt={bike.name} 
-            fill 
+          <Image
+            src={bike.image}
+            alt={bike.name}
+            fill
             className="bdv-img"
             sizes="(max-width: 1100px) 100vw, 50vw"
           />
@@ -208,16 +208,16 @@ const BikeDetailView = ({ bike }) => {
           </div>
 
           <div className="bdv-footer">
-            <a 
-              href={`https://wa.me/917594960023?text=I'm%20interested%20in%20the%20${bike.name}`} 
+            <a
+              href={`https://wa.me/917594960023?text=I'm%20interested%20in%20the%20${bike.name}`}
               className="bdv-btn bdv-btn-primary"
             >
               <MessageSquare size={18} />
               Enquire Now
             </a>
-            <a 
-              href={bike.brochure} 
-              download 
+            <a
+              href={bike.brochure}
+              download
               className="bdv-btn bdv-btn-secondary"
             >
               <Download size={18} />

@@ -15,7 +15,7 @@ const CompanySection = () => {
 
   useEffect(() => {
     const section = sectionRef.current;
-    
+
     const animateCounter = (ref, target) => {
       const obj = { val: 0 };
       gsap.to(obj, {
@@ -198,7 +198,7 @@ const CompanySection = () => {
                 The Ultimate <span>Royal Enfield</span> Experience in Thrissur.
               </h2>
               <p className="cp-desc">
-Tags Bikez was born from decades of entrepreneurial heritage and a shared belief that every motorcycle journey deserves a partner you can trust. From a single showroom in Thrissur to a multi-branch group spanning Central Kerala, we have grown alongside every rider we serve.              </p>
+                Tags Bikez was born from decades of entrepreneurial heritage and a shared belief that every motorcycle journey deserves a partner you can trust. From a single showroom in Thrissur to a multi-branch group spanning Central Kerala, we have grown alongside every rider we serve.              </p>
             </div>
 
             <div className="cp-stats-grid">

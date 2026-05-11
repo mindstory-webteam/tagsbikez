@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { img } from "@/assets/assest";
+import RedAnimatedBtn from "@/components/RedAnimatedBtn";
 
 const navLinks = [
   { name: "HOME", path: "/" },
@@ -163,18 +164,9 @@ export default function Navbar() {
 
         {/* Desktop CTA */}
         <div className="nav-cta">
-          <button style={{
-            background: "#f51b24",
-            border: "none",
-            color: "#fff",
-            padding: "8px 20px",
-            fontSize: 13, fontWeight: 700,
-            cursor: "pointer",
-          }}>
-            <a href="/contact">
-              GET A QUOTE
-            </a>
-          </button>
+          <RedAnimatedBtn onClick={() => window.location.href='/contact'}>
+            GET A QUOTE
+          </RedAnimatedBtn>
         </div>
 
         {/* Hamburger */}
@@ -202,15 +194,10 @@ export default function Navbar() {
             onClick={() => setOpen(false)}
           >{link.name}</Link>
         ))}
-        <div className="mobile-cta">
-          <button style={{
-            border: "none", color: "#000",
-            padding: "13px",
-            fontSize: 14, fontWeight: 700,
-            cursor: "pointer", width: "100%",
-          }}> <a href="/contact">
-              GET A QUOTE
-            </a></button>
+        <div className="mobile-cta flex justify-center">
+          <RedAnimatedBtn onClick={() => { setOpen(false); window.location.href='/contact'; }}>
+            GET A QUOTE
+          </RedAnimatedBtn>
         </div>
       </div>
     </>
