@@ -151,7 +151,6 @@ export default function WhatWeDoSection() {
           font-weight: 700;
           margin: 0;
           line-height: 1;
-          font-family: 'DM Sans', sans-serif;
           flex-shrink: 0;
           color: #f51b24;
         }
@@ -162,7 +161,6 @@ export default function WhatWeDoSection() {
           letter-spacing: 0.05em;
           margin: 0;
           line-height: 1.3;
-          font-family: 'DM Sans', sans-serif;
           text-transform: uppercase;
           color: #000000;
         }
@@ -171,7 +169,6 @@ export default function WhatWeDoSection() {
           font-size: 13px;
           line-height: 1.7;
           margin: 0;
-          font-family: 'DM Sans', sans-serif;
           color: #555555;
         }
 
@@ -188,7 +185,6 @@ export default function WhatWeDoSection() {
           letter-spacing: 1.5px;
           cursor: pointer;
           color: #fff;
-          font-family: 'DM Sans', sans-serif;
         }
 
         /*  MOBILE  */

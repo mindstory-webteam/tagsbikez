@@ -150,7 +150,6 @@ const OurMembers = () => {
           text-transform: uppercase;
           letter-spacing: 0.1em;
           margin: 0 0 24px 0;
-          font-family: 'DM Sans', sans-serif;
         }
 
         .member-desc {

@@ -294,14 +294,14 @@ export default function PopularBikes() {
           white-space: nowrap;
         }
 
-        .cta-btn:hover { background: #111; }
+        .cta-btn:hover {background: #f5f5f5; color:#000; }
 
         .cta-ghost {
           display: inline-flex;
           align-items: center;
           gap: 8px;
-          background: transparent;
-          color: #111;
+          background: #000;
+          color: #fff;
           font-size: 13px;
           font-weight: 700;
           letter-spacing: 0.18em;
@@ -314,7 +314,7 @@ export default function PopularBikes() {
           white-space: nowrap;
         }
 
-        .cta-ghost:hover { background: #f5f5f5; }
+        .cta-ghost:hover { background: #f5f5f5; color:#000;}
 
         .pb-dots-cell {
           flex: 1;

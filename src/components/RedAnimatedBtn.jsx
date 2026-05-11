@@ -11,7 +11,6 @@ export default function RedAnimatedBtn({ children = "Read More", onClick }) {
           height: 45px;
           color: #fff;
           padding: 10px 25px;
-          font-family: 'Inter', sans-serif;
           font-weight: 700;
           font-size: 13px;
           letter-spacing: 0.1em;

@@ -1,10 +1,13 @@
 import tagsbikezlogo from './tagsbikez.png'
 import tagsbikezwhite from './tagsbikezwhitelogo.png'
 import bulletimg from './bulletimg.png'
+
 import banner1 from './banner/banner1.png'
 import banner2 from './banner/banner2.png'
 import banner3 from './banner/banner3.png'
 import banner4 from './banner/banner4.jpg'
+import banner5 from './banner/banner5.jpg'
+
 import bullethandlebar from './bullethandlebar.webp'
 import bullet350engine from './bullet350engine.jpg'
 import bulletback from './bulletback.jpg'
@@ -67,6 +70,7 @@ export const img = {
   banner2,
   banner3,
   banner4,
+  banner5,
   accessories,
   parts,
   gear,

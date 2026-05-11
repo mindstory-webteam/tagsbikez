@@ -12,14 +12,14 @@ const categories = [
     id: "accessories",
     title: "Motorcycle Accessories",
     description: "Enhance your ride with our range of precision-engineered genuine accessories built for performance and style.",
-    image: img.accessories,
+    image: img.parts,
     link: "https://wa.me/917594960023?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Royal%20Enfield."
   },
   {
     id: "parts",
     title: "Lifestyle Apparels",
     description: "Keep your machine running like new with authentic spare parts designed specifically for your motorcycle.",
-    image: img.parts,
+    image: img.accessories,
     link: "https://wa.me/917594960023?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Royal%20Enfield."
   },
   {

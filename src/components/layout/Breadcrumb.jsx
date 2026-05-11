@@ -12,7 +12,7 @@ const Breadcrumb = () => {
   const pathSegments = pathname.split('/').filter(s => s);
   const pageName = pathSegments[pathSegments.length - 1]?.replace(/-/g, ' ') || 'Page';
 
-  const bgImage = img.bulletimg?.src || img.bulletimg;
+  const bgImage = img.banner5?.src || img.banner5;
 
   return (
     <div className="hero-breadcrumb">
@@ -20,7 +20,7 @@ const Breadcrumb = () => {
         .hero-breadcrumb {
           position: relative;
           width: 100%;
-          height: 320px;
+          height: 420px;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -48,7 +48,6 @@ const Breadcrumb = () => {
         .breadcrumb-overlay {
           position: absolute;
           inset: 0;
-          background: linear-gradient(to bottom, rgba(10,10,10,0.8) 0%, rgba(10,10,10,0.4) 50%, rgba(10,10,10,0.9) 100%);
         }
 
         .breadcrumb-content {
@@ -103,16 +102,7 @@ const Breadcrumb = () => {
           font-weight: 700;
         }
 
-        /* ── Bottom Edge Decoration ── */
-        .breadcrumb-edge {
-          position: absolute;
-          bottom: -1px;
-          left: 0;
-          width: 100%;
-          height: 60px;
-          background: #0a0a0a;
-          clip-path: polygon(0 100%, 100% 100%, 100% 0, 50% 100%, 0 0);
-        }
+      
 
         @media (max-width: 768px) {
           .hero-breadcrumb {

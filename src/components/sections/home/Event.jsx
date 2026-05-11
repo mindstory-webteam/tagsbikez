@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { img } from "@/assets/assest";
 
 const events = [
@@ -21,12 +22,12 @@ const events = [
     destination: "Palakkad",
     startdate: new Date(2026, 11, 7),
     enddate: new Date(2026, 11, 17),
-    image:img.event2,
+    image: img.event2,
     infoUrl: "#",
   },
   {
     id: 3,
-    title: 'History and Evolution of Typography lecture with Rizvan Baghirli',
+    title: "History and Evolution of Typography lecture with Rizvan Baghirli",
     startingPoint: "Thrissur",
     destination: "Wayanad",
     startdate: new Date(2026, 11, 15),
@@ -87,7 +88,6 @@ function formatParts(date) {
 
 const sorted = [...events].sort((a, b) => a.startdate - b.startdate);
 
-// Cards per page based on breakpoint
 function getCardsPerPage(width) {
   if (width <= 600) return 1;
   if (width <= 1024) return 2;
@@ -101,13 +101,13 @@ function EventCard({ event }) {
     <div className="ev-card">
       <div className="ev-top">
         <p className="ev-title">{event.title}</p>
-        
+
         <div className="ev-locations">
           <div className="ev-loc">
             <span className="ev-loc-label">Starting Point</span>
             <span className="ev-loc-val">{event.startingPoint}</span>
           </div>
-          <div className="ev-loc" style={{ textAlign: 'right' }}>
+          <div className="ev-loc" style={{ textAlign: "right" }}>
             <span className="ev-loc-label">Destination</span>
             <span className="ev-loc-val">{event.destination}</span>
           </div>
@@ -123,7 +123,19 @@ function EventCard({ event }) {
             </div>
           </div>
           <div className="ev-date-divider">
-            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            <svg
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
           </div>
           <div className="ev-date">
             <span className="ev-day">{end.day}</span>
@@ -135,12 +147,19 @@ function EventCard({ event }) {
           </div>
         </div>
       </div>
-      <div className="ev-bottom">
-        <div className="ev-img-wrap">
-          <img src={event.image} alt={event.title} className="ev-img" />
-        </div>
+
+      <div className="ev-img-wrap">
+        <Image
+          src={event.image}
+          alt={event.title}
+          fill
+          className="ev-img"
+          style={{ objectFit: "cover" }}
+        />
         <div className="ev-actions">
-          <Link href={event.infoUrl} className="ev-btn">More info</Link>
+          <Link href={event.infoUrl} className="ev-btn">
+            More info
+          </Link>
         </div>
       </div>
     </div>
@@ -181,31 +200,26 @@ export default function UpcomingEvents() {
           background: #fff;
           padding: 0 0 0px 0;
         }
-
         .ev-inner {
           max-width: 1430px;
           margin: 0 auto;
         }
-
         .ev-header {
           display: flex;
           align-items: center;
           justify-content: space-between;
           margin: 0 0 32px;
         }
-
         .ev-heading {
           font-size: 42px;
           font-weight: 400;
           color: #111;
           margin: 0;
         }
-
         .ev-nav {
           display: flex;
           gap: 8px;
         }
-
         .ev-nav-btn {
           width: 40px;
           height: 40px;
@@ -219,18 +233,15 @@ export default function UpcomingEvents() {
           color: #111;
           flex-shrink: 0;
         }
-
         .ev-nav-btn:hover:not(:disabled) {
           background: #111;
           border-color: #111;
           color: #fff;
         }
-
         .ev-nav-btn:disabled {
           opacity: 0.3;
           cursor: default;
         }
-
         .ev-nav-btn svg {
           width: 16px;
           height: 16px;
@@ -240,38 +251,31 @@ export default function UpcomingEvents() {
           stroke-linecap: round;
           stroke-linejoin: round;
         }
-
         .ev-track-outer {
-          border: 1px solid #e0e0e0;
           overflow: hidden;
         }
-
         .ev-track {
           display: flex;
+          align-items: stretch;
           transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+          gap: 16px;
         }
-
-        /* Card width is driven by the CSS var set inline on .ev-track-outer */
         .ev-card {
-          flex: 0 0 var(--card-width, 25%);
+          flex: 0 0 calc(var(--card-width, 25%) - 12px);
           min-width: 0;
           display: flex;
           flex-direction: column;
-          border-right: 1px solid #e0e0e0;
           box-sizing: border-box;
+          border: 1px solid #e0e0e0;
         }
-
-        .ev-card:last-child { border-right: none; }
-
         .ev-top {
           padding: 24px 20px 20px;
           display: flex;
           flex-direction: column;
-          min-height: 200px;
+          flex: 1;
           border-bottom: 1px solid #e0e0e0;
           box-sizing: border-box;
         }
-
         .ev-title {
           font-size: 14px;
           font-weight: 500;
@@ -280,21 +284,17 @@ export default function UpcomingEvents() {
           margin: 0;
           padding-bottom: 16px;
         }
-
         .ev-locations {
           display: flex;
           justify-content: space-between;
           margin-bottom: 20px;
           padding: 12px 0;
           border-top: 1px dashed #e0e0e0;
-          border-bottom: 1px dashed #e0e0e0;
         }
-
         .ev-loc {
           display: flex;
           flex-direction: column;
         }
-
         .ev-loc-label {
           font-size: 10px;
           text-transform: uppercase;
@@ -302,20 +302,17 @@ export default function UpcomingEvents() {
           letter-spacing: 0.05em;
           margin-bottom: 4px;
         }
-
         .ev-loc-val {
           font-size: 13px;
           font-weight: 600;
           color: #111;
         }
-
         .ev-dates-wrap {
           display: flex;
           align-items: center;
           justify-content: space-between;
           margin-top: auto;
         }
-
         .ev-date-divider {
           color: #aaa;
           display: flex;
@@ -323,13 +320,11 @@ export default function UpcomingEvents() {
           justify-content: center;
           padding: 0 8px;
         }
-
         .ev-date {
           display: flex;
           align-items: flex-end;
           gap: 6px;
         }
-
         .ev-day {
           font-size: 38px;
           font-weight: 300;
@@ -337,14 +332,12 @@ export default function UpcomingEvents() {
           line-height: 1;
           letter-spacing: -1.5px;
         }
-
         .ev-date-meta {
           display: flex;
           flex-direction: column;
           padding-bottom: 4px;
           gap: 1px;
         }
-
         .ev-month {
           font-size: 12px;
           font-weight: 600;
@@ -353,52 +346,46 @@ export default function UpcomingEvents() {
           text-transform: uppercase;
           letter-spacing: 0.05em;
         }
-
         .ev-weekday {
           font-size: 10px;
           font-weight: 400;
           color: #888;
           line-height: 1.3;
         }
-
         .ev-year {
           font-size: 10px;
           font-weight: 400;
           color: #bbb;
           line-height: 1.3;
         }
-
-        .ev-bottom { display: flex; flex-direction: column; }
-
         .ev-img-wrap {
           width: 100%;
-          height: 160px;
+          height: 200px;
           overflow: hidden;
+          position: relative;
+          flex-shrink: 0;
         }
-
         .ev-img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
           display: block;
           transition: transform 0.4s ease;
           pointer-events: none;
           user-select: none;
           -webkit-user-drag: none;
         }
-
-
         .ev-actions {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
           display: flex;
-          border-top: 1px solid #e0e0e0;
+          z-index: 2;
         }
-
         .ev-btn {
           flex: 1;
           padding: 12px 8px;
           font-size: 12px;
           font-weight: 500;
-          color: #111;
+          color: #fff;
           text-align: center;
           text-decoration: none;
           background: transparent;
@@ -408,18 +395,22 @@ export default function UpcomingEvents() {
           align-items: center;
           justify-content: center;
           box-sizing: border-box;
+          border-top: 1px solid rgba(255, 255, 255, 0.3);
         }
-
-        .ev-btn:hover { background: #111; color: #fff; }
-
+        .ev-btn:hover {
+          background: #000;
+          color: #fff;
+        }
         @media (max-width: 600px) {
           .ev-section { padding: 24px 16px 60px; }
           .ev-heading { font-size: 24px; }
           .ev-top { min-height: 140px; padding: 16px 14px 14px; }
           .ev-day { font-size: 32px; }
-          .ev-img-wrap { height: 200px; }
+          .ev-img-wrap { height: 180px; }
           .ev-nav-btn { width: 36px; height: 36px; }
           .ev-header { margin: 0 0 20px; }
+          .ev-track { gap: 12px; }
+          .ev-card { flex: 0 0 calc(var(--card-width, 100%) - 6px); }
         }
       `}</style>
 
@@ -434,7 +425,9 @@ export default function UpcomingEvents() {
                 disabled={!canPrev}
                 aria-label="Previous page"
               >
-                <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6" /></svg>
+                <svg viewBox="0 0 24 24">
+                  <polyline points="15 18 9 12 15 6" />
+                </svg>
               </button>
               <button
                 className="ev-nav-btn"
@@ -442,7 +435,9 @@ export default function UpcomingEvents() {
                 disabled={!canNext}
                 aria-label="Next page"
               >
-                <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6" /></svg>
+                <svg viewBox="0 0 24 24">
+                  <polyline points="9 18 15 12 9 6" />
+                </svg>
               </button>
             </nav>
           </div>

@@ -14,35 +14,36 @@ const content = [
 ];
 
 const OurStory = () => {
-  const containerRef = useRef(null);
+  const sectionRef = useRef(null);
   const textRefs = useRef([]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Use standard scroll-triggered animation for both desktop and mobile
-      // to avoid annoying pinning behavior on reverse scroll.
-      textRefs.current.forEach((el, index) => {
-        gsap.fromTo(el,
+      // Animate each paragraph from ash to black — once only, no reverse
+      textRefs.current.forEach((el) => {
+        gsap.fromTo(
+          el,
           { color: "#a0a0a0" },
           {
             color: "#000000",
-            duration: 1.2,
+            duration: 1,
             ease: "power1.inOut",
             scrollTrigger: {
               trigger: el,
-              start: "top 85%",
-              once: true, // Only animate once, don't reverse on scroll up
-            }
+              start: "top 80%",
+              once: true,       // fires once, never reverses
+              toggleActions: "play none none none",
+            },
           }
         );
       });
-    }, containerRef);
+    }, sectionRef);
 
     return () => ctx.revert();
   }, []);
 
   return (
-    <section ref={containerRef} className="story-section bg-white">
+    <section ref={sectionRef} className="story-section">
       <style>{`
         .story-section {
           padding: 0px 40px 80px 40px;
@@ -83,11 +84,10 @@ const OurStory = () => {
 
         .story-subheading {
           font-size: 18px;
-          font-weight: 500;
+          font-weight: 400;
           color: #333;
           margin: 0;
           line-height: 1.6;
-          font-family: 'DM Sans', sans-serif;
         }
 
         .story-left {
@@ -120,8 +120,7 @@ const OurStory = () => {
           line-height: 1.8;
           text-align: justify;
           margin-bottom: 24px;
-          font-family: 'DM Sans', sans-serif;
-          color: #a0a0a0; 
+          color: #a0a0a0;
         }
 
         @media (max-width: 1100px) {
@@ -134,7 +133,7 @@ const OurStory = () => {
           .story-left { order: 3; }
           .story-right { order: 4; }
         }
-        
+
         @media (max-width: 768px) {
           .story-section {
             padding: 60px 20px;
@@ -154,6 +153,7 @@ const OurStory = () => {
           }
         }
       `}</style>
+
       <div className="story-inner">
         {/* Row 1 */}
         <div className="story-heading-wrap">
@@ -161,16 +161,18 @@ const OurStory = () => {
         </div>
         <div className="story-subheading-wrap">
           <p className="story-subheading">
-            From a humble home appliances store in the 1960s to Thrissur's premier motorcycling destination. A legacy of trust, built across generations.
+            From a humble home appliances store in the 1960s to Thrissur's
+            premier motorcycling destination. A legacy of trust, built across
+            generations.
           </p>
         </div>
 
         {/* Row 2 */}
         <div className="story-left">
           <div className="story-img-wrap">
-            <Image 
-              src={img.about_bike} 
-              alt="Our Story" 
+            <Image
+              src={img.about_bike}
+              alt="Our Story"
               fill
               sizes="(max-width: 1100px) 100vw, 50vw"
             />
@@ -179,10 +181,10 @@ const OurStory = () => {
         <div className="story-right">
           <div className="story-text-wrap">
             {content.map((paragraph, index) => (
-              <p 
-                key={index} 
-                className="story-text" 
-                ref={el => textRefs.current[index] = el}
+              <p
+                key={index}
+                className="story-text"
+                ref={(el) => (textRefs.current[index] = el)}
               >
                 {paragraph}
               </p>
@@ -191,7 +193,7 @@ const OurStory = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
 export default OurStory;

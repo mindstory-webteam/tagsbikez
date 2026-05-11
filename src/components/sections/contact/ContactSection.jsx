@@ -370,7 +370,7 @@ const ContactSection = () => {
 
         /* ── FORM ── */
         .form-cell {
-          padding: 60px;
+          padding: 160px 60px 60px 60px ;
           border-right: 1px solid #e0e0e0;
           border-bottom: 1px solid #e0e0e0;
           background: #fafafa;
