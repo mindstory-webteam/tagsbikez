@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import AnimatedBtn from "@/components/AnimatedBtn";
 
 const faqs = [
   {
@@ -238,11 +239,9 @@ const FAQSection = () => {
             <p className="faq-subtext">
               We're here to make your rental experience easy and enjoyable. Browse through our most common questions to get started with confidence.
             </p>
-            <button className="faq-contact-btn">
-              <a href="/contact"  >
+            <AnimatedBtn href="/contact">
               Contact
-              </a>
-            </button>
+            </AnimatedBtn>
           </div>
 
           {/* Right */}

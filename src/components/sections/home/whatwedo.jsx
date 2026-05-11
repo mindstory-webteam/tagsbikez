@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { img } from "@/assets/assest";
+import AnimatedBtn from "@/components/AnimatedBtn";
 import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -282,7 +283,7 @@ export default function WhatWeDoSection() {
               </div>
 
               <div className="wwd-cta">
-                <button className="wwd-btn">CONTACT</button>
+                <AnimatedBtn>CONTACT</AnimatedBtn>
               </div>
             </div>
 

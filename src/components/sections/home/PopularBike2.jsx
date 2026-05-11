@@ -7,6 +7,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/effect-coverflow";
 import { img } from "@/assets/assest";
+import AnimatedBtn from "@/components/AnimatedBtn";
 
 const slides = [
   {
@@ -239,7 +240,7 @@ export default function PopularBikes2() {
           <p className="pb-bike-name">{slides[activeSlide].heading}</p>
           <p className="pb-bike-desc">{slides[activeSlide].description}</p>
           <p className="pb-bike-price">{slides[activeSlide].price}</p>
-          <button className="pb-cta">Select Motorcycle</button>
+          <AnimatedBtn>Select Motorcycle</AnimatedBtn>
         </div>
       </div>
 

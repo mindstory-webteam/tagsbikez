@@ -19,6 +19,7 @@ const galleryItems = [
   { id: 11, src: "https://images.pexels.com/photos/1058334/pexels-photo-1058334.jpeg" },
 ];
 
+
 export default function AboutGallery() {
   const sectionRef = useRef(null);
   const itemRefs = useRef([]);

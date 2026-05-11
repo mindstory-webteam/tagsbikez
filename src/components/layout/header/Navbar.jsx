@@ -3,7 +3,8 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { img } from "@/assets/assest";
-import RedAnimatedBtn from "@/components/RedAnimatedBtn";
+import RedAnimatedBtn from "@/components/AnimatedBtn";
+import AnimatedBtn from "@/components/AnimatedBtn";
 
 const navLinks = [
   { name: "HOME", path: "/" },
@@ -164,9 +165,8 @@ export default function Navbar() {
 
         {/* Desktop CTA */}
         <div className="nav-cta">
-          <RedAnimatedBtn onClick={() => window.location.href='/contact'}>
-            GET A QUOTE
-          </RedAnimatedBtn>
+         <AnimatedBtn onClick={() => console.log("clicked")}>Book Now</AnimatedBtn>
+
         </div>
 
         {/* Hamburger */}
