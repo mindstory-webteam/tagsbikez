@@ -2,7 +2,7 @@ import React from 'react';
 import CompanySection from '@/components/sections/about/CompanySection';
 import OurStory from '@/components/sections/about/OurStory';
 import OurMembers from '@/components/sections/about/OurMembers';
-// import AboutSectionGallery from '@/components/sections/about/AboutSectionGallery';
+import AboutGallery from '@/components/sections/about/AboutGallery';
 
 export const metadata = {
   title: "About Us | TagsBikez - Royal Enfield Showroom Thrissur",
@@ -15,7 +15,7 @@ const AboutPage = () => {
       <CompanySection />
       <OurMembers />
       <OurStory />
-      {/* <AboutSectionGallery/> */}
+      <AboutGallery/>
     </div>
   )
 }

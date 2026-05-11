@@ -46,7 +46,7 @@ const OurStory = () => {
     <section ref={sectionRef} className="story-section">
       <style>{`
         .story-section {
-          padding: 0px 40px 80px 40px;
+          padding: 0px 40px 0px 40px;
           min-height: 100vh;
           display: flex;
           align-items: center;
