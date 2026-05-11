@@ -181,7 +181,7 @@ const ContactSection = () => {
 
         .contact-header h1 {
           font-size: 42px;
-          font-weight: 800;
+          font-weight: 400;
           line-height: 1.1;
           text-transform: uppercase;
           letter-spacing: -0.02em;
@@ -201,6 +201,7 @@ const ContactSection = () => {
         .contact-header p {
           font-size: 16px;
           color: #666;
+        
           margin: 0;
           line-height: 1.6;
         }

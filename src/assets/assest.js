@@ -4,6 +4,7 @@ import bulletimg from './bulletimg.png'
 import banner1 from './banner/banner1.png'
 import banner2 from './banner/banner2.png'
 import banner3 from './banner/banner3.png'
+import banner4 from './banner/banner4.jpg'
 import bullethandlebar from './bullethandlebar.webp'
 import bullet350engine from './bullet350engine.jpg'
 import bulletback from './bulletback.jpg'
@@ -27,12 +28,21 @@ import hunter350 from './models/hunter-350.webp'
 import interceptor from './models/interceptor.webp'
 import scram440 from './models/scram-440.webp'
 import shotgun650 from './models/shotgun-650.webp'
-
-
-
 import about_bike from './about_bike.png'
 
+
+import event1 from './event/event1.jpeg'
+import event2 from './event/event2.webp'
+import event3 from './event/event3.webp'
+import event4 from './event/event4.webp'
+import event5 from './event/event5.webp'
+
 export const img = {
+  event1,
+  event2,
+  event3,
+  event4,
+  event5,
   bullet350, 
   classic350,
   continentalgt650,
@@ -56,6 +66,7 @@ export const img = {
   banner1,
   banner2,
   banner3,
+  banner4,
   accessories,
   parts,
   gear,

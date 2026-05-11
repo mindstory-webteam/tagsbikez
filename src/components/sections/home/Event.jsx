@@ -1,62 +1,77 @@
 "use client";
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
+import { img } from "@/assets/assest";
 
 const events = [
   {
     id: 1,
     title: "Student work on display at Khazar University Art Gallery Exhibition",
-    date: new Date(2026, 11, 5),
-    image: "https://images.pexels.com/photos/1183992/pexels-photo-1183992.jpeg?auto=compress&cs=tinysrgb&w=600",
+    startingPoint: "Thrissur",
+    destination: "Kochi",
+    startdate: new Date(2026, 11, 5),
+    enddate: new Date(2026, 11, 15),
+    image: img.event1,
     infoUrl: "#",
   },
   {
     id: 2,
     title: "Musical performances by students along with many guest performers",
-    date: new Date(2026, 11, 7),
-    image: "https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?auto=compress&cs=tinysrgb&w=600",
+    startingPoint: "Thrissur",
+    destination: "Palakkad",
+    startdate: new Date(2026, 11, 7),
+    enddate: new Date(2026, 11, 17),
+    image:img.event2,
     infoUrl: "#",
   },
   {
     id: 3,
     title: 'History and Evolution of Typography lecture with Rizvan Baghirli',
-    date: new Date(2026, 11, 15),
-    image: "https://images.pexels.com/photos/2041627/pexels-photo-2041627.jpeg?auto=compress&cs=tinysrgb&w=600",
+    startingPoint: "Thrissur",
+    destination: "Wayanad",
+    startdate: new Date(2026, 11, 15),
+    enddate: new Date(2026, 11, 25),
+    image: img.event3,
     infoUrl: "#",
   },
   {
     id: 4,
     title: "Inter-Uni Football Tournament: Khazar vs ADU",
-    date: new Date(2026, 11, 28),
-    image: "https://images.pexels.com/photos/46798/the-ball-stadion-football-the-pitch-46798.jpeg?auto=compress&cs=tinysrgb&w=600",
+    startingPoint: "Thrissur",
+    destination: "Munnar",
+    startdate: new Date(2026, 11, 28),
+    enddate: new Date(2026, 11, 29),
+    image: img.event4,
     infoUrl: "#",
   },
   {
     id: 5,
     title: "Royal Enfield Riders Meetup at City Square",
-    date: new Date(2026, 11, 28),
-    image: "https://images.pexels.com/photos/2116475/pexels-photo-2116475.jpeg?auto=compress&cs=tinysrgb&w=600",
+    startingPoint: "Thrissur",
+    destination: "Calicut",
+    startdate: new Date(2026, 11, 28),
+    enddate: new Date(2026, 11, 29),
+    image: img.event5,
     infoUrl: "#",
   },
   {
     id: 6,
     title: "Photography Walk Street Culture Edition",
-    date: new Date(2026, 11, 28),
-    image: "https://images.pexels.com/photos/1264210/pexels-photo-1264210.jpeg?auto=compress&cs=tinysrgb&w=600",
+    startingPoint: "Thrissur",
+    destination: "Kottayam",
+    startdate: new Date(2026, 11, 28),
+    enddate: new Date(2026, 11, 29),
+    image: img.event5,
     infoUrl: "#",
   },
   {
     id: 7,
     title: "Live Jazz Night at the Open Courtyard",
-    date: new Date(2026, 11, 28),
-    image: "https://images.pexels.com/photos/167491/pexels-photo-167491.jpeg?auto=compress&cs=tinysrgb&w=600",
-    infoUrl: "#",
-  },
-  {
-    id: 8,
-    title: "Live Jazz Night at the Open Courtyard",
-    date: new Date(2026, 11, 28),
-    image: "https://images.pexels.com/photos/167491/pexels-photo-167491.jpeg?auto=compress&cs=tinysrgb&w=600",
+    startingPoint: "Thrissur",
+    destination: "Vagamon",
+    startdate: new Date(2026, 11, 28),
+    enddate: new Date(2026, 11, 29),
+    image: img.event5,
     infoUrl: "#",
   },
 ];
@@ -70,7 +85,7 @@ function formatParts(date) {
   };
 }
 
-const sorted = [...events].sort((a, b) => a.date - b.date);
+const sorted = [...events].sort((a, b) => a.startdate - b.startdate);
 
 // Cards per page based on breakpoint
 function getCardsPerPage(width) {
@@ -80,17 +95,43 @@ function getCardsPerPage(width) {
 }
 
 function EventCard({ event }) {
-  const { day, month, weekday, year } = formatParts(event.date);
+  const start = formatParts(event.startdate);
+  const end = formatParts(event.enddate);
   return (
     <div className="ev-card">
       <div className="ev-top">
         <p className="ev-title">{event.title}</p>
-        <div className="ev-date">
-          <span className="ev-day">{day}</span>
-          <div className="ev-date-meta">
-            <span className="ev-month">{month}</span>
-            <span className="ev-weekday">{weekday}</span>
-            <span className="ev-year">{year}</span>
+        
+        <div className="ev-locations">
+          <div className="ev-loc">
+            <span className="ev-loc-label">Starting Point</span>
+            <span className="ev-loc-val">{event.startingPoint}</span>
+          </div>
+          <div className="ev-loc" style={{ textAlign: 'right' }}>
+            <span className="ev-loc-label">Destination</span>
+            <span className="ev-loc-val">{event.destination}</span>
+          </div>
+        </div>
+
+        <div className="ev-dates-wrap">
+          <div className="ev-date">
+            <span className="ev-day">{start.day}</span>
+            <div className="ev-date-meta">
+              <span className="ev-month">{start.month}</span>
+              <span className="ev-weekday">{start.weekday}</span>
+              <span className="ev-year">{start.year}</span>
+            </div>
+          </div>
+          <div className="ev-date-divider">
+            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </div>
+          <div className="ev-date">
+            <span className="ev-day">{end.day}</span>
+            <div className="ev-date-meta">
+              <span className="ev-month">{end.month}</span>
+              <span className="ev-weekday">{end.weekday}</span>
+              <span className="ev-year">{end.year}</span>
+            </div>
           </div>
         </div>
       </div>
@@ -232,12 +273,55 @@ export default function UpcomingEvents() {
         }
 
         .ev-title {
-          font-size: 13px;
-          font-weight: 400;
+          font-size: 14px;
+          font-weight: 500;
           color: #111;
-          line-height: 1.5;
-          margin: 0 0 auto;
-          padding-bottom: 20px;
+          line-height: 1.4;
+          margin: 0;
+          padding-bottom: 16px;
+        }
+
+        .ev-locations {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 20px;
+          padding: 12px 0;
+          border-top: 1px dashed #e0e0e0;
+          border-bottom: 1px dashed #e0e0e0;
+        }
+
+        .ev-loc {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .ev-loc-label {
+          font-size: 10px;
+          text-transform: uppercase;
+          color: #888;
+          letter-spacing: 0.05em;
+          margin-bottom: 4px;
+        }
+
+        .ev-loc-val {
+          font-size: 13px;
+          font-weight: 600;
+          color: #111;
+        }
+
+        .ev-dates-wrap {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-top: auto;
+        }
+
+        .ev-date-divider {
+          color: #aaa;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 0 8px;
         }
 
         .ev-date {
@@ -247,11 +331,11 @@ export default function UpcomingEvents() {
         }
 
         .ev-day {
-          font-size: 52px;
+          font-size: 38px;
           font-weight: 300;
           color: #111;
           line-height: 1;
-          letter-spacing: -2px;
+          letter-spacing: -1.5px;
         }
 
         .ev-date-meta {
@@ -262,7 +346,7 @@ export default function UpcomingEvents() {
         }
 
         .ev-month {
-          font-size: 13px;
+          font-size: 12px;
           font-weight: 600;
           color: #111;
           line-height: 1.2;
@@ -271,14 +355,14 @@ export default function UpcomingEvents() {
         }
 
         .ev-weekday {
-          font-size: 11px;
+          font-size: 10px;
           font-weight: 400;
           color: #888;
           line-height: 1.3;
         }
 
         .ev-year {
-          font-size: 11px;
+          font-size: 10px;
           font-weight: 400;
           color: #bbb;
           line-height: 1.3;
@@ -332,7 +416,7 @@ export default function UpcomingEvents() {
           .ev-section { padding: 24px 16px 60px; }
           .ev-heading { font-size: 24px; }
           .ev-top { min-height: 140px; padding: 16px 14px 14px; }
-          .ev-day { font-size: 36px; }
+          .ev-day { font-size: 32px; }
           .ev-img-wrap { height: 200px; }
           .ev-nav-btn { width: 36px; height: 36px; }
           .ev-header { margin: 0 0 20px; }

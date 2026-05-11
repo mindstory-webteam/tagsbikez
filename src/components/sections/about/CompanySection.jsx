@@ -195,7 +195,7 @@ const CompanySection = () => {
           <div className="cp-content-side">
             <div className="cp-text-wrap">
               <h2 className="cp-heading">
-                The Ultimate <span>Royal Enfield</span> Experience in Thrissur.
+                The Ultimate Royal Enfield Experience in Thrissur.
               </h2>
               <p className="cp-desc">
                 Tags Bikez was born from decades of entrepreneurial heritage and a shared belief that every motorcycle journey deserves a partner you can trust. From a single showroom in Thrissur to a multi-branch group spanning Central Kerala, we have grown alongside every rider we serve.              </p>

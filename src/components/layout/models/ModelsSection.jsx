@@ -225,7 +225,7 @@ export default function ModelsSection() {
           <div className="models-header">
             <h2 className="models-heading">
               Explore Our<br />
-              <span>Royal Enfield</span> Models
+              Royal Enfield Models
             </h2>
             <div className="models-filters">
               {categories.map((cat) => (

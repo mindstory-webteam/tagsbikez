@@ -7,12 +7,12 @@ export default function TestDriveSection() {
     <section style={{
       position: "relative",
       width: "100%",
-      height: "520px",
+      height: "600px",
       overflow: "hidden",
     }}>
       {/* Background Image */}
       <Image
-        src={img.banner2}
+        src={img.banner4}
         alt="Test Drive"
         fill
         style={{ objectFit: "cover", objectPosition: "center" }}
