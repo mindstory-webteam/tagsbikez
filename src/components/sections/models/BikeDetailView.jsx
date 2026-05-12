@@ -10,14 +10,14 @@ const BikeDetailView = ({ bike }) => {
     <div className="bdv-root">
       <style>{`
         .bdv-root {
-          padding: 100px 0;
+          padding: 120px 0px 40px 0;
           background: #fff;
         }
 
         .bdv-inner {
           max-width: 1425px;
           margin: 0 auto;
-          padding: 0 40px;
+          padding: 80px 40px;
           display: grid;
           grid-template-columns: 1fr 1fr;
           gap: 60px;
@@ -76,7 +76,6 @@ const BikeDetailView = ({ bike }) => {
           margin-bottom: 32px;
         }
 
-        /* ── STATS GRID ── */
         .bdv-stats-grid {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
@@ -110,7 +109,6 @@ const BikeDetailView = ({ bike }) => {
           letter-spacing: 0.1em;
         }
 
-        /* ── ACTIONS ── */
         .bdv-footer {
           padding: 40px 60px;
           background: #fafafa;
@@ -178,7 +176,105 @@ const BikeDetailView = ({ bike }) => {
             justify-content: center;
           }
         }
+
+       
+
+        .bdv-stories-inner {
+          max-width: 1425px;
+          margin: 0 auto;
+          padding: 0 40px;
+        }
+
+        .bdv-stories-title {
+          font-size: 42px;
+          font-weight: 400;
+          text-transform: uppercase;
+          text-align: center;
+          margin-bottom: 60px;
+          color: #111;
+          letter-spacing: 0.05em;
+        }
+
+        .bdv-story-row {
+          display: flex;
+          gap: 60px;
+          align-items: center;
+        }
+
+        .bdv-story-row.reverse {
+          flex-direction: row-reverse;
+        }
+
+        .bdv-story-img-wrap {
+          flex: 1;
+          position: relative;
+          height: 400px;
+          overflow: hidden;
+          border-radius: 4px;
+        }
+
+        .bdv-story-img {
+          object-fit: cover;
+          transition: transform 0.5s ease;
+        }
+
+        .bdv-story-row:hover .bdv-story-img {
+          transform: scale(1.05);
+        }
+
+        .bdv-story-content {
+          flex: 1;
+          padding: 20px;
+        }
+
+        .bdv-story-content h3 {
+          font-size: 28px;
+          font-weight: 700;
+          color: #111;
+          margin-bottom: 20px;
+          text-transform: uppercase;
+          letter-spacing: 0.02em;
+        }
+
+        .bdv-story-content p {
+          font-size: 16px;
+          line-height: 1.8;
+          color: #666;
+        }
+
+        @media (max-width: 900px) {
+          .bdv-story-row {
+            flex-direction: column !important;
+            gap: 30px;
+          }
+          .bdv-story-img-wrap {
+            height: 300px;
+            width: 100%;
+          }
+          .bdv-stories-inner {
+            padding: 0 20px;
+          }
+        }
       `}</style>
+
+      {bike.stories && bike.stories.length > 0 && (
+        <div className="bdv-stories" style={{ paddingBottom: '40px' }}>
+          <div className="bdv-stories-inner">
+            {/* <h2 className="bdv-stories-title" style={{ marginTop: '40px' }}>The Story</h2> */}
+            {bike.stories.slice(0, 1).map((story, index) => (
+              <div className="bdv-story-row" key={index}>
+                <div className="bdv-story-img-wrap">
+                  <Image src={story.image} alt={story.title} fill className="bdv-story-img" sizes="(max-width: 900px) 100vw, 50vw" />
+                </div>
+                <div className="bdv-story-content">
+                  <h3>{story.title}</h3>
+                  <p>{story.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       <div className="bdv-inner">
         <div className="bdv-img-side">
@@ -226,6 +322,24 @@ const BikeDetailView = ({ bike }) => {
           </div>
         </div>
       </div>
+
+      {bike.stories && bike.stories.length > 1 && (
+        <div className="bdv-stories" style={{ paddingTop: '40px', paddingBottom: '100px' }}>
+          <div className="bdv-stories-inner">
+            {bike.stories.slice(1).map((story, index) => (
+              <div className={`bdv-story-row `} key={index} style={{ marginBottom: index !== bike.stories.slice(1).length - 1 ? '80px' : '0' }}>
+                <div className="bdv-story-img-wrap">
+                  <Image src={story.image} alt={story.title} fill className="bdv-story-img" sizes="(max-width: 900px) 100vw, 50vw" />
+                </div>
+                <div className="bdv-story-content">
+                  <h3>{story.title}</h3>
+                  <p>{story.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
