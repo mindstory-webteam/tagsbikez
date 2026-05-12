@@ -96,7 +96,7 @@ const FloatingActionButton = () => {
           width: 45px;
           height: 45px;
           border-radius: 50%;
-          background: #f51b24;
+          background: #25d366;
           color: #fff;
           border: none;
           cursor: pointer;

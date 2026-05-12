@@ -176,7 +176,7 @@ export default function Footer() {
 
         /* ── Bottom bar ── */
         .ft-bottom {
-          border-top: 1px solid #868686ff;
+          border-top: 1px solid #222;
           display: grid;
           grid-template-columns: 1fr 1fr 1fr;
         }
@@ -189,7 +189,7 @@ export default function Footer() {
         }
 
         .ft-bottom-cell:not(:last-child) {
-          border-right: 1px solid #868686ff;
+          border-right: 1px solid #222;
         }
 
         .ft-bottom-dev {
