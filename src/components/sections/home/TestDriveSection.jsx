@@ -64,7 +64,7 @@ export default function TestDriveSection() {
 
         {/* CTA Button */}
         <div>
-          <AnimatedBtn href="https://wa.me/917594960020?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Royal%20Enfield.">
+          <AnimatedBtn bgColor="red" href="https://wa.me/917594960020?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Royal%20Enfield.">
             Book a Ride
           </AnimatedBtn>
         </div>

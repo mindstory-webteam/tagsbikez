@@ -6,6 +6,7 @@ import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import { img } from "@/assets/assest";
+import AnimatedBtn from "@/components/AnimatedBtn";
 
 const slides = [
   {
@@ -616,10 +617,14 @@ export default function PopularBikes() {
 
               <div className="pb-bottom-row">
                 <div className="pb-bottom-cell">
-                  <button className="cta-btn">Know More</button>
+                  <AnimatedBtn href="/models" bgColor="#f51b24" hoverColor="#111" style={{ height: '56px' }}>
+                    Know More
+                  </AnimatedBtn>
                 </div>
                 <div className="pb-bottom-cell">
-                  <button className="cta-ghost">Test Ride</button>
+                  <AnimatedBtn href="https://wa.me/917594960023?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Royal%20Enfield." target="_blank" style={{ height: '56px' }}>
+                    Test Ride
+                  </AnimatedBtn>
                 </div>
                 <div className="pb-bottom-cell pb-dots-cell">
                   {slides.map((_, i) => (
@@ -704,14 +709,14 @@ export default function PopularBikes() {
             {/* Bottom row */}
             <div className="m-bottom">
               <div className="m-bottom-cell">
-                <a href="/models">
-                  <button className="m-cta-btn">Know More</button>
-                </a>
+                <AnimatedBtn href="/models" bgColor="#f51b24" hoverColor="#111" style={{ height: '50px' }}>
+                  Know More
+                </AnimatedBtn>
               </div>
               <div className="m-bottom-cell">
-                <a href="https://wa.me/917594960023?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Royal%20Enfield.">
-                  <button className="m-cta-ghost">Test Ride</button>
-                </a>
+                <AnimatedBtn href="https://wa.me/917594960023?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Royal%20Enfield." target="_blank" style={{ height: '50px' }}>
+                  Test Ride
+                </AnimatedBtn>
               </div>
               <div className="m-dots-cell">
                 {slides.map((_, i) => (

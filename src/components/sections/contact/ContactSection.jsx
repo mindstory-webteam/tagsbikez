@@ -5,6 +5,7 @@ import { Mail, Phone, MapPin, } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import { Map, MapControls, MapMarker, MarkerContent, MarkerTooltip } from "@/components/ui/map";
 import { FaWhatsapp } from 'react-icons/fa';
+import AnimatedBtn from '@/components/AnimatedBtn';
 
 const locations = [
   {
@@ -681,9 +682,15 @@ const ContactSection = () => {
                 <textarea name="message" placeholder="Tell us more..." rows={6} required value={form.message} onChange={handleChange} disabled={status === 'submitting'} />
               </div>
 
-              <button type="submit" className="submit-btn" disabled={status === 'submitting'}>
+              <AnimatedBtn 
+                type="submit" 
+                disabled={status === 'submitting'} 
+                bgColor="#e63020" 
+                hoverColor="#111" 
+                style={{ width: '100%', height: '64px', fontSize: '16px' }}
+              >
                 {status === 'submitting' ? 'Sending...' : status === 'success' ? 'Message Sent!' : 'Send Message'}
-              </button>
+              </AnimatedBtn>
             </form>
           </div>
         </div>

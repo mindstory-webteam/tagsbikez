@@ -283,7 +283,7 @@ export default function WhatWeDoSection() {
               </div>
 
               <div className="wwd-cta">
-                <AnimatedBtn>CONTACT</AnimatedBtn>
+                <AnimatedBtn bgColor="red">CONTACT</AnimatedBtn>
               </div>
             </div>
 

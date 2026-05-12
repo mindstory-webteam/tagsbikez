@@ -165,7 +165,7 @@ export default function Navbar() {
 
         {/* Desktop CTA */}
         <div className="nav-cta">
-         <AnimatedBtn onClick={() => console.log("clicked")}>Book Now</AnimatedBtn>
+         <AnimatedBtn bgColor="red" onClick={() => console.log("clicked")}>Book Now</AnimatedBtn>
 
         </div>
 
@@ -195,7 +195,7 @@ export default function Navbar() {
           >{link.name}</Link>
         ))}
         <div className="mobile-cta flex justify-center">
-          <RedAnimatedBtn onClick={() => { setOpen(false); window.location.href='/contact'; }}>
+          <RedAnimatedBtn bgColor="red" onClick={() => { setOpen(false); window.location.href='/contact'; }}>
             GET A QUOTE
           </RedAnimatedBtn>
         </div>

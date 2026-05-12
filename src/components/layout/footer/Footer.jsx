@@ -70,7 +70,7 @@ export default function Footer() {
         /* ── Logo ── */
         .ft-tagline {
           font-size: 12px;
-          color: #555;
+          color: #868686ff;
           line-height: 1.65;
           margin: 0 0 40px 0;
           max-width: 220px;
@@ -88,7 +88,7 @@ export default function Footer() {
           font-weight: 600;
           letter-spacing: 0.1em;
           text-transform: uppercase;
-          color: #888;
+          color: #868686ff;
           text-decoration: none;
           transition: color 0.2s;
         }
@@ -98,7 +98,7 @@ export default function Footer() {
         /* ── Labels ── */
         .ft-label {
           font-size: 11px;
-          color: #444;
+          color: #868686ff;
           letter-spacing: 0.1em;
           text-transform: uppercase;
           margin: 0 0 8px 0;
@@ -114,7 +114,7 @@ export default function Footer() {
 
         .ft-hours {
           font-size: 12px;
-          color: #555;
+          color: #868686ff;
           margin: 0 0 32px 0;
         }
 
@@ -153,7 +153,7 @@ export default function Footer() {
           align-items: center;
           justify-content: center;
           cursor: pointer;
-          color: #888;
+          color: #868686ff;
           text-decoration: none;
           transition: border-color 0.2s, color 0.2s, background 0.2s;
           flex-shrink: 0;
@@ -168,7 +168,6 @@ export default function Footer() {
         .ft-redirect {
           color: #f51b24;
           font-size: 12px;
-          text-decoration: underline;
           margin-top: 5px;
           display: inline-block;
           transition: opacity 0.2s;
@@ -177,7 +176,7 @@ export default function Footer() {
 
         /* ── Bottom bar ── */
         .ft-bottom {
-          border-top: 1px solid #222;
+          border-top: 1px solid #868686ff;
           display: grid;
           grid-template-columns: 1fr 1fr 1fr;
         }
@@ -190,7 +189,7 @@ export default function Footer() {
         }
 
         .ft-bottom-cell:not(:last-child) {
-          border-right: 1px solid #222;
+          border-right: 1px solid #868686ff;
         }
 
         .ft-bottom-dev {
@@ -199,7 +198,7 @@ export default function Footer() {
 
         .ft-bottom-link {
           font-size: 11px;
-          color: #444;
+          color: #868686ff;
           text-decoration: none;
           letter-spacing: 0.07em;
           text-transform: uppercase;
@@ -210,12 +209,12 @@ export default function Footer() {
 
         .ft-bottom-copy {
           font-size: 11px;
-          color: #333;
+          color: #868686ff;
           letter-spacing: 0.03em;
         }
 
         .ft-bottom-sep {
-          color: #333;
+          color: #868686ff;
           margin: 0 10px;
           font-size: 11px;
         }

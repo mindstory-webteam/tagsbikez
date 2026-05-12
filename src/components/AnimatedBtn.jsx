@@ -1,9 +1,23 @@
 "use client";
 import React from "react";
 
-export default function AnimatedBtn({ children = "Read More", onClick, href, ...props }) {
+export default function AnimatedBtn({ 
+  children = "Read More", 
+  onClick, 
+  href, 
+  bgColor = "#111",
+  hoverColor = "#f51b24",
+  style,
+  ...props 
+}) {
 
   const Tag = href ? "a" : "button";
+
+  const mergedStyle = {
+    "--btn-bg": bgColor,
+    "--btn-hover": hoverColor,
+    ...style,
+  };
 
   return (
     <>
@@ -17,7 +31,7 @@ export default function AnimatedBtn({ children = "Read More", onClick, href, ...
           font-weight: 700;
           font-size: 13px;
           letter-spacing: 0.1em;
-          background: #111;
+          background: var(--btn-bg);
           cursor: pointer;
           position: relative;
           display: inline-flex;
@@ -89,7 +103,7 @@ export default function AnimatedBtn({ children = "Read More", onClick, href, ...
           bottom: 0;
           left: 0;
           z-index: 0;
-          background: #f51b24;
+          background: var(--btn-hover);
           transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
@@ -107,7 +121,7 @@ export default function AnimatedBtn({ children = "Read More", onClick, href, ...
         }
       `}</style>
 
-      <Tag className="anim-btn" onClick={onClick} href={href} {...props}>
+      <Tag className="anim-btn" onClick={onClick} href={href} style={mergedStyle} {...props}>
         <span className="anim-btn-track">
           {/* Original label — exits left */}
           <span className="anim-btn-label">{children}</span>
