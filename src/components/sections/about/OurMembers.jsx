@@ -11,22 +11,27 @@ const members = [
     name: "A.F. George",
     role: "Founding Partner",
     image: "/members/member1.png",
-    description: "Second-generation entrepreneur with over 35 years of business experience. Founder of Star Home Appliances and Bhavana Power Tools. His vision of sustainable, people-led enterprise is the foundation on which Tags Bikez stands."
-  },
-  {
-    name: "Francis George",
-    role: "Managing Partner",
-    image: "/members/member3.png",
-    description: "MBA graduate who oversees the Kuriachira distributorship and brings sharp business acumen to the group. His understanding of evolving market dynamics keeps Tags Bikez agile and future-ready."
+    description: (
+      <>
+        <strong>Experience:</strong> 45+ Years of Entrepreneurial Leadership<br />
+        <strong>Ventures:</strong> Founder of Bhavana Home Appliances, Star Home Appliances, Bhavana Power Tools, AGS Marketing, and Tags Bikez.<br />
+        <strong>Philosophy:</strong> Building sustainable, people-centric enterprises.<br />
+        <strong>Impact:</strong> His foundational vision of ethical business and community-led growth is the cornerstone upon which the Tags Bikez dealership was built.
+      </>
+    )
   },
   {
     name: "John George",
     role: "Partner",
     image: "/members/member2.png",
-    description: "MBA graduate and hands-on leader who manages day-to-day operations across all Tags Bikez branches. A firm believer that people are the true engine of profit and prosperity and that nurturing talent is the highest form of business strategy."
+    description: "John George manages the daily operations of all Tags Bikez branches with a focus on both precision and empathy. An MBA graduate who leads from the front, John believes that a business is only as strong as its team. By prioritizing talent development and people-led growth, he ensures that our operational success is built on a foundation of professional excellence and mutual prosperity."
   },
-
-
+  {
+    name: "Francis George",
+    role: "Managing Partner",
+    image: "/members/member3.png",
+    description: "As the leader overseeing our Royal Enfield vertical, Francis George brings a sophisticated strategic perspective to the group. His ability to navigate shifting market demands keeps our team agile and future-focused, ensuring long-term growth and a superior customer experience."
+  },
 ];
 
 const OurMembers = () => {
@@ -209,7 +214,7 @@ const OurMembers = () => {
                 </div>
                 <h3 className="member-name">{member.name}</h3>
                 <p className="member-role">{member.role}</p>
-                <p className="member-desc">{member.description}</p>
+                <div className="member-desc">{member.description}</div>
               </div>
             ))}
           </div>

@@ -8,9 +8,10 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const content = [
-  "Tags Bikez is rooted in a tradition of trust that goes back to the 1960s, when A.F. George's father built Bhavana Home Appliances into a household name in Thrissur. That spirit of enterprise passed seamlessly to the next generation A.F. George built Star Home Appliances into an authorised distributorship for Singer and Merritt sewing machines, and expanded further with Bhavana Power Tools.",
-  "When the opportunity arose to represent Royal Enfield India's most storied motorcycle brand in Thrissur, the family brought the same rigour, relationships, and people-first ethos to the world of two-wheelers. Today, Tags Bikez operates multiple Royal Enfield showrooms and a growing River Indie EV dealership, supported by a network of dedicated service centres across Thrissur and Palakkad districts.",
-  "We are not just a dealership. We are enthusiasts, community members, and lifelong partners to every rider who walks through our doors."
+  "The story of Tags Bikez is rooted in a tradition of trust that began in the 1960s. It started with the Kerala Leather Company, founded by the father of A.F. George, which served as a premier distributor for USHA sewing machines. This pioneering spirit of enterprise was passed down seamlessly to the next generation.",
+  "In 1980, A.F. George expanded this legacy by building Bhavana Home Appliances into a household name in Thrissur. He further strengthened the family’s reputation for quality by establishing Star Home Appliances—an authorized dealer for Singer and Merritt—and launching Bhavana Power Tools. To support the region's growing demand, AGS Marketing was established as a dedicated distribution firm to serve a wide network of dealers.",
+  "When the opportunity arose to represent Royal Enfield, India’s most storied motorcycle brand, the family brought that same rigor and people-first ethos to the world of two-wheelers. Today, Tags Bikez operates a robust network of showrooms and dedicated service centers across the Thrissur and Palakkad districts.",
+  "We are more than just a dealership; we are enthusiasts, community members, and lifelong partners to every rider who walks through our doors."
 ];
 
 const OurStory = () => {
@@ -19,7 +20,6 @@ const OurStory = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Animate each paragraph from ash to black — once only, no reverse
       textRefs.current.forEach((el) => {
         gsap.fromTo(
           el,
@@ -31,7 +31,7 @@ const OurStory = () => {
             scrollTrigger: {
               trigger: el,
               start: "top 80%",
-              once: true,       // fires once, never reverses
+              once: true,      
               toggleActions: "play none none none",
             },
           }
@@ -78,6 +78,7 @@ const OurStory = () => {
         }
 
         .story-subheading-wrap {
+          padding-top: 20px;
           display: flex;
           align-items: center;
         }
@@ -97,7 +98,7 @@ const OurStory = () => {
         .story-img-wrap {
           position: relative;
           width: 100%;
-          height: 380px;
+          height: 500px;
           border-radius: 4px;
           overflow: hidden;
         }
@@ -161,9 +162,7 @@ const OurStory = () => {
         </div>
         <div className="story-subheading-wrap">
           <p className="story-subheading">
-            From a humble home appliances store in the 1960s to Thrissur's
-            premier motorcycling destination. A legacy of trust, built across
-            generations.
+           A Legacy of Trust: From the Precision of Sewing Machines to the Freedom of the Open Road
           </p>
         </div>
 
