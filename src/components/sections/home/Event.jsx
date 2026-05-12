@@ -62,7 +62,7 @@ const events = [
     destination: "Kottayam",
     startdate: new Date(2026, 11, 28),
     enddate: new Date(2026, 11, 29),
-    image: img.event5,
+    image: img.event6,
     infoUrl: "#",
   },
   {
@@ -72,7 +72,7 @@ const events = [
     destination: "Vagamon",
     startdate: new Date(2026, 11, 28),
     enddate: new Date(2026, 11, 29),
-    image: img.event5,
+    image: img.event7,
     infoUrl: "#",
   },
 ];

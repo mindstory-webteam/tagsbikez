@@ -184,7 +184,7 @@ const CompanySection = () => {
         <div className="cp-flex-container">
           <div className="cp-img-side">
             <Image
-              src={img.banner1}
+              src={img.companysectionimg}
               alt="TagsBikez Showroom"
               fill
               priority

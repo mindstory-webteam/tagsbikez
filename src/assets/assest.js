@@ -39,13 +39,21 @@ import event2 from './event/event2.webp'
 import event3 from './event/event3.webp'
 import event4 from './event/event4.webp'
 import event5 from './event/event5.webp'
+import event6 from './event/event6.jpg'
+import event7 from './event/event7.jpg'
+
+import companysectionimg from './aboutpage/companysectionimg.png'
+
 
 export const img = {
+  companysectionimg,
   event1,
   event2,
   event3,
   event4,
   event5,
+  event6,
+  event7,
   bullet350, 
   classic350,
   continentalgt650,
