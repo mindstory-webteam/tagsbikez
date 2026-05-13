@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { img } from '@/assets/assest';
 import { ChevronRight, } from 'lucide-react';
+import { bikeData } from '@/lib/data/bikes';
 
 const Breadcrumb = () => {
   const pathname = usePathname();
@@ -13,6 +14,7 @@ const Breadcrumb = () => {
   const pageName = pathSegments[pathSegments.length - 1]?.replace(/-/g, ' ') || 'Page';
 
   const bgImage = img.banner5?.src || img.banner5;
+  const isModelsPage = pathname.startsWith('/models');
 
   return (
     <div className="hero-breadcrumb">
@@ -102,14 +104,53 @@ const Breadcrumb = () => {
           font-weight: 700;
         }
 
-      
+        .models-capsules {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: center;
+          gap: 12px;
+          margin-top: 32px;
+        }
+
+        .bike-capsule {
+          padding: 8px 18px;
+          border-radius: 0px;
+          border: 1px solid rgba(255, 255, 255, 0.3);
+          color: #fff;
+          font-size: 12px;
+          font-weight: 600;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          text-decoration: none;
+          transition: all 0.3s ease;
+          background: rgba(255, 255, 255, 0.1);
+          backdrop-filter: blur(4px);
+        }
+
+        .bike-capsule:hover, .bike-capsule.active {
+          background: #e63020;
+          border-color: #e63020;
+          color: #fff;
+          transform: translateY(-2px);
+        }
 
         @media (max-width: 768px) {
           .hero-breadcrumb {
-            height: 260px;
+            height: auto;
+            min-height: 260px;
+            padding: 40px 0;
           }
           .breadcrumb-content h1 {
             font-size: 40px;
+          }
+          .models-capsules {
+            margin-top: 24px;
+            gap: 8px;
+          }
+          .bike-capsule {
+            padding: 6px 12px;
+            font-size: 10px;
           }
         }
       `}</style>
@@ -142,6 +183,23 @@ const Breadcrumb = () => {
             );
           })}
         </div>
+        
+        {isModelsPage && (
+          <div className="models-capsules">
+            {bikeData.map(bike => {
+              const isActive = pathname === `/models/${bike.slug}`;
+              return (
+                <Link 
+                  key={bike.slug} 
+                  href={`/models/${bike.slug}`} 
+                  className={`bike-capsule ${isActive ? 'active' : ''}`}
+                >
+                  {bike.name}
+                </Link>
+              );
+            })}
+          </div>
+        )}
       </div>
 
       <div className="breadcrumb-edge" />
