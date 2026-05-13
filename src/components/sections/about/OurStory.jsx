@@ -9,7 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const content = [
   "The story of Tags Bikez is rooted in a tradition of trust that began in the 1960s. It started with the Kerala Leather Company, founded by the father of A.F. George, which served as a premier distributor for USHA sewing machines. This pioneering spirit of enterprise was passed down seamlessly to the next generation.",
-  "In 1980, A.F. George expanded this legacy by building Bhavana Home Appliances into a household name in Thrissur. He further strengthened the family’s reputation for quality by establishing Star Home Appliances—an authorized dealer for Singer and Merritt—and launching Bhavana Power Tools. To support the region's growing demand, AGS Marketing was established as a dedicated distribution firm to serve a wide network of dealers.",
+  "In 1980, A.F. George expanded this legacy by building Bhavana Home Appliances into a household name in Thrissur. He further strengthened the family’s reputation for quality by establishing Star Home Appliances an authorized dealer for Singer and Merritt and launching Bhavana Power Tools. To support the region's growing demand, AGS Marketing was established as a dedicated distribution firm to serve a wide network of dealers.",
   "When the opportunity arose to represent Royal Enfield, India’s most storied motorcycle brand, the family brought that same rigor and people-first ethos to the world of two-wheelers. Today, Tags Bikez operates a robust network of showrooms and dedicated service centers across the Thrissur and Palakkad districts.",
   "We are more than just a dealership; we are enthusiasts, community members, and lifelong partners to every rider who walks through our doors."
 ];

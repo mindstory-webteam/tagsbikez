@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { img } from "@/assets/assest";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -10,7 +11,7 @@ const members = [
   {
     name: "A.F. George",
     role: "Founding Partner",
-    image: "/members/member1.png",
+    image: img.member1,
     description: (
       <>
         <strong>Experience:</strong> 45+ Years of Entrepreneurial Leadership<br />
@@ -23,13 +24,13 @@ const members = [
   {
     name: "John George",
     role: "Partner",
-    image: "/members/member2.png",
+    image: img.member2,
     description: "John George manages the daily operations of all Tags Bikez branches with a focus on both precision and empathy. An MBA graduate who leads from the front, John believes that a business is only as strong as its team. By prioritizing talent development and people-led growth, he ensures that our operational success is built on a foundation of professional excellence and mutual prosperity."
   },
   {
     name: "Francis George",
     role: "Managing Partner",
-    image: "/members/member3.png",
+    image: img.member3,
     description: "As the leader overseeing our Royal Enfield vertical, Francis George brings a sophisticated strategic perspective to the group. His ability to navigate shifting market demands keeps our team agile and future-focused, ensuring long-term growth and a superior customer experience."
   },
 ];

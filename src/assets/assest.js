@@ -45,7 +45,14 @@ import event7 from './event/event7.jpg'
 import companysectionimg from './aboutpage/companysectionimg.png'
 
 
+import member1 from './members/member1.png'
+import member2 from './members/member2.png'
+import member3 from './members/member3.png' 
+
 export const img = {
+  member1,
+  member2,
+  member3,
   companysectionimg,
   event1,
   event2,

@@ -132,7 +132,6 @@ const Breadcrumb = () => {
           background: #e63020;
           border-color: #e63020;
           color: #fff;
-          transform: translateY(-2px);
         }
 
         @media (max-width: 768px) {
