@@ -19,14 +19,14 @@ const Home = () => {
       <div id="models">
         <PopularBikes />
       </div>
-      <BikeScrollAnimation/>
-      <BikeSectionSwiper2/>
+      <BikeScrollAnimation />
+      <BikeSectionSwiper2 />
       {/* <BikeSectionSwiper/> */}
-      <WhatWeDoSection/>
-      <AboutSection/>
-      <UpcomingEvents/>
-      <AccessoriesSection/>
-      <FAQSection/>
+      <WhatWeDoSection />
+      <AboutSection />
+      <UpcomingEvents />
+      <AccessoriesSection />
+      <FAQSection />
       <div id="test-ride">
         <TestDriveSection />
       </div>

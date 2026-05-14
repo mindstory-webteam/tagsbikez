@@ -242,8 +242,8 @@ export default function ModelsSection() {
 
           <div className="models-grid">
             {filtered.map((b) => (
-              <Card 
-                key={b.id} 
+              <Card
+                key={b.id}
                 title={b.name}
                 img={b.image}
                 slug={b.slug}

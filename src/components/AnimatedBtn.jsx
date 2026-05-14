@@ -123,9 +123,7 @@ export default function AnimatedBtn({
 
       <Tag className="anim-btn" onClick={onClick} href={href} style={mergedStyle} {...props}>
         <span className="anim-btn-track">
-          {/* Original label — exits left */}
           <span className="anim-btn-label">{children}</span>
-          {/* Clone — enters from right */}
           <span className="anim-btn-clone">{children}</span>
         </span>
       </Tag>
