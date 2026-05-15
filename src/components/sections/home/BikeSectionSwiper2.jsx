@@ -266,21 +266,29 @@ export default function BikeSectionSwiper2() {
           overflow: hidden;
         }
 
+        .fv-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-end;
+          padding: 0 50px;
+          margin-bottom: 28px;
+        }
+
         .fv-heading {
           font-size: 42px;
           font-weight: 400;
           text-transform: uppercase;
           color: #111;
           letter-spacing: 0.04em;
-          margin: 0 0 18px 0;
-          padding: 0 40px;
+          margin: 0;
+          padding: 0;
         }
 
         .fv-top-row {
           display: flex;
           align-items: center;
-          padding: 0 40px;
-          margin-bottom: 28px;
+          padding: 0;
+          margin: 0;
         }
 
         /* ── TABS ── */
@@ -459,27 +467,35 @@ export default function BikeSectionSwiper2() {
         /* ── MOBILE ── */
         @media (max-width: 768px) {
           .fv-root { padding: 28px 0 36px; }
-          .fv-heading { padding: 0 20px; font-size: 28px; }
-          .fv-top-row { padding: 0 20px; margin-bottom: 20px; }
+          .fv-header { 
+            flex-direction: column; 
+            align-items: flex-start; 
+            gap: 16px; 
+            padding: 0 20px; 
+            margin-bottom: 20px; 
+          }
+          .fv-heading { font-size: 28px; }
           .fv-tab { padding: 7px 12px; font-size: 11px; }
         }
       `}</style>
 
-      {/* Heading */}
-      <h2 className="fv-heading">Our Models</h2>
+      {/* Header with Title and Tabs */}
+      <div className="fv-header">
+        <h2 className="fv-heading">Our Models</h2>
 
-      {/* Tabs */}
-      <div className="fv-top-row">
-        <div className="fv-tabs">
-          {categories.map((tab) => (
-            <button
-              key={tab}
-              className={`fv-tab ${activeTab === tab ? "active" : ""}`}
-              onClick={() => handleTabChange(tab)}
-            >
-              {tab}
-            </button>
-          ))}
+        {/* Tabs */}
+        <div className="fv-top-row">
+          <div className="fv-tabs">
+            {categories.map((tab) => (
+              <button
+                key={tab}
+                className={`fv-tab ${activeTab === tab ? "active" : ""}`}
+                onClick={() => handleTabChange(tab)}
+              >
+                {tab}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 

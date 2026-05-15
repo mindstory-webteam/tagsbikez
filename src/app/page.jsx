@@ -11,6 +11,7 @@ import SocialFeed from '@/components/sections/home/SocialFeed'
 import React from 'react'
 import UpcomingEvents from '@/components/sections/home/Event'
 import AccessoriesSection from '@/components/sections/home/AccessoriesSection'
+import EmiCalculator from '@/components/sections/home/EmiCalculator'
 
 const Home = () => {
   return (
@@ -19,12 +20,13 @@ const Home = () => {
       <div id="models">
         <PopularBikes />
       </div>
-      <BikeScrollAnimation />
       <BikeSectionSwiper2 />
+      <EmiCalculator/>
+      <UpcomingEvents />
       {/* <BikeSectionSwiper/> */}
       <WhatWeDoSection />
+      <BikeScrollAnimation />
       <AboutSection />
-      <UpcomingEvents />
       <AccessoriesSection />
       <FAQSection />
       <div id="test-ride">

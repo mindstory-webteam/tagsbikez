@@ -198,7 +198,7 @@ export default function UpcomingEvents() {
       <style>{`
         .ev-section {
           background: #fff;
-          padding: 0 0 0px 0;
+          padding: 0 0 100px 0;
         }
         .ev-inner {
           max-width: 1430px;

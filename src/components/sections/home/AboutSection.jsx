@@ -100,7 +100,7 @@ export default function AboutSection() {
         .as-root {
           background: #fff;
           width: 100%;
-          padding: 80px 0;
+          padding: 80px 0 0px 0px;
         }
 
         .as-container {
