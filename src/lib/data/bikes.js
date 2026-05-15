@@ -8,7 +8,7 @@ export const bikeData = [
     category: 'Cafe Racer',
     description: 'Agile, compact, and designed for the urban jungle. The Hunter 350 is built for those who want to navigate the city with ease and style.',
     image: img.hunter350,
-    colorImages: [img.hunter350, img.bulletfront, img.bulletback],
+    colorImages: [img.hunter350, img.classic350, img.hunter350],
     brochure: '/brochures/hunter-350.pdf',
     stats: [
       { label: 'Engine', val: '349cc' },
@@ -35,7 +35,7 @@ export const bikeData = [
     category: 'Classic',
     description: 'Inspired by the G2 model of the 1950s, the all-new Classic 350 continues to embody the timeless design and dependable performance.',
     image: img.classic350,
-    colorImages: [img.classic350, img.bulletfront, img.bulletback],
+    colorImages: [img.classic350, img.classic350, img.classic350],
     brochure: '/brochures/classic-350.pdf',
     stats: [
       { label: 'Engine', val: '349cc' },
@@ -62,7 +62,7 @@ export const bikeData = [
     category: 'Classic',
     description: 'A symbol of resilience and a testament to the enduring spirit of pure motorcycling. The new Bullet 350 is more than just a machine; it is a legacy. , A symbol of resilience and a testament to the enduring spirit of pure motorcycling. The new Bullet 350 is more than just a machine; it is a legacy.',
     image: img.bullet350,
-    colorImages: [img.bullet350, img.bulletfront, img.bulletback],
+    colorImages: [img.bullet350, img.bullet350, img.bullet350],
     brochure: '/brochures/bullet-350.pdf',
     stats: [
       { label: 'Engine', val: '349cc' },
@@ -89,7 +89,7 @@ export const bikeData = [
     category: 'Adventure',
     description: 'The all-new Himalayan is designed to conquer every terrain, from the highest peaks to the deepest valleys. , The all-new Himalayan is designed to conquer every terrain, from the highest peaks to the deepest valleys.',
     image: img.himalayan450,
-    colorImages: [img.himalayan450, img.bulletfront, img.bulletback],
+    colorImages: [img.himalayan450, img.himalayan450, img.himalayan450],
     brochure: '/brochures/himalayan-450.pdf',
     stats: [
       { label: 'Engine', val: '452cc' },
@@ -143,7 +143,7 @@ export const bikeData = [
     category: 'Cafe Racer',
     description: 'The Interceptor 650 is a versatile twin-cylinder roadster that captures the essence of the 1960s California cool.',
     image: img.interceptor,
-    colorImages: [img.interceptor, img.bulletfront, img.bulletback],
+    colorImages: [img.interceptor, img.continentalgt650, img.continentalgt650],
     brochure: '/brochures/interceptor-650.pdf',
     stats: [
       { label: 'Engine', val: '648cc' },
@@ -170,7 +170,7 @@ export const bikeData = [
     category: 'Adventure',
     description: 'Built for the concrete jungle and beyond. The Scram 411 combines high-altitude DNA with authentic urban styling.',
     image: img.scram440,
-    colorImages: [img.scram440, img.bulletfront, img.bulletback],
+    colorImages: [img.scram440, img.scram440, img.scram440],
     brochure: '/brochures/scram-411.pdf',
     stats: [
       { label: 'Engine', val: '411cc' },
@@ -197,7 +197,7 @@ export const bikeData = [
     category: 'Cruiser',
     description: 'A motorcycle that defies categorization. The Shotgun 650 is a custom-inspired machine built for the creative mind. , A motorcycle that defies categorization. The Shotgun 650 is a custom-inspired machine built for the creative mind.',
     image: img.shotgun650,
-    colorImages: [img.shotgun650, img.bulletfront, img.bulletback],
+    colorImages: [img.shotgun650, img.shotgun650, img.shotgun650],
     brochure: '/brochures/shotgun-650.pdf',
     stats: [
       { label: 'Engine', val: '648cc' },

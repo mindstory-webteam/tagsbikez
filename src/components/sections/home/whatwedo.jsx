@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { img } from "@/assets/assest";
 import AnimatedBtn from "@/components/AnimatedBtn";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -13,27 +13,57 @@ const steps = [
     number: "01",
     title: "ROYAL ENFIELD DEALER",
     description:
-      "As an authorized Royal Enfield dealership in Kochi, we bring you the full lineup of iconic motorcycles from the timeless Classic 350 to the adventure-ready Himalayan. Every bike is delivered with factory warranty, genuine documentation, and the trust of a certified dealer you can count on.",
+      "At Royal Enfield Thrissur, we don't just sell motorcycles we deliver legends on two wheels. From the timeless charm of the Classic 350 to the rugged spirit of the Himalayan and the thrilling performance of the Continental GT & Super Meteor range, we bring you the complete world of Royal Enfield under one roof. As an authorized dealership, every motorcycle comes with genuine documentation, factory-backed warranty, certified service support, and the confidence of dealing with a trusted official partner. Whether you're a daily rider, weekend explorer, or passionate touring enthusiast, our team is here to help you find the perfect machine that matches your style and journey. Ride with authenticity. Ride with confidence. Ride the soul of motorcycling with Royal Enfield Thrissur.",
   },
   {
     number: "02",
     title: "HIGH QUALITY SERVICE",
     description:
-      "Our state-of-the-art service centre is staffed by factory-trained technicians who know every bolt and bearing of your Royal Enfield. From routine oil changes and scheduled maintenance to complex engine overhauls, we use only genuine parts to keep your ride performing at its absolute best.",
+      "Your Royal Enfield deserves nothing less than expert attention. At our advanced service centre in Thrissur, every motorcycle is handled by factory-trained technicians who understand the true DNA of Royal Enfield machines. From quick periodic maintenance and precision diagnostics to complete engine rebuilds and performance care, we ensure every ride leaves our workshop smoother, stronger, and road-ready. Using only genuine Royal Enfield parts, advanced equipment, and manufacturer-approved practices, we maintain the performance, reliability, and character your motorcycle was built for. Because for us, service is not just maintenance it's preserving the soul of your ride.",
   },
   {
     number: "03",
     title: "ATTRACTIVE PRICING",
     description:
-      "We believe owning a Royal Enfield should be straightforward and stress-free. That's why we offer transparent, no-hidden-cost pricing on all bikes and services, flexible finance options with leading banks, and exclusive dealership offers throughout the year so your dream ride is always within reach.",
+      "Owning a Royal Enfield should feel exciting not complicated. That's why we offer transparent pricing, zero hidden charges, and complete guidance at every step of your purchase journey. From affordable EMI plans and fast loan approvals with leading finance partners to exclusive seasonal offers and dealership benefits, we make it easier than ever to bring home the Royal Enfield you've always dreamed of. Whether you're buying your first motorcycle or upgrading to your next adventure machine, our team ensures a smooth, hassle-free ownership experience built on trust, value, and customer satisfaction. Your dream ride is closer than you think ride home with confidence today.",
   },
   {
     number: "04",
-    title: "PROMPT DELIVERY",
+    title: "READY WHEN YOU ARE",
     description:
-      "Your time matters. Once your booking is confirmed, our team handles all the paperwork, registration, and insurance coordination so you don't have to. Most customers receive their motorcycle within the committed timeframe, fully prepped, inspected, and ready to hit the open road from day one.",
+      "At our authorized Royal Enfield dealership in Thrissur, we understand that the excitement of owning your dream motorcycle shouldn't be delayed. That's why we ensure a smooth, fast, and hassle-free delivery experience from booking to handover. From registration and insurance coordination to documentation and final vehicle preparation, our team takes care of every detail with precision and transparency. Every motorcycle undergoes a complete pre-delivery inspection, professional detailing, and quality check to ensure it reaches you in perfect condition fully road-ready from day one. With committed timelines, seamless processing, and customer-first support, we make sure your Royal Enfield journey begins exactly the way it should stress-free, memorable, and right on time.",
   },
 ];
+
+function StepCard({ step, i, stepRefs, cardBorderRefs }) {
+  const [expanded, setExpanded] = useState(false);
+
+  return (
+    <div
+      ref={(el) => (stepRefs.current[i] = el)}
+      style={{ opacity: 0 }}
+    >
+      <div
+        ref={(el) => (cardBorderRefs.current[i] = el)}
+        className="wwd-card-border"
+      >
+        <div className="wwd-card-header">
+          <p className="wwd-step-num">{step.number}</p>
+          <p className="step-title">{step.title}</p>
+        </div>
+        <p className={`step-desc${expanded ? "" : " step-desc-clamp"}`}>
+          {step.description}
+        </p>
+        <button
+          className="read-more-btn"
+          onClick={() => setExpanded((prev) => !prev)}
+        >
+          {expanded ? "Read Less" : "Read More"}
+        </button>
+      </div>
+    </div>
+  );
+}
 
 export default function WhatWeDoSection() {
   const sectionRef = useRef(null);
@@ -173,6 +203,33 @@ export default function WhatWeDoSection() {
           color: #555555;
         }
 
+        /* Clamps text to 5 lines */
+        .step-desc-clamp {
+          display: -webkit-box;
+          -webkit-line-clamp: 4;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+
+        .read-more-btn {
+          background: none;
+          border: none;
+          padding: 6px 0 0 0;
+          font-size: 11px;
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          color: #f51b24;
+          cursor: pointer;
+          display: block;
+          margin-top: 4px;
+          text-transform: uppercase;
+          text-decoration: none;
+        }
+
+        .read-more-btn:hover {
+          opacity: 0.75;
+        }
+
         .wwd-cta {
           margin-top: 44px;
         }
@@ -263,22 +320,13 @@ export default function WhatWeDoSection() {
             <div className="wwd-grid-side">
               <div ref={gridWrapRef} className="wwd-grid">
                 {steps.map((step, i) => (
-                  <div
+                  <StepCard
                     key={step.number}
-                    ref={(el) => (stepRefs.current[i] = el)}
-                    style={{ opacity: 0 }}
-                  >
-                    <div
-                      ref={(el) => (cardBorderRefs.current[i] = el)}
-                      className="wwd-card-border"
-                    >
-                      <div className="wwd-card-header">
-                        <p className="wwd-step-num">{step.number}</p>
-                        <p className="step-title">{step.title}</p>
-                      </div>
-                      <p className="step-desc">{step.description}</p>
-                    </div>
-                  </div>
+                    step={step}
+                    i={i}
+                    stepRefs={stepRefs}
+                    cardBorderRefs={cardBorderRefs}
+                  />
                 ))}
               </div>
 

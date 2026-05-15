@@ -11,6 +11,46 @@ const navLinks = [
   { name: "CONTACT", path: "/contact" }
 ];
 
+const locations = [
+  {
+    area: "Patturaikkal, Thrissur",
+    name: "TagsBikez Patturaikkal",
+    sales: "+91 7594960033",
+    service: "+91 7594960068",
+    email: "info.tags.ptkl@gmail.com",
+  },
+  {
+    area: "Kuriachira, Thrissur",
+    name: "TagsBikez Kuriachira",
+    sales: "+91 7594960023",
+    service: "+91 7594960020",
+    email: "info.tags.tcr@gmail.com",
+  },
+  {
+    area: "Irinjalakuda",
+    name: "TagsBikez Irinjalakuda",
+    sales: "+91 7594951111",
+    service: "+91 7594960049",
+    email: "info.tags.irj@gmail.com",
+  },
+  {
+    area: "Kodakara",
+    name: "TagsBikez Kodakara",
+    sales: "+91 7594960033",
+    service: "Coming Soon",
+    email: "info.tags.ptkl@gmail.com",
+  },
+  {
+    area: "Vadakkencherry",
+    name: "TagsBikez Vadakkencherry",
+    sales: "+91 7025282011",
+    service: "Coming Soon",
+    email: "info.tags.vdy@gmail.com",
+  },
+
+
+];
+
 const socialIcons = {
   instagram: (
     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -55,7 +95,7 @@ export default function Footer() {
         /* ── Main 3-col row ── */
         .ft-main {
           display: grid;
-          grid-template-columns: 1fr 1fr 1fr;
+          grid-template-columns: 1fr 1.4fr 1fr;
         }
 
         .ft-col {
@@ -97,13 +137,88 @@ export default function Footer() {
 
         /* ── Labels ── */
         .ft-label {
-          font-size: 11px;
+          font-size: 15px;
           color: #868686ff;
           letter-spacing: 0.1em;
           text-transform: uppercase;
           margin: 0 0 8px 0;
         }
 
+        /* ── Locations grid ── */
+        .ft-locations-label {
+          font-size: 15px;
+          color: #868686ff;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          margin: 0 0 18px 0;
+        }
+
+        .ft-locations-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 20px 24px;
+        }
+
+        .ft-loc-card {
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+        }
+
+        .ft-loc-name {
+          font-size: 15px;
+          font-weight: 700;
+          color: #fff;
+          letter-spacing: 0.03em;
+          margin: 0 0 2px 0;
+          line-height: 1.3;
+        }
+
+        .ft-loc-area {
+          font-size: 12px;
+          color: #f51b24;
+          text-transform: uppercase;
+          letter-spacing: 0.08em;
+          margin: 0 0 6px 0;
+        }
+
+        .ft-loc-row {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+        }
+
+        .ft-loc-key {
+          font-size: 11px;
+          color: #555;
+          text-transform: uppercase;
+          letter-spacing: 0.06em;
+          min-width: 42px;
+          flex-shrink: 0;
+        }
+
+        .ft-loc-val {
+          font-size: 13px;
+          color: #aaa;
+          text-decoration: none;
+          transition: color 0.2s;
+          line-height: 1.4;
+        }
+
+        .ft-loc-val:hover { color: #fff; }
+
+        .ft-loc-val.coming {
+          color: #555;
+          font-style: italic;
+        }
+
+        .ft-loc-divider {
+          border: none;
+          border-top: 1px solid #1e1e1e;
+          margin: 2px 0 0 0;
+        }
+
+        /* ── Contact col ── */
         .ft-address {
           font-size: 15px;
           font-weight: 500;
@@ -230,6 +345,9 @@ export default function Footer() {
             border-right: none;
             grid-column: 1 / -1;
           }
+          .ft-locations-grid {
+            grid-template-columns: repeat(3, 1fr);
+          }
           .ft-bottom {
             grid-template-columns: 1fr 1fr;
           }
@@ -254,6 +372,10 @@ export default function Footer() {
           .ft-col:nth-child(3) {
             grid-column: unset;
             border-top: none;
+          }
+
+          .ft-locations-grid {
+            grid-template-columns: 1fr 1fr;
           }
 
           .ft-bottom {
@@ -281,10 +403,9 @@ export default function Footer() {
 
       <div className="ft-wrap">
 
-        {/* ── Main 3-col grid ── */}
         <div className="ft-main">
 
-          {/* Col 1 — Brand + nav */}
+          {/* Col 1 — Logo + Nav */}
           <div className="ft-col">
             <Image
               src={img.tagsbikezwhite}
@@ -303,33 +424,36 @@ export default function Footer() {
             </nav>
           </div>
 
-          {/* Col 2 — Address */}
+          {/* Col 2 — Locations */}
           <div className="ft-col">
-            <p className="ft-label">Address:</p>
-            <p className="ft-address">
-              ATTOKARANS TAGSBIKEZ Chiyyaram, Village, Kuriachira,
-              <br />
-              Thrissur, Kerala 680006
-            </p>
-
-            <p className="ft-label" style={{ marginTop: "20px" }}>Service Center:</p>
-            <p className="ft-address">
-              TagsBikez,
-              <br />
-              Kuriachira, Thrissur
-            </p>
-            <p className="ft-hours">Mon–Sat: 09:00 to 18:00</p>
-            <a
-              href="https://share.google/9sW99PQ6cnIW0NHxz"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="ft-redirect"
-            >
-              View on Map
-            </a>
+            <p className="ft-locations-label">Our Locations</p>
+            <div className="ft-locations-grid">
+              {locations.map((loc) => (
+                <div key={loc.area} className="ft-loc-card">
+                  <p className="ft-loc-area">{loc.area}</p>
+                  <p className="ft-loc-name">{loc.name}</p>
+                  <hr className="ft-loc-divider" />
+                  <div className="ft-loc-row">
+                    <span className="ft-loc-key">Sales</span>
+                    <a href={`tel:${loc.sales.replace(/\s/g, "")}`} className="ft-loc-val">{loc.sales}</a>
+                  </div>
+                  <div className="ft-loc-row">
+                    <span className="ft-loc-key">Service</span>
+                    {loc.service === "Coming Soon"
+                      ? <span className="ft-loc-val coming">Coming Soon</span>
+                      : <a href={`tel:${loc.service.replace(/\s/g, "")}`} className="ft-loc-val">{loc.service}</a>
+                    }
+                  </div>
+                  <div className="ft-loc-row">
+                    <span className="ft-loc-key">Email</span>
+                    <a href={`mailto:${loc.email}`} className="ft-loc-val">{loc.email}</a>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
 
-          {/* Col 3 — Contact + socials */}
+          {/* Col 3 — Contact + Socials */}
           <div className="ft-col">
             <p className="ft-label">Phone:</p>
             <p className="ft-phone">+91 7594960023</p>
@@ -355,7 +479,6 @@ export default function Footer() {
 
         </div>
 
-        {/* ── Bottom bar ── */}
         <div className="ft-bottom">
           <div className="ft-bottom-cell">
             <Link href="/privacy" className="ft-bottom-link">Privacy Policy</Link>
@@ -363,11 +486,11 @@ export default function Footer() {
             <Link href="/terms" className="ft-bottom-link">Terms &amp; Conditions</Link>
           </div>
           <div className="ft-bottom-cell" style={{ justifyContent: "center" }}>
-            <span className="ft-bottom-copy">© 2024 <spam className="text-red-500">Tagsbikez.</spam> All rights reserved.</span>
+            <span className="ft-bottom-copy">© 2024 <span className="text-red-500">Tagsbikez.</span> All rights reserved.</span>
           </div>
           <div className="ft-bottom-cell ft-bottom-dev">
             <a href="https://mpxcode.com/">
-              <span className="ft-bottom-copy">Crafted by <spam className="text-[#95257b]">MyndPixel.</spam></span>
+              <span className="ft-bottom-copy">Crafted with care by <span className="text-[#95257b]">MyndPixel.</span></span>
             </a>
           </div>
         </div>
