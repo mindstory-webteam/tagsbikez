@@ -1,21 +1,14 @@
 "use client";
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { Download, MessageSquare } from 'lucide-react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, EffectFade, Autoplay } from 'swiper/modules';
-
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/effect-fade';
 
 const BikeDetailView = ({ bike }) => {
-  if (!bike) return null;
+  const [selectedColor, setSelectedColor] = useState(
+    bike.colors && bike.colors.length > 0 ? bike.colors[0] : { name: 'Standard', image: bike.image }
+  );
 
-  const displayImages = bike.colorImages && bike.colorImages.length > 0
-    ? bike.colorImages
-    : [bike.image];
+  if (!bike) return null;
 
   return (
     <div className="bdv-root">
@@ -39,45 +32,16 @@ const BikeDetailView = ({ bike }) => {
           background: #f8f8f8;
           border: 1px solid #eee;
           overflow: hidden;
-        }
-
-        .bdv-swiper {
-          width: 100%;
-          height: 100%;
-        }
-
-        .bdv-img-slide {
           display: flex;
           align-items: flex-end;
           justify-content: center;
           padding: 40px;
-          position: relative;
-          height: 100%;
+          height: 500px;
         }
 
         .bdv-img {
           object-fit: contain !important;
-          transition: transform 0.5s ease;
-        }
-
-        .bdv-swiper .swiper-button-next,
-        .bdv-swiper .swiper-button-prev {
-          color: #000 !important;
-          width: 28px !important;
-          height: 28px !important;
-          border-radius: 50%;
-          box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-          border: 1px solid #eee;
-        }
-
-        .bdv-swiper .swiper-button-next:after,
-        .bdv-swiper .swiper-button-prev:after {
-          font-size: 10px !important;
-          font-weight: 700;
-        }
-
-        .bdv-swiper .swiper-pagination-bullet-active {
-          background: #f51b24 !important;
+          transition: all 0.5s ease;
         }
 
         /*  CONTENT SIDE  */
@@ -87,26 +51,74 @@ const BikeDetailView = ({ bike }) => {
           flex-direction: column;
           border: 1px solid #e0e0e0;
           background: #fff;
+          height: 500px;
+          overflow: hidden;
         }
 
         .bdv-text-wrap {
-          padding: 60px;
+          padding: 30px 60px;
           border-bottom: 1px solid #e0e0e0;
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
         }
 
         .bdv-title {
-          font-size: 48px;
+          font-size: 32px;
           font-weight: 400;
           color: #111;
-          margin-bottom: 24px;
+          margin-bottom: 16px;
           text-transform: uppercase;
           line-height: 1.1;
         }
 
         .bdv-desc {
-          font-size: 16px;
+          font-size: 14px;
           color: #666;
-          line-height: 1.8;
+          line-height: 1.6;
+          margin-bottom: 20px;
+        }
+
+        /* COLORS */
+        .bdv-colors-wrap {
+          margin-top: 20px;
+        }
+
+        .bdv-colors-label {
+          font-size: 11px;
+          font-weight: 700;
+          color: #999;
+          text-transform: uppercase;
+          letter-spacing: 0.1em;
+          display: block;
+          margin-bottom: 15px;
+        }
+
+        .bdv-colors-grid {
+          display: flex;
+          gap: 12px;
+        }
+
+        .bdv-color-btn {
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          border: 2px solid #eee;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          padding: 2px;
+          background-clip: content-box;
+          position: relative;
+        }
+
+        .bdv-color-btn:hover {
+          transform: scale(1.1);
+        }
+
+        .bdv-color-btn.active {
+          border-color: #f51b24;
+          transform: scale(1.1);
         }
 
         .bdv-stats-grid {
@@ -115,7 +127,7 @@ const BikeDetailView = ({ bike }) => {
         }
 
         .bdv-stat-item {
-          padding: 30px 20px;
+          padding: 20px 10px;
           border-bottom: 1px solid #e0e0e0;
           text-align: center;
           display: flex;
@@ -128,13 +140,13 @@ const BikeDetailView = ({ bike }) => {
         }
 
         .bdv-stat-val {
-          font-size: 20px;
+          font-size: 18px;
           font-weight: 700;
           color: #111;
         }
 
         .bdv-stat-label {
-          font-size: 11px;
+          font-size: 10px;
           font-weight: 700;
           color: #999;
           text-transform: uppercase;
@@ -143,7 +155,7 @@ const BikeDetailView = ({ bike }) => {
 
         /* ── FOOTER / BUTTONS ── */
         .bdv-footer {
-          padding: 40px 60px;
+          padding: 30px 60px;
           background: #fafafa;
           display: flex;
           gap: 20px;
@@ -152,11 +164,11 @@ const BikeDetailView = ({ bike }) => {
         /* Animated button base */
         .bdv-anim-btn {
           flex: 1;
-          height: 52px;
+          height: 48px;
           color: #fff;
-          padding: 0 28px;
+          padding: 0 20px;
           font-weight: 700;
-          font-size: 12px;
+          font-size: 11px;
           letter-spacing: 0.1em;
           background: var(--btn-bg);
           cursor: pointer;
@@ -179,7 +191,6 @@ const BikeDetailView = ({ bike }) => {
           transform: translateY(2px);
         }
 
-        /* Icon stays above the fill sweep */
         .bdv-anim-btn-icon {
           z-index: 1;
           display: inline-flex;
@@ -187,7 +198,6 @@ const BikeDetailView = ({ bike }) => {
           flex-shrink: 0;
         }
 
-        /* Sliding text track */
         .bdv-anim-btn-track {
           position: relative;
           display: flex;
@@ -217,7 +227,6 @@ const BikeDetailView = ({ bike }) => {
           white-space: nowrap;
         }
 
-        /* Hover: original slides out left, clone slides in from right */
         .bdv-anim-btn:hover .bdv-anim-btn-label {
           transform: translateX(-110%);
           opacity: 0;
@@ -228,7 +237,6 @@ const BikeDetailView = ({ bike }) => {
           opacity: 1;
         }
 
-        /* Red fill sweeps up from bottom */
         .bdv-anim-btn::after {
           position: absolute;
           content: "";
@@ -245,13 +253,11 @@ const BikeDetailView = ({ bike }) => {
           height: 100%;
         }
 
-        /* Primary: dark bg */
         .bdv-anim-btn-primary {
           --btn-bg: #111;
           --btn-hover: #f51b24;
         }
 
-        /* Secondary: outlined — colour flips on hover via the fill */
         .bdv-anim-btn-secondary {
           --btn-bg: transparent;
           --btn-hover: #111;
@@ -315,6 +321,7 @@ const BikeDetailView = ({ bike }) => {
         @media (max-width: 1100px) {
           .bdv-inner {
             grid-template-columns: 1fr;
+            padding-left: 0;
           }
           .bdv-img-side {
             min-height: 400px;
@@ -363,31 +370,36 @@ const BikeDetailView = ({ bike }) => {
       {/* Main Details Section */}
       <div className="bdv-inner">
         <div className="bdv-img-side">
-          <Swiper
-            modules={[Navigation, Pagination, EffectFade, Autoplay]}
-            effect="fade"
-            autoplay={{ delay: 2000, disableOnInteraction: false }}
-            className="bdv-swiper"
-          >
-            {displayImages.map((imgSrc, index) => (
-              <SwiperSlide key={index} className="bdv-img-slide">
-                <Image
-                  src={imgSrc}
-                  alt={`${bike.name} color ${index + 1}`}
-                  fill
-                  className="bdv-img"
-                  sizes="(max-width: 1100px) 100vw, 60vw"
-                  priority={index === 0}
-                />
-              </SwiperSlide>
-            ))}
-          </Swiper>
+          <Image
+            src={selectedColor.image}
+            alt={bike.name}
+            fill
+            className="bdv-img"
+            sizes="(max-width: 1100px) 100vw, 60vw"
+            priority
+            key={selectedColor.name}
+          />
         </div>
 
         <div className="bdv-content-side">
           <div className="bdv-text-wrap">
             <h1 className="bdv-title">{bike.name}</h1>
             <p className="bdv-desc">{bike.description}</p>
+
+            <div className="bdv-colors-wrap">
+              <span className="bdv-colors-label">Color: {selectedColor.name}</span>
+              <div className="bdv-colors-grid">
+                {bike.colors && bike.colors.map((c, i) => (
+                  <button
+                    key={i}
+                    className={`bdv-color-btn ${selectedColor.name === c.name ? 'active' : ''}`}
+                    style={{ backgroundColor: c.hex }}
+                    onClick={() => setSelectedColor(c)}
+                    aria-label={c.name}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
 
           <div className="bdv-stats-grid">
@@ -400,9 +412,8 @@ const BikeDetailView = ({ bike }) => {
           </div>
 
           <div className="bdv-footer">
-            {/* Enquire Now  */}
             <a
-              href={`https://wa.me/917594960023?text=I'm%20interested%20in%20the%20${bike.name}`}
+              href={`https://wa.me/917594960023?text=I'm%20interested%20in%20the%20${bike.name}%20in%20${selectedColor.name}`}
               target="_blank"
               rel="noopener noreferrer"
               className="bdv-anim-btn bdv-anim-btn-primary"
@@ -414,7 +425,6 @@ const BikeDetailView = ({ bike }) => {
               </span>
             </a>
 
-            {/* Brochure*/}
             <a
               href={bike.brochure}
               download

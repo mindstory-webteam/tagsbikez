@@ -260,13 +260,13 @@ const getMinDownPayment = (bike) => {
   if (fullName.includes("classic")) return 11999;
   if (fullName.includes("hunter") || fullName.includes("bullet")) return 4999;
 
-  return 11999; 
+  return 11999;
 };
 
 export default function EmiCalculator() {
   const [category, setCategory] = useState("All");
   const [selectedBike, setSelectedBike] = useState(BIKES_DATA["All"][0]);
-  const [downAmount, setDownAmount] = useState(4999); 
+  const [downAmount, setDownAmount] = useState(4999);
   const [loanYears, setLoanYears] = useState(3);
   const [interestRate, setInterestRate] = useState(10.5);
 
@@ -359,7 +359,7 @@ export default function EmiCalculator() {
                   </div>
                   <div className="relative h-1.5 bg-gray-100 group">
                     <div
-                      className="absolute h-full bg-[#f51b24] transition-all duration-300"
+                      className="absolute h-full bg-[#f51b24]"
                       style={{ width: `${downPct}%` }}
                     />
                     <input
@@ -378,7 +378,7 @@ export default function EmiCalculator() {
                       className="absolute w-full h-full opacity-0 cursor-pointer z-10"
                     />
                     <div
-                      className="absolute top-1/2 -translate-y-1/2 w-5 h-5 bg-white border-4 border-[#f51b24] pointer-events-none transition-all duration-300"
+                      className="absolute top-1/2 -translate-y-1/2 w-5 h-5 bg-white border-4 border-[#f51b24] pointer-events-none"
                       style={{ left: `calc(${downPct}% - 10px)` }}
                     />
                   </div>
@@ -400,7 +400,7 @@ export default function EmiCalculator() {
                   </div>
                   <div className="relative h-1.5 bg-gray-100 group">
                     <div
-                      className="absolute h-full bg-[#f51b24] transition-all duration-300"
+                      className="absolute h-full bg-[#f51b24]"
                       style={{ width: `${((interestRate - 5) / (20 - 5)) * 100}%` }}
                     />
                     <input
@@ -413,7 +413,7 @@ export default function EmiCalculator() {
                       className="absolute w-full h-full opacity-0 cursor-pointer z-10"
                     />
                     <div
-                      className="absolute top-1/2 -translate-y-1/2 w-5 h-5 bg-white border-4 border-[#f51b24] pointer-events-none transition-all duration-300"
+                      className="absolute top-1/2 -translate-y-1/2 w-5 h-5 bg-white border-4 border-[#f51b24] pointer-events-none"
                       style={{ left: `calc(${((interestRate - 5) / (20 - 5)) * 100}% - 10px)` }}
                     />
                   </div>
@@ -435,8 +435,8 @@ export default function EmiCalculator() {
                       key={opt.value}
                       onClick={() => setLoanYears(opt.value)}
                       className={`py-2.5 font-bold text-xs transition-all border-2 ${loanYears === opt.value
-                          ? "bg-[#f51b24] border-[#f51b24] text-white"
-                          : "bg-gray-50 border-gray-100 text-gray-600 hover:border-gray-200"
+                        ? "bg-[#f51b24] border-[#f51b24] text-white"
+                        : "bg-gray-50 border-gray-100 text-gray-600 hover:border-gray-200"
                         }`}
                     >
                       {opt.label}

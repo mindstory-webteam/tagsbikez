@@ -8,7 +8,12 @@ export const bikeData = [
     category: 'Cafe Racer',
     description: 'Agile, compact, and designed for the urban jungle. The Hunter 350 is built for those who want to navigate the city with ease and style.',
     image: img.hunter350,
-    colorImages: [img.hunter350, img.hunter350, img.hunter350],
+    colors: [
+      { name: 'Red', hex: '#E63020', image: img.hunter350 },
+      { name: 'Black', hex: '#111', image: img.classic350 },
+      { name: 'Blue', hex: '#1B4D89', image: img.hunter350 },
+      { name: 'Silver', hex: '#C0C0C0', image: img.hunter350 },
+    ],
     brochure: '/brochures/hunter-350.pdf',
     stats: [
       { label: 'Engine', val: '349cc' },
@@ -18,12 +23,12 @@ export const bikeData = [
     stories: [
       {
         title: "Agility Redefined",
-        description: "With its shorter wheelbase, lighter weight and tighter geometry, the Hunter's chunky frame is fitted with a set of super maneuverable 17-inch alloy wheels. , With its shorter wheelbase, lighter weight and tighter geometry, the Hunter's chunky frame is fitted with a set of super maneuverable 17-inch alloy wheels.",
+        description: "With its shorter wheelbase, lighter weight and tighter geometry, the Hunter's chunky frame is fitted with a set of super maneuverable 17-inch alloy wheels.",
         image: img.banner1
       },
       {
         title: "Intuitive Ergonomics",
-        description: "A seat height of 790mm, wide contours and excellent standover ergonomics offer easy handling and a confident riding experience. , A seat height of 790mm, wide contours and excellent standover ergonomics offer easy handling and a confident riding experience.",
+        description: "A seat height of 790mm, wide contours and excellent standover ergonomics offer easy handling and a confident riding experience.",
         image: img.banner2
       }
     ]
@@ -35,7 +40,12 @@ export const bikeData = [
     category: 'Classic',
     description: 'Inspired by the G2 model of the 1950s, the all-new Classic 350 continues to embody the timeless design and dependable performance.',
     image: img.classic350,
-    colorImages: [img.classic350, img.classic350, img.classic350],
+    colors: [
+      { name: 'Chrome Red', hex: '#9B111E', image: img.classic350 },
+      { name: 'Dark Stealth Black', hex: '#2B2B2B', image: img.classic350 },
+      { name: 'Halcyon Blue', hex: '#4A6984', image: img.classic350 },
+      { name: 'Marsh Grey', hex: '#7E7E72', image: img.classic350 },
+    ],
     brochure: '/brochures/classic-350.pdf',
     stats: [
       { label: 'Engine', val: '349cc' },
@@ -62,7 +72,12 @@ export const bikeData = [
     category: 'Classic',
     description: 'A symbol of resilience and a testament to the enduring spirit of pure motorcycling. The new Bullet 350 is more than just a machine; it is a legacy. , A symbol of resilience and a testament to the enduring spirit of pure motorcycling. The new Bullet 350 is more than just a machine; it is a legacy.',
     image: img.bullet350,
-    colorImages: [img.bullet350, img.bullet350, img.bullet350],
+    colors: [
+      { name: 'Black', hex: '#000000', image: img.bullet350 },
+      { name: 'Maroon', hex: '#800000', image: img.bullet350 },
+      { name: 'Silver', hex: '#C0C0C0', image: img.bullet350 },
+      { name: 'Gold', hex: '#FFD700', image: img.bullet350 },
+    ],
     brochure: '/brochures/bullet-350.pdf',
     stats: [
       { label: 'Engine', val: '349cc' },
@@ -89,7 +104,12 @@ export const bikeData = [
     category: 'Adventure',
     description: 'The all-new Himalayan is designed to conquer every terrain, from the highest peaks to the deepest valleys. , The all-new Himalayan is designed to conquer every terrain, from the highest peaks to the deepest valleys.',
     image: img.himalayan450,
-    colorImages: [img.himalayan450, img.himalayan450, img.himalayan450],
+    colors: [
+      { name: 'Hanle Black', hex: '#1A1A1A', image: img.himalayan450 },
+      { name: 'Kamet White', hex: '#F5F5F5', image: img.himalayan450 },
+      { name: 'Slate Blue', hex: '#4682B4', image: img.himalayan450 },
+      { name: 'Poppy Blue', hex: '#007FFF', image: img.himalayan450 },
+    ],
     brochure: '/brochures/himalayan-450.pdf',
     stats: [
       { label: 'Engine', val: '452cc' },
@@ -116,7 +136,12 @@ export const bikeData = [
     category: 'Cafe Racer',
     description: 'Relive the spirit of the 1960s with the Continental GT 650. A true-blue cafe racer that combines vintage style with modern performance. , Relive the spirit of the 1960s with the Continental GT 650. A true-blue cafe racer that combines vintage style with modern performance.',
     image: img.continentalgt650,
-    colorImages: [img.continentalgt650, img.bulletfront, img.bulletback],
+    colors: [
+      { name: 'Rocker Red', hex: '#E63020', image: img.continentalgt650 },
+      { name: 'British Racing Green', hex: '#004225', image: img.continentalgt650 },
+      { name: 'Apex Grey', hex: '#708090', image: img.continentalgt650 },
+      { name: 'Slipstream Blue', hex: '#000080', image: img.continentalgt650 },
+    ],
     brochure: '/brochures/continental-gt-650.pdf',
     stats: [
       { label: 'Engine', val: '648cc' },
@@ -143,7 +168,12 @@ export const bikeData = [
     category: 'Cafe Racer',
     description: 'The Interceptor 650 is a versatile twin-cylinder roadster that captures the essence of the 1960s California cool.',
     image: img.interceptor,
-    colorImages: [img.interceptor, img.continentalgt650, img.continentalgt650],
+    colors: [
+      { name: 'Canyon Red', hex: '#CD5C5C', image: img.interceptor },
+      { name: 'Sunset Strip', hex: '#FF4500', image: img.interceptor },
+      { name: 'Cali Blue', hex: '#5F9EA0', image: img.interceptor },
+      { name: 'Mark 2', hex: '#C0C0C0', image: img.interceptor },
+    ],
     brochure: '/brochures/interceptor-650.pdf',
     stats: [
       { label: 'Engine', val: '648cc' },
@@ -170,7 +200,12 @@ export const bikeData = [
     category: 'Adventure',
     description: 'Built for the concrete jungle and beyond. The Scram 411 combines high-altitude DNA with authentic urban styling.',
     image: img.scram440,
-    colorImages: [img.scram440, img.scram440, img.scram440],
+    colors: [
+      { name: 'Blazing Black', hex: '#111', image: img.scram440 },
+      { name: 'Skyline Blue', hex: '#87CEEB', image: img.scram440 },
+      { name: 'Graphite Yellow', hex: '#FFFF00', image: img.scram440 },
+      { name: 'Graphite Red', hex: '#FF0000', image: img.scram440 },
+    ],
     brochure: '/brochures/scram-411.pdf',
     stats: [
       { label: 'Engine', val: '411cc' },
@@ -197,7 +232,12 @@ export const bikeData = [
     category: 'Cruiser',
     description: 'A motorcycle that defies categorization. The Shotgun 650 is a custom-inspired machine built for the creative mind. , A motorcycle that defies categorization. The Shotgun 650 is a custom-inspired machine built for the creative mind.',
     image: img.shotgun650,
-    colorImages: [img.shotgun650, img.shotgun650, img.shotgun650],
+    colors: [
+      { name: 'Sheetmetal Grey', hex: '#708090', image: img.shotgun650 },
+      { name: 'Plasma Blue', hex: '#0000FF', image: img.shotgun650 },
+      { name: 'Green Drill', hex: '#006400', image: img.shotgun650 },
+      { name: 'Stencil White', hex: '#FFFFFF', image: img.shotgun650 },
+    ],
     brochure: '/brochures/shotgun-650.pdf',
     stats: [
       { label: 'Engine', val: '648cc' },
