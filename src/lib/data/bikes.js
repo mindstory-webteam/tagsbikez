@@ -8,7 +8,7 @@ export const bikeData = [
     category: 'Cafe Racer',
     description: 'Agile, compact, and designed for the urban jungle. The Hunter 350 is built for those who want to navigate the city with ease and style.',
     image: img.hunter350,
-    colorImages: [img.hunter350, img.classic350, img.hunter350],
+    colorImages: [img.hunter350, img.hunter350, img.hunter350],
     brochure: '/brochures/hunter-350.pdf',
     stats: [
       { label: 'Engine', val: '349cc' },

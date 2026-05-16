@@ -30,7 +30,11 @@ const locations = [
     email: 'info.tags.ptkl@gmail.com',
     mapUrl: 'https://share.google/fGbKJ2gv92UiGoBGQ',
     coords: [76.2124, 10.5363],
-    socials: { whatsapp: '#', facebook: '#', instagram: '#' },
+    socials: {
+      whatsapp: 'https://wa.me/917594960033',
+      facebook: 'https://www.facebook.com/tagsbikez',
+      instagram: 'https://www.instagram.com/tagsbikez/',
+    },
   },
   {
     name: 'TagsBikez Irinjalakuda',
@@ -40,7 +44,11 @@ const locations = [
     email: 'info.tags.irj@gmail.com',
     mapUrl: 'https://share.google/sJAgUFxrOSTiB4djY',
     coords: [76.2094, 10.3447],
-    socials: { whatsapp: '#', facebook: '#', instagram: '#' },
+    socials: {
+      whatsapp: 'https://wa.me/917594951111',
+      facebook: 'https://www.facebook.com/tagsbikez',
+      instagram: 'https://www.instagram.com/tagsbikez/',
+    },
   },
   {
     name: 'TagsBikez Vadakkencherry',
@@ -50,7 +58,11 @@ const locations = [
     email: 'info.tags.vdy@gmail.com',
     mapUrl: '#',
     coords: [76.4823, 10.5928],
-    socials: { whatsapp: '#', facebook: '#', instagram: '#' },
+    socials: {
+      whatsapp: 'https://wa.me/917025282011',
+      facebook: 'https://www.facebook.com/tagsbikez',
+      instagram: 'https://www.instagram.com/tagsbikez/',
+    },
   },
   {
     name: 'TagsBikez Kodakara',
@@ -60,7 +72,11 @@ const locations = [
     email: 'info.tags.ptkl@gmail.com',
     mapUrl: '#',
     coords: [76.3087, 10.3711],
-    socials: { whatsapp: '#', facebook: '#', instagram: '#' },
+    socials: {
+      whatsapp: 'https://wa.me/917594960033',
+      facebook: 'https://www.facebook.com/tagsbikez',
+      instagram: 'https://www.instagram.com/tagsbikez/',
+    },
   },
 ];
 
@@ -243,7 +259,6 @@ const ContactSection = () => {
         .locations-list-col {
           background: #fff;
           border-right: 1px solid #e0e0e0;
-          max-height: 800px;
           display: flex;
           flex-direction: column;
         }
@@ -263,15 +278,6 @@ const ContactSection = () => {
 
         .locations-scroll-area {
           flex: 1;
-          overflow-y: auto;
-          scrollbar-width: thin;
-          scrollbar-color: #eee transparent;
-        }
-
-        .locations-scroll-area::-webkit-scrollbar { width: 4px; }
-        .locations-scroll-area::-webkit-scrollbar-thumb {
-          background: #eee;
-          border-radius: 10px;
         }
 
         .loc-list-item {
@@ -325,18 +331,26 @@ const ContactSection = () => {
         .loc-social-btn.instagram:hover { background: #E1306C; border-color: #E1306C; color: #fff; }
 
         .loc-link {
-          font-size: 11px;
+          font-size: 10px;
           font-weight: 700;
           text-transform: uppercase;
           letter-spacing: 0.1em;
-          display: flex;
+          display: inline-flex;
           align-items: center;
-          gap: 8px;
+          justify-content: center;
+          padding: 10px 16px;
+          border: 1px solid #111;
           color: #111;
           text-decoration: none;
+          transition: all 0.3s ease;
+          margin-top: auto;
+          width: fit-content;
         }
 
-        .loc-link:hover { color: #e63020; }
+        .loc-link:hover {
+          background: #111;
+          color: #fff;
+        }
 
         .social-footer-cell {
           padding: 30px 40px;
@@ -524,7 +538,7 @@ const ContactSection = () => {
         /* ── MAP ── */
         .map-wrapper {
           width: 100%;
-          height: 600px;
+          height: 500px;
           border-top: 1px solid #e0e0e0;
           border-bottom: 1px solid #e0e0e0;
           margin-top: 80px;
@@ -609,7 +623,7 @@ const ContactSection = () => {
               <h3>Our Showrooms</h3>
             </div>
             <div className="locations-scroll-area">
-              {locations.map((loc, i) => (
+              {locations.slice(0, 2).map((loc, i) => (
                 <div key={i} className="loc-list-item">
                   <span className="tag">{loc.place}</span>
                   <h4>{loc.name}</h4>
@@ -630,14 +644,6 @@ const ContactSection = () => {
                   )}
                 </div>
               ))}
-            </div>
-            <div className="info-cell social-footer-cell">
-              <h3>Follow Us</h3>
-              <div className="social-row">
-                {socialLinks.map((s, i) => (
-                  <a key={i} href={s.url} className="social-link" aria-label={s.label}>{s.icon}</a>
-                ))}
-              </div>
             </div>
           </div>
 
@@ -692,6 +698,45 @@ const ContactSection = () => {
                 {status === 'submitting' ? 'Sending...' : status === 'success' ? 'Message Sent!' : 'Send Message'}
               </AnimatedBtn>
             </form>
+          </div>
+        </div>
+
+        {/* BOTTOM LOCATIONS GRID */}
+        <div className="locations-grid">
+          {locations.slice(2).map((loc, i) => (
+            <div key={i} className="loc-cell">
+              <span className="tag">{loc.place}</span>
+              <h4>{loc.name}</h4>
+              <div className="loc-details">
+                <span><strong>Sales:</strong> {loc.sales}</span>
+                <span><strong>Service:</strong> {loc.service}</span>
+                <span><strong>Email:</strong> {loc.email}</span>
+              </div>
+              <div className="loc-social-row">
+                <a href={loc.socials.whatsapp} target="_blank" rel="noopener noreferrer" className="loc-social-btn whatsapp" aria-label="WhatsApp"><FaWhatsapp /></a>
+                <a href={loc.socials.facebook} target="_blank" rel="noopener noreferrer" className="loc-social-btn facebook" aria-label="Facebook"><FaFacebookF /></a>
+                <a href={loc.socials.instagram} target="_blank" rel="noopener noreferrer" className="loc-social-btn instagram" aria-label="Instagram"><FaInstagram /></a>
+              </div>
+              {loc.mapUrl !== '#' && (
+                <a href={loc.mapUrl} target="_blank" rel="noopener noreferrer" className="loc-link">
+                  View on Google Maps
+                </a>
+              )}
+            </div>
+          ))}
+          <div className="loc-cell">
+            <span className="tag">Follow Us</span>
+            <h4>Stay Connected</h4>
+            <div className="social-row mt-4">
+              {socialLinks.map((s, i) => (
+                <a key={i} href={s.url} className="social-link" aria-label={s.label} target="_blank" rel="noopener noreferrer">
+                  {s.icon}
+                </a>
+              ))}
+            </div>
+            <p className="text-[11px] text-gray-500 mt-6 leading-relaxed">
+              Follow our journey and stay updated with latest Royal Enfield news and events.
+            </p>
           </div>
         </div>
 
