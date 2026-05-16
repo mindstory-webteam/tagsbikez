@@ -89,8 +89,8 @@ export default function WhatWeDoSection() {
         },
       });
 
-      tl.to(section, { backgroundColor: "#1a1a1a", duration: 0.8, ease: "power2.inOut" }, 0);
-      tl.to(heading, { color: "#ffffff", duration: 0.8, ease: "power2.inOut" }, 0);
+      tl.to(section, { backgroundColor: "#ffffffff", duration: 0.8, ease: "power2.inOut" }, 0);
+      tl.to(heading, { color: "#040404ff", duration: 0.8, ease: "power2.inOut" }, 0);
       tl.to(gridWrap, { borderTopColor: "#2a2a2a", borderLeftColor: "#2a2a2a", duration: 0.8, ease: "power2.inOut" }, 0);
       tl.to(cardBorderEls, { borderRightColor: "#2a2a2a", borderBottomColor: "#2a2a2a", duration: 0.8, ease: "power2.inOut" }, 0);
 
@@ -99,8 +99,8 @@ export default function WhatWeDoSection() {
         const title = el.querySelector(".step-title");
         const desc = el.querySelector(".step-desc");
         tl.fromTo(el, { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, i * 0.1);
-        tl.to(title, { color: "#ffffff", duration: 0.8, ease: "power2.inOut" }, 0);
-        tl.to(desc, { color: "rgba(255,255,255,0.55)", duration: 0.8, ease: "power2.inOut" }, 0);
+        tl.to(title, { color: "#000000ff", duration: 0.8, ease: "power2.inOut" }, 0);
+        tl.to(desc, { color: "rgba(0, 0, 0, 0.55)", duration: 0.8, ease: "power2.inOut" }, 0);
       });
     }, section);
 
@@ -111,7 +111,7 @@ export default function WhatWeDoSection() {
     <>
       <style>{`
         .wwd-section {
-          background-color: #ffffff;
+          background-color: #000000ff;
           padding: 80px 40px;
           min-height: 100vh;
           display: flex;
@@ -128,7 +128,7 @@ export default function WhatWeDoSection() {
           font-size:42px;
           line-height: 1.15;
           max-width: 480px;
-          color: #000000;
+          color: #ffffffff;
           font-weight: 400;
           margin: 0 0 56px 0;
         }

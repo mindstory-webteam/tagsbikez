@@ -212,9 +212,8 @@ const CustomDropdown = ({ label, options, value, onChange, placeholder }) => {
       </label>
       <div
         onClick={() => setIsOpen(!isOpen)}
-        className={`w-full bg-gray-50 border-2  py-4 px-5 flex justify-between items-center cursor-pointer transition-all ${
-          isOpen ? "border-[#f51b24] bg-white shadow-lg" : "border-gray-100 hover:border-gray-200"
-        }`}
+        className={`w-full bg-gray-50 border-2  py-4 px-5 flex justify-between items-center cursor-pointer transition-all ${isOpen ? "border-[#f51b24] bg-white shadow-lg" : "border-gray-100 hover:border-gray-200"
+          }`}
       >
         <span className={`font-bold ${value ? "text-gray-900" : "text-gray-400"}`}>
           {value || placeholder}
@@ -250,17 +249,39 @@ const CustomDropdown = ({ label, options, value, onChange, placeholder }) => {
   );
 };
 
+const getMinDownPayment = (bike) => {
+  if (!bike) return 4999;
+  const fullName = `${bike.name} ${bike.model}`.toLowerCase();
+
+  if (fullName.includes("650")) return 49999;
+  if (fullName.includes("himalayan 450")) return 24999;
+  if (fullName.includes("guerrilla 450")) return 24999;
+  if (fullName.includes("scram 440")) return 24999;
+  if (fullName.includes("classic")) return 11999;
+  if (fullName.includes("hunter") || fullName.includes("bullet")) return 4999;
+
+  return 11999; 
+};
+
 export default function EmiCalculator() {
   const [category, setCategory] = useState("All");
   const [selectedBike, setSelectedBike] = useState(BIKES_DATA["All"][0]);
-  const [downPct, setDownPct] = useState(20);
+  const [downAmount, setDownAmount] = useState(4999); 
   const [loanYears, setLoanYears] = useState(3);
   const [interestRate, setInterestRate] = useState(10.5);
 
   const purchasePrice = parsePrice(selectedBike.price);
 
-  const downPayment = Math.round(purchasePrice * (downPct / 100));
-  const loanAmount = purchasePrice;
+  useEffect(() => {
+    if (selectedBike) {
+      setDownAmount(getMinDownPayment(selectedBike));
+    }
+  }, [selectedBike]);
+
+  const downPayment = downAmount;
+  const loanAmount = Math.max(0, purchasePrice - downPayment);
+
+  const downPct = Math.round((downPayment / purchasePrice) * 100);
 
   const results = useMemo(() => {
     const r = interestRate / 100 / 12;
@@ -289,23 +310,23 @@ export default function EmiCalculator() {
   }));
 
   return (
-    <section className="py-5 pb-20 ">
+    <section className="py-20">
       <div className="max-w-[95%] mx-auto px-4">
-        <div className="text-center mb-12">
-          <p className="text-[42px] md:text-5xl font-normal  mb-4 font-heading tracking-tight">
+        <div className="text-center mb-8">
+          <p className="text-[42px] md:text-4xl font-normal mb-2 font-heading tracking-tight uppercase">
             Calculate Your EMI
           </p>
-          <p className="text-gray-500 text-lg max-w-2xl mx-auto font-body">
+          <p className="text-gray-500 text-base max-w-2xl mx-auto font-body">
             Plan your dream ride with our easy finance calculator. Select your favorite model and get instant estimates.
           </p>
         </div>
 
         <div className="bg-white overflow-hidden grid grid-cols-1 lg:grid-cols-12 border border-gray-300">
           {/* Left Panel - Inputs */}
-          <div className="lg:col-span-7 p-8 md:p-12 border-b lg:border-b-0 lg:border-r border-gray-300">
-            <div className="space-y-8">
+          <div className="lg:col-span-7 p-6 md:p-10 border-b lg:border-b-0 lg:border-r border-gray-300">
+            <div className="space-y-6">
               {/* Bike Selection Row */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <CustomDropdown
                   label="Select Category"
                   options={Object.keys(BIKES_DATA)}
@@ -325,55 +346,61 @@ export default function EmiCalculator() {
               </div>
 
               {/* Sliders Row */}
-              <div className="space-y-12 px-2">
+              <div className="space-y-10 px-2">
                 {/* Down Payment Slider */}
                 <div>
-                  <div className="flex justify-between items-end mb-6">
-                    <label className="text-sm font-semibold uppercase tracking-wider text-gray-400 font-body">
+                  <div className="flex justify-between items-end mb-4">
+                    <label className="text-[11px] font-semibold uppercase tracking-wider text-gray-400 font-body">
                       Down Payment ({downPct}%)
                     </label>
-                    <div className="text-2xl font-bold text-gray-900 font-heading">
+                    <div className="text-xl font-bold text-gray-900 font-heading">
                       {formatCurrency(downPayment)}
                     </div>
                   </div>
-                  <div className="relative h-2 bg-gray-100 group">
-                    <div 
-                      className="absolute h-full bg-[#f51b24] transition-all duration-300" 
+                  <div className="relative h-1.5 bg-gray-100 group">
+                    <div
+                      className="absolute h-full bg-[#f51b24] transition-all duration-300"
                       style={{ width: `${downPct}%` }}
                     />
                     <input
                       type="range"
-                      min={10}
-                      max={80}
-                      step={1}
+                      min={0}
+                      max={100}
+                      step={0.1}
                       value={downPct}
-                      onChange={(e) => setDownPct(Number(e.target.value))}
+                      onChange={(e) => {
+                        const val = Number(e.target.value);
+                        const minPct = (getMinDownPayment(selectedBike) / purchasePrice) * 100;
+                        const maxPct = 80;
+                        const clampedPct = Math.max(minPct, Math.min(val, maxPct));
+                        setDownAmount(Math.round(purchasePrice * (clampedPct / 100)));
+                      }}
                       className="absolute w-full h-full opacity-0 cursor-pointer z-10"
                     />
-                    <div 
-                      className="absolute top-1/2 -translate-y-1/2 w-6 h-6 bg-white border-4 border-[#f51b24] pointer-events-none transition-all duration-300"
-                      style={{ left: `calc(${downPct}% - 12px)` }}
+                    <div
+                      className="absolute top-1/2 -translate-y-1/2 w-5 h-5 bg-white border-4 border-[#f51b24] pointer-events-none transition-all duration-300"
+                      style={{ left: `calc(${downPct}% - 10px)` }}
                     />
                   </div>
-                  <div className="flex justify-between text-[10px] font-bold text-gray-300 uppercase tracking-widest mt-4">
-                    <span>Min (10%)</span>
+                  <div className="flex justify-between text-[9px] font-bold text-gray-300 uppercase tracking-widest mt-3">
+                    <span>Min ({Math.round((getMinDownPayment(selectedBike) / purchasePrice) * 100)}%)</span>
                     <span>Max (80%)</span>
                   </div>
                 </div>
 
                 {/* Interest Rate Slider */}
                 <div>
-                  <div className="flex justify-between items-end mb-6">
-                    <label className="text-sm font-semibold uppercase tracking-wider text-gray-400 font-body">
+                  <div className="flex justify-between items-end mb-4">
+                    <label className="text-[11px] font-semibold uppercase tracking-wider text-gray-400 font-body">
                       Interest Rate (p.a)
                     </label>
-                    <div className="text-2xl font-bold text-gray-900 font-heading">
+                    <div className="text-xl font-bold text-gray-900 font-heading">
                       {interestRate}%
                     </div>
                   </div>
-                  <div className="relative h-2 bg-gray-100 group">
-                    <div 
-                      className="absolute h-full bg-[#f51b24] transition-all duration-300" 
+                  <div className="relative h-1.5 bg-gray-100 group">
+                    <div
+                      className="absolute h-full bg-[#f51b24] transition-all duration-300"
                       style={{ width: `${((interestRate - 5) / (20 - 5)) * 100}%` }}
                     />
                     <input
@@ -385,12 +412,12 @@ export default function EmiCalculator() {
                       onChange={(e) => setInterestRate(Number(e.target.value))}
                       className="absolute w-full h-full opacity-0 cursor-pointer z-10"
                     />
-                    <div 
-                      className="absolute top-1/2 -translate-y-1/2 w-6 h-6 bg-white border-4 border-[#f51b24] pointer-events-none transition-all duration-300"
-                      style={{ left: `calc(${((interestRate - 5) / (20 - 5)) * 100}% - 12px)` }}
+                    <div
+                      className="absolute top-1/2 -translate-y-1/2 w-5 h-5 bg-white border-4 border-[#f51b24] pointer-events-none transition-all duration-300"
+                      style={{ left: `calc(${((interestRate - 5) / (20 - 5)) * 100}% - 10px)` }}
                     />
                   </div>
-                  <div className="flex justify-between text-[10px] font-bold text-gray-300 uppercase tracking-widest mt-4">
+                  <div className="flex justify-between text-[9px] font-bold text-gray-300 uppercase tracking-widest mt-3">
                     <span>5%</span>
                     <span>20%</span>
                   </div>
@@ -399,7 +426,7 @@ export default function EmiCalculator() {
 
               {/* Loan Tenure */}
               <div className="px-2">
-                <label className="block text-sm font-semibold uppercase tracking-wider text-gray-400 mb-5 font-body">
+                <label className="block text-[11px] font-semibold uppercase tracking-wider text-gray-400 mb-4 font-body">
                   Loan Tenure
                 </label>
                 <div className="grid grid-cols-3 md:grid-cols-5 gap-3">
@@ -407,11 +434,10 @@ export default function EmiCalculator() {
                     <button
                       key={opt.value}
                       onClick={() => setLoanYears(opt.value)}
-                      className={`py-3 font-bold transition-all border-2 ${
-                        loanYears === opt.value
+                      className={`py-2.5 font-bold text-xs transition-all border-2 ${loanYears === opt.value
                           ? "bg-[#f51b24] border-[#f51b24] text-white"
                           : "bg-gray-50 border-gray-100 text-gray-600 hover:border-gray-200"
-                      }`}
+                        }`}
                     >
                       {opt.label}
                     </button>
@@ -422,57 +448,57 @@ export default function EmiCalculator() {
           </div>
 
           {/* Right Panel - Results */}
-          <div className="lg:col-span-5 bg-[#1a1a1a] p-8 md:p-12 flex flex-col justify-between text-white">
-            <div className="space-y-8">
+          <div className="lg:col-span-5 bg-[#1a1a1a] p-6 md:p-10 flex flex-col justify-between text-white">
+            <div className="space-y-6">
               <div className="text-center lg:text-left">
-                <p className="text-gray-400 font-semibold uppercase tracking-widest text-sm mb-2 font-body">
+                <p className="text-gray-400 font-semibold uppercase tracking-widest text-[10px] mb-1 font-body">
                   Your monthly EMI
                 </p>
-                <div className="text-6xl md:text-7xl font-bold font-heading text-white tracking-tighter">
-                  <span className="text-2xl text-[#f51b24] mr-2">Rs.</span>
+                <div className="text-5xl md:text-6xl font-bold font-heading text-white tracking-tighter">
+                  <span className="text-xl text-[#f51b24] mr-2">Rs.</span>
                   {results.emi.toLocaleString()}
-                  <span className="text-2xl text-gray-500 ml-1 font-body font-normal">*</span>
+                  <span className="text-xl text-gray-500 ml-1 font-body font-normal">*</span>
                 </div>
-                <p className="text-[#f51b24] text-sm font-semibold mt-3 uppercase tracking-wider">
+                <p className="text-[#f51b24] text-xs font-semibold mt-2 uppercase tracking-wider">
                   Rate of interest @ {interestRate}%* for {results.months} Months
                 </p>
               </div>
 
-              <div className="space-y-4 pt-8 border-t border-white/10">
+              <div className="space-y-3 pt-6 border-t border-white/10">
                 <div className="flex justify-between items-center group">
-                  <span className="text-gray-400 font-medium font-body group-hover:text-white transition-colors">On-Road Price</span>
-                  <span className="text-xl font-bold font-heading">
+                  <span className="text-gray-400 font-medium text-xs font-body group-hover:text-white transition-colors">On-Road Price</span>
+                  <span className="text-lg font-bold font-heading">
                     {formatCurrency(purchasePrice)}
                   </span>
                 </div>
                 <div className="flex justify-between items-center group">
-                  <span className="text-gray-400 font-medium font-body group-hover:text-white transition-colors">Down payment</span>
-                  <span className="text-xl font-bold font-heading text-white">{formatCurrency(downPayment)}</span>
+                  <span className="text-gray-400 font-medium text-xs font-body group-hover:text-white transition-colors">Down payment</span>
+                  <span className="text-lg font-bold font-heading text-white">{formatCurrency(downPayment)}</span>
                 </div>
                 <div className="flex justify-between items-center group">
-                  <span className="text-gray-400 font-medium font-body group-hover:text-white transition-colors">Loan amount</span>
-                  <span className="text-xl font-bold font-heading text-white">{formatCurrency(loanAmount)}</span>
+                  <span className="text-gray-400 font-medium text-xs font-body group-hover:text-white transition-colors">Loan amount</span>
+                  <span className="text-lg font-bold font-heading text-white">{formatCurrency(loanAmount)}</span>
                 </div>
                 <div className="flex justify-between items-center group">
-                  <span className="text-gray-400 font-medium font-body group-hover:text-white transition-colors">Interest amount</span>
-                  <span className="text-xl font-bold font-heading text-[#f51b24]">{formatCurrency(results.totalInterest)}</span>
+                  <span className="text-gray-400 font-medium text-xs font-body group-hover:text-white transition-colors">Interest amount</span>
+                  <span className="text-lg font-bold font-heading text-[#f51b24]">{formatCurrency(results.totalInterest)}</span>
                 </div>
-                <div className="flex justify-between items-center pt-6 border-t border-white/10 group">
-                  <span className="text-gray-400 font-bold uppercase tracking-wider text-sm font-body group-hover:text-white transition-colors">Total Amount Payable</span>
-                  <span className="text-2xl font-bold font-heading text-white">{formatCurrency(results.totalAmount)}</span>
+                <div className="flex justify-between items-center pt-4 border-t border-white/10 group">
+                  <span className="text-gray-400 font-bold uppercase tracking-wider text-[11px] font-body group-hover:text-white transition-colors">Total Amount Payable</span>
+                  <span className="text-xl font-bold font-heading text-white">{formatCurrency(results.totalAmount)}</span>
                 </div>
               </div>
             </div>
 
-            <div className="mt-10">
-              <AnimatedBtn 
+            <div className="mt-8">
+              <AnimatedBtn
                 href={`https://wa.me/917594960023?text=Hi!%20I%20want%20to%20discuss%20finance%20options%20for%20the%20${selectedBike.name}%20${selectedBike.model}.`}
                 target="_blank"
-                className="w-full !py-6 !text-lg !font-bold !bg-[#f51b24] !text-white  hover:!bg-white hover:!text-[#f51b24]"
+                className="w-full !py-4 !text-base !font-bold !bg-[#f51b24] !text-white  hover:!bg-white hover:!text-[#f51b24]"
               >
                 Apply for Finance
               </AnimatedBtn>
-              <p className="text-center text-gray-500 text-[10px] mt-6 font-body leading-relaxed opacity-60">
+              <p className="text-center text-gray-500 text-[9px] mt-4 font-body leading-relaxed opacity-60">
                 *Calculations are indicative and subject to final approval from banking partners. Ex-showroom prices used for calculation.
               </p>
             </div>

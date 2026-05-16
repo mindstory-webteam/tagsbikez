@@ -261,7 +261,7 @@ export default function BikeSectionSwiper2() {
         .fv-root {
           background: #fff;
           width: 100%;
-          padding: 48px 0 56px;
+          padding: 40px 0 56px;
           box-sizing: border-box;
           overflow: hidden;
         }
