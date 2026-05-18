@@ -31,7 +31,7 @@ const OurStory = () => {
             scrollTrigger: {
               trigger: el,
               start: "top 80%",
-              once: true,      
+              once: true,
               toggleActions: "play none none none",
             },
           }
@@ -85,7 +85,7 @@ const OurStory = () => {
 
         .story-subheading {
           font-size: 18px;
-          font-weight: 400;
+          font-weight:bold;
           color: #333;
           margin: 0;
           line-height: 1.6;
@@ -148,6 +148,7 @@ const OurStory = () => {
           }
           .story-subheading {
             font-size: 16px;
+            font-weight:bold;
           }
           .story-text {
             font-size: 15px;
@@ -162,7 +163,7 @@ const OurStory = () => {
         </div>
         <div className="story-subheading-wrap">
           <p className="story-subheading">
-           A Legacy of Trust: From the Precision of Sewing Machines to the Freedom of the Open Road
+            A Legacy of Trust: From the Precision of Sewing Machines to the Freedom of the Open Road
           </p>
         </div>
 

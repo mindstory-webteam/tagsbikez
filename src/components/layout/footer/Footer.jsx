@@ -334,55 +334,30 @@ export default function Footer() {
           font-size: 11px;
         }
 
-        /* ── Tablet ── */
-        @media (max-width: 900px) {
+        /* ── Tablet / Medium Screens (< 1024px) ── */
+        @media (max-width: 1023px) {
+          footer {
+            padding: 0 32px !important;
+          }
           .ft-main {
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr;
           }
-          .ft-col:nth-child(2) { border-right: none; }
-          .ft-col:nth-child(3) {
-            border-top: 1px solid #222;
-            border-right: none;
-            grid-column: 1 / -1;
+          .ft-col {
+            padding: 40px 16px;
           }
-          .ft-locations-grid {
-            grid-template-columns: repeat(3, 1fr);
-          }
-          .ft-bottom {
-            grid-template-columns: 1fr 1fr;
-          }
-          .ft-bottom-cell:last-child {
-            border-right: none;
-            grid-column: 1 / -1;
-            border-top: 1px solid #222;
-            justify-content: center;
-          }
-        }
-
-        /* ── Mobile ── */
-        @media (max-width: 600px) {
-          footer { padding: 0 16px !important; }
-
-          .ft-main { grid-template-columns: 1fr; }
-          .ft-col { padding: 32px 20px; }
           .ft-col:not(:last-child) {
             border-right: none;
             border-bottom: 1px solid #222;
           }
-          .ft-col:nth-child(3) {
-            grid-column: unset;
-            border-top: none;
-          }
-
           .ft-locations-grid {
             grid-template-columns: 1fr 1fr;
+            gap: 24px;
           }
-
           .ft-bottom {
             grid-template-columns: 1fr;
           }
           .ft-bottom-cell {
-            padding: 13px 20px;
+            padding: 14px 16px;
             justify-content: center;
             text-align: center;
           }
@@ -390,13 +365,22 @@ export default function Footer() {
             border-right: none;
             border-bottom: 1px solid #222;
           }
-          .ft-bottom-cell:last-child {
-            grid-column: unset;
-            border-top: none;
-            justify-content: center;
-          }
           .ft-bottom-dev {
             justify-content: center;
+          }
+        }
+
+        /* ── Mobile Screens (< 640px) ── */
+        @media (max-width: 639px) {
+          footer {
+            padding: 0 16px !important;
+          }
+          .ft-col {
+            padding: 32px 8px;
+          }
+          .ft-locations-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
           }
         }
       `}</style>

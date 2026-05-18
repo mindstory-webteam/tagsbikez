@@ -70,7 +70,7 @@ export const bikeData = [
     slug: 'bullet-350',
     name: 'Bullet 350',
     category: 'Classic',
-    description: 'A symbol of resilience and a testament to the enduring spirit of pure motorcycling. The new Bullet 350 is more than just a machine; it is a legacy. , A symbol of resilience and a testament to the enduring spirit of pure motorcycling. The new Bullet 350 is more than just a machine; it is a legacy.',
+    description: 'A symbol of resilience and a testament to the enduring spirit of pure motorcycling. The new Bullet 350 is more than just a machine; it is a legacy.',
     image: img.bullet350,
     colors: [
       { name: 'Black', hex: '#000000', image: img.bullet350 },

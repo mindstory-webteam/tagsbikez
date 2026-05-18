@@ -403,7 +403,7 @@ export default function UpcomingEvents() {
         }
         @media (max-width: 600px) {
           .ev-section { padding: 24px 16px 60px; }
-          .ev-heading { font-size: 24px; }
+          .ev-heading { font-size: 28px; }
           .ev-top { min-height: 140px; padding: 16px 14px 14px; }
           .ev-day { font-size: 32px; }
           .ev-img-wrap { height: 180px; }

@@ -227,6 +227,9 @@ const FAQSection = () => {
           .faq-section { padding: 48px 20px; }
           .faq-inner { grid-template-columns: 1fr; gap: 40px; }
           .faq-left { position: static; }
+          .faq-heading {
+            font-size: 28px;
+          }
         }
       `}</style>
 

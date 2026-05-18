@@ -85,13 +85,13 @@ export default function AboutGallery() {
         .gallery-desc {
           max-width: 420px;
           text-align: left;
-        }
-
-        .gallery-desc p {
-          font-size: 14px;
-          color: #666;
-          line-height: 1.7;
-          margin: 0;
+          }
+          
+          .gallery-desc p {
+            font-size: 14px;
+            line-height: 1.7;
+            margin: 0;
+            font-weight:bold;
         }
 
         .gallery-desc p + p {

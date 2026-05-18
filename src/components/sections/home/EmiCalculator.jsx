@@ -313,7 +313,7 @@ export default function EmiCalculator() {
     <section className="py-20">
       <div className="max-w-[95%] mx-auto px-4">
         <div className="text-center mb-8">
-          <p className="text-[42px] md:text-4xl font-normal mb-2 font-heading tracking-tight uppercase">
+          <p className="text-[28px] md:text-[42px] font-normal mb-2 font-heading tracking-tight uppercase">
             Calculate Your EMI
           </p>
           <p className="text-gray-500 text-base max-w-2xl mx-auto font-body">

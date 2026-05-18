@@ -24,10 +24,13 @@ const Breadcrumb = () => {
           width: 100%;
           height: 420px;
           display: flex;
+          flex-direction: column;
           align-items: center;
           justify-content: center;
           overflow: hidden;
           background: #000;
+          padding-top: 80px; /* Offset for the 80px fixed header */
+          box-sizing: border-box;
         }
 
         .breadcrumb-bg {
@@ -73,6 +76,7 @@ const Breadcrumb = () => {
 
         .breadcrumb-links {
           display: flex;
+          flex-wrap: wrap;
           align-items: center;
           justify-content: center;
           gap: 12px;
@@ -97,6 +101,8 @@ const Breadcrumb = () => {
 
         .crumb-sep {
           color: rgba(255, 255, 255, 0.2);
+          display: flex;
+          align-items: center;
         }
 
         .crumb-current {
@@ -137,8 +143,8 @@ const Breadcrumb = () => {
         @media (max-width: 768px) {
           .hero-breadcrumb {
             height: auto;
-            min-height: 260px;
-            padding: 40px 0;
+            min-height: 280px;
+            padding: 110px 0 40px; /* 80px header + 30px top padding; 40px bottom padding */
           }
           .breadcrumb-content h1 {
             font-size: 40px;
@@ -150,6 +156,60 @@ const Breadcrumb = () => {
           .bike-capsule {
             padding: 6px 12px;
             font-size: 10px;
+          }
+        }
+
+        @media (max-width: 640px) {
+          .hero-breadcrumb {
+            min-height: 280px;
+            padding: 110px 16px 32px;
+          }
+          .breadcrumb-content h1 {
+            font-size: 32px;
+            margin-bottom: 12px;
+          }
+          .breadcrumb-links {
+            gap: 6px 10px;
+            font-size: 11px;
+            padding: 0 10px;
+          }
+          .models-capsules {
+            margin-top: 18px;
+            gap: 6px;
+            padding: 0 10px;
+          }
+          .bike-capsule {
+            padding: 5px 10px;
+            font-size: 9px;
+            letter-spacing: 0.02em;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .hero-breadcrumb {
+            min-height: 260px;
+            padding: 100px 12px 24px;
+          }
+          .breadcrumb-content h1 {
+            font-size: 26px;
+            margin-bottom: 8px;
+          }
+          .breadcrumb-links {
+            gap: 4px 8px;
+            font-size: 10px;
+          }
+          .crumb-sep svg, .crumb-link svg {
+            width: 12px;
+            height: 12px;
+          }
+          .models-capsules {
+            margin-top: 14px;
+            gap: 4px;
+          }
+          .bike-capsule {
+            padding: 4px 8px;
+            font-size: 8px;
+            letter-spacing: 0.01em;
           }
         }
       `}</style>

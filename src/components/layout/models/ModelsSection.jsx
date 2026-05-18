@@ -210,6 +210,7 @@ export default function ModelsSection() {
             flex-direction: column;
             align-items: flex-start;
           }
+          .models-heading { font-size: 28px; }
           .models-filters {
             width: 100%;
             overflow-x: auto;

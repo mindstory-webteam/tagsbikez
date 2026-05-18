@@ -73,48 +73,112 @@ export default function Navbar() {
           border-radius: 2px;
           transition: all 0.3s;
         }
-        .mobile-menu {
-          display: none;
+        /* ── Sidebar & Overlay ── */
+        .sidebar-overlay {
           position: fixed;
+          top: 0;
           left: 0;
+          width: 100vw;
+          height: 100vh;
+          background: rgba(0, 0, 0, 0.7);
+          backdrop-filter: blur(4px);
+          z-index: 198;
+          opacity: 0;
+          pointer-events: none;
+          transition: opacity 0.35s ease;
+        }
+        .sidebar-overlay.open {
+          opacity: 1;
+          pointer-events: auto;
+        }
+
+        .mobile-sidebar {
+          position: fixed;
+          top: 0;
           right: 0;
-          background: rgba(10,10,10,0.98);
-          backdrop-filter: blur(16px);
-          border-bottom: 1px solid rgba(255,255,255,0.08);
-          padding: 20px 24px 28px;
-          flex-direction: column;
-          gap: 6px;
-          z-index: 99;
-          transition: top 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .mobile-menu.open {
+          width: 300px;
+          height: 100vh;
+          background: #111111;
+          z-index: 199;
+          padding: 30px 24px;
+          box-sizing: border-box;
           display: flex;
+          flex-direction: column;
+          transform: translateX(100%);
+          transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+          border-left: 1px solid rgba(255, 255, 255, 0.08);
         }
-        .mobile-link {
-          color: #aaa;
-          font-size: 15px;
-          font-weight: 500;
-          text-decoration: none;
-          padding: 12px 0;
-          border-bottom: 1px solid rgba(255,255,255,0.05);
+        .mobile-sidebar.open {
+          transform: translateX(0);
+        }
+
+        .sidebar-header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 40px;
+          padding-bottom: 20px;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .sidebar-close {
+          background: transparent;
+          border: none;
+          color: #888;
+          font-size: 20px;
+          cursor: pointer;
           transition: color 0.2s;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 4px;
         }
-        .mobile-link:last-of-type { border-bottom: none; }
-        .mobile-link:hover { color: #fff; }
-        .mobile-cta {
+        .sidebar-close:hover {
+          color: #fff;
+        }
+
+        .sidebar-nav {
           display: flex;
           flex-direction: column;
-          gap: 10px;
-          margin-top: 16px;
+          gap: 8px;
         }
+
+        .sidebar-link {
+          color: #aaa;
+          font-size: 16px;
+          font-weight: 600;
+          letter-spacing: 0.05em;
+          text-decoration: none;
+          padding: 14px 0;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+          transition: color 0.2s, padding-left 0.2s;
+        }
+        .sidebar-link:hover {
+          color: #fff;
+          padding-left: 6px;
+        }
+
+        .sidebar-cta {
+          margin-top: auto;
+          padding-top: 20px;
+        }
+
         @media (max-width: 768px) {
           .nav-links-desktop { display: none !important; }
           .nav-cta { display: none !important; }
           .hamburger { display: flex !important; }
         }
+
+        @media (min-width: 769px) {
+          .mobile-sidebar, .sidebar-overlay {
+            display: none !important;
+          }
+        }
+
         body.hide-navbar-force nav,
-        body.hide-navbar-force .mobile-menu {
-          transform: translateY(-100%) !important;
+        body.hide-navbar-force .mobile-sidebar,
+        body.hide-navbar-force .sidebar-overlay {
+          transform: translateX(100%) !important;
           opacity: 0 !important;
           pointer-events: none !important;
           display: none !important;
@@ -182,20 +246,46 @@ export default function Navbar() {
         </button>
       </nav>
 
-      {/* Mobile Menu */}
-      <div
-        className={`mobile-menu ${open ? "open" : ""}`}
-        style={{ top: visible ? 64 : 0 }}
-      >
-        {navLinks.map(link => (
-          <Link
-            key={link.name}
-            href={link.path}
-            className="mobile-link"
+      {/* Sidebar Overlay */}
+      <div 
+        className={`sidebar-overlay ${open ? "open" : ""}`}
+        onClick={() => setOpen(false)}
+      />
+
+      {/* Sidebar (Mobile Menu) */}
+      <div className={`mobile-sidebar ${open ? "open" : ""}`}>
+        {/* Sidebar Header with Logo and Close Icon */}
+        <div className="sidebar-header">
+          <Image
+            src={img.tagsbikezwhite}
+            alt="Logo"
+            width={120}
+            height={36}
+            style={{ objectFit: "contain" }}
+          />
+          <button 
+            className="sidebar-close"
             onClick={() => setOpen(false)}
-          >{link.name}</Link>
-        ))}
-        <div className="mobile-cta flex justify-center">
+            aria-label="Close menu"
+          >
+            ✕
+          </button>
+        </div>
+
+        <nav className="sidebar-nav">
+          {navLinks.map(link => (
+            <Link
+              key={link.name}
+              href={link.path}
+              className="sidebar-link"
+              onClick={() => setOpen(false)}
+            >
+              {link.name}
+            </Link>
+          ))}
+        </nav>
+
+        <div className="sidebar-cta flex justify-center">
           <RedAnimatedBtn bgColor="red" onClick={() => { setOpen(false); window.location.href='/contact'; }}>
             GET A QUOTE
           </RedAnimatedBtn>

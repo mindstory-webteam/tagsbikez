@@ -91,16 +91,18 @@ export default function WhatWeDoSection() {
 
       tl.to(section, { backgroundColor: "#ffffffff", duration: 0.8, ease: "power2.inOut" }, 0);
       tl.to(heading, { color: "#040404ff", duration: 0.8, ease: "power2.inOut" }, 0);
-      tl.to(gridWrap, { borderTopColor: "#2a2a2a", borderLeftColor: "#2a2a2a", duration: 0.8, ease: "power2.inOut" }, 0);
-      tl.to(cardBorderEls, { borderRightColor: "#2a2a2a", borderBottomColor: "#2a2a2a", duration: 0.8, ease: "power2.inOut" }, 0);
+      tl.to(gridWrap, { borderTopColor: "#e0e0e0", borderLeftColor: "#e0e0e0", duration: 0.8, ease: "power2.inOut" }, 0);
+      tl.to(cardBorderEls, { borderRightColor: "#e0e0e0", borderBottomColor: "#e0e0e0", duration: 0.8, ease: "power2.inOut" }, 0);
 
       stepEls.forEach((el, i) => {
         if (!el) return;
         const title = el.querySelector(".step-title");
         const desc = el.querySelector(".step-desc");
+        
         tl.fromTo(el, { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, i * 0.1);
+        
         tl.to(title, { color: "#000000ff", duration: 0.8, ease: "power2.inOut" }, 0);
-        tl.to(desc, { color: "rgba(0, 0, 0, 0.55)", duration: 0.8, ease: "power2.inOut" }, 0);
+        tl.to(desc, { color: "#555555", duration: 0.8, ease: "power2.inOut" }, 0);
       });
     }, section);
 
@@ -158,13 +160,13 @@ export default function WhatWeDoSection() {
         .wwd-grid {
           display: grid;
           grid-template-columns: 1fr 1fr;
-          border-top: 1px solid #e0e0e0;
-          border-left: 1px solid #e0e0e0;
+          border-top: 1px solid #222;
+          border-left: 1px solid #222;
         }
 
         .wwd-card-border {
-          border-right: 1px solid #e0e0e0;
-          border-bottom: 1px solid #e0e0e0;
+          border-right: 1px solid #222;
+          border-bottom: 1px solid #222;
           padding: 28px 24px;
           box-sizing: border-box;
           height: 100%;
@@ -193,14 +195,14 @@ export default function WhatWeDoSection() {
           margin: 0;
           line-height: 1.3;
           text-transform: uppercase;
-          color: #000000;
+          color: #ffffff; /* Starts as white on dark background */
         }
 
         .step-desc {
           font-size: 13px;
           line-height: 1.7;
           margin: 0;
-          color: #555555;
+          color: #aaaaaa; /* Starts as readable grey on dark background */
         }
 
         /* Clamps text to 5 lines */
@@ -254,6 +256,7 @@ export default function WhatWeDoSection() {
           }
 
           .wwd-heading {
+            font-size: 28px;
             margin-bottom: 32px;
           }
 

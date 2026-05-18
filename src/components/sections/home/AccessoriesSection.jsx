@@ -176,7 +176,7 @@ const AccessoriesSection = () => {
             padding: 0px 20px;
           }
           .acc-heading {
-            font-size: 32px;
+            font-size: 28px;
             margin-bottom: 32px;
           }
           .acc-grid {

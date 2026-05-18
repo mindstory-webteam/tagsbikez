@@ -154,6 +154,9 @@ const SocialFeed = () => {
           .sf-container { padding: 0 20px; }
           .sf-header { padding: 20px; flex-direction: column; align-items: flex-start; gap: 20px; }
           .sf-nav-btn { width: 34px; height: 34px; }
+          .sf-heading {
+            font-size: 28px;
+          }
         }
       `}</style>
 

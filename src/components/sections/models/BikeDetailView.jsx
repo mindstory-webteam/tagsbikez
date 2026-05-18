@@ -319,26 +319,99 @@ const BikeDetailView = ({ bike }) => {
         }
 
         @media (max-width: 1100px) {
+          .bdv-root {
+            padding: 30px 40px;
+          }
           .bdv-inner {
             grid-template-columns: 1fr;
-            padding-left: 0;
+            padding: 40px 0;
           }
           .bdv-img-side {
-            min-height: 400px;
+            height: 400px;
+            padding: 20px;
+          }
+          .bdv-content-side {
+            height: auto;
+            overflow: visible;
+            border-top: none;
+          }
+          .bdv-text-wrap {
+            padding: 24px 30px;
+          }
+          .bdv-footer {
+            padding: 24px 30px;
+          }
+          .bdv-stories-inner {
+            padding: 0;
           }
           .bdv-story-row {
             grid-template-columns: 1fr;
-            gap: 40px;
+            gap: 30px;
+            margin-bottom: 60px;
           }
           .bdv-story-img-wrap {
-            height: 300px;
+            height: 320px;
           }
         }
 
-        @media (max-width: 600px) {
-          .bdv-title { font-size: 32px; }
-          .bdv-footer { flex-direction: column; }
-          .bdv-text-wrap { padding: 40px 30px; }
+        @media (max-width: 640px) {
+          .bdv-root {
+            padding: 20px 16px;
+          }
+          .bdv-inner {
+            padding: 20px 0;
+          }
+          .bdv-img-side {
+            height: 280px;
+            padding: 15px;
+          }
+          .bdv-text-wrap {
+            padding: 24px 20px;
+          }
+          .bdv-title {
+            font-size: 24px;
+            margin-bottom: 12px;
+          }
+          .bdv-desc {
+            font-size: 13px;
+            margin-bottom: 16px;
+          }
+          .bdv-colors-wrap {
+            margin-top: 16px;
+          }
+          .bdv-colors-label {
+            margin-bottom: 8px;
+          }
+          .bdv-stat-item {
+            padding: 16px 8px;
+          }
+          .bdv-stat-val {
+            font-size: 15px;
+          }
+          .bdv-stat-label {
+            font-size: 9px;
+          }
+          .bdv-footer {
+            padding: 20px;
+            flex-direction: column;
+            gap: 12px;
+          }
+          .bdv-anim-btn {
+            height: 52px;
+            flex: none;
+            width: 100%;
+            font-size: 12px;
+          }
+          .bdv-story-content h3 {
+            font-size: 24px;
+            margin-bottom: 16px;
+          }
+          .bdv-story-content p {
+            font-size: 14px;
+          }
+          .bdv-story-img-wrap {
+            height: 220px;
+          }
         }
       `}</style>
 

@@ -128,20 +128,28 @@ const FloatingActionButton = () => {
           .fab-container {
             bottom: 20px;
             right: 20px;
+            gap: 12px;
           }
           .fab-toggle {
-            width: 54px;
-            height: 54px;
+            width: 48px;
+            height: 48px;
+            font-size: 18px;
+          }
+          .fab-icon-sub {
+            width: 42px;
+            height: 42px;
           }
           .fab-label {
-            display: none; /* Hide labels on mobile to save space */
+            font-size: 11px;
+            padding: 4px 10px;
+            border-radius: 4px;
           }
         }
       `}</style>
 
       <ul className={`fab-menu ${isOpen ? 'active' : ''}`}>
         <li>
-          <a href="https://wa.me/7594960003?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Royal%20Enfield." target="_blank" rel="noopener noreferrer" className="fab-item">
+          <a href="https://wa.me/7594960003?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Royal%20Enfield%20Ride" target="_blank" rel="noopener noreferrer" className="fab-item">
             <span className="fab-label">Ride</span>
             <div className="fab-icon-sub">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -151,7 +159,7 @@ const FloatingActionButton = () => {
           </a>
         </li>
         <li>
-          <a href="https://wa.me/7594960032?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Royal%20Enfield." target="_blank" rel="noopener noreferrer" className="fab-item">
+          <a href="https://wa.me/7594960032?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Royal%20Enfield%20Insurance" target="_blank" rel="noopener noreferrer" className="fab-item">
             <span className="fab-label">Insurance</span>
             <div className="fab-icon-sub">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -171,7 +179,7 @@ const FloatingActionButton = () => {
           </a>
         </li>
         <li>
-          <a href="https://wa.me/917594960020?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Royal%20Enfield." target="_blank" rel="noopener noreferrer" className="fab-item">
+          <a href="https://wa.me/917594960020?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Royal%20Enfield%20Service" target="_blank" rel="noopener noreferrer" className="fab-item">
             <span className="fab-label">Service</span>
             <div className="fab-icon-sub">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">

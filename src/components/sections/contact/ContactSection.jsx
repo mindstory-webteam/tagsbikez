@@ -595,24 +595,35 @@ const ContactSection = () => {
         .loc-cell h4 { font-size: 20px; margin: 0 0 20px; font-weight: 700; }
 
         @media (max-width: 1024px) {
-          .main-grid { grid-template-columns: 1fr; }
-          .locations-grid { grid-template-columns: 1fr 1fr; }
+          .showroom-grid { grid-template-columns: repeat(2, 1fr); }
+          .interaction-grid { grid-template-columns: 1fr; }
+          .map-cell { border-right: 1px solid #e0e0e0; min-height: 500px; }
         }
 
         @media (max-width: 768px) {
           .contact-header { flex-direction: column; align-items: flex-start; gap: 24px; }
           .contact-header h1 { font-size: 32px; }
-          .form-cell { padding: 40px 20px; }
-          .locations-grid { grid-template-columns: 1fr; }
-          .map-wrapper { height: 400px; }
+          .form-cell { padding: 40px 24px; }
+          .showroom-grid { grid-template-columns: 1fr; }
+          .map-cell { min-height: 400px; }
           .map-title-overlay { top: 20px; left: 20px; padding: 16px; }
-          .input-row { grid-template-columns: 1fr; }
+          .input-row { grid-template-columns: 1fr; gap: 0; }
+        }
+
+        @media (max-width: 640px) {
+          .contact-container { padding: 60px 16px; }
+          .contact-header { margin-bottom: 48px; }
+          .contact-header h1 { font-size: 28px; }
+          .showroom-grid { margin-bottom: 48px; }
+          .loc-cell { padding: 24px; }
+          .form-cell { padding: 32px 20px; }
+          .input-group { margin-bottom: 24px; }
         }
       `}</style>
 
       <div className="contact-container">
         <header className="contact-header">
-          <h1>Let's Start a<br />Conversation.</h1>
+          <h1>Let&apos;s Start a<br />Conversation.</h1>
           <div className="contact-header-right">
             <a href="https://www.instagram.com/tagsbikez/" target="_blank" rel="noopener noreferrer" className="contact-insta-link">
               <FaInstagram size={16} />
