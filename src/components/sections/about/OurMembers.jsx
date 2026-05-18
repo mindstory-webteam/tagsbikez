@@ -176,7 +176,7 @@ const OurMembers = () => {
 
         @media (max-width: 768px) {
           .members-section {
-            padding: 20px 20px 60px 20px;
+            padding: 20px 20px 40px 20px;
           }
           .members-heading {
             font-size: 32px;
