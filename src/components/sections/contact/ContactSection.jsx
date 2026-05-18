@@ -649,9 +649,18 @@ const ContactSection = () => {
                 <a href={loc.socials.instagram} target="_blank" rel="noopener noreferrer" className="loc-social-btn instagram" aria-label="Instagram"><FaInstagram /></a>
               </div>
               {loc.mapUrl !== '#' && (
-                <a href={loc.mapUrl} target="_blank" rel="noopener noreferrer" className="loc-link">
-                  View on Google Maps
-                </a>
+                <div style={{ marginTop: 'auto', paddingTop: '16px' }}>
+                  <AnimatedBtn
+                    href={loc.mapUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    bgColor="#111111"
+                    hoverColor="#e63020"
+                    style={{ height: '38px', minWidth: '160px', fontSize: '11px', padding: '0 16px' }}
+                  >
+                    View on Google Maps
+                  </AnimatedBtn>
+                </div>
               )}
             </div>
           ))}
