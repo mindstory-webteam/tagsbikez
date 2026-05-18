@@ -3,8 +3,11 @@ import tagsbikezwhite from './tagsbikezwhitelogo.png'
 import bulletimg from './bulletimg.png'
 
 import banner1 from './banner/banner1.png'
+import bannerSmall1 from './banner/banner-small-1.png'
 import banner2 from './banner/banner2.png'
+import bannerSmall2 from './banner/banner-small-2.png'
 import banner3 from './banner/banner3.png'
+import bannerSmall3 from './banner/banner-small-3.png'
 import banner4 from './banner/banner4.jpg'
 import banner5 from './banner/banner5.jpg'
 
@@ -82,8 +85,11 @@ export const img = {
   bulletimg,
   bulletfront,
   banner1,
+  bannerSmall1,
   banner2,
+  bannerSmall2,
   banner3,
+  bannerSmall3,
   banner4,
   banner5,
   accessories,

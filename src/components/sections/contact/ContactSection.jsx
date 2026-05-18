@@ -192,7 +192,7 @@ const ContactSection = () => {
           margin-bottom: 80px;
           display: flex;
           justify-content: space-between;
-          align-items: flex-end;
+          align-items: flex-start;
           gap: 40px;
         }
 
@@ -238,11 +238,7 @@ const ContactSection = () => {
           transition: all 0.3s ease;
         }
 
-        .contact-insta-link:hover {
-          background: #111;
-          color: #fff;
-          border-color: #111;
-        }
+   
 
         .showroom-grid {
           display: grid;
@@ -626,9 +622,9 @@ const ContactSection = () => {
         <header className="contact-header">
           <h1>Let&apos;s Start a<br />Conversation.</h1>
           <div className="contact-header-right">
-            <a href="https://www.instagram.com/tagsbikez/" target="_blank" rel="noopener noreferrer" className="contact-insta-link">
-              <FaInstagram size={16} />
-              @TAGSBIKEZ
+            <a href="tel:6235227755" className="contact-insta-link" style={{ flexDirection: 'column', alignItems: 'flex-start', gap: '4px', padding: '12px 18px' }}>
+              <span style={{ fontSize: '10px', color: '#e63020', letterSpacing: '0.15em' }}>ROADSIDE ASSISTANCE</span>
+              <span style={{ fontSize: '16px' }}>62352 27755</span>
             </a>
             <p>Get in touch with our nearest showroom for sales, service, or any inquiries.</p>
           </div>

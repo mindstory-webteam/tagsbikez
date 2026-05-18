@@ -234,7 +234,7 @@ export default function Navbar() {
 
         {/* Desktop CTA */}
         <div className="nav-cta">
-          <Link href="/contact">
+          <Link href="https://wa.me/917594960023" target="_blank" rel="noopener noreferrer">
             <AnimatedBtn bgColor="red">GET A QUOTE</AnimatedBtn>
           </Link>
         </div>
@@ -291,7 +291,7 @@ export default function Navbar() {
         </nav>
 
         <div className="sidebar-cta flex justify-center">
-          <Link href="/contact" onClick={() => setOpen(false)}>
+          <Link href="https://wa.me/917594960023" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>
             <RedAnimatedBtn bgColor="red">
               GET A QUOTE
             </RedAnimatedBtn>

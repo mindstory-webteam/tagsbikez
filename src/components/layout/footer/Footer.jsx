@@ -12,19 +12,19 @@ const navLinks = [
 ];
 
 const locations = [
+   {
+    area: "Kuriachira, Thrissur",
+    name: "TagsBikez Kuriachira",
+    sales: "+91 7594960023",
+    service: "+91 7594960020",
+    email: "info.tags.tcr@gmail.com",
+  },
   {
     area: "Patturaikkal, Thrissur",
     name: "TagsBikez Patturaikkal",
     sales: "+91 7594960033",
     service: "+91 7594960068",
     email: "info.tags.ptkl@gmail.com",
-  },
-  {
-    area: "Kuriachira, Thrissur",
-    name: "TagsBikez Kuriachira",
-    sales: "+91 7594960023",
-    service: "+91 7594960020",
-    email: "info.tags.tcr@gmail.com",
   },
   {
     area: "Irinjalakuda",
@@ -193,8 +193,10 @@ export default function Footer() {
           color: #555;
           text-transform: uppercase;
           letter-spacing: 0.06em;
-          min-width: 42px;
+          width: 65px;
           flex-shrink: 0;
+          display: flex;
+          justify-content: space-between;
         }
 
         .ft-loc-val {
@@ -418,18 +420,18 @@ export default function Footer() {
                   <p className="ft-loc-name">{loc.name}</p>
                   <hr className="ft-loc-divider" />
                   <div className="ft-loc-row">
-                    <span className="ft-loc-key">Sales</span>
+                    <span className="ft-loc-key"><span>Sales</span><span>:</span></span>
                     <a href={`tel:${loc.sales.replace(/\s/g, "")}`} className="ft-loc-val">{loc.sales}</a>
                   </div>
                   <div className="ft-loc-row">
-                    <span className="ft-loc-key">Service</span>
+                    <span className="ft-loc-key"><span>Service</span><span>:</span></span>
                     {loc.service === "Coming Soon"
                       ? <span className="ft-loc-val coming">Coming Soon</span>
                       : <a href={`tel:${loc.service.replace(/\s/g, "")}`} className="ft-loc-val">{loc.service}</a>
                     }
                   </div>
                   <div className="ft-loc-row">
-                    <span className="ft-loc-key">Email</span>
+                    <span className="ft-loc-key"><span>Email</span><span>:</span></span>
                     <a href={`mailto:${loc.email}`} className="ft-loc-val">{loc.email}</a>
                   </div>
                 </div>

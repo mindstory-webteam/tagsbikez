@@ -13,16 +13,19 @@ const bikeData = [
     title: "THE CLASSIC 350",
     subtitle: "A timeless icon redefined for the modern road.",
     img: img.banner1,
+    imgSmall: img.bannerSmall1,
   },
   {
     title: "INTERCEPTOR 650",
     subtitle: "Raw power meets classic British roadster soul.",
     img: img.banner2,
+    imgSmall: img.bannerSmall2,
   },
   {
     title: "CONTINENTAL GT",
     subtitle: "The ultimate cafe racer experience for the purist.",
     img: img.banner3,
+    imgSmall: img.bannerSmall3,
   },
 ];
 
@@ -65,12 +68,18 @@ export default function HeroSection() {
         .hero-nav-prev { left: 24px; }
         .hero-nav-next { right: 24px; }
 
+        .desktop-banner { display: block; height: 100%; width: 100%; position: absolute; inset: 0; }
+        .mobile-banner { display: none; height: 100%; width: 100%; position: absolute; inset: 0; }
+
         @media (max-width: 768px) {
           .hero-root {
             /* On mobile, use 60vh so it doesn't dominate the whole screen */
             height: 60vh;
             min-height: 320px;
           }
+
+          .desktop-banner { display: none; }
+          .mobile-banner { display: block; }
 
           /* Smaller, closer-to-edge buttons on mobile */
           .hero-nav-btn {
@@ -99,14 +108,26 @@ export default function HeroSection() {
               key={index}
               style={{ position: "relative", width: "100%", height: "100%" }}
             >
-              <Image
-                src={bike.img}
-                alt={bike.title}
-                fill
-                sizes="100vw"
-                style={{ objectFit: "cover", objectPosition: "center" }}
-                priority={index === 0}
-              />
+              <div className="desktop-banner">
+                <Image
+                  src={bike.img}
+                  alt={bike.title}
+                  fill
+                  sizes="100vw"
+                  style={{ objectFit: "cover", objectPosition: "center" }}
+                  priority={index === 0}
+                />
+              </div>
+              <div className="mobile-banner">
+                <Image
+                  src={bike.imgSmall}
+                  alt={bike.title}
+                  fill
+                  sizes="100vw"
+                  style={{ objectFit: "cover", objectPosition: "center" }}
+                  priority={index === 0}
+                />
+              </div>
               {/* Dark overlay */}
               <div style={{ position: "absolute", inset: 0, zIndex: 1 }} />
             </SwiperSlide>

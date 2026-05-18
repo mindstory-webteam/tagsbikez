@@ -40,6 +40,7 @@ export default function AnimatedBtn({
           white-space: nowrap;
           outline: none;
           border: none;
+          border-radius: 6px;
           box-sizing: border-box;
           text-transform: uppercase;
           overflow: hidden;
