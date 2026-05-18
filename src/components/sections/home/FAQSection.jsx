@@ -224,7 +224,7 @@ const FAQSection = () => {
         }
 
         @media (max-width: 768px) {
-          .faq-section { padding: 48px 20px; }
+          .faq-section { padding: 48px 20px 80px 20px; }
           .faq-inner { grid-template-columns: 1fr; gap: 40px; }
           .faq-left { position: static; }
           .faq-heading {

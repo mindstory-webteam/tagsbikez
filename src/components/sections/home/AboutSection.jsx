@@ -326,6 +326,9 @@ export default function AboutSection() {
           .as-feat-grid { grid-template-columns: 1fr; }
           .as-banner-left { padding: 36px 20px; }
           .as-scroll-img { width: 160px; height: 110px; }
+          .as-root{
+           padding-bottom:60px;  
+          }
         }
       `}</style>
 

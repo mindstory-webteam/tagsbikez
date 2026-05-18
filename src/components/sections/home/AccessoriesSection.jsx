@@ -173,7 +173,7 @@ const AccessoriesSection = () => {
 
         @media (max-width: 768px) {
           .acc-section {
-            padding: 0px 20px;
+            padding:0px 20px 40px 20px;
           }
           .acc-heading {
             font-size: 28px;
