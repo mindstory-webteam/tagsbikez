@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 import { ShieldCheck, Wrench, Clock } from "lucide-react";
 import { img } from "@/assets/assest";
 
-const colA = [img.Himalayan, img.royalenfieldfury, img.Himalayan2, img.royalenfield1, img.scram1];
+const colA = [img.Himalayan, img.royalenfieldfury, img.Himalayan2, img.scram1, img.royalenfield1];
 const colB = [img.scram1, img.Himalayan2, img.royalenfield1, img.royalenfieldfury, img.Himalayan];
 
 const features = [
@@ -354,10 +354,10 @@ export default function AboutSection() {
               Your Trusted Royal Enfield<br />Showroom.
             </h3>
             <p className="as-banner-sub">
-              TagsBikez is Thrissur's authorised Royal Enfield dealership offering the full 2024–25 lineup and expert servicing.
+              TagsBikez is Thrissur's authorised Royal Enfield dealership offering the full 2026 lineup and expert servicing.
             </p>
             <div className="as-info-pills">
-              <div className="as-pill">2024–25 Models</div>
+              <div className="as-pill">2026 Models</div>
               <div className="as-pill">Genuine Accessories</div>
               <div className="as-pill">Easy EMI</div>
             </div>

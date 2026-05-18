@@ -234,8 +234,9 @@ export default function Navbar() {
 
         {/* Desktop CTA */}
         <div className="nav-cta">
-         <AnimatedBtn bgColor="red" onClick={() => console.log("clicked")}>Book Now</AnimatedBtn>
-
+          <Link href="/contact">
+            <AnimatedBtn bgColor="red">GET A QUOTE</AnimatedBtn>
+          </Link>
         </div>
 
         {/* Hamburger */}
@@ -290,9 +291,11 @@ export default function Navbar() {
         </nav>
 
         <div className="sidebar-cta flex justify-center">
-          <RedAnimatedBtn bgColor="red" onClick={() => { setOpen(false); window.location.href='/contact'; }}>
-            GET A QUOTE
-          </RedAnimatedBtn>
+          <Link href="/contact" onClick={() => setOpen(false)}>
+            <RedAnimatedBtn bgColor="red">
+              GET A QUOTE
+            </RedAnimatedBtn>
+          </Link>
         </div>
       </div>
     </>
