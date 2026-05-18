@@ -185,7 +185,7 @@ const ContactSection = () => {
         .contact-container {
           max-width: 1300px;
           margin: 0 auto;
-          padding: 100px 20px;
+          padding: 80px 20px 100px 20px;
         }
 
         .contact-header {
@@ -595,6 +595,7 @@ const ContactSection = () => {
         .loc-cell h4 { font-size: 20px; margin: 0 0 20px; font-weight: 700; }
 
         @media (max-width: 1024px) {
+          .contact-container { padding: 60px 20px 80px 20px; }
           .showroom-grid { grid-template-columns: repeat(2, 1fr); }
           .interaction-grid { grid-template-columns: 1fr; }
           .map-cell { border-right: 1px solid #e0e0e0; min-height: 500px; }
@@ -611,7 +612,7 @@ const ContactSection = () => {
         }
 
         @media (max-width: 640px) {
-          .contact-container { padding: 60px 16px; }
+          .contact-container { padding: 40px 16px 60px 16px; }
           .contact-header { margin-bottom: 48px; }
           .contact-header h1 { font-size: 28px; }
           .showroom-grid { margin-bottom: 48px; }

@@ -53,12 +53,12 @@ export default function AboutGallery() {
     <section ref={sectionRef} className="gallery-section">
       <style>{`
         .gallery-page {
-          padding-top: 80px;
+          padding-top: 0px;
         }
 
         .gallery-section {
           background: #fff;
-          padding: 0px 40px 80px 40px;
+          padding: 80px 40px 80px 40px;
         }
 
         /*  Header row: heading left, text right ── */
@@ -142,10 +142,10 @@ export default function AboutGallery() {
 
         @media (max-width: 768px) {
           .gallery-page {
-            padding-top: 20px;
+            padding-top: 0px;
           }
           .gallery-section {
-            padding: 16px 20px 60px 20px;
+            padding: 60px 20px 60px 20px;
           }
           .gallery-heading {
             font-size: 28px;
@@ -164,7 +164,7 @@ export default function AboutGallery() {
 
         @media (max-width: 600px) {
           .gallery-section {
-            padding: 10px 16px 40px 16px;
+            padding: 40px 16px 40px 16px;
           }
           .gallery-grid {
             grid-template-columns: repeat(2, 1fr);

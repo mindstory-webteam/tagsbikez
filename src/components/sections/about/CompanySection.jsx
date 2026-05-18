@@ -151,6 +151,9 @@ const CompanySection = () => {
         }
 
         @media (max-width: 1100px) {
+          .cp-section {
+            padding: 60px 40px;
+          }
           .cp-flex-container {
             grid-template-columns: 1fr;
             gap: 0;
@@ -174,7 +177,7 @@ const CompanySection = () => {
 
         @media (max-width: 768px) {
           .cp-section {
-            padding: 40px 20px;
+            padding: 60px 20px;
           }
           .cp-heading {
             font-size: 32px;
@@ -203,7 +206,7 @@ const CompanySection = () => {
 
         @media (max-width: 480px) {
           .cp-section {
-            padding: 30px 16px;
+            padding: 40px 16px;
           }
           .cp-heading {
             font-size: 24px;

@@ -79,6 +79,18 @@ export default function PrivacyPolicyPage() {
         .policy-link:hover {
           color: #ffffff;
         }
+
+        @media (max-width: 1024px) {
+          .policy-container {
+            padding-top: 60px;
+          }
+        }
+
+        @media (max-width: 600px) {
+          .policy-container {
+            padding-top: 40px;
+          }
+        }
       `}</style>
 
       <div className="policy-container">
