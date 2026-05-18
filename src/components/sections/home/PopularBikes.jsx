@@ -587,7 +587,7 @@ export default function PopularBikes() {
           {/* RIGHT — content */}
           <div className="content-col">
             <div className="content-col-inner" key={current}>
-              <span className="slide-tag">{slide.tag}</span>
+              {/* <span className="slide-tag">{slide.tag}</span> */}
               <h2 className="heading">
                 {slide.heading[0]}<br />
                 {slide.heading[1]} <span>{slide.highlight}</span>

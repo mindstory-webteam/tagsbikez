@@ -1,7 +1,6 @@
 import AboutSection from '@/components/sections/home/AboutSection'
 import BikeScrollAnimation from '@/components/sections/home/BikeScrollAnimation'
-// import BikeSectionSwiper from '@/components/sections/home/BikeSectionSwiper'
-import BikeSectionSwiper2 from '@/components/sections/home/BikeSectionSwiper2'
+import BikeSectionSwiper from '@/components/sections/home/BikeSectionSwiper'
 import FAQSection from '@/components/sections/home/FAQSection'
 import HeroSection from '@/components/sections/home/HeroSection'
 import PopularBikes from '@/components/sections/home/PopularBikes'
@@ -20,10 +19,9 @@ const Home = () => {
       <div id="models">
         <PopularBikes />
       </div>
-      <BikeSectionSwiper2 />
+      <BikeSectionSwiper />
       <EmiCalculator/>
       <UpcomingEvents />
-      {/* <BikeSectionSwiper/> */}
       <WhatWeDoSection />
       <BikeScrollAnimation />
       <AboutSection />
