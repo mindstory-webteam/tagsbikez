@@ -82,7 +82,7 @@ export default function Navbar() {
           height: 100vh;
           background: rgba(0, 0, 0, 0.7);
           backdrop-filter: blur(4px);
-          z-index: 198;
+          z-index: 99998;
           opacity: 0;
           pointer-events: none;
           transition: opacity 0.35s ease;
@@ -98,8 +98,9 @@ export default function Navbar() {
           right: 0;
           width: 300px;
           height: 100vh;
+          height: 100dvh;
           background: #111111;
-          z-index: 199;
+          z-index: 99999;
           padding: 30px 24px;
           box-sizing: border-box;
           display: flex;
@@ -161,6 +162,9 @@ export default function Navbar() {
         .sidebar-cta {
           margin-top: auto;
           padding-top: 20px;
+          display: flex;
+          justify-content: center;
+          width: 100%;
         }
 
         @media (max-width: 768px) {

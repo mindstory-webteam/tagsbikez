@@ -52,6 +52,10 @@ export default function AboutGallery() {
   return (
     <section ref={sectionRef} className="gallery-section">
       <style>{`
+        .gallery-page {
+          padding-top: 80px;
+        }
+
         .gallery-section {
           background: #fff;
           padding: 0px 40px 80px 40px;
@@ -137,10 +141,20 @@ export default function AboutGallery() {
         }
 
         @media (max-width: 768px) {
+          .gallery-page {
+            padding-top: 20px;
+          }
+          .gallery-section {
+            padding: 16px 20px 60px 20px;
+          }
+          .gallery-heading {
+            font-size: 28px;
+          }
           .gallery-header {
             flex-direction: column;
             align-items: flex-start;
             gap: 16px;
+            margin-bottom: 24px;
           }
           .gallery-desc {
             text-align: left;
@@ -149,7 +163,9 @@ export default function AboutGallery() {
         }
 
         @media (max-width: 600px) {
-          .gallery-section { padding: 40px 16px; }
+          .gallery-section {
+            padding: 10px 16px 40px 16px;
+          }
           .gallery-grid {
             grid-template-columns: repeat(2, 1fr);
             gap: 4px;

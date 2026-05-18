@@ -8,7 +8,7 @@ export const metadata = {
 
 const GalleryPage = () => {
   return (
-    <div className="gallery-page bg-white pt-20">
+    <div className="gallery-page bg-white">
       <AboutGallery />
     </div>
   );

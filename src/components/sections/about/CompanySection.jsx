@@ -153,29 +153,78 @@ const CompanySection = () => {
         @media (max-width: 1100px) {
           .cp-flex-container {
             grid-template-columns: 1fr;
+            gap: 0;
           }
           .cp-img-side {
             min-height: 400px;
             order: -1;
-            margin-bottom: 40px;
+            margin-bottom: 0;
           }
           .cp-content-side {
-            border-left: 1px solid #e0e0e0;
+            border: 1px solid #e0e0e0;
+            border-top: none;
           }
           .cp-text-wrap {
             padding: 40px;
+          }
+          .cp-stats-grid {
+            border-left: none;
           }
         }
 
         @media (max-width: 768px) {
           .cp-section {
-            padding: 60px 20px;
+            padding: 40px 20px;
           }
           .cp-heading {
             font-size: 32px;
+            margin-bottom: 24px;
+          }
+          .cp-img-side {
+            min-height: 320px;
+          }
+          .cp-text-wrap {
+            padding: 30px 24px;
+          }
+          .cp-stats-grid {
+            grid-template-columns: repeat(3, 1fr);
+          }
+          .cp-stat-item {
+            padding: 24px 12px;
+          }
+          .cp-stat-item h4 {
+            font-size: 24px;
+          }
+          .cp-stat-item p {
+            font-size: 9px;
+            letter-spacing: 0.05em;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .cp-section {
+            padding: 30px 16px;
+          }
+          .cp-heading {
+            font-size: 24px;
+            margin-bottom: 16px;
+          }
+          .cp-img-side {
+            min-height: 240px;
+          }
+          .cp-text-wrap {
+            padding: 24px 16px;
           }
           .cp-stats-grid {
             grid-template-columns: 1fr;
+          }
+          .cp-stat-item {
+            padding: 18px 12px;
+            border-right: none;
+            border-bottom: 1px solid #e0e0e0;
+          }
+          .cp-stat-item:last-child {
+            border-bottom: none;
           }
         }
       `}</style>
