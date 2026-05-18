@@ -3,6 +3,22 @@ import { ReactLenis, useLenis } from 'lenis/react'
 import { useEffect } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { usePathname } from 'next/navigation'
+
+function ScrollToTopOnRouteChange() {
+  const pathname = usePathname()
+  const lenis = useLenis()
+
+  useEffect(() => {
+    if (lenis) {
+      lenis.scrollTo(0, { immediate: true })
+    } else {
+      window.scrollTo(0, 0)
+    }
+  }, [pathname, lenis])
+
+  return null
+}
 
 export default function LenisProvider({ children }) {
   useEffect(() => {
@@ -21,6 +37,7 @@ export default function LenisProvider({ children }) {
         smoothWheel: true,
       }}
     >
+      <ScrollToTopOnRouteChange />
       {children}
     </ReactLenis>
   )

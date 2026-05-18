@@ -353,7 +353,7 @@ export default function PopularBikes() {
 
     
 
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
 
           .pb-section {
             min-height: auto;
@@ -365,12 +365,49 @@ export default function PopularBikes() {
           .desktop-layout { display: none; }
           .mobile-layout  { display: block; width: 100%; }
 
+          @media (min-width: 769px) {
+            .pb-section {
+              padding: 0 40px 40px 40px !important;
+            }
+            .m-hero-wrap {
+              height: 380px;
+            }
+            .m-content {
+              padding: 30px 0 0;
+              max-width: none;
+              margin: 0;
+            }
+            .m-heading {
+              font-size: 32px;
+            }
+            .m-description {
+              font-size: 14px;
+              -webkit-line-clamp: unset;
+            }
+            .m-spec-value {
+              font-size: 18px;
+            }
+            .m-spec-label {
+              font-size: 10px;
+            }
+            .m-thumb {
+              height: 80px;
+            }
+            .m-bottom {
+              margin-top: 24px;
+            }
+            .m-cta-btn, .m-cta-ghost {
+              font-size: 13px;
+              padding: 14px 28px;
+            }
+          }
+
           /* ── Hero image strip — full bleed ── */
           .m-hero-wrap {
             width: 100%;
             position: relative;
             height: 240px;
-            background: #f5f5f5;
+            background: transparent;
           }
 
           /* ── Content card below ── */

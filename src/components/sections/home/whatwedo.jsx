@@ -35,16 +35,16 @@ const steps = [
   },
 ];
 
-function StepCard({ step, i, stepRefs, cardBorderRefs }) {
+function StepCard({ step, i, onRef, onBorderRef }) {
   const [expanded, setExpanded] = useState(false);
 
   return (
     <div
-      ref={(el) => (stepRefs.current[i] = el)}
+      ref={(el) => onRef(i, el)}
       style={{ opacity: 0 }}
     >
       <div
-        ref={(el) => (cardBorderRefs.current[i] = el)}
+        ref={(el) => onBorderRef(i, el)}
         className="wwd-card-border"
       >
         <div className="wwd-card-header">
@@ -247,6 +247,35 @@ export default function WhatWeDoSection() {
           color: #fff;
         }
 
+        /*  MEDIUM SCREEN & IPAD PRO  */
+        @media (max-width: 1100px) {
+          .wwd-section {
+            padding: 60px 40px;
+            min-height: auto;
+            align-items: flex-start;
+          }
+
+          .wwd-body {
+            flex-direction: column;
+            gap: 32px;
+          }
+
+          .wwd-image-wrap {
+            flex: none;
+            width: 100%;
+            height: 300px;
+            border-radius: 8px;
+          }
+
+          .wwd-grid-side {
+            width: 100%;
+          }
+
+          .wwd-grid {
+            grid-template-columns: 1fr 1fr;
+          }
+        }
+
         /*  MOBILE  */
         @media (max-width: 768px) {
           .wwd-section {
@@ -327,8 +356,12 @@ export default function WhatWeDoSection() {
                     key={step.number}
                     step={step}
                     i={i}
-                    stepRefs={stepRefs}
-                    cardBorderRefs={cardBorderRefs}
+                    onRef={(idx, el) => {
+                      stepRefs.current[idx] = el;
+                    }}
+                    onBorderRef={(idx, el) => {
+                      cardBorderRefs.current[idx] = el;
+                    }}
                   />
                 ))}
               </div>

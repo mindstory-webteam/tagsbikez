@@ -401,6 +401,14 @@ export default function UpcomingEvents() {
           background: #000;
           color: #fff;
         }
+        @media (max-width: 1200px) {
+          .ev-section {
+            padding: 0 40px 100px 40px;
+          }
+          .ev-card {
+            flex: 0 0 calc(var(--card-width, 25%) - 8px);
+          }
+        }
         @media (max-width: 600px) {
           .ev-section { padding: 24px 16px 60px; }
           .ev-heading { font-size: 28px; }

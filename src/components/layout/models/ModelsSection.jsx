@@ -5,9 +5,9 @@ import Link from "next/link";
 import { IoIosArrowForward } from "react-icons/io";
 import { bikeData } from '@/lib/data/bikes';
 
-const categories = ["All", "Classic", "Cruiser", "Cafe Racer", "Adventure"];
+const categories = ["All", "Classic", "Roadster", "Cruiser", "Cafe Racer", "Adventure"];
 
-function Card({ title, img, slug, category }) {
+function Card({ title, img, slug, category, price }) {
   return (
     <Link href={`/models/${slug}`} className="models-card">
       <div className="models-card-img-wrap">
@@ -24,7 +24,10 @@ function Card({ title, img, slug, category }) {
       <div className="models-card-info">
         <p className="models-card-subtitle">{category}</p>
         <div className="models-card-bottom">
-          <p className="models-card-title">{title}</p>
+          <div>
+            <p className="models-card-title">{title}</p>
+            {price && <p className="models-card-price">Starting from {price}</p>}
+          </div>
           <span className="models-card-arrow"><IoIosArrowForward /></span>
         </div>
       </div>
@@ -178,6 +181,13 @@ export default function ModelsSection() {
           letter-spacing: 0.03em;
         }
 
+        .models-card-price {
+          font-size: 11px;
+          color: #666666;
+          margin: 4px 0 0 0;
+          font-weight: 500;
+        }
+
         .models-card-arrow {
           font-size: 14px;
           color: #aaa;
@@ -249,6 +259,7 @@ export default function ModelsSection() {
                 img={b.image}
                 slug={b.slug}
                 category={b.category}
+                price={b.colors && b.colors.length > 0 ? b.colors[0].price : null}
               />
             ))}
           </div>

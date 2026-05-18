@@ -28,6 +28,10 @@ export default function BikeScrollAnimation() {
   const rafRef = useRef(null)
 
   useEffect(() => {
+    if (typeof window !== 'undefined' && window.innerWidth <= 1024) {
+      return
+    }
+
     gsap.registerPlugin(ScrollTrigger)
 
     const canvas = canvasRef.current
@@ -92,7 +96,7 @@ export default function BikeScrollAnimation() {
   return (
     <>
       <style>{`
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
           .bike-scroll-section { display: none !important; }
         }
       `}</style>

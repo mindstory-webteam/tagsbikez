@@ -68,9 +68,18 @@ const BikeDetailView = ({ bike }) => {
           font-size: 32px;
           font-weight: 400;
           color: #111;
-          margin-bottom: 16px;
+          margin-bottom: 8px;
           text-transform: uppercase;
           line-height: 1.1;
+        }
+
+        .bdv-price {
+          font-family: var(--font-oswald), sans-serif;
+          font-size: 26px;
+          color: #f51b24;
+          font-weight: 600;
+          margin-bottom: 16px;
+          letter-spacing: 0.02em;
         }
 
         .bdv-desc {
@@ -370,6 +379,10 @@ const BikeDetailView = ({ bike }) => {
           }
           .bdv-title {
             font-size: 24px;
+            margin-bottom: 8px;
+          }
+          .bdv-price {
+            font-size: 20px;
             margin-bottom: 12px;
           }
           .bdv-desc {
@@ -457,6 +470,9 @@ const BikeDetailView = ({ bike }) => {
         <div className="bdv-content-side">
           <div className="bdv-text-wrap">
             <h1 className="bdv-title">{bike.name}</h1>
+            {selectedColor.price && (
+              <p className="bdv-price">{selectedColor.price}</p>
+            )}
             <p className="bdv-desc">{bike.description}</p>
 
             <div className="bdv-colors-wrap">
