@@ -84,13 +84,13 @@ function useMap() {
 function DefaultLoader() {
   return (
     <div
-      className="bg-background/50 absolute inset-0 z-10 flex items-center justify-center backdrop-blur-xs">
+      className="bg-white/50 absolute inset-0 z-10 flex items-center justify-center backdrop-blur-xs">
       <div className="flex gap-1">
-        <span className="bg-muted-foreground/60 size-1.5 animate-pulse rounded-full" />
+        <span className="bg-gray-400 size-1.5 animate-pulse rounded-full" />
         <span
-          className="bg-muted-foreground/60 size-1.5 animate-pulse rounded-full [animation-delay:150ms]" />
+          className="bg-gray-400 size-1.5 animate-pulse rounded-full [animation-delay:150ms]" />
         <span
-          className="bg-muted-foreground/60 size-1.5 animate-pulse rounded-full [animation-delay:300ms]" />
+          className="bg-gray-400 size-1.5 animate-pulse rounded-full [animation-delay:300ms]" />
       </div>
     </div>
   );
@@ -583,7 +583,7 @@ function ControlGroup({
 }) {
   return (
     <div
-      className="border-border bg-background [&>button:not(:last-child)]:border-border flex flex-col overflow-hidden rounded-md border shadow-sm [&>button:not(:last-child)]:border-b">
+      className="border-gray-200 bg-white [&>button:not(:last-child)]:border-gray-200 flex flex-col overflow-hidden rounded-md border shadow-sm [&>button:not(:last-child)]:border-b">
       {children}
     </div>
   );
@@ -601,10 +601,10 @@ function ControlButton({
       aria-label={label}
       type="button"
       className={cn(
-        "flex size-8 items-center justify-center transition-all",
+        "flex size-8 items-center justify-center transition-all bg-white text-gray-800",
         "first:rounded-t-md last:rounded-b-md",
-        "hover:bg-accent dark:hover:bg-accent/40",
-        "focus-visible:ring-ring focus-visible:ring-2 focus-visible:outline-none focus-visible:ring-inset",
+        "hover:bg-gray-100 active:bg-gray-200",
+        "focus-visible:ring-gray-300 focus-visible:ring-2 focus-visible:outline-none focus-visible:ring-inset",
         "disabled:pointer-events-none disabled:opacity-50"
       )}
       disabled={disabled}>

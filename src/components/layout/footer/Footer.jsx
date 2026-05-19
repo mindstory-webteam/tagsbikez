@@ -451,10 +451,10 @@ export default function Footer() {
 
             <div className="ft-socials">
               {[
-                ["facebook", "#"],
-                ["instagram", "#"],
-                ["whatsapp", "#"],
-                ["youtube", "#"],
+                ["facebook", "https://www.facebook.com/tagsbikez"],
+                ["instagram", "https://www.instagram.com/tagsbikez?igsh=YzNqbWZ5YnhmOWRi"],
+                ["whatsapp", "https://wa.me/917594960023?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Royal%20Enfield."],
+                ["youtube", "https://www.youtube.com/@imfranciz"],
               ].map(([name, href]) => (
                 <a key={name} href={href} className="ft-social-btn" aria-label={name}>
                   {socialIcons[name]}

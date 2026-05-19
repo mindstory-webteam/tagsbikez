@@ -178,10 +178,10 @@ const SocialFeed = () => {
             <a href="https://youtube.com/@imfranciz?si=O6hiBUvku_G5I5NW" target="_blank" className="sf-insta-link">
               <FaYoutube size={18} />
             </a>
-            <a href="" target="_blank" className="sf-insta-link">
+            <a href="https://www.youtube.com/@imfranciz" target="_blank" className="sf-insta-link">
               <FaInstagram size={18} />
             </a>
-            <a href="" target="_blank" className="sf-insta-link">
+            <a href="https://wa.me/917594960023?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Royal%20Enfield." target="_blank" className="sf-insta-link">
               <FaWhatsapp size={18} />
             </a>
           </div>

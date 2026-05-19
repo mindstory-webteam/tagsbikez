@@ -14,12 +14,12 @@ const locations = [
     sales: '7594960023',
     service: '7594960020',
     email: 'info.tags.tcr@gmail.com',
-    mapUrl: 'https://share.google/9sW99PQ6cnIW0NHxz',
-    coords: [76.2352, 10.5070],
+    mapUrl: 'https://maps.app.goo.gl/Ph4Z1EwxQajAN4Nm7',
+    coords: [10.50718330732976, 76.22384026880816],
     socials: {
       whatsapp: 'https://wa.me/917594960023',
       facebook: 'https://www.facebook.com/tagsbikez',
-      instagram: 'https://www.instagram.com/tagsbikez/',
+      instagram: 'https://www.instagram.com/tagsbikez?igsh=YzNqbWZ5YnhmOWRi',
     },
   },
   {
@@ -28,12 +28,12 @@ const locations = [
     sales: '7594960033',
     service: '7594960068',
     email: 'info.tags.ptkl@gmail.com',
-    mapUrl: 'https://share.google/fGbKJ2gv92UiGoBGQ',
-    coords: [76.2124, 10.5363],
+    mapUrl: 'https://maps.app.goo.gl/ynMnJUT4sSbtvYYL6',
+    coords: [10.538669,76.212180],
     socials: {
       whatsapp: 'https://wa.me/917594960033',
       facebook: 'https://www.facebook.com/tagsbikez',
-      instagram: 'https://www.instagram.com/tagsbikez/',
+      instagram: 'https://www.instagram.com/royalenfield_patturaikkal?igsh=MTgwd3p4anBxN2x3Mg==',
     },
   },
   {
@@ -42,12 +42,12 @@ const locations = [
     sales: '7594951111',
     service: '7594960049',
     email: 'info.tags.irj@gmail.com',
-    mapUrl: 'https://share.google/sJAgUFxrOSTiB4djY',
-    coords: [76.2094, 10.3447],
+    mapUrl: 'https://maps.app.goo.gl/28R6ne6ZkCMv2x4K6',
+    coords: [10.365479, 76.219027],
     socials: {
       whatsapp: 'https://wa.me/917594951111',
       facebook: 'https://www.facebook.com/tagsbikez',
-      instagram: 'https://www.instagram.com/tagsbikez/',
+      instagram: 'https://www.instagram.com/royalenfield_irinjalakuda?igsh=MWVzaG1hNjZqbTA5Yw==',
     },
   },
   {
@@ -57,11 +57,11 @@ const locations = [
     service: 'Coming soon',
     email: 'info.tags.vdy@gmail.com',
     mapUrl: '#',
-    coords: [76.4823, 10.5928],
+    coords: [76.4823,10.5928],
     socials: {
       whatsapp: 'https://wa.me/917025282011',
       facebook: 'https://www.facebook.com/tagsbikez',
-      instagram: 'https://www.instagram.com/tagsbikez/',
+      instagram: 'https://www.instagram.com/tagsbikez_vadakkencherry?igsh=NnluOW8wNjE4dHRz',
     },
   },
   {
@@ -71,20 +71,20 @@ const locations = [
     service: 'Coming soon',
     email: 'info.tags.ptkl@gmail.com',
     mapUrl: '#',
-    coords: [76.3087, 10.3711],
+    coords: [76.3087,10.3711],
     socials: {
       whatsapp: 'https://wa.me/917594960033',
       facebook: 'https://www.facebook.com/tagsbikez',
-      instagram: 'https://www.instagram.com/tagsbikez/',
+      instagram: 'https://www.instagram.com/tagsbikez_kodakara?igsh=ZWdrYWllMGxmazRz',
     },
   },
 ];
 
 const socialLinks = [
-  { icon: <FaFacebookF />, url: '#', label: 'Facebook' },
-  { icon: <FaWhatsapp />, url: '#', label: 'Whatsapp' },
-  { icon: <FaInstagram />, url: '#', label: 'Instagram' },
-  { icon: <FaYoutube />, url: '#', label: 'YouTube' },
+  { icon: <FaFacebookF />, url: 'https://www.facebook.com/tagsbikez', label: 'Facebook' },
+  { icon: <FaWhatsapp />, url: 'https://wa.me/917594960023?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Royal%20Enfield.', label: 'Whatsapp' },
+  { icon: <FaInstagram />, url: 'https://www.instagram.com/tagsbikez?igsh=YzNqbWZ5YnhmOWRi', label: 'Instagram' },
+  { icon: <FaYoutube />, url: 'https://www.youtube.com/@imfranciz', label: 'YouTube' },
 ];
 
 function CustomDropdown({ label, placeholder, options, value, onChange, disabled }) {
@@ -215,10 +215,10 @@ const ContactSection = () => {
           max-width: 320px;
         }
 
+    
         .contact-header p {
           font-size: 16px;
-          color: #666;
-        
+          font-weight: bold;
           margin: 0;
           line-height: 1.6;
         }
@@ -542,7 +542,7 @@ const ContactSection = () => {
         /* ── MAP ── */
         .map-cell {
           width: 100%;
-          min-height: 600px;
+          height: 600px;
           border-bottom: 1px solid #e0e0e0;
           position: relative;
         }
@@ -594,7 +594,7 @@ const ContactSection = () => {
           .contact-container { padding: 60px 20px 80px 20px; }
           .showroom-grid { grid-template-columns: repeat(2, 1fr); }
           .interaction-grid { grid-template-columns: 1fr; }
-          .map-cell { border-right: 1px solid #e0e0e0; min-height: 500px; }
+          .map-cell { border-right: 1px solid #e0e0e0; height: 500px; }
         }
 
         @media (max-width: 768px) {
@@ -602,7 +602,7 @@ const ContactSection = () => {
           .contact-header h1 { font-size: 32px; }
           .form-cell { padding: 40px 24px; }
           .showroom-grid { grid-template-columns: 1fr; }
-          .map-cell { min-height: 400px; }
+          .map-cell { height: 400px; }
           .map-title-overlay { top: 20px; left: 20px; padding: 16px; }
           .input-row { grid-template-columns: 1fr; gap: 0; }
         }
@@ -742,27 +742,32 @@ const ContactSection = () => {
               styles={{
                 light: {
                   version: 8,
-                  sources: { osm: { type: "raster", tiles: ["https://tile.openstreetmap.org/{z}/{x}/{y}.png"], tileSize: 256, attribution: "© OpenStreetMap contributors", maxzoom: 19 } },
+                  sources: { osm: { type: "raster", tiles: ["https://tile.openstreetmap.org/{z}/{x}/{y}.png"], tileSize: 256,  maxzoom: 19 } },
                   layers: [{ id: "osm-tiles", type: "raster", source: "osm", minzoom: 0, maxzoom: 19 }],
                 },
                 dark: {
                   version: 8,
-                  sources: { osm: { type: "raster", tiles: ["https://tile.openstreetmap.org/{z}/{x}/{y}.png"], tileSize: 256, attribution: "© OpenStreetMap contributors", maxzoom: 19 } },
+                  sources: { osm: { type: "raster", tiles: ["https://tile.openstreetmap.org/{z}/{x}/{y}.png"], tileSize: 256,  maxzoom: 19 } },
                   layers: [{ id: "osm-tiles", type: "raster", source: "osm", minzoom: 0, maxzoom: 19 }],
                 },
               }}
             >
-              {locations.map((loc, i) => (
-                <MapMarker key={i} longitude={loc.coords[0]} latitude={loc.coords[1]}>
-                  <MarkerContent />
-                  <MarkerTooltip>
-                    <div style={{ padding: '10px' }}>
-                      <strong>{loc.name}</strong>
-                      <p style={{ fontSize: '11px', margin: '4px 0 0' }}>{loc.place}</p>
-                    </div>
-                  </MarkerTooltip>
-                </MapMarker>
-              ))}
+              {locations
+                .filter((loc) => loc.mapUrl !== '#')
+                .map((loc, i) => {
+                  const [lng, lat] = loc.coords[0] < 20 ? [loc.coords[1], loc.coords[0]] : [loc.coords[0], loc.coords[1]];
+                  return (
+                    <MapMarker key={i} longitude={lng} latitude={lat}>
+                      <MarkerContent />
+                      <MarkerTooltip>
+                        <div style={{ padding: '10px' }}>
+                          <strong>{loc.name}</strong>
+                          <p style={{ fontSize: '11px', margin: '4px 0 0' }}>{loc.place}</p>
+                        </div>
+                      </MarkerTooltip>
+                    </MapMarker>
+                  );
+                })}
               <MapControls />
             </Map>
           </div>
