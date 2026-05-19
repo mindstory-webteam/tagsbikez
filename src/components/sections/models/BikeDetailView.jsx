@@ -107,6 +107,7 @@ const BikeDetailView = ({ bike }) => {
         .bdv-colors-grid {
           display: flex;
           gap: 12px;
+          flex-wrap: wrap;
         }
 
         .bdv-color-btn {
@@ -280,7 +281,7 @@ const BikeDetailView = ({ bike }) => {
 
         /* ── STORIES ── */
         .bdv-stories {
-          padding: 80px 0;
+          padding: 40px 0 0 0;
           background: #fff;
         }
 
@@ -531,7 +532,7 @@ const BikeDetailView = ({ bike }) => {
 
       {/* Bottom Stories Section */}
       {bike.stories && bike.stories.length > 1 && (
-        <div className="bdv-stories" style={{ paddingTop: '40px', paddingBottom: '100px' }}>
+        <div className="bdv-stories" style={{ paddingTop: '40px', paddingBottom: '40px' }}>
           <div className="bdv-stories-inner">
             {bike.stories.slice(1).map((story, index) => (
               <div

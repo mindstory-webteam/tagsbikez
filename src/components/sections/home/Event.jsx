@@ -191,8 +191,6 @@ export default function UpcomingEvents() {
     return () => window.removeEventListener("resize", handleResize);
   }, [handleResize]);
 
-  const shift = page * 100;
-
   return (
     <>
       <style>{`
@@ -253,15 +251,16 @@ export default function UpcomingEvents() {
         }
         .ev-track-outer {
           overflow: hidden;
+          --gap: 16px;
         }
         .ev-track {
           display: flex;
           align-items: stretch;
           transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-          gap: 16px;
+          gap: var(--gap);
         }
         .ev-card {
-          flex: 0 0 calc(var(--card-width, 25%) - 12px);
+          flex: 0 0 calc((100% - (var(--cards-per-page) - 1) * var(--gap)) / var(--cards-per-page));
           min-width: 0;
           display: flex;
           flex-direction: column;
@@ -405,9 +404,6 @@ export default function UpcomingEvents() {
           .ev-section {
             padding: 0 40px 100px 40px;
           }
-          .ev-card {
-            flex: 0 0 calc(var(--card-width, 25%) - 8px);
-          }
         }
         @media (max-width: 600px) {
           .ev-section { padding: 24px 16px 60px; }
@@ -417,8 +413,7 @@ export default function UpcomingEvents() {
           .ev-img-wrap { height: 180px; }
           .ev-nav-btn { width: 36px; height: 36px; }
           .ev-header { margin: 0 0 20px; }
-          .ev-track { gap: 12px; }
-          .ev-card { flex: 0 0 calc(var(--card-width, 100%) - 6px); }
+          .ev-track-outer { --gap: 12px; }
         }
       `}</style>
 
@@ -453,11 +448,11 @@ export default function UpcomingEvents() {
           <div
             className="ev-track-outer"
             ref={outerRef}
-            style={{ "--card-width": `${100 / cardsPerPage}%` }}
+            style={{ "--cards-per-page": cardsPerPage }}
           >
             <div
               className="ev-track"
-              style={{ transform: `translateX(-${shift}%)` }}
+              style={{ transform: `translateX(calc(-${page * 100}% - ${page} * var(--gap)))` }}
             >
               {sorted.map((ev) => (
                 <EventCard key={ev.id} event={ev} />
