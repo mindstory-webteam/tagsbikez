@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import { FaYoutube, FaChevronLeft, FaChevronRight } from "react-icons/fa6";
+import { FaYoutube, FaChevronLeft, FaChevronRight, FaInstagram, FaWhatsapp } from "react-icons/fa6";
 
 const youtubeShorts = [
   "hl-al01AZfE",
@@ -70,17 +70,22 @@ const SocialFeed = () => {
           line-height: 1.1;
         }
 
+        .sf-social-links {
+          display: flex;
+          gap: 12px;
+          align-items: center;
+        }
+
         .sf-insta-link {
           display: flex;
           align-items: center;
-          gap: 10px;
+          justify-content: center;
           color: #111;
           text-decoration: none;
-          font-size: 14px;
-          font-weight: 600;
-          transition: color 0.2s;
+          transition: all 0.2s;
           border: 1.5px solid #e0e0e0;
-          padding: 12px 20px;
+          width: 44px;
+          height: 44px;
           border-radius: 4px;
         }
 
@@ -168,11 +173,18 @@ const SocialFeed = () => {
             <h2 className="sf-heading">Follow The Journey</h2>
           </div>
 
-          {/* YouTube link only */}
-          <a href="https://youtube.com/@imfranciz?si=O6hiBUvku_G5I5NW" target="_blank" className="sf-insta-link">
-            <FaYoutube size={18} />
-            TAGSBIKEZ
-          </a>
+          <div className="sf-social-links">
+            {/* YouTube link only */}
+            <a href="https://youtube.com/@imfranciz?si=O6hiBUvku_G5I5NW" target="_blank" className="sf-insta-link">
+              <FaYoutube size={18} />
+            </a>
+            <a href="" target="_blank" className="sf-insta-link">
+              <FaInstagram size={18} />
+            </a>
+            <a href="" target="_blank" className="sf-insta-link">
+              <FaWhatsapp size={18} />
+            </a>
+          </div>
         </div>
 
         {/* Swiper with side buttons */}

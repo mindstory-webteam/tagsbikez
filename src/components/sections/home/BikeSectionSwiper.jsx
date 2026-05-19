@@ -177,7 +177,14 @@ const CARD_WIDTH = 300;
 export default function BikeSectionSwiper() {
   const [activeTab, setActiveTab] = useState("All");
   const trackRef = useRef(null);
+  const tabsRef = useRef(null);
   const isDragging = useRef(false);
+
+  const scrollTabs = (direction) => {
+    if (tabsRef.current) {
+      tabsRef.current.scrollBy({ left: direction === "left" ? -150 : 150, behavior: "smooth" });
+    }
+  };
   const startX = useRef(0);
   const savedScroll = useRef(0);
   const animFrameRef = useRef(null);
@@ -289,15 +296,56 @@ export default function BikeSectionSwiper() {
           align-items: center;
           padding: 0;
           margin: 0;
+          width: 100%;
+        }
+
+        .fv-tabs-container {
+          display: flex;
+          align-items: stretch;
+          width: fit-content;
+          max-width: 100%;
+          border: 1px solid #ddd;
+        }
+
+        .fv-tabs-wrapper {
+          flex: 1;
+          min-width: 0;
+          display: flex;
         }
 
         /* ── TABS ── */
         .fv-tabs {
           display: flex;
-          border: 1px solid #ddd;
-          overflow: hidden;
           width: fit-content;
+          max-width: 100%;
           flex-wrap: wrap;
+          overflow-x: auto;
+          scrollbar-width: none;
+          -ms-overflow-style: none;
+        }
+        .fv-tabs::-webkit-scrollbar { display: none; }
+
+        .fv-tab-scroll-btn {
+          display: none;
+          width: 40px;
+          background: #fff;
+          color: #555;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          flex-shrink: 0;
+          border: none;
+          transition: background 0.2s, color 0.2s;
+        }
+        .fv-tab-scroll-btn:hover {
+          background: #f5f5f5;
+          color: #111;
+        }
+        .fv-tab-scroll-left {
+          border-right: 1px solid #ddd;
+        }
+        .fv-tab-scroll-right {
+          border-left: 1px solid #ddd;
         }
 
         .fv-tab {
@@ -313,6 +361,7 @@ export default function BikeSectionSwiper() {
           border-bottom: 1px solid #ddd;
           transition: background 0.2s, color 0.2s;
           white-space: nowrap;
+          flex-shrink: 0;
         }
 
         .fv-tab:last-child { border-right: none; }
@@ -399,12 +448,13 @@ export default function BikeSectionSwiper() {
         /* ── INFO ROW ── */
         .fv-card-info-row {
           display: flex;
-          align-items: stretch;
+          align-items: center;
+          justify-content: space-between;
           min-height: 52px;
         }
 
         .fv-card-info {
-          flex: 0 0 72%;
+          flex: 1;
           padding-right: 10px;
           box-sizing: border-box;
           display: flex;
@@ -425,44 +475,25 @@ export default function BikeSectionSwiper() {
         .fv-card-model {
           font-size: 11.5px;
           color: #e03030;
-          margin: 0 0 2px 0;
+          margin: 0;
           font-weight: 400;
         }
 
+        .fv-card-price-wrap {
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          padding-left: 8px;
+        }
+
         .fv-card-price {
-          font-size: 12.5px;
-          color: #444;
+          font-family: var(--font-oswald), sans-serif;
+          font-size: 15px;
+          color: #111;
           margin: 0;
-          font-weight: 500;
+          font-weight: 600;
+          white-space: nowrap;
         }
-
-        .fv-card-actions {
-          flex: 1;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 6px;
-          padding-left: 10px;
-        }
-
-        .fv-icon-btn {
-          width: 26px;
-          height: 26px;
-          border-radius: 50%;
-          border: 1px solid #e0e0e0;
-          background: #fff;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          cursor: pointer;
-          padding: 0;
-          transition: border-color 0.15s, background 0.15s;
-          flex-shrink: 0;
-        }
-
-        .fv-icon-btn:hover { border-color: #111; background: #111; }
-        .fv-icon-btn:hover svg path { stroke: #fff; }
-        .fv-icon-btn svg path { stroke: #666; transition: stroke 0.15s; }
 
         /* ── MOBILE ── */
         @media (max-width: 768px) {
@@ -473,9 +504,13 @@ export default function BikeSectionSwiper() {
             gap: 16px; 
             padding: 0 20px; 
             margin-bottom: 20px; 
+            width: 100%;
+            box-sizing: border-box;
           }
           .fv-heading { font-size: 28px; }
           .fv-tab { padding: 7px 12px; font-size: 11px; }
+          .fv-tabs { flex-wrap: nowrap; }
+          .fv-tab-scroll-btn { display: flex; }
         }
       `}</style>
 
@@ -485,16 +520,28 @@ export default function BikeSectionSwiper() {
 
         {/* Tabs */}
         <div className="fv-top-row">
-          <div className="fv-tabs">
-            {categories.map((tab) => (
-              <button
-                key={tab}
-                className={`fv-tab ${activeTab === tab ? "active" : ""}`}
-                onClick={() => handleTabChange(tab)}
-              >
-                {tab}
-              </button>
-            ))}
+          <div className="fv-tabs-container">
+            <button className="fv-tab-scroll-btn fv-tab-scroll-left" onClick={() => scrollTabs("left")} aria-label="Scroll left">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            
+            <div className="fv-tabs-wrapper">
+              <div className="fv-tabs" ref={tabsRef}>
+                {categories.map((tab) => (
+                  <button
+                    key={tab}
+                    className={`fv-tab ${activeTab === tab ? "active" : ""}`}
+                    onClick={() => handleTabChange(tab)}
+                  >
+                    {tab}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <button className="fv-tab-scroll-btn fv-tab-scroll-right" onClick={() => scrollTabs("right")} aria-label="Scroll right">
+               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
           </div>
         </div>
       </div>
@@ -536,21 +583,10 @@ export default function BikeSectionSwiper() {
                 <div className="fv-card-info">
                   <p className="fv-card-name">{bike.name}</p>
                   <p className="fv-card-model">{bike.model}</p>
-                  <p className="fv-card-price">{bike.price}</p>
                 </div>
 
-                <div className="fv-card-actions">
-                  <button className="fv-icon-btn" aria-label="Enquire">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
-                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-                      <path d="M22 6l-10 7L2 6" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </button>
-                  <button className="fv-icon-btn" aria-label="Call">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
-                      <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.04 2.18 2 2 0 012.03 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </button>
+                <div className="fv-card-price-wrap">
+                  <p className="fv-card-price">{bike.price}</p>
                 </div>
               </div>
 
