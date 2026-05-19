@@ -2,194 +2,21 @@
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { img } from "@/assets/assest";
+import { bikeData } from "@/lib/data/bikes";
 
-const categories = ["All", "Classic", "Cruiser", "Cafe Racer", "Adventure"];
-
-const bikes = {
-  "All": [
-    { id: 1, name: "Bullet 350", model: "Military Black", price: "₹2,00,227", heroImg: img.bulletimg },
-    { id: 2, name: "Bullet 350", model: "Battalion Black", price: "₹2,02,810", heroImg: img.bulletimg },
-    { id: 3, name: "Bullet 350", model: "The Standard Black", price: "₹2,28,045", heroImg: img.bulletimg },
-    { id: 4, name: "Bullet 350", model: "The Standard Maroon", price: "₹2,28,045", heroImg: img.bulletimg },
-    { id: 5, name: "Bullet 350", model: "Black Gold", price: "₹2,63,224", heroImg: img.bulletimg },
-    { id: 6, name: "Hunter 350", model: "Factory Black", price: "₹1,69,189", heroImg: img.bulletimg },
-    { id: 7, name: "Hunter 350", model: "Graphite Grey", price: "₹2,01,051", heroImg: img.bulletimg },
-    { id: 8, name: "Hunter 350", model: "Dapper Grey", price: "₹2,01,051", heroImg: img.bulletimg },
-    { id: 9, name: "Hunter 350", model: "Rio White", price: "₹2,01,051", heroImg: img.bulletimg },
-    { id: 10, name: "Hunter 350", model: "London Red", price: "₹2,06,464", heroImg: img.bulletimg },
-    { id: 11, name: "Hunter 350", model: "Rebel Blue", price: "₹2,06,464", heroImg: img.bulletimg },
-    { id: 12, name: "Hunter 350", model: "Tokyo Black", price: "₹2,06,464", heroImg: img.bulletimg },
-    { id: 13, name: "Hunter 350", model: "Tarmac Black", price: "₹1,83,399", heroImg: img.bulletimg },
-    { id: 14, name: "Hunter 350", model: "Moonshot White", price: "₹2,06,464", heroImg: img.bulletimg },
-    { id: 15, name: "Hunter 350", model: "Mumbai Yellow", price: "₹2,06,464", heroImg: img.bulletimg },
-    { id: 16, name: "Classic 350", model: "Redditch Red", price: "₹2,25,064", heroImg: img.bulletimg },
-    { id: 17, name: "Classic 350", model: "Madras Red", price: "₹2,27,955", heroImg: img.bulletimg },
-    { id: 18, name: "Classic 350", model: "Medallion Bronze", price: "₹2,37,252", heroImg: img.bulletimg },
-    { id: 19, name: "Classic 350", model: "Commando Sand", price: "₹2,59,827", heroImg: img.bulletimg },
-    { id: 20, name: "Classic 350", model: "Gun Grey", price: "₹2,73,669", heroImg: img.bulletimg },
-    { id: 21, name: "Classic 350", model: "Stealth Black", price: "₹2,73,669", heroImg: img.bulletimg },
-    { id: 22, name: "Classic 350", model: "Emerald Green", price: "₹2,79,533", heroImg: img.bulletimg },
-    { id: 23, name: "Goan Classic 350", model: "Shack Black", price: "₹2,82,265", heroImg: img.bulletimg },
-    { id: 24, name: "Goan Classic 350", model: "Purple Haze", price: "₹2,82,265", heroImg: img.bulletimg },
-    { id: 25, name: "Goan Classic 350", model: "Trip Teal Green", price: "₹2,85,744", heroImg: img.bulletimg },
-    { id: 26, name: "Goan Classic 350", model: "Rave Red", price: "₹2,85,744", heroImg: img.bulletimg },
-    { id: 27, name: "Himalayan 450", model: "Kaza Brown", price: "₹3,91,615", heroImg: img.bulletimg },
-    { id: 28, name: "Himalayan 450", model: "Slate Poppy Blue", price: "₹3,96,848", heroImg: img.bulletimg },
-    { id: 29, name: "Himalayan 450", model: "Kamet White", price: "₹4,02,080", heroImg: img.bulletimg },
-    { id: 30, name: "Himalayan 450", model: "Hanle Black", price: "₹4,08,619", heroImg: img.bulletimg },
-    { id: 31, name: "Himalayan 450", model: "Mana Black", price: "₹4,29,779", heroImg: img.bulletimg },
-    { id: 32, name: "Interceptor 650", model: "Cali Green", price: "₹4,27,777", heroImg: img.bulletimg },
-    { id: 33, name: "Interceptor 650", model: "Canyon Red", price: "₹4,27,777", heroImg: img.bulletimg },
-    { id: 34, name: "Interceptor 650", model: "Sunset Strip Black", price: "₹4,38,578", heroImg: img.bulletimg },
-    { id: 35, name: "Interceptor 650", model: "Blackray", price: "₹4,52,075", heroImg: img.bulletimg },
-    { id: 36, name: "Interceptor 650", model: "Mark Two Chrome", price: "₹4,65,570", heroImg: img.bulletimg },
-    { id: 37, name: "Continental GT 650", model: "Rocker Red", price: "₹4,49,370", heroImg: img.bulletimg },
-    { id: 38, name: "Continental GT 650", model: "British Racing Green", price: "₹4,49,370", heroImg: img.bulletimg },
-    { id: 39, name: "Continental GT 650", model: "Apex Grey", price: "₹4,76,366", heroImg: img.bulletimg },
-    { id: 40, name: "Continental GT 650", model: "Mr Clean Chrome", price: "₹4,84,463", heroImg: img.bulletimg },
-    { id: 41, name: "Continental GT 650", model: "Slipstream Blue", price: "₹4,76,368", heroImg: img.bulletimg },
-    { id: 42, name: "Interceptor Bear 650", model: "Board Walk White", price: "₹4,76,547", heroImg: img.bulletimg },
-    { id: 43, name: "Interceptor Bear 650", model: "Board Wild Honey Yellow", price: "₹4,83,302", heroImg: img.bulletimg },
-    { id: 44, name: "Interceptor Bear 650", model: "Board Golden Shadow Black", price: "₹4,92,752", heroImg: img.bulletimg },
-    { id: 45, name: "Interceptor Bear 650", model: "Board White 249", price: "₹5,03,549", heroImg: img.bulletimg },
-    { id: 46, name: "Meteor 350", model: "Fireball Grey", price: "₹2,27,819", heroImg: img.bulletimg },
-    { id: 47, name: "Meteor 350", model: "Fireball Orange", price: "₹2,27,819", heroImg: img.bulletimg },
-    { id: 48, name: "Meteor 350", model: "Stellar Matt Grey", price: "₹2,41,445", heroImg: img.bulletimg },
-    { id: 49, name: "Meteor 350", model: "Stellar Marine Blue", price: "₹2,41,445", heroImg: img.bulletimg },
-    { id: 50, name: "Meteor 350", model: "Aurora Red", price: "₹2,65,525", heroImg: img.bulletimg },
-    { id: 51, name: "Meteor 350", model: "Aurora Retro Green", price: "₹2,65,525", heroImg: img.bulletimg },
-    { id: 52, name: "Meteor 350", model: "Supernova Black", price: "₹2,77,421", heroImg: img.bulletimg },
-    { id: 53, name: "Scram 440", model: "Trail Green", price: "₹2,80,301", heroImg: img.bulletimg },
-    { id: 54, name: "Scram 440", model: "Force Blue", price: "₹3,00,050", heroImg: img.bulletimg },
-    { id: 55, name: "Scram 440", model: "Force Grey", price: "₹3,00,050", heroImg: img.bulletimg },
-    { id: 56, name: "Scram 440", model: "Force Teal", price: "₹3,00,050", heroImg: img.bulletimg },
-    { id: 57, name: "Super Meteor 650", model: "Astral Black", price: "₹5,10,166", heroImg: img.bulletimg },
-    { id: 58, name: "Super Meteor 650", model: "Interstellar Green", price: "₹5,30,722", heroImg: img.bulletimg },
-    { id: 59, name: "Super Meteor 650", model: "Interstellar Grey", price: "₹5,30,722", heroImg: img.bulletimg },
-    { id: 60, name: "Super Meteor 650", model: "Celestial Red", price: "₹5,51,281", heroImg: img.bulletimg },
-    { id: 61, name: "Super Meteor 650", model: "Celestial Blue", price: "₹5,51,281", heroImg: img.bulletimg },
-    { id: 62, name: "Guerrilla 450", model: "Twilight Blue", price: "₹3,22,673", heroImg: img.bulletimg },
-    { id: 63, name: "Guerrilla 450", model: "Apex Red", price: "₹3,22,673", heroImg: img.bulletimg },
-    { id: 64, name: "Guerrilla 450", model: "Apex Green", price: "₹3,31,443", heroImg: img.bulletimg },
-    { id: 65, name: "Guerrilla 450", model: "Apex Black", price: "₹3,31,443", heroImg: img.bulletimg },
-    { id: 66, name: "Guerrilla 450", model: "Peix Bronze", price: "₹3,44,523", heroImg: img.bulletimg },
-    { id: 67, name: "Guerrilla 450", model: "Smoke Silver", price: "₹3,44,523", heroImg: img.bulletimg },
-    { id: 68, name: "Guerrilla 450", model: "Shadow Ash Green", price: "₹3,44,523", heroImg: img.bulletimg },
-    { id: 69, name: "Guerrilla 450", model: "Brava Blue", price: "₹3,51,064", heroImg: img.bulletimg },
-    { id: 70, name: "Shotgun 650", model: "Sheet Metal Grey", price: "₹5,04,132", heroImg: img.bulletimg },
-    { id: 71, name: "Shotgun 650", model: "Green Drill", price: "₹5,18,589", heroImg: img.bulletimg },
-    { id: 72, name: "Shotgun 650", model: "Stencil White", price: "₹5,22,453", heroImg: img.bulletimg },
-    { id: 73, name: "Classic 650", model: "Bruntingthorpe Blue", price: "₹4,63,700", heroImg: img.bulletimg },
-    { id: 74, name: "Classic 650", model: "Vallam Red", price: "₹4,63,700", heroImg: img.bulletimg },
-    { id: 75, name: "Classic 650", model: "Teal", price: "₹4,69,551", heroImg: img.bulletimg },
-    { id: 76, name: "Classic 650", model: "Black Chrome", price: "₹4,81,252", heroImg: img.bulletimg },
-  ],
-  "Classic": [
-    { id: 1, name: "Bullet 350", model: "Military Black", price: "₹2,00,227", heroImg: img.bulletimg },
-    { id: 2, name: "Bullet 350", model: "Battalion Black", price: "₹2,02,810", heroImg: img.bulletimg },
-    { id: 3, name: "Bullet 350", model: "The Standard Black", price: "₹2,28,045", heroImg: img.bulletimg },
-    { id: 4, name: "Bullet 350", model: "The Standard Maroon", price: "₹2,28,045", heroImg: img.bulletimg },
-    { id: 5, name: "Bullet 350", model: "Black Gold", price: "₹2,63,224", heroImg: img.bulletimg },
-    { id: 16, name: "Classic 350", model: "Redditch Red", price: "₹2,25,064", heroImg: img.bulletimg },
-    { id: 17, name: "Classic 350", model: "Madras Red", price: "₹2,27,955", heroImg: img.bulletimg },
-    { id: 18, name: "Classic 350", model: "Medallion Bronze", price: "₹2,37,252", heroImg: img.bulletimg },
-    { id: 19, name: "Classic 350", model: "Commando Sand", price: "₹2,59,827", heroImg: img.bulletimg },
-    { id: 20, name: "Classic 350", model: "Gun Grey", price: "₹2,73,669", heroImg: img.bulletimg },
-    { id: 21, name: "Classic 350", model: "Stealth Black", price: "₹2,73,669", heroImg: img.bulletimg },
-    { id: 22, name: "Classic 350", model: "Emerald Green", price: "₹2,79,533", heroImg: img.bulletimg },
-    { id: 23, name: "Goan Classic 350", model: "Shack Black", price: "₹2,82,265", heroImg: img.bulletimg },
-    { id: 24, name: "Goan Classic 350", model: "Purple Haze", price: "₹2,82,265", heroImg: img.bulletimg },
-    { id: 25, name: "Goan Classic 350", model: "Trip Teal Green", price: "₹2,85,744", heroImg: img.bulletimg },
-    { id: 26, name: "Goan Classic 350", model: "Rave Red", price: "₹2,85,744", heroImg: img.bulletimg },
-    { id: 73, name: "Classic 650", model: "Bruntingthorpe Blue", price: "₹4,63,700", heroImg: img.bulletimg },
-    { id: 74, name: "Classic 650", model: "Vallam Red", price: "₹4,63,700", heroImg: img.bulletimg },
-    { id: 75, name: "Classic 650", model: "Teal", price: "₹4,69,551", heroImg: img.bulletimg },
-    { id: 76, name: "Classic 650", model: "Black Chrome", price: "₹4,81,252", heroImg: img.bulletimg },
-  ],
-  "Roadster": [
-    { id: 6, name: "Hunter 350", model: "Factory Black", price: "₹1,69,189", heroImg: img.bulletimg },
-    { id: 7, name: "Hunter 350", model: "Graphite Grey", price: "₹2,01,051", heroImg: img.bulletimg },
-    { id: 8, name: "Hunter 350", model: "Dapper Grey", price: "₹2,01,051", heroImg: img.bulletimg },
-    { id: 9, name: "Hunter 350", model: "Rio White", price: "₹2,01,051", heroImg: img.bulletimg },
-    { id: 10, name: "Hunter 350", model: "London Red", price: "₹2,06,464", heroImg: img.bulletimg },
-    { id: 11, name: "Hunter 350", model: "Rebel Blue", price: "₹2,06,464", heroImg: img.bulletimg },
-    { id: 12, name: "Hunter 350", model: "Tokyo Black", price: "₹2,06,464", heroImg: img.bulletimg },
-    { id: 13, name: "Hunter 350", model: "Tarmac Black", price: "₹1,83,399", heroImg: img.bulletimg },
-    { id: 14, name: "Hunter 350", model: "Moonshot White", price: "₹2,06,464", heroImg: img.bulletimg },
-    { id: 15, name: "Hunter 350", model: "Mumbai Yellow", price: "₹2,06,464", heroImg: img.bulletimg },
-    { id: 62, name: "Guerrilla 450", model: "Twilight Blue", price: "₹3,22,673", heroImg: img.bulletimg },
-    { id: 63, name: "Guerrilla 450", model: "Apex Red", price: "₹3,22,673", heroImg: img.bulletimg },
-    { id: 64, name: "Guerrilla 450", model: "Apex Green", price: "₹3,31,443", heroImg: img.bulletimg },
-    { id: 65, name: "Guerrilla 450", model: "Apex Black", price: "₹3,31,443", heroImg: img.bulletimg },
-    { id: 66, name: "Guerrilla 450", model: "Peix Bronze", price: "₹3,44,523", heroImg: img.bulletimg },
-    { id: 67, name: "Guerrilla 450", model: "Smoke Silver", price: "₹3,44,523", heroImg: img.bulletimg },
-    { id: 68, name: "Guerrilla 450", model: "Shadow Ash Green", price: "₹3,44,523", heroImg: img.bulletimg },
-    { id: 69, name: "Guerrilla 450", model: "Brava Blue", price: "₹3,51,064", heroImg: img.bulletimg },
-  ],
-  "Adventure": [
-    { id: 27, name: "Himalayan 450", model: "Kaza Brown", price: "₹3,91,615", heroImg: img.bulletimg },
-    { id: 28, name: "Himalayan 450", model: "Slate Poppy Blue", price: "₹3,96,848", heroImg: img.bulletimg },
-    { id: 29, name: "Himalayan 450", model: "Kamet White", price: "₹4,02,080", heroImg: img.bulletimg },
-    { id: 30, name: "Himalayan 450", model: "Hanle Black", price: "₹4,08,619", heroImg: img.bulletimg },
-    { id: 31, name: "Himalayan 450", model: "Mana Black", price: "₹4,29,779", heroImg: img.bulletimg },
-    { id: 53, name: "Scram 440", model: "Trail Green", price: "₹2,80,301", heroImg: img.bulletimg },
-    { id: 54, name: "Scram 440", model: "Force Blue", price: "₹3,00,050", heroImg: img.bulletimg },
-    { id: 55, name: "Scram 440", model: "Force Grey", price: "₹3,00,050", heroImg: img.bulletimg },
-    { id: 56, name: "Scram 440", model: "Force Teal", price: "₹3,00,050", heroImg: img.bulletimg },
-  ],
-  "Cafe Racer": [
-    { id: 32, name: "Interceptor 650", model: "Cali Green", price: "₹4,27,777", heroImg: img.bulletimg },
-    { id: 33, name: "Interceptor 650", model: "Canyon Red", price: "₹4,27,777", heroImg: img.bulletimg },
-    { id: 34, name: "Interceptor 650", model: "Sunset Strip Black", price: "₹4,38,578", heroImg: img.bulletimg },
-    { id: 35, name: "Interceptor 650", model: "Blackray", price: "₹4,52,075", heroImg: img.bulletimg },
-    { id: 36, name: "Interceptor 650", model: "Mark Two Chrome", price: "₹4,65,570", heroImg: img.bulletimg },
-    { id: 37, name: "Continental GT 650", model: "Rocker Red", price: "₹4,49,370", heroImg: img.bulletimg },
-    { id: 38, name: "Continental GT 650", model: "British Racing Green", price: "₹4,49,370", heroImg: img.bulletimg },
-    { id: 39, name: "Continental GT 650", model: "Apex Grey", price: "₹4,76,366", heroImg: img.bulletimg },
-    { id: 40, name: "Continental GT 650", model: "Mr Clean Chrome", price: "₹4,84,463", heroImg: img.bulletimg },
-    { id: 41, name: "Continental GT 650", model: "Slipstream Blue", price: "₹4,76,368", heroImg: img.bulletimg },
-    { id: 42, name: "Interceptor Bear 650", model: "Board Walk White", price: "₹4,76,547", heroImg: img.bulletimg },
-    { id: 43, name: "Interceptor Bear 650", model: "Board Wild Honey Yellow", price: "₹4,83,302", heroImg: img.bulletimg },
-    { id: 44, name: "Interceptor Bear 650", model: "Board Golden Shadow Black", price: "₹4,92,752", heroImg: img.bulletimg },
-    { id: 45, name: "Interceptor Bear 650", model: "Board White 249", price: "₹5,03,549", heroImg: img.bulletimg },
-  ],
-  "Cruiser": [
-    { id: 46, name: "Meteor 350", model: "Fireball Grey", price: "₹2,27,819", heroImg: img.bulletimg },
-    { id: 47, name: "Meteor 350", model: "Fireball Orange", price: "₹2,27,819", heroImg: img.bulletimg },
-    { id: 48, name: "Meteor 350", model: "Stellar Matt Grey", price: "₹2,41,445", heroImg: img.bulletimg },
-    { id: 49, name: "Meteor 350", model: "Stellar Marine Blue", price: "₹2,41,445", heroImg: img.bulletimg },
-    { id: 50, name: "Meteor 350", model: "Aurora Red", price: "₹2,65,525", heroImg: img.bulletimg },
-    { id: 51, name: "Meteor 350", model: "Aurora Retro Green", price: "₹2,65,525", heroImg: img.bulletimg },
-    { id: 52, name: "Meteor 350", model: "Supernova Black", price: "₹2,77,421", heroImg: img.bulletimg },
-    { id: 57, name: "Super Meteor 650", model: "Astral Black", price: "₹5,10,166", heroImg: img.bulletimg },
-    { id: 58, name: "Super Meteor 650", model: "Interstellar Green", price: "₹5,30,722", heroImg: img.bulletimg },
-    { id: 59, name: "Super Meteor 650", model: "Interstellar Grey", price: "₹5,30,722", heroImg: img.bulletimg },
-    { id: 60, name: "Super Meteor 650", model: "Celestial Red", price: "₹5,51,281", heroImg: img.bulletimg },
-    { id: 61, name: "Super Meteor 650", model: "Celestial Blue", price: "₹5,51,281", heroImg: img.bulletimg },
-    { id: 70, name: "Shotgun 650", model: "Sheet Metal Grey", price: "₹5,04,132", heroImg: img.bulletimg },
-    { id: 71, name: "Shotgun 650", model: "Green Drill", price: "₹5,18,589", heroImg: img.bulletimg },
-    { id: 72, name: "Shotgun 650", model: "Stencil White", price: "₹5,22,453", heroImg: img.bulletimg },
-  ],
-};
+const categories = ["All", "Classic", "Roadster", "Cruiser", "Cafe Racer", "Adventure"];
 
 const CARD_WIDTH = 300;
 
 export default function BikeSectionSwiper() {
   const [activeTab, setActiveTab] = useState("All");
   const trackRef = useRef(null);
-  const tabsRef = useRef(null);
   const isDragging = useRef(false);
-
-  const scrollTabs = (direction) => {
-    if (tabsRef.current) {
-      tabsRef.current.scrollBy({ left: direction === "left" ? -150 : 150, behavior: "smooth" });
-    }
-  };
   const startX = useRef(0);
   const savedScroll = useRef(0);
   const animFrameRef = useRef(null);
 
-  const items = bikes[activeTab] || [];
+  const items = activeTab === "All" ? bikeData : bikeData.filter(b => b.category === activeTab);
   const loopedItems = [...items, ...items, ...items, ...items, ...items, ...items];
   const singleSetWidth = items.length * CARD_WIDTH;
 
@@ -277,6 +104,8 @@ export default function BikeSectionSwiper() {
           display: flex;
           justify-content: space-between;
           align-items: flex-end;
+          flex-wrap: wrap;
+          gap: 20px;
           padding: 0 50px;
           margin-bottom: 28px;
         }
@@ -296,56 +125,23 @@ export default function BikeSectionSwiper() {
           align-items: center;
           padding: 0;
           margin: 0;
-          width: 100%;
-        }
-
-        .fv-tabs-container {
-          display: flex;
-          align-items: stretch;
-          width: fit-content;
           max-width: 100%;
-          border: 1px solid #ddd;
-        }
-
-        .fv-tabs-wrapper {
-          flex: 1;
-          min-width: 0;
-          display: flex;
         }
 
         /* ── TABS ── */
         .fv-tabs {
           display: flex;
+          border: 1px solid #ddd;
+          overflow-x: auto;
           width: fit-content;
           max-width: 100%;
-          flex-wrap: wrap;
-          overflow-x: auto;
+          flex-wrap: nowrap;
           scrollbar-width: none;
           -ms-overflow-style: none;
+          -webkit-overflow-scrolling: touch;
         }
-        .fv-tabs::-webkit-scrollbar { display: none; }
-
-        .fv-tab-scroll-btn {
+        .fv-tabs::-webkit-scrollbar {
           display: none;
-          width: 40px;
-          background: #fff;
-          color: #555;
-          align-items: center;
-          justify-content: center;
-          cursor: pointer;
-          flex-shrink: 0;
-          border: none;
-          transition: background 0.2s, color 0.2s;
-        }
-        .fv-tab-scroll-btn:hover {
-          background: #f5f5f5;
-          color: #111;
-        }
-        .fv-tab-scroll-left {
-          border-right: 1px solid #ddd;
-        }
-        .fv-tab-scroll-right {
-          border-left: 1px solid #ddd;
         }
 
         .fv-tab {
@@ -358,7 +154,6 @@ export default function BikeSectionSwiper() {
           background: #fff;
           color: #555;
           border-right: 1px solid #ddd;
-          border-bottom: 1px solid #ddd;
           transition: background 0.2s, color 0.2s;
           white-space: nowrap;
           flex-shrink: 0;
@@ -456,7 +251,6 @@ export default function BikeSectionSwiper() {
         .fv-card-info {
           flex: 1;
           padding-right: 10px;
-          box-sizing: border-box;
           display: flex;
           flex-direction: column;
           justify-content: center;
@@ -475,18 +269,27 @@ export default function BikeSectionSwiper() {
         .fv-card-model {
           font-size: 11.5px;
           color: #e03030;
-          margin: 0;
+          margin: 0 0 2px 0;
           font-weight: 400;
         }
 
         .fv-card-price-wrap {
           display: flex;
-          align-items: center;
-          justify-content: flex-end;
-          padding-left: 8px;
+          flex-direction: column;
+          align-items: flex-end;
+          justify-content: center;
+          padding-left: 10px;
         }
 
-        .fv-card-price {
+        .fv-card-price-label {
+          font-size: 10px;
+          color: #888;
+          margin: 0 0 2px 0;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        }
+
+        .fv-card-price-value {
           font-family: var(--font-oswald), sans-serif;
           font-size: 15px;
           color: #111;
@@ -504,13 +307,14 @@ export default function BikeSectionSwiper() {
             gap: 16px; 
             padding: 0 20px; 
             margin-bottom: 20px; 
-            width: 100%;
-            box-sizing: border-box;
           }
           .fv-heading { font-size: 28px; }
-          .fv-tab { padding: 7px 12px; font-size: 11px; }
-          .fv-tabs { flex-wrap: nowrap; }
-          .fv-tab-scroll-btn { display: flex; }
+          .fv-top-row { width: 100%; }
+          .fv-tabs { width: 100%; }
+          .fv-tab { 
+            padding: 7px 12px; 
+            font-size: 11px; 
+          }
         }
       `}</style>
 
@@ -520,28 +324,16 @@ export default function BikeSectionSwiper() {
 
         {/* Tabs */}
         <div className="fv-top-row">
-          <div className="fv-tabs-container">
-            <button className="fv-tab-scroll-btn fv-tab-scroll-left" onClick={() => scrollTabs("left")} aria-label="Scroll left">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-            </button>
-            
-            <div className="fv-tabs-wrapper">
-              <div className="fv-tabs" ref={tabsRef}>
-                {categories.map((tab) => (
-                  <button
-                    key={tab}
-                    className={`fv-tab ${activeTab === tab ? "active" : ""}`}
-                    onClick={() => handleTabChange(tab)}
-                  >
-                    {tab}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            <button className="fv-tab-scroll-btn fv-tab-scroll-right" onClick={() => scrollTabs("right")} aria-label="Scroll right">
-               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-            </button>
+          <div className="fv-tabs">
+            {categories.map((tab) => (
+              <button
+                key={tab}
+                className={`fv-tab ${activeTab === tab ? "active" : ""}`}
+                onClick={() => handleTabChange(tab)}
+              >
+                {tab}
+              </button>
+            ))}
           </div>
         </div>
       </div>
@@ -562,12 +354,14 @@ export default function BikeSectionSwiper() {
           onTouchMove={onTouchMove}
           onTouchEnd={onTouchEnd}
         >
-          {loopedItems.map((bike, i) => (
+          {loopedItems.map((bike, i) => {
+            const price = bike.colors && bike.colors.length > 0 ? bike.colors[0].price : null;
+            return (
             <div className="fv-card" key={`${bike.id}-${i}`}>
 
               <div className="fv-card-img-wrap">
                 <Image
-                  src={bike.heroImg}
+                  src={bike.image}
                   alt={bike.name}
                   className="fv-card-img"
                   width={260}
@@ -582,16 +376,19 @@ export default function BikeSectionSwiper() {
               <div className="fv-card-info-row">
                 <div className="fv-card-info">
                   <p className="fv-card-name">{bike.name}</p>
-                  <p className="fv-card-model">{bike.model}</p>
+                  <p className="fv-card-model">{bike.category}</p>
                 </div>
 
-                <div className="fv-card-price-wrap">
-                  <p className="fv-card-price">{bike.price}</p>
-                </div>
+                {price && (
+                  <div className="fv-card-price-wrap">
+                    <p className="fv-card-price-label">Starting from</p>
+                    <p className="fv-card-price-value">{price}</p>
+                  </div>
+                )}
               </div>
 
             </div>
-          ))}
+          )})}
         </div>
       </div>
     </section>

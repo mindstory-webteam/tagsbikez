@@ -216,7 +216,31 @@ export default function UpcomingEvents() {
         }
         .ev-nav {
           display: flex;
+          align-items: center;
           gap: 8px;
+        }
+        .ev-insta-link {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          padding: 8px 16px;
+          border: 1px solid #ddd;
+          text-decoration: none;
+          color: #111;
+          font-size: 13px;
+          font-weight: 500;
+          transition: border-color 0.2s, background 0.2s, color 0.2s;
+          white-space: nowrap;
+        }
+        .ev-insta-link:hover {
+          border-color: #e1306c;
+          color: #e1306c;
+          background: #fff5f8;
+        }
+        .ev-insta-icon {
+          width: 18px;
+          height: 18px;
+          flex-shrink: 0;
         }
         .ev-nav-btn {
           width: 40px;
@@ -408,6 +432,14 @@ export default function UpcomingEvents() {
         @media (max-width: 600px) {
           .ev-section { padding: 24px 16px 60px; }
           .ev-heading { font-size: 28px; }
+          .ev-header {
+            flex-wrap: nowrap;
+            gap: 8px;
+            margin: 0 0 20px;
+          }
+          .ev-nav { flex-shrink: 0; }
+          .ev-insta-link span { display: none; }
+          .ev-insta-link { padding: 8px 10px; }
           .ev-top { min-height: 140px; padding: 16px 14px 14px; }
           .ev-day { font-size: 32px; }
           .ev-img-wrap { height: 180px; }
@@ -422,6 +454,29 @@ export default function UpcomingEvents() {
           <div className="ev-header">
             <h2 className="ev-heading">Upcoming events</h2>
             <nav className="ev-nav" aria-label="Events navigation">
+              <a
+                href="https://www.instagram.com/tagsrides?igsh=eW5qaHJnZGgxeTFk"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ev-insta-link"
+                aria-label="Visit tagsrides on Instagram"
+              >
+                <svg className="ev-insta-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="ig-grad" x1="0%" y1="100%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#f09433"/>
+                      <stop offset="25%" stopColor="#e6683c"/>
+                      <stop offset="50%" stopColor="#dc2743"/>
+                      <stop offset="75%" stopColor="#cc2366"/>
+                      <stop offset="100%" stopColor="#bc1888"/>
+                    </linearGradient>
+                  </defs>
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="url(#ig-grad)" strokeWidth="1.8" fill="none"/>
+                  <circle cx="12" cy="12" r="4.5" stroke="url(#ig-grad)" strokeWidth="1.8" fill="none"/>
+                  <circle cx="17.5" cy="6.5" r="1" fill="url(#ig-grad)"/>
+                </svg>
+                <span>@tagsrides</span>
+              </a>
               <button
                 className="ev-nav-btn"
                 onClick={() => setPage((p) => Math.max(0, p - 1))}
