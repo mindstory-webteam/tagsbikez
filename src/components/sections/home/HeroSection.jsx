@@ -47,7 +47,7 @@ export default function HeroSection() {
           position: absolute;
           top: 50%;
           transform: translateY(-50%);
-          z-index: 9999;
+          z-index: 10;
           width: 44px;
           height: 44px;
           display: flex;

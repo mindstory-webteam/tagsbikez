@@ -232,11 +232,7 @@ export default function UpcomingEvents() {
           transition: border-color 0.2s, background 0.2s, color 0.2s;
           white-space: nowrap;
         }
-        .ev-insta-link:hover {
-          border-color: #e1306c;
-          color: #e1306c;
-          background: #fff5f8;
-        }
+      
         .ev-insta-icon {
           width: 18px;
           height: 18px;
