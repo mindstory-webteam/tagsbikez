@@ -2,7 +2,7 @@
 import React from "react";
 import AnimatedBtn from "@/components/AnimatedBtn";
 
-const WA_NUMBER = "+916282612177"; 
+const WA_NUMBER = "+917594960006"; 
 
 const salesRoles = [
   { title: "Sales Consultant", desc: "Assist customers in selecting the right vehicle and provide an excellent showroom experience." },
