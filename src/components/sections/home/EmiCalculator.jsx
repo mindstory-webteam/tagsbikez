@@ -491,13 +491,13 @@ export default function EmiCalculator() {
             </div>
 
             <div className="mt-8">
-              <AnimatedBtn
+              {/* <AnimatedBtn
                 href={`https://wa.me/917594960023?text=Hi!%20I%20want%20to%20discuss%20finance%20options%20for%20the%20${selectedBike.name}%20${selectedBike.model}.`}
                 target="_blank"
                 className="w-full !py-4 !text-base !font-bold !bg-[#f51b24] !text-white  hover:!bg-white hover:!text-[#f51b24]"
               >
                 Apply for Finance
-              </AnimatedBtn>
+              </AnimatedBtn> */}
               <p className="text-center text-gray-500 text-[9px] mt-4 font-body leading-relaxed opacity-60">
                 *Calculations are indicative and subject to final approval from banking partners. Ex-showroom prices used for calculation.
               </p>

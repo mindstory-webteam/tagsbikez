@@ -4,7 +4,7 @@ import { ShieldCheck, Wrench, Clock } from "lucide-react";
 import { img } from "@/assets/assest";
 
 const colA = [img.Himalayan, img.royalenfieldfury, img.Himalayan2, img.scram1, img.royalenfield1];
-const colB = [img.scram1, img.Himalayan2, img.royalenfield1, img.royalenfieldfury, img.Himalayan];
+const colB = [img.ride2, img.ride3, img.royalenfield1, img.royalenfieldfury, img.ride1];
 
 const features = [
   {
@@ -226,6 +226,20 @@ export default function AboutSection() {
           color: #fff;
         }
 
+        .as-pill-insta {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        text-decoration: none;
+        color: #fff;
+        transition: border-color 0.18s, background 0.18s;
+        }
+        
+        .as-pill-insta:hover {
+          border-color: rgba(220, 39, 67, 0.5);
+          background: rgba(220, 39, 67, 0.08);
+        }
+
         /*  DESKTOP image columns  */
         .as-banner-right {
           display: grid;
@@ -359,11 +373,38 @@ export default function AboutSection() {
             <p className="as-banner-sub">
               TagsBikez is Thrissur's authorised Royal Enfield dealership offering the full 2026 lineup and expert servicing.
             </p>
+
             <div className="as-info-pills">
               <div className="as-pill">2026 Models</div>
               <div className="as-pill">Genuine Accessories</div>
               <div className="as-pill">Easy EMI</div>
+              <a
+                href="https://www.instagram.com/tagsrides?igsh=eW5qaHJnZGgxeTFk"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="as-pill as-pill-insta"
+                aria-label="Visit tagsrides on Instagram for Pre-Owned Vehicles"
+              >
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0 }}>
+                  <defs>
+                    <linearGradient id="ig-grad-pill" x1="0%" y1="100%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#f09433" />
+                      <stop offset="25%" stopColor="#e6683c" />
+                      <stop offset="50%" stopColor="#dc2743" />
+                      <stop offset="75%" stopColor="#cc2366" />
+                      <stop offset="100%" stopColor="#bc1888" />
+                    </linearGradient>
+                  </defs>
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="url(#ig-grad-pill)" strokeWidth="1.8" fill="none" />
+                  <circle cx="12" cy="12" r="4.5" stroke="url(#ig-grad-pill)" strokeWidth="1.8" fill="none" />
+                  <circle cx="17.5" cy="6.5" r="1" fill="url(#ig-grad-pill)" />
+                </svg>
+                Pre-Owned Vehicles
+              </a>
             </div>
+
+
+
           </div>
 
           {/* Desktop: two parallax columns */}

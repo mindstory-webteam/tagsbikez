@@ -52,10 +52,21 @@ import member1 from './members/member1.png'
 import member2 from './members/member2.png'
 import member3 from './members/member3.png' 
 
+
+
+import ride1 from './homeaboutsection/ride1.webp' 
+import ride2 from './homeaboutsection/ride2.webp' 
+import ride3 from './homeaboutsection/ride3.webp' 
+
+
+
 export const img = {
   member1,
   member2,
   member3,
+  ride1,
+  ride2,
+  ride3,
   companysectionimg,
   event1,
   event2,
