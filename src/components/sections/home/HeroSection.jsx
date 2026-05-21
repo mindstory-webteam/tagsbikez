@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -7,8 +7,9 @@ import "swiper/css";
 import "swiper/css/effect-fade";
 import Image from "next/image";
 import { img } from "@/assets/assest";
+import { fetchBanners } from "@/lib/api";
 
-const bikeData = [
+const fallbackBikeData = [
   {
     title: "THE CLASSIC 350",
     subtitle: "A timeless icon redefined for the modern road.",
@@ -31,6 +32,23 @@ const bikeData = [
 
 export default function HeroSection() {
   const swiperRef = useRef(null);
+  const [bikeData, setBikeData] = useState(fallbackBikeData);
+
+  useEffect(() => {
+    async function loadBanners() {
+      try {
+        const data = await fetchBanners();
+        if (data && data.length > 0) {
+          setBikeData(data);
+        }
+      } catch (err) {
+        console.warn("HeroSection loadBanners failed:", err);
+      }
+    }
+    loadBanners();
+  }, []);
+
+  const isFallback = bikeData === fallbackBikeData;
 
   return (
     <>
@@ -94,6 +112,7 @@ export default function HeroSection() {
 
       <div className="hero-root">
         <Swiper
+          key={isFallback ? "fallback" : "live"}
           onSwiper={(swiper) => (swiperRef.current = swiper)}
           modules={[Autoplay, EffectFade]}
           effect="fade"
@@ -105,7 +124,7 @@ export default function HeroSection() {
         >
           {bikeData.map((bike, index) => (
             <SwiperSlide
-              key={index}
+              key={bike.id || index}
               style={{ position: "relative", width: "100%", height: "100%" }}
             >
               <div className="desktop-banner">

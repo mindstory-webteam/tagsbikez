@@ -1,8 +1,5 @@
 import axios from "axios";
 
-// ─────────────────────────────────────────────────────────────
-// Centralized API Service for TagsBikez Frontend
-// ─────────────────────────────────────────────────────────────
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "";
 
@@ -27,7 +24,15 @@ function extractResults(response) {
 export async function fetchBanners() {
   try {
     const response = await apiClient.get("/api/banners/");
-    return extractResults(response);
+    const results = extractResults(response);
+    if (results && Array.isArray(results)) {
+      return results.map((item) => ({
+        ...item,
+        img: item.image_url || item.img,
+        imgSmall: item.image_url || item.imgSmall || item.img,
+      }));
+    }
+    return results;
   } catch (err) {
     console.warn("⚠ fetchBanners failed:", err.message);
     return null;
