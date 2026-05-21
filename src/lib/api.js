@@ -12,7 +12,6 @@ const apiClient = axios.create({
   },
 });
 
-// Helper: extract data from paginated or raw responses
 function extractResults(response) {
   const data = response.data;
   if (data && Array.isArray(data.results)) return data.results;
@@ -20,7 +19,6 @@ function extractResults(response) {
   throw new Error("Invalid API response format");
 }
 
-// 1. BANNERS
 export async function fetchBanners() {
   try {
     const response = await apiClient.get("/api/banners/");
@@ -39,7 +37,6 @@ export async function fetchBanners() {
   }
 }
 
-// 2. EVENTS
 export async function fetchEvents(cancelToken) {
   try {
     const config = cancelToken ? { cancelToken } : {};
@@ -52,7 +49,6 @@ export async function fetchEvents(cancelToken) {
   }
 }
 
-// 3. GALLERY
 export async function fetchGallery() {
   try {
     const response = await apiClient.get("/api/gallery/");
@@ -65,12 +61,11 @@ export async function fetchGallery() {
     }
     return results;
   } catch (err) {
-    console.warn("⚠ fetchGallery failed:", err.message);
+    console.warn(" fetchGallery failed:", err.message);
     return null;
   }
 }
 
-// 4. CATEGORIES
 export async function fetchCategories() {
   try {
     const response = await apiClient.get("/api/categories/");
@@ -81,7 +76,6 @@ export async function fetchCategories() {
   }
 }
 
-// 5. MOTORCYCLES (and Bikes)
 export async function fetchBikes() {
   try {
     const response = await apiClient.get("/api/motorcycles/");
@@ -105,7 +99,6 @@ export async function fetchBikeBySlug(slug) {
 export const fetchMotorcycles = fetchBikes;
 export const fetchMotorcycleBySlug = fetchBikeBySlug;
 
-// 6. COLORS
 export async function fetchColors() {
   try {
     const response = await apiClient.get("/api/colors/");
@@ -116,7 +109,6 @@ export async function fetchColors() {
   }
 }
 
-// 7. TOP-ABOUT
 export async function fetchTopAbout() {
   try {
     const response = await apiClient.get("/api/top-about/");
@@ -129,7 +121,6 @@ export async function fetchTopAbout() {
   }
 }
 
-// 8. FEATURES
 export async function fetchFeatures() {
   try {
     const response = await apiClient.get("/api/features/");
@@ -140,5 +131,4 @@ export async function fetchFeatures() {
   }
 }
 
-// Export the raw axios instance for custom calls
 export { apiClient, API_BASE };

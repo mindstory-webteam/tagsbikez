@@ -10,7 +10,7 @@ export const bikeData = [
     image: img.hunter350,
     colors: [
       { name: 'Factory Black', hex: '#111111', image: img.hunter350, price: '₹1,69,189' },
-      { name: 'Graphite Grey', hex: '#555555', image: img.hunter350, price: '₹2,01,051' },
+      { name: 'Graphite Grey', hex: '#555555', image: img.classic350, price: '₹2,01,051' },
       { name: 'Dapper Grey', hex: '#666666', image: img.hunter350, price: '₹2,01,051' },
       { name: 'Rio White', hex: '#eeeeee', image: img.hunter350, price: '₹2,01,051' },
       { name: 'London Red', hex: '#9B111E', image: img.hunter350, price: '₹2,06,464' },

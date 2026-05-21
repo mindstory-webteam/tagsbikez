@@ -624,7 +624,7 @@ const ContactSection = () => {
           <div className="contact-header-right">
             <a href="tel:6235227755" className="contact-insta-link" style={{ flexDirection: 'column', alignItems: 'flex-start', gap: '4px', padding: '12px 18px' }}>
               <span style={{ fontSize: '10px', color: '#e63020', letterSpacing: '0.15em' }}>ROADSIDE ASSISTANCE</span>
-              <span style={{ fontSize: '16px' }}>62352 27755</span>
+              <span style={{ fontSize: '16px' }}>1800 2100 007</span>
             </a>
             <p>Get in touch with our nearest showroom for sales, service, or any inquiries.</p>
           </div>

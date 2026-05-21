@@ -499,7 +499,7 @@ export default function EmiCalculator() {
                 Apply for Finance
               </AnimatedBtn> */}
               <p className="text-center text-gray-500 text-[9px] mt-4 font-body leading-relaxed opacity-60">
-                *Calculations are indicative and subject to final approval from banking partners. Ex-showroom prices used for calculation.
+                *Calculations are indicative and subject to final approval from banking partners.
               </p>
             </div>
           </div>

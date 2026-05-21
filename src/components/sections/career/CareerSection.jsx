@@ -5,29 +5,32 @@ import AnimatedBtn from "@/components/AnimatedBtn";
 const WA_NUMBER = "+917594960006"; 
 
 const salesRoles = [
-  { title: "Sales Consultant", desc: "Assist customers in selecting the right vehicle and provide an excellent showroom experience." },
-  { title: "Sales Manager", desc: "Lead the sales team, achieve targets, and manage customer relationships." },
-  { title: "Team Lead", desc: "Support and coordinate the sales team to ensure smooth daily operations." },
-  { title: "Retail Manager", desc: "Manage showroom activities, staff performance, and customer service." },
-  { title: "Insurance Executive", desc: "Handle insurance processing, renewals, and customer support." },
-  { title: "Registration Executive", desc: "Manage vehicle registration and related documentation processes." },
-  { title: "Delivery Executive", desc: "Coordinate smooth vehicle deliveries and customer handovers." },
-  { title: "PDI Executive", desc: "Conduct pre-delivery inspections to ensure vehicle quality and readiness." },
-  { title: "Web & Tele Executive", desc: "Handle online inquiries, tele-calls, customer follow-ups, and lead management." },
-  { title: "Used Bike Executive", desc: "Manage pre-owned vehicle sales, evaluations, and customer interactions." },
+  { title: "Field Staff" },
+  { title: "Sales Consultant" },
+  { title: "Team Lead" },
+  { title: "Retail Manager" },
+  { title: "Insurance Executive" },
+  { title: "Registration Executive" },
+  { title: "Delivery Executive" },
+  { title: "PDI Executive" },
+  { title: "Web & Tele Executive" },
+  { title: "Used Bike Executive" },
+  { title: "Sales Manager" },
 ];
 
 const serviceRoles = [
-  { title: "Service Manager", desc: "Oversee service center operations and ensure customer satisfaction." },
-  { title: "Works Manager", desc: "Manage workshop activities and supervise service operations." },
-  { title: "Service Advisor", desc: "Coordinate with customers regarding vehicle service and maintenance." },
-  { title: "Floor Manager", desc: "Monitor workshop floor operations and maintain workflow efficiency." },
-  { title: "Spare Executive", desc: "Manage spare parts inventory and workshop spare requirements." },
-  { title: "Quality Controller", desc: "Inspect serviced vehicles and ensure quality standards are maintained." },
-  { title: "Technician", desc: "Perform vehicle repairs, maintenance, and technical inspections." },
-  { title: "Bodyshop Manager", desc: "Handle bodyshop operations including denting, painting, and accident repairs." },
-  { title: "CRE", desc: "Manage customer follow-ups, feedback, and relationship support." },
+  { title: "Technician" },
+  { title: "Service Advisor" },
+  { title: "Floor Manager" },
+  { title: "Service Manager" },
+  { title: "Works Manager" },
+  { title: "Spare Executive" },
+  { title: "Quality Controller" },
+  { title: "Bodyshop Manager" },
+  { title: "CRE / Telecaller" },
+  { title: "Service Manager" },
 ];
+
 
 const locations = ["Kuriacira", "Irinjalakuda", "Patturaikkal", "Kodakara", "Vadakkenchery", "Chalakudy"];
 
@@ -36,12 +39,11 @@ function buildWaLink(role) {
   return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
 }
 
-function RoleCard({ title, desc }) {
+function RoleCard({ title }) {
   return (
     <div className="cr-card">
       <div className="cr-card-left">
         <p className="cr-card-title">{title}</p>
-        <p className="cr-card-desc">{desc}</p>
       </div>
       <div className="cr-card-btn">
         <AnimatedBtn
@@ -66,8 +68,8 @@ function DeptSection({ icon, label, roles }) {
         <span className="cr-dept-label">{icon} {label}</span>
       </div>
       <div className="cr-grid">
-        {roles.map((r) => (
-          <RoleCard key={r.title} {...r} />
+        {roles.map((r, idx) => (
+          <RoleCard key={`${r.title}-${idx}`} {...r} />
         ))}
       </div>
     </div>
@@ -139,13 +141,20 @@ export default function CareersSection() {
           white-space: nowrap;
         }
 
+        .cr-depts-container {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 40px;
+          align-items: start;
+        }
+
         .cr-dept { margin-bottom: 32px; }
-        .cr-dept-head { margin-bottom: 12px; }
+        .cr-dept-head { margin-bottom: 16px; }
         .cr-dept-label {
-          font-size: 10px;
+          font-size: 11px;
           text-transform: uppercase;
           letter-spacing: 0.12em;
-          font-weight: 600;
+          font-weight: 700;
           color: #e8282b;
           display: inline-flex;
           align-items: center;
@@ -162,7 +171,7 @@ export default function CareersSection() {
         .cr-card {
           border-right: 0.5px solid #e0e0e0;
           border-bottom: 0.5px solid #e0e0e0;
-          padding: 18px 20px;
+          padding: 16px 20px;
           display: flex;
           align-items: center;
           justify-content: space-between;
@@ -173,8 +182,7 @@ export default function CareersSection() {
 
         .cr-card-left {
           display: flex;
-          align-items: baseline;
-          gap: 20px;
+          align-items: center;
           flex: 1;
           min-width: 0;
         }
@@ -185,16 +193,6 @@ export default function CareersSection() {
           color: #111;
           text-transform: uppercase;
           letter-spacing: 0.04em;
-          white-space: nowrap;
-          margin: 0;
-          flex-shrink: 0;
-          min-width: 190px;
-        }
-
-        .cr-card-desc {
-          font-size: 12px;
-          color: #888;
-          line-height: 1.5;
           margin: 0;
         }
 
@@ -203,6 +201,10 @@ export default function CareersSection() {
         @media (max-width: 900px) {
           .cr-hero { flex-direction: column; align-items: flex-start; gap: 20px; }
           .cr-locations { justify-content: flex-start; }
+          .cr-depts-container {
+            grid-template-columns: 1fr;
+            gap: 32px;
+          }
         }
 
         @media (max-width: 768px) {
@@ -244,27 +246,29 @@ export default function CareersSection() {
           </div>
         </div>
 
-        <DeptSection
-          icon={
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
-              <line x1="3" y1="6" x2="21" y2="6"/>
-              <path d="M16 10a4 4 0 0 1-8 0"/>
-            </svg>
-          }
-          label="Sales Department"
-          roles={salesRoles}
-        />
+        <div className="cr-depts-container">
+          <DeptSection
+            icon={
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                <line x1="3" y1="6" x2="21" y2="6"/>
+                <path d="M16 10a4 4 0 0 1-8 0"/>
+              </svg>
+            }
+            label="Sales Department"
+            roles={salesRoles}
+          />
 
-        <DeptSection
-          icon={
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
-            </svg>
-          }
-          label="Service Department"
-          roles={serviceRoles}
-        />
+          <DeptSection
+            icon={
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+              </svg>
+            }
+            label="Service Department"
+            roles={serviceRoles}
+          />
+        </div>
 
       </section>
     </>
