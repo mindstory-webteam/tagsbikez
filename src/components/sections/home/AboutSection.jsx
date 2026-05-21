@@ -1,10 +1,11 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ShieldCheck, Wrench, Clock } from "lucide-react";
 import { img } from "@/assets/assest";
+import { fetchGallery } from "@/lib/api";
 
-const colA = [img.Himalayan, img.royalenfieldfury, img.Himalayan2, img.scram1, img.royalenfield1];
-const colB = [img.ride2, img.ride3, img.royalenfield1, img.royalenfieldfury, img.ride1];
+const fallbackColA = [img.Himalayan, img.royalenfieldfury, img.Himalayan2, img.scram1, img.royalenfield1];
+const fallbackColB = [img.ride2, img.ride3, img.royalenfield1, img.royalenfieldfury, img.ride1];
 
 const features = [
   {
@@ -29,14 +30,51 @@ const features = [
   },
 ];
 
-// All images merged for the horizontal mobile strip
-const allImgs = [...colA, ...colB];
-
 export default function AboutSection() {
   const sectionRef = useRef(null);
   const colARef = useRef(null);
   const colBRef = useRef(null);
   const scrollStripRef = useRef(null);
+
+  const [colA, setColA] = useState(fallbackColA);
+  const [colB, setColB] = useState(fallbackColB);
+  const [allImgs, setAllImgs] = useState([...fallbackColA, ...fallbackColB]);
+
+  useEffect(() => {
+    async function loadGalleryData() {
+      try {
+        const data = await fetchGallery();
+        if (data && data.length >= 4) {
+          const a = [];
+          const b = [];
+          data.forEach((item, idx) => {
+            const imgSrc = item.src || item.image_url;
+            if (imgSrc) {
+              if (idx % 2 === 0) {
+                a.push(imgSrc);
+              } else {
+                b.push(imgSrc);
+              }
+            }
+          });
+          while (a.length > 0 && a.length < 5) {
+            a.push(...a);
+          }
+          while (b.length > 0 && b.length < 5) {
+            b.push(...b);
+          }
+          if (a.length >= 4 && b.length >= 4) {
+            setColA(a.slice(0, 6));
+            setColB(b.slice(0, 6));
+            setAllImgs([...a, ...b]);
+          }
+        }
+      } catch (error) {
+        console.warn("AboutSection loadGalleryData failed, using fallback:", error);
+      }
+    }
+    loadGalleryData();
+  }, []);
 
   useEffect(() => {
     let ctx;
@@ -46,7 +84,6 @@ export default function AboutSection() {
       gsap.registerPlugin(ScrollTrigger);
 
       ctx = gsap.context(() => {
-        // Only run vertical parallax on large screens
         const mm = gsap.matchMedia();
 
         mm.add("(min-width: 1101px)", () => {
@@ -72,7 +109,6 @@ export default function AboutSection() {
           });
         });
 
-        // Auto-scroll the horizontal strip on mobile
         mm.add("(max-width: 1100px)", () => {
           const strip = scrollStripRef.current;
           if (!strip) return;
@@ -92,7 +128,7 @@ export default function AboutSection() {
 
     init();
     return () => { if (ctx) ctx.revert(); };
-  }, []);
+  }, [colA, colB]);
 
   return (
     <section ref={sectionRef} className="as-root">

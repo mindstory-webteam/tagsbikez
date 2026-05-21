@@ -1,11 +1,12 @@
 "use client";
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { fetchGallery } from "@/lib/api";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const galleryItems = [
+const fallbackGalleryItems = [
   { id: 1, src: "https://images.pexels.com/photos/1413412/pexels-photo-1413412.jpeg" },
   { id: 2, src: "https://images.pexels.com/photos/2393821/pexels-photo-2393821.jpeg" },
   { id: 3, src: "https://images.pexels.com/photos/1715193/pexels-photo-1715193.jpeg" },
@@ -23,10 +24,27 @@ const galleryItems = [
 export default function AboutGallery() {
   const sectionRef = useRef(null);
   const itemRefs = useRef([]);
+  const [galleryItems, setGalleryItems] = useState([]);
 
   useEffect(() => {
+    async function loadGallery() {
+      const data = await fetchGallery();
+      if (data && data.length > 0) {
+        setGalleryItems(data);
+      } else {
+        setGalleryItems(fallbackGalleryItems);
+      }
+    }
+    loadGallery();
+  }, []);
+
+  useEffect(() => {
+    if (galleryItems.length === 0) return;
+    itemRefs.current = itemRefs.current.slice(0, galleryItems.length);
+
     const ctx = gsap.context(() => {
       itemRefs.current.forEach((el, i) => {
+        if (!el) return;
         gsap.fromTo(
           el,
           { opacity: 0, y: 30 },
@@ -47,7 +65,7 @@ export default function AboutGallery() {
     }, sectionRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [galleryItems]);
 
   return (
     <section ref={sectionRef} className="gallery-section">
@@ -192,8 +210,8 @@ export default function AboutGallery() {
             ref={(el) => (itemRefs.current[i] = el)}
           >
             <img
-              src={`${item.src}?auto=compress&cs=tinysrgb&w=800`}
-              alt=""
+              src={item.src && item.src.includes("pexels.com") ? `${item.src}?auto=compress&cs=tinysrgb&w=800` : (item.src || "")}
+              alt={item.caption || ""}
               className="g-img"
             />
           </div>

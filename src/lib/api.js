@@ -51,7 +51,14 @@ export async function fetchEvents(cancelToken) {
 export async function fetchGallery() {
   try {
     const response = await apiClient.get("/api/gallery/");
-    return extractResults(response);
+    const results = extractResults(response);
+    if (results && Array.isArray(results)) {
+      return results.map((item) => ({
+        ...item,
+        src: item.image_url || item.src,
+      }));
+    }
+    return results;
   } catch (err) {
     console.warn("⚠ fetchGallery failed:", err.message);
     return null;
