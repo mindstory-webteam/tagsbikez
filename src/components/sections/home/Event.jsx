@@ -3,8 +3,9 @@ import React, { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { img } from "@/assets/assest";
+import axios from "axios";
 
-const events = [
+const mockEvents = [
   {
     id: 1,
     title: "Student work on display at Khazar University Art Gallery Exhibition",
@@ -77,7 +78,26 @@ const events = [
   },
 ];
 
-function formatParts(date) {
+function parseLocalDate(dateInput) {
+  if (!dateInput) return null;
+  if (dateInput instanceof Date) return dateInput;
+  if (typeof dateInput === "string") {
+    const parts = dateInput.split("-");
+    if (parts.length === 3) {
+      const year = parseInt(parts[0], 10);
+      const month = parseInt(parts[1], 10) - 1;
+      const day = parseInt(parts[2], 10);
+      return new Date(year, month, day);
+    }
+  }
+  return new Date(dateInput);
+}
+
+function formatParts(dateInput) {
+  const date = parseLocalDate(dateInput);
+  if (!date || isNaN(date.getTime())) {
+    return { day: "", month: "", weekday: "", year: "" };
+  }
   return {
     day: date.getDate().toString(),
     month: date.toLocaleString("en-US", { month: "short" }),
@@ -85,8 +105,6 @@ function formatParts(date) {
     year: date.getFullYear().toString(),
   };
 }
-
-const sorted = [...events].sort((a, b) => a.startdate - b.startdate);
 
 function getCardsPerPage(width) {
   if (width <= 600) return 1;
@@ -149,13 +167,17 @@ function EventCard({ event }) {
       </div>
 
       <div className="ev-img-wrap">
-        <Image
-          src={event.image}
-          alt={event.title}
-          fill
-          className="ev-img"
-          style={{ objectFit: "cover" }}
-        />
+        {event.image_url || event.image ? (
+          <Image
+            src={event.image_url || event.image}
+            alt={event.title}
+            fill
+            className="ev-img"
+            style={{ objectFit: "cover" }}
+          />
+        ) : (
+          <div style={{ width: "100%", height: "100%", background: "#f0f0f0" }} />
+        )}
         <div className="ev-actions">
           <Link href={event.infoUrl} className="ev-btn">
             More info
@@ -166,10 +188,67 @@ function EventCard({ event }) {
   );
 }
 
+function EventCardSkeleton() {
+  return (
+    <div className="ev-card ev-skeleton" style={{ flex: "0 0 calc((100% - (var(--cards-per-page) - 1) * var(--gap)) / var(--cards-per-page))" }}>
+      <div className="ev-top">
+        <div className="skeleton-line skeleton-title" />
+        <div className="skeleton-line skeleton-title-sub" />
+        
+        <div className="ev-locations">
+          <div className="ev-loc">
+            <span className="ev-loc-label">Starting Point</span>
+            <div className="skeleton-line skeleton-loc-val" />
+          </div>
+          <div className="ev-loc" style={{ textAlign: "right", alignItems: "flex-end" }}>
+            <span className="ev-loc-label">Destination</span>
+            <div className="skeleton-line skeleton-loc-val" />
+          </div>
+        </div>
+
+        <div className="ev-dates-wrap">
+          <div className="ev-date">
+            <div className="skeleton-circle" />
+            <div className="ev-date-meta">
+              <div className="skeleton-line skeleton-meta-val" style={{ width: "30px" }} />
+              <div className="skeleton-line skeleton-meta-val" style={{ width: "40px" }} />
+            </div>
+          </div>
+          <div className="ev-date-divider" style={{ opacity: 0.2 }}>
+            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" strokeWidth="1.5" fill="none">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </div>
+          <div className="ev-date">
+            <div className="skeleton-circle" />
+            <div className="ev-date-meta">
+              <div className="skeleton-line skeleton-meta-val" style={{ width: "30px" }} />
+              <div className="skeleton-line skeleton-meta-val" style={{ width: "40px" }} />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="ev-img-wrap skeleton-img" />
+    </div>
+  );
+}
+
 export default function UpcomingEvents() {
   const outerRef = useRef(null);
+  const [events, setEvents] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [page, setPage] = useState(0);
   const [cardsPerPage, setCardsPerPage] = useState(4);
+
+  const sorted = [...events].sort((a, b) => {
+    const d1 = parseLocalDate(a.startdate);
+    const d2 = parseLocalDate(b.startdate);
+    if (!d1) return 1;
+    if (!d2) return -1;
+    return d1 - d2;
+  });
 
   const totalPages = Math.ceil(sorted.length / cardsPerPage);
   const canPrev = page > 0;
@@ -183,7 +262,7 @@ export default function UpcomingEvents() {
       const newTotal = Math.ceil(sorted.length / cpp);
       return Math.min(p, Math.max(0, newTotal - 1));
     });
-  }, []);
+  }, [sorted.length]);
 
   useEffect(() => {
     handleResize();
@@ -191,9 +270,128 @@ export default function UpcomingEvents() {
     return () => window.removeEventListener("resize", handleResize);
   }, [handleResize]);
 
+  useEffect(() => {
+    let active = true;
+    const source = axios.CancelToken.source();
+
+    async function loadEvents() {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+      if (!apiUrl) {
+        setEvents(mockEvents);
+        setLoading(false);
+        return;
+      }
+
+      try {
+        setLoading(true);
+        const response = await axios.get(`${apiUrl}/api/events/`, {
+          cancelToken: source.token,
+        });
+        const data = response.data;
+        if (active) {
+          if (data && Array.isArray(data.results)) {
+            setEvents(data.results);
+          } else if (Array.isArray(data)) {
+            setEvents(data);
+          } else {
+            throw new Error("Invalid API response format");
+          }
+          setLoading(false);
+        }
+      } catch (err) {
+        if (axios.isCancel(err)) {
+          return;
+        }
+        console.error("Error fetching events from backend:", err);
+        if (active) {
+          setError(err.message);
+          setEvents(mockEvents);
+          setLoading(false);
+        }
+      }
+    }
+
+    loadEvents();
+    return () => {
+      active = false;
+      source.cancel("Component unmounted");
+    };
+  }, []);
+
   return (
     <>
       <style>{`
+        /* Skeleton Loading Styles */
+        .ev-skeleton {
+          pointer-events: none;
+          user-select: none;
+        }
+        .skeleton-line {
+          height: 12px;
+          background: #f3f3f3;
+          border-radius: 4px;
+          position: relative;
+          overflow: hidden;
+        }
+        .skeleton-title {
+          width: 85%;
+          height: 16px;
+          margin-bottom: 8px;
+        }
+        .skeleton-title-sub {
+          width: 60%;
+          height: 16px;
+          margin-bottom: 16px;
+        }
+        .skeleton-loc-val {
+          width: 80px;
+          height: 14px;
+          margin-top: 4px;
+        }
+        .skeleton-circle {
+          width: 38px;
+          height: 38px;
+          border-radius: 4px;
+          background: #f3f3f3;
+          position: relative;
+          overflow: hidden;
+        }
+        .skeleton-meta-val {
+          height: 10px;
+          margin-top: 2px;
+        }
+        .skeleton-img {
+          background: #f5f5f5 !important;
+          position: relative;
+          overflow: hidden;
+        }
+        
+        .skeleton-line::after,
+        .skeleton-circle::after,
+        .skeleton-img::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          transform: translateX(-100%);
+          background-image: linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.4) 20%,
+            rgba(255, 255, 255, 0.7) 60%,
+            rgba(255, 255, 255, 0) 100%
+          );
+          animation: shimmer 1.8s infinite ease-out;
+        }
+        
+        @keyframes shimmer {
+          100% {
+            transform: translateX(100%);
+          }
+        }
+
         .ev-section {
           background: #fff;
           padding: 0 0 100px 0;
@@ -505,9 +703,15 @@ export default function UpcomingEvents() {
               className="ev-track"
               style={{ transform: `translateX(calc(-${page * 100}% - ${page} * var(--gap)))` }}
             >
-              {sorted.map((ev) => (
-                <EventCard key={ev.id} event={ev} />
-              ))}
+              {loading ? (
+                Array.from({ length: cardsPerPage }).map((_, i) => (
+                  <EventCardSkeleton key={i} />
+                ))
+              ) : (
+                sorted.map((ev) => (
+                  <EventCard key={ev.id} event={ev} />
+                ))
+              )}
             </div>
           </div>
         </div>
