@@ -357,38 +357,43 @@ export default function BikeSectionSwiper() {
           {loopedItems.map((bike, i) => {
             const price = bike.colors && bike.colors.length > 0 ? bike.colors[0].price : null;
             return (
-            <div className="fv-card" key={`${bike.id}-${i}`}>
+              <div className="fv-card" key={`${bike.id}-${i}`}>
 
-              <div className="fv-card-img-wrap">
-                <Image
-                  src={bike.image}
-                  alt={bike.name}
-                  className="fv-card-img"
-                  width={260}
-                  height={160}
-                  style={{ objectFit: "contain" }}
-                  draggable={false}
-                />
-              </div>
-
-              <div className="fv-card-img-border" />
-
-              <div className="fv-card-info-row">
-                <div className="fv-card-info">
-                  <p className="fv-card-name">{bike.name}</p>
-                  <p className="fv-card-model">{bike.category}</p>
+                <div className="fv-card-img-wrap">
+                  <Image
+                    src={bike.image}
+                    alt={bike.name}
+                    className="fv-card-img"
+                    width={260}
+                    height={160}
+                    style={{ objectFit: "contain" }}
+                    draggable={false}
+                  />
                 </div>
 
-                {price && (
-                  <div className="fv-card-price-wrap">
-                    <p className="fv-card-price-label">Starting from</p>
-                    <p className="fv-card-price-value">{price}</p>
-                  </div>
-                )}
-              </div>
+                <div className="fv-card-img-border" />
 
-            </div>
-          )})}
+                <div className="fv-card-info-row">
+                  <div className="fv-card-info">
+                    <p className="fv-card-name">{bike.name}</p>
+                    <p className="fv-card-model">{bike.category}</p>
+                  </div>
+
+                  {price ? (
+                    <div className="fv-card-price-wrap">
+                      <p className="fv-card-price-label">Starting from</p>
+                      <p className="fv-card-price-value">{price}</p>
+                    </div>
+                  ) : bike.comingSoon ? (
+                    <div className="fv-card-price-wrap">
+                      <p className="fv-card-price-value" style={{ fontSize: "14px", marginTop: "12px", color: "#e63020" }}>Coming Soon</p>
+                    </div>
+                  ) : null}
+                </div>
+
+              </div>
+            )
+          })}
         </div>
       </div>
     </section>

@@ -7,9 +7,12 @@ import { bikeData } from '@/lib/data/bikes';
 
 const categories = ["All", "Classic", "Roadster", "Cruiser", "Cafe Racer", "Adventure"];
 
-function Card({ title, img, slug, category, price }) {
+function Card({ title, img, slug, category, price, comingSoon }) {
+  const CardWrapper = comingSoon ? "div" : Link;
+  const hrefProp = comingSoon ? {} : { href: `/models/${slug}` };
+
   return (
-    <Link href={`/models/${slug}`} className="models-card">
+    <CardWrapper {...hrefProp} className="models-card" style={comingSoon ? { cursor: 'default' } : {}}>
       <div className="models-card-img-wrap">
         <Image
           src={img}
@@ -26,12 +29,16 @@ function Card({ title, img, slug, category, price }) {
         <div className="models-card-bottom">
           <div>
             <p className="models-card-title">{title}</p>
-            {price && <p className="models-card-price">Starting from {price}</p>}
+            {price ? (
+              <p className="models-card-price">Starting from {price}</p>
+            ) : comingSoon ? (
+              <p className="models-card-price" style={{ color: "#e63020", fontWeight: "bold" }}>Coming Soon</p>
+            ) : null}
           </div>
-          <span className="models-card-arrow"><IoIosArrowForward /></span>
+          {!comingSoon && <span className="models-card-arrow"><IoIosArrowForward /></span>}
         </div>
       </div>
-    </Link>
+    </CardWrapper>
   );
 }
 
@@ -260,6 +267,7 @@ export default function ModelsSection() {
                 slug={b.slug}
                 category={b.category}
                 price={b.colors && b.colors.length > 0 ? b.colors[0].price : null}
+                comingSoon={b.comingSoon}
               />
             ))}
           </div>

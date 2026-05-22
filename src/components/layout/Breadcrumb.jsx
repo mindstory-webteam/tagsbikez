@@ -59,9 +59,10 @@ const Breadcrumb = () => {
           position: relative;
           z-index: 2;
           text-align: center;
-          padding: 0 20px;
-          max-width: 1300px;
+          padding: 0 40px;
+          max-width: 100%;
           width: 100%;
+          box-sizing: border-box;
         }
 
         .breadcrumb-content h1 {
@@ -115,8 +116,14 @@ const Breadcrumb = () => {
           flex-wrap: wrap;
           align-items: center;
           justify-content: center;
-          gap: 12px;
+          gap: 10px 12px;
           margin-top: 32px;
+          width: 100%;
+          max-width: 1400px;
+          margin-left: auto;
+          margin-right: auto;
+          padding: 0 20px;
+          box-sizing: border-box;
         }
 
         .bike-capsule {
@@ -144,7 +151,10 @@ const Breadcrumb = () => {
           .hero-breadcrumb {
             height: auto;
             min-height: 280px;
-            padding: 110px 0 40px; /* 80px header + 30px top padding; 40px bottom padding */
+            padding: 110px 0 40px;
+          }
+          .breadcrumb-content {
+            padding: 0 24px;
           }
           .breadcrumb-content h1 {
             font-size: 40px;
@@ -152,6 +162,7 @@ const Breadcrumb = () => {
           .models-capsules {
             margin-top: 24px;
             gap: 8px;
+            padding: 0 8px;
           }
           .bike-capsule {
             padding: 6px 12px;
@@ -162,7 +173,10 @@ const Breadcrumb = () => {
         @media (max-width: 640px) {
           .hero-breadcrumb {
             min-height: 280px;
-            padding: 110px 16px 32px;
+            padding: 110px 0 32px;
+          }
+          .breadcrumb-content {
+            padding: 0 16px;
           }
           .breadcrumb-content h1 {
             font-size: 32px;
@@ -175,8 +189,8 @@ const Breadcrumb = () => {
           }
           .models-capsules {
             margin-top: 18px;
-            gap: 6px;
-            padding: 0 10px;
+            gap: 6px 8px;
+            padding: 0 6px;
           }
           .bike-capsule {
             padding: 5px 10px;
@@ -188,7 +202,10 @@ const Breadcrumb = () => {
         @media (max-width: 480px) {
           .hero-breadcrumb {
             min-height: 260px;
-            padding: 100px 12px 24px;
+            padding: 100px 0 24px;
+          }
+          .breadcrumb-content {
+            padding: 0 12px;
           }
           .breadcrumb-content h1 {
             font-size: 26px;
@@ -204,7 +221,8 @@ const Breadcrumb = () => {
           }
           .models-capsules {
             margin-top: 14px;
-            gap: 4px;
+            gap: 4px 6px;
+            padding: 0 4px;
           }
           .bike-capsule {
             padding: 4px 8px;
@@ -216,14 +234,14 @@ const Breadcrumb = () => {
 
       <img src={bgImage} alt="Breadcrumb Background" className="breadcrumb-bg" />
       <div className="breadcrumb-overlay" />
-      
+
       <div className="breadcrumb-content">
         <h1>{pageName}</h1>
         <div className="breadcrumb-links">
           <Link href="/" className="crumb-link">
             <span>Home</span>
           </Link>
-          
+
           {pathSegments.map((segment, index) => {
             const href = `/${pathSegments.slice(0, index + 1).join('/')}`;
             const isLast = index === pathSegments.length - 1;
@@ -242,15 +260,15 @@ const Breadcrumb = () => {
             );
           })}
         </div>
-        
+
         {isModelsPage && (
           <div className="models-capsules">
-            {bikeData.map(bike => {
+            {bikeData.filter(bike => !bike.comingSoon).map(bike => {
               const isActive = pathname === `/models/${bike.slug}`;
               return (
-                <Link 
-                  key={bike.slug} 
-                  href={`/models/${bike.slug}`} 
+                <Link
+                  key={bike.slug}
+                  href={`/models/${bike.slug}`}
                   className={`bike-capsule ${isActive ? 'active' : ''}`}
                 >
                   {bike.name}

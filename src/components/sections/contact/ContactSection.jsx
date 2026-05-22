@@ -87,6 +87,16 @@ const socialLinks = [
   { icon: <FaYoutube />, url: 'https://www.youtube.com/@imfranciz', label: 'YouTube' },
 ];
 
+const rsaServices = [
+  { title: 'On-Spot Minor Repairs', desc: 'Technicians troubleshoot and repair minor mechanical or electrical issues right where you are stranded.' },
+  { title: 'Flat Tire Assistance', desc: 'On-site help to get your tire fixed or repaired (repair costs are charged on actuals).' },
+  { title: 'Fuel Delivery', desc: 'If you run out of fuel, they will deliver up to 5 liters of fuel to your location (fuel cost charged on actuals).' },
+  { title: 'Battery Jump-Start', desc: 'Immediate assistance if your motorcycle battery dies.' },
+  { title: 'Key Lockout Assistance', desc: 'Retrieval support, or a brand-new set of keys couriered to your address of choice if you lose or break your keys.' },
+  { title: 'Towing Support', desc: 'Free towing up to 100 km to the nearest Royal Enfield authorized service center if your bike cannot be ridden.' },
+  { title: 'Medical Referral', desc: 'Assistance in locating the nearest hospital or medical facility during an emergency.' },
+];
+
 function CustomDropdown({ label, placeholder, options, value, onChange, disabled }) {
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
@@ -246,6 +256,72 @@ const ContactSection = () => {
           border-top: 1px solid #e0e0e0;
           border-left: 1px solid #e0e0e0;
           margin-bottom: 80px;
+        }
+
+        .rsa-section {
+          display: flex;
+          border-top: 1px solid #e0e0e0;
+          border-left: 1px solid #e0e0e0;
+          margin-bottom: 80px;
+          background: #fff;
+        }
+
+        .rsa-left {
+          width: 35%;
+          background: #111;
+          color: #fff;
+          padding: 60px 50px;
+          border-right: 1px solid #e0e0e0;
+          border-bottom: 1px solid #e0e0e0;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+
+        .rsa-right {
+          width: 65%;
+          padding: 60px 50px;
+          border-right: 1px solid #e0e0e0;
+          border-bottom: 1px solid #e0e0e0;
+          background: #fafafa;
+        }
+
+        .rsa-services-list {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 40px;
+        }
+
+        .rsa-service-item {
+          display: flex;
+          gap: 16px;
+          align-items: flex-start;
+        }
+
+        .rsa-service-icon {
+          width: 40px;
+          height: 40px;
+          border: 1px solid #e0e0e0;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+          background: #fff;
+        }
+
+        .rsa-service-text h4 {
+          font-size: 16px;
+          margin: 0 0 8px;
+          font-weight: 700;
+          color: #111;
+        }
+
+        .rsa-service-text p {
+          font-size: 13px;
+          color: #666;
+          line-height: 1.6;
+          margin: 0;
         }
 
         .interaction-grid {
@@ -593,6 +669,9 @@ const ContactSection = () => {
         @media (max-width: 1024px) {
           .contact-container { padding: 60px 20px 80px 20px; }
           .showroom-grid { grid-template-columns: repeat(2, 1fr); }
+          .rsa-section { flex-direction: column; }
+          .rsa-left, .rsa-right { width: 100%; border-right: none; }
+          .rsa-left { border-bottom: none; }
           .interaction-grid { grid-template-columns: 1fr; }
           .map-cell { border-right: 1px solid #e0e0e0; height: 500px; }
         }
@@ -602,6 +681,8 @@ const ContactSection = () => {
           .contact-header h1 { font-size: 32px; }
           .form-cell { padding: 40px 24px; }
           .showroom-grid { grid-template-columns: 1fr; }
+          .rsa-services-list { grid-template-columns: 1fr; gap: 24px; }
+          .rsa-left, .rsa-right { padding: 40px 24px; }
           .map-cell { height: 400px; }
           .map-title-overlay { top: 20px; left: 20px; padding: 16px; }
           .input-row { grid-template-columns: 1fr; gap: 0; }
@@ -612,6 +693,8 @@ const ContactSection = () => {
           .contact-header { margin-bottom: 48px; }
           .contact-header h1 { font-size: 28px; }
           .showroom-grid { margin-bottom: 48px; }
+          .rsa-section { margin-bottom: 48px; }
+          .rsa-left, .rsa-right { padding: 32px 20px; }
           .loc-cell { padding: 24px; }
           .form-cell { padding: 32px 20px; }
           .input-group { margin-bottom: 24px; }
@@ -622,10 +705,6 @@ const ContactSection = () => {
         <header className="contact-header">
           <h1>Let&apos;s Start a<br />Conversation.</h1>
           <div className="contact-header-right">
-            <a href="tel:6235227755" className="contact-insta-link" style={{ flexDirection: 'column', alignItems: 'flex-start', gap: '4px', padding: '12px 18px' }}>
-              <span style={{ fontSize: '10px', color: '#e63020', letterSpacing: '0.15em' }}>ROADSIDE ASSISTANCE</span>
-              <span style={{ fontSize: '16px' }}>1800 2100 007</span>
-            </a>
             <p>Get in touch with our nearest showroom for sales, service, or any inquiries.</p>
           </div>
         </header>
@@ -675,6 +754,35 @@ const ContactSection = () => {
             <p className="text-[11px] text-gray-500 mt-6 leading-relaxed">
               Follow our journey and stay updated with latest Royal Enfield news and events.
             </p>
+          </div>
+        </div>
+
+        <div className="rsa-section">
+          <div className="rsa-left">
+            <span className="tag" style={{ color: '#e63020', fontSize: '10px', fontWeight: '700', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '16px' }}>24x7 Support</span>
+            <h4 style={{ color: '#fff', fontSize: '32px', fontWeight: '400', margin: '0 0 16px', textTransform: 'uppercase' }}>Roadside Assistance</h4>
+            <p style={{ fontSize: '14px', color: '#aaa', lineHeight: '1.6', marginBottom: '40px' }}>
+              We've got you covered in any emergency. Our dedicated roadside assistance team is available 24 hours a day.
+            </p>
+            <a href="tel:18002100007" className="contact-insta-link" style={{ background: '#e63020', borderColor: '#e63020', color: '#fff', flexDirection: 'column', alignItems: 'flex-start', gap: '4px', padding: '16px 24px', width: 'fit-content' }}>
+              <span style={{ fontSize: '10px', color: '#fff', letterSpacing: '0.15em' }}>CALL NOW</span>
+              <span style={{ fontSize: '20px', fontWeight: 'bold' }}>1800 2100 007</span>
+            </a>
+          </div>
+          <div className="rsa-right">
+            <div className="rsa-services-list">
+              {rsaServices.map((s, i) => (
+                <div key={i} className="rsa-service-item">
+                  <div className="rsa-service-icon">
+                    <span style={{color: '#e63020', fontSize: '14px', fontWeight: 'bold'}}>0{i + 1}</span>
+                  </div>
+                  <div className="rsa-service-text">
+                    <h4>{s.title}</h4>
+                    <p>{s.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 

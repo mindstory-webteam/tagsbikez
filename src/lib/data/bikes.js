@@ -42,6 +42,40 @@ export const bikeData = [
   },
   {
     id: 2,
+    slug: 'bullet-350',
+    name: 'Bullet 350',
+    category: 'Classic',
+    emiStarting: 4999,
+    description: 'A symbol of resilience and a testament to the enduring spirit of pure motorcycling. The new Bullet 350 is more than just a machine; it is a legacy.',
+    image: img.bullet350,
+    colors: [
+      { name: 'Military Black', hex: '#111111', image: img.bullet350, price: '₹2,00,227' },
+      { name: 'Battalion Black', hex: '#000000', image: img.bullet350, price: '₹2,02,810' },
+      { name: 'The Standard Black', hex: '#1a1a1a', image: img.bullet350, price: '₹2,28,045' },
+      { name: 'The Standard Maroon', hex: '#800000', image: img.bullet350, price: '₹2,28,045' },
+      { name: 'Black Gold', hex: '#b3953b', image: img.bullet350, price: '₹2,63,224' },
+    ],
+    brochure: '/brochures/bullet-350.pdf',
+    stats: [
+      { label: 'Engine', val: '349cc' },
+      { label: 'Power', val: '20.2 bhp' },
+      { label: 'Torque', val: '27 Nm' }
+    ],
+    stories: [
+      {
+        title: "Unwavering Legacy",
+        description: "For over nine decades, the Bullet has stood as the definitive symbol of motorcycling resilience and a testament to enduring character.",
+        image: img.banner2
+      },
+      {
+        title: "The Signature Thump",
+        description: "The updated J-series engine ensures that the iconic Royal Enfield thump resonates stronger than ever while delivering smooth, modern performance.",
+        image: img.banner1
+      }
+    ]
+  },
+  {
+    id: 3,
     slug: 'classic-350',
     name: 'Classic 350',
     category: 'Classic',
@@ -73,40 +107,6 @@ export const bikeData = [
         title: "Unmatched Comfort",
         description: "Featuring a wider, more relaxed riding posture and an exceptionally comfortable seat to ensure you can soak in every moment of the journey.",
         image: img.banner2
-      }
-    ]
-  },
-  {
-    id: 3,
-    slug: 'bullet-350',
-    name: 'Bullet 350',
-    category: 'Classic',
-    emiStarting: 4999,
-    description: 'A symbol of resilience and a testament to the enduring spirit of pure motorcycling. The new Bullet 350 is more than just a machine; it is a legacy.',
-    image: img.bullet350,
-    colors: [
-      { name: 'Military Black', hex: '#111111', image: img.bullet350, price: '₹2,00,227' },
-      { name: 'Battalion Black', hex: '#000000', image: img.bullet350, price: '₹2,02,810' },
-      { name: 'The Standard Black', hex: '#1a1a1a', image: img.bullet350, price: '₹2,28,045' },
-      { name: 'The Standard Maroon', hex: '#800000', image: img.bullet350, price: '₹2,28,045' },
-      { name: 'Black Gold', hex: '#b3953b', image: img.bullet350, price: '₹2,63,224' },
-    ],
-    brochure: '/brochures/bullet-350.pdf',
-    stats: [
-      { label: 'Engine', val: '349cc' },
-      { label: 'Power', val: '20.2 bhp' },
-      { label: 'Torque', val: '27 Nm' }
-    ],
-    stories: [
-      {
-        title: "Unwavering Legacy",
-        description: "For over nine decades, the Bullet has stood as the definitive symbol of motorcycling resilience and a testament to enduring character.",
-        image: img.banner2
-      },
-      {
-        title: "The Signature Thump",
-        description: "The updated J-series engine ensures that the iconic Royal Enfield thump resonates stronger than ever while delivering smooth, modern performance.",
-        image: img.banner1
       }
     ]
   },
@@ -145,177 +145,6 @@ export const bikeData = [
   },
   {
     id: 5,
-    slug: 'himalayan-450',
-    name: 'Himalayan 450',
-    category: 'Adventure',
-    emiStarting: 24999,
-    description: 'The all-new Himalayan is designed to conquer every terrain, from the highest peaks to the deepest valleys.',
-    image: img.himalayan450,
-    colors: [
-      { name: 'Kaza Brown', hex: '#8a7d72', image: img.himalayan450, price: '₹3,91,615' },
-      { name: 'Slate Poppy Blue', hex: '#3b5c78', image: img.himalayan450, price: '₹3,96,848' },
-      { name: 'Kamet White', hex: '#e8ecef', image: img.himalayan450, price: '₹4,02,080' },
-      { name: 'Hanle Black', hex: '#111111', image: img.himalayan450, price: '₹4,08,619' },
-      { name: 'Mana Black', hex: '#222222', image: img.himalayan450, price: '₹4,29,779' },
-    ],
-    brochure: '/brochures/himalayan-450.pdf',
-    stats: [
-      { label: 'Engine', val: '452cc' },
-      { label: 'Power', val: '40.02 PS' },
-      { label: 'Torque', val: '40 Nm' }
-    ],
-    stories: [
-      {
-        title: "Sherpa 450 Engine",
-        description: "The heart of the new Himalayan. A liquid-cooled, 452cc engine that produces 40PS of peak power, designed to pull you through the toughest altitudes.",
-        image: img.banner1
-      },
-      {
-        title: "Adventure Ready",
-        description: "Equipped with a long-travel suspension, switchable ABS, and true dual-purpose tires, it feels right at home when the tarmac ends.",
-        image: img.banner2
-      }
-    ]
-  },
-  {
-    id: 6,
-    slug: 'interceptor-650',
-    name: 'Interceptor 650',
-    category: 'Cafe Racer',
-    emiStarting: 49999,
-    description: 'The Interceptor 650 is a versatile twin-cylinder roadster that captures the essence of the 1960s California cool.',
-    image: img.interceptor,
-    colors: [
-      { name: 'Cali Green', hex: '#2e5a44', image: img.interceptor, price: '₹4,27,777' },
-      { name: 'Canyon Red', hex: '#CD5C5C', image: img.interceptor, price: '₹4,27,777' },
-      { name: 'Sunset Strip Black', hex: '#222222', image: img.interceptor, price: '₹4,38,578' },
-      { name: 'Blackray', hex: '#111111', image: img.interceptor, price: '₹4,52,075' },
-      { name: 'Mark Two Chrome', hex: '#C0C0C0', image: img.interceptor, price: '₹4,65,570' },
-    ],
-    brochure: '/brochures/interceptor-650.pdf',
-    stats: [
-      { label: 'Engine', val: '648cc' },
-      { label: 'Power', val: '47 bhp' },
-      { label: 'Torque', val: '52 Nm' }
-    ],
-    stories: [
-      {
-        title: "Easy Riding",
-        description: "With its wide handlebars, low seat height, and confident riding position, the Interceptor is designed for effortless cruising down the coast or the highway.",
-        image: img.banner1
-      },
-      {
-        title: "Twin Cylinder Soul",
-        description: "The 648cc parallel-twin engine is a masterpiece of refinement, offering abundant torque across the rev range for an unhurried yet engaging ride.",
-        image: img.banner2
-      }
-    ]
-  },
-  {
-    id: 7,
-    slug: 'continental-gt-650',
-    name: 'Continental GT 650',
-    category: 'Cafe Racer',
-    emiStarting: 49999,
-    description: 'Relive the spirit of the 1960s with the Continental GT 650. A true-blue cafe racer that combines vintage style with modern performance.',
-    image: img.continentalgt650,
-    colors: [
-      { name: 'Rocker Red', hex: '#E63020', image: img.continentalgt650, price: '₹4,49,370' },
-      { name: 'British Racing Green', hex: '#004225', image: img.continentalgt650, price: '₹4,49,370' },
-      { name: 'Apex Grey', hex: '#708090', image: img.continentalgt650, price: '₹4,76,366' },
-      { name: 'Mr Clean Chrome', hex: '#e5e4e2', image: img.continentalgt650, price: '₹4,84,463' },
-      { name: 'Slipstream Blue', hex: '#000080', image: img.continentalgt650, price: '₹4,76,368' },
-    ],
-    brochure: '/brochures/continental-gt-650.pdf',
-    stats: [
-      { label: 'Engine', val: '648cc' },
-      { label: 'Power', val: '47 bhp' },
-      { label: 'Torque', val: '52 Nm' }
-    ],
-    stories: [
-      {
-        title: "Cafe Racer Heritage",
-        description: "Stripped down, tucked in, and ready to sprint. The Continental GT 650 channels the minimalist, aggressive aesthetics of the 60s cafe racer culture.",
-        image: img.banner3
-      },
-      {
-        title: "Parallel Twin Power",
-        description: "Powered by Royal Enfield's legendary 648cc parallel-twin engine, it delivers 47 bhp of seamless power with a deep, rumbling exhaust note.",
-        image: img.banner1
-      }
-    ]
-  },
-  {
-    id: 8,
-    slug: 'interceptor-bear-650',
-    name: 'Interceptor Bear 650',
-    category: 'Cafe Racer',
-    emiStarting: 49999,
-    description: 'A scrambler-styled cafe racer powered by the legendary parallel-twin engine, built for wild trails and fast highways.',
-    image: img.interceptor,
-    colors: [
-      { name: 'Board Walk White', hex: '#ffffff', image: img.interceptor, price: '₹4,76,547' },
-      { name: 'Board Wild Honey Yellow', hex: '#ffcc00', image: img.interceptor, price: '₹4,83,302' },
-      { name: 'Board Golden Shadow Black', hex: '#bfa15f', image: img.interceptor, price: '₹4,92,752' },
-      { name: 'Board White 249', hex: '#f0f0f0', image: img.interceptor, price: '₹5,03,549' },
-    ],
-    brochure: '/brochures/interceptor-650.pdf',
-    stats: [
-      { label: 'Engine', val: '648cc' },
-      { label: 'Power', val: '47 bhp' },
-      { label: 'Torque', val: '56.5 Nm' }
-    ],
-    stories: [
-      {
-        title: "Wild Scrambler Stance",
-        description: "Equipped with a rugged dual-exhaust, braced handlebars, and heavy-duty spoked wheels to tackle the toughest dirt tracks.",
-        image: img.banner4
-      },
-      {
-        title: "Uncompromised Thrill",
-        description: "The tuned parallel-twin engine delivers higher low-end torque, giving you rapid bursts of speed with absolute confidence.",
-        image: img.banner1
-      }
-    ]
-  },
-  {
-    id: 9,
-    slug: 'meteor-350',
-    name: 'Meteor 350',
-    category: 'Cruiser',
-    emiStarting: 11999,
-    description: 'A classic highway cruiser that introduces advanced J-series engine dynamics and unmatched long-distance comfort.',
-    image: img.shotgun650,
-    colors: [
-      { name: 'Fireball Grey', hex: '#808080', image: img.shotgun650, price: '₹2,27,819' },
-      { name: 'Fireball Orange', hex: '#ff4500', image: img.shotgun650, price: '₹2,27,819' },
-      { name: 'Stellar Matt Grey', hex: '#4d4d4d', image: img.shotgun650, price: '₹2,41,445' },
-      { name: 'Stellar Marine Blue', hex: '#1c2e4a', image: img.shotgun650, price: '₹2,41,445' },
-      { name: 'Aurora Red', hex: '#8b0000', image: img.shotgun650, price: '₹2,65,525' },
-      { name: 'Aurora Retro Green', hex: '#2e8b57', image: img.shotgun650, price: '₹2,65,525' },
-      { name: 'Supernova Black', hex: '#111111', image: img.shotgun650, price: '₹2,77,421' },
-    ],
-    brochure: '/brochures/classic-350.pdf',
-    stats: [
-      { label: 'Engine', val: '349cc' },
-      { label: 'Power', val: '20.2 bhp' },
-      { label: 'Torque', val: '27 Nm' }
-    ],
-    stories: [
-      {
-        title: "Pure Highway DNA",
-        description: "Designed with a deeply cushioned saddle, forward footpegs, and pulled-back handlebars for maximum ergonomics.",
-        image: img.banner1
-      },
-      {
-        title: "Advanced Navigation",
-        description: "Features the innovative Tripper navigation console, making it easier than ever to explore new routes.",
-        image: img.banner2
-      }
-    ]
-  },
-  {
-    id: 10,
     slug: 'scram-440',
     name: 'Scram 440',
     category: 'Adventure',
@@ -348,41 +177,18 @@ export const bikeData = [
     ]
   },
   {
-    id: 11,
-    slug: 'super-meteor-650',
-    name: 'Super Meteor 650',
-    category: 'Cruiser',
-    emiStarting: 49999,
-    description: 'The ultimate parallel-twin highway cruiser. Built for endless horizons with massive power and absolute stability.',
-    image: img.shotgun650,
-    colors: [
-      { name: 'Astral Black', hex: '#111111', image: img.shotgun650, price: '₹5,10,166' },
-      { name: 'Interstellar Green', hex: '#0f3c20', image: img.shotgun650, price: '₹5,30,722' },
-      { name: 'Interstellar Grey', hex: '#5a5e6b', image: img.shotgun650, price: '₹5,30,722' },
-      { name: 'Celestial Red', hex: '#7c1c1c', image: img.shotgun650, price: '₹5,51,281' },
-      { name: 'Celestial Blue', hex: '#1c3e7c', image: img.shotgun650, price: '₹5,51,281' },
-    ],
-    brochure: '/brochures/interceptor-650.pdf',
-    stats: [
-      { label: 'Engine', val: '648cc' },
-      { label: 'Power', val: '47 bhp' },
-      { label: 'Torque', val: '52.3 Nm' }
-    ],
-    stories: [
-      {
-        title: "Premium Cruiser Frame",
-        description: "Features a high-tensile steel tube spine frame, premium USD front forks, and a wide rear tyre for maximum grip.",
-        image: img.banner5
-      },
-      {
-        title: "Infinite Horizons",
-        description: "A massive fuel tank, dual exhaust pipes, and relaxed seating geometry allow you to cruise for hundreds of miles non-stop.",
-        image: img.banner1
-      }
-    ]
+    id: 6,
+    slug: 'himalayan-440',
+    name: 'Himalayan 440',
+    category: 'Adventure',
+    emiStarting: 0,
+    description: 'The upcoming Himalayan 440.',
+    image: img.himalayan450,
+    colors: [],
+    comingSoon: true,
   },
   {
-    id: 12,
+    id: 7,
     slug: 'guerrilla-450',
     name: 'Guerrilla 450',
     category: 'Roadster',
@@ -419,7 +225,176 @@ export const bikeData = [
     ]
   },
   {
+    id: 8,
+    slug: 'scram-450',
+    name: 'Scram 450',
+    category: 'Adventure',
+    emiStarting: 0,
+    description: 'The upcoming Scram 450.',
+    image: img.scram440,
+    colors: [],
+    comingSoon: true,
+  },
+  {
+    id: 9,
+    slug: 'himalayan-450',
+    name: 'Himalayan 450',
+    category: 'Adventure',
+    emiStarting: 24999,
+    description: 'The all-new Himalayan is designed to conquer every terrain, from the highest peaks to the deepest valleys.',
+    image: img.himalayan450,
+    colors: [
+      { name: 'Kaza Brown', hex: '#8a7d72', image: img.himalayan450, price: '₹3,91,615' },
+      { name: 'Slate Poppy Blue', hex: '#3b5c78', image: img.himalayan450, price: '₹3,96,848' },
+      { name: 'Kamet White', hex: '#e8ecef', image: img.himalayan450, price: '₹4,02,080' },
+      { name: 'Hanle Black', hex: '#111111', image: img.himalayan450, price: '₹4,08,619' },
+      { name: 'Mana Black', hex: '#222222', image: img.himalayan450, price: '₹4,29,779' },
+    ],
+    brochure: '/brochures/himalayan-450.pdf',
+    stats: [
+      { label: 'Engine', val: '452cc' },
+      { label: 'Power', val: '40.02 PS' },
+      { label: 'Torque', val: '40 Nm' }
+    ],
+    stories: [
+      {
+        title: "Sherpa 450 Engine",
+        description: "The heart of the new Himalayan. A liquid-cooled, 452cc engine that produces 40PS of peak power, designed to pull you through the toughest altitudes.",
+        image: img.banner1
+      },
+      {
+        title: "Adventure Ready",
+        description: "Equipped with a long-travel suspension, switchable ABS, and true dual-purpose tires, it feels right at home when the tarmac ends.",
+        image: img.banner2
+      }
+    ]
+  },
+  {
+    id: 10,
+    slug: 'interceptor-650',
+    name: 'Interceptor 650',
+    category: 'Cafe Racer',
+    emiStarting: 49999,
+    description: 'The Interceptor 650 is a versatile twin-cylinder roadster that captures the essence of the 1960s California cool.',
+    image: img.interceptor,
+    colors: [
+      { name: 'Cali Green', hex: '#2e5a44', image: img.interceptor, price: '₹4,27,777' },
+      { name: 'Canyon Red', hex: '#CD5C5C', image: img.interceptor, price: '₹4,27,777' },
+      { name: 'Sunset Strip Black', hex: '#222222', image: img.interceptor, price: '₹4,38,578' },
+      { name: 'Blackray', hex: '#111111', image: img.interceptor, price: '₹4,52,075' },
+      { name: 'Mark Two Chrome', hex: '#C0C0C0', image: img.interceptor, price: '₹4,65,570' },
+    ],
+    brochure: '/brochures/interceptor-650.pdf',
+    stats: [
+      { label: 'Engine', val: '648cc' },
+      { label: 'Power', val: '47 bhp' },
+      { label: 'Torque', val: '52 Nm' }
+    ],
+    stories: [
+      {
+        title: "Easy Riding",
+        description: "With its wide handlebars, low seat height, and confident riding position, the Interceptor is designed for effortless cruising down the coast or the highway.",
+        image: img.banner1
+      },
+      {
+        title: "Twin Cylinder Soul",
+        description: "The 648cc parallel-twin engine is a masterpiece of refinement, offering abundant torque across the rev range for an unhurried yet engaging ride.",
+        image: img.banner2
+      }
+    ]
+  },
+  {
+    id: 11,
+    slug: 'continental-gt-650',
+    name: 'Continental GT 650',
+    category: 'Cafe Racer',
+    emiStarting: 49999,
+    description: 'Relive the spirit of the 1960s with the Continental GT 650. A true-blue cafe racer that combines vintage style with modern performance.',
+    image: img.continentalgt650,
+    colors: [
+      { name: 'Rocker Red', hex: '#E63020', image: img.continentalgt650, price: '₹4,49,370' },
+      { name: 'British Racing Green', hex: '#004225', image: img.continentalgt650, price: '₹4,49,370' },
+      { name: 'Apex Grey', hex: '#708090', image: img.continentalgt650, price: '₹4,76,366' },
+      { name: 'Mr Clean Chrome', hex: '#e5e4e2', image: img.continentalgt650, price: '₹4,84,463' },
+      { name: 'Slipstream Blue', hex: '#000080', image: img.continentalgt650, price: '₹4,76,368' },
+    ],
+    brochure: '/brochures/continental-gt-650.pdf',
+    stats: [
+      { label: 'Engine', val: '648cc' },
+      { label: 'Power', val: '47 bhp' },
+      { label: 'Torque', val: '52 Nm' }
+    ],
+    stories: [
+      {
+        title: "Cafe Racer Heritage",
+        description: "Stripped down, tucked in, and ready to sprint. The Continental GT 650 channels the minimalist, aggressive aesthetics of the 60s cafe racer culture.",
+        image: img.banner3
+      },
+      {
+        title: "Parallel Twin Power",
+        description: "Powered by Royal Enfield's legendary 648cc parallel-twin engine, it delivers 47 bhp of seamless power with a deep, rumbling exhaust note.",
+        image: img.banner1
+      }
+    ]
+  },
+  {
+    id: 12,
+    slug: 'continental-gt-750',
+    name: 'Continental GT 750',
+    category: 'Cafe Racer',
+    emiStarting: 0,
+    description: 'Continental GT 750 coming soon.',
+    image: img.continentalgt650,
+    colors: [],
+    comingSoon: true,
+  },
+  {
     id: 13,
+    slug: 'himalayan-750',
+    name: 'Himalayan 750',
+    category: 'Adventure',
+    emiStarting: 0,
+    description: 'Himalayan 750 coming soon.',
+    image: img.himalayan450,
+    colors: [],
+    comingSoon: true,
+  },
+  {
+    id: 14,
+    slug: 'super-meteor-650',
+    name: 'Super Meteor 650',
+    category: 'Cruiser',
+    emiStarting: 49999,
+    description: 'The ultimate parallel-twin highway cruiser. Built for endless horizons with massive power and absolute stability.',
+    image: img.shotgun650,
+    colors: [
+      { name: 'Astral Black', hex: '#111111', image: img.shotgun650, price: '₹5,10,166' },
+      { name: 'Interstellar Green', hex: '#0f3c20', image: img.shotgun650, price: '₹5,30,722' },
+      { name: 'Interstellar Grey', hex: '#5a5e6b', image: img.shotgun650, price: '₹5,30,722' },
+      { name: 'Celestial Red', hex: '#7c1c1c', image: img.shotgun650, price: '₹5,51,281' },
+      { name: 'Celestial Blue', hex: '#1c3e7c', image: img.shotgun650, price: '₹5,51,281' },
+    ],
+    brochure: '/brochures/interceptor-650.pdf',
+    stats: [
+      { label: 'Engine', val: '648cc' },
+      { label: 'Power', val: '47 bhp' },
+      { label: 'Torque', val: '52.3 Nm' }
+    ],
+    stories: [
+      {
+        title: "Premium Cruiser Frame",
+        description: "Features a high-tensile steel tube spine frame, premium USD front forks, and a wide rear tyre for maximum grip.",
+        image: img.banner5
+      },
+      {
+        title: "Infinite Horizons",
+        description: "A massive fuel tank, dual exhaust pipes, and relaxed seating geometry allow you to cruise for hundreds of miles non-stop.",
+        image: img.banner1
+      }
+    ]
+  },
+  {
+    id: 15,
     slug: 'shotgun-650',
     name: 'Shotgun 650',
     category: 'Cruiser',
@@ -451,7 +426,7 @@ export const bikeData = [
     ]
   },
   {
-    id: 14,
+    id: 16,
     slug: 'classic-650',
     name: 'Classic 650',
     category: 'Classic',
@@ -482,5 +457,27 @@ export const bikeData = [
         image: img.banner2
       }
     ]
+  },
+  {
+    id: 17,
+    slug: 'bullet-650',
+    name: 'Bullet 650',
+    category: 'Classic',
+    emiStarting: 0,
+    description: 'Bullet 650 coming soon.',
+    image: img.bullet350,
+    colors: [],
+    comingSoon: true,
+  },
+  {
+    id: 18,
+    slug: 'flying-flea-c6',
+    name: 'Flying Flea C6',
+    category: 'Classic',
+    emiStarting: 0,
+    description: 'Flying Flea C6 coming soon.',
+    image: img.hunter350,
+    colors: [],
+    comingSoon: true,
   }
 ];
