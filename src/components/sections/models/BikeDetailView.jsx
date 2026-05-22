@@ -403,9 +403,11 @@ const BikeDetailView = ({ bike }) => {
             font-size: 24px;
             margin-bottom: 8px;
           }
+          .bdv-price-wrap {
+            margin-bottom: 12px;
+          }
           .bdv-price {
             font-size: 20px;
-            margin-bottom: 12px;
           }
           .bdv-desc {
             font-size: 13px;
