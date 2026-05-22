@@ -671,8 +671,7 @@ const ContactSection = () => {
           .contact-container { padding: 60px 20px 80px 20px; }
           .showroom-grid { grid-template-columns: repeat(2, 1fr); }
           .rsa-section { flex-direction: column; }
-          .rsa-left, .rsa-right { width: 100%; border-right: none; }
-          .rsa-left { border-bottom: none; }
+          .rsa-left, .rsa-right { width: 100%; }
           .interaction-grid { grid-template-columns: 1fr; }
           .map-cell { border-right: 1px solid #e0e0e0; height: 500px; min-height: 500px; }
         }
