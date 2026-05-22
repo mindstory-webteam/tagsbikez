@@ -43,7 +43,7 @@ const locations = [
     service: '7594960049',
     email: 'info.tags.irj@gmail.com',
     mapUrl: 'https://maps.app.goo.gl/28R6ne6ZkCMv2x4K6',
-    coords: [10.365479, 76.219027],
+    coords: [10.364497972183457, 76.21893125172434],
     socials: {
       whatsapp: 'https://wa.me/917594951111',
       facebook: 'https://www.facebook.com/tagsbikez',
