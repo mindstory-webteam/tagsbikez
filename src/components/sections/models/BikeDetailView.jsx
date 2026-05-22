@@ -73,13 +73,34 @@ const BikeDetailView = ({ bike }) => {
           line-height: 1.1;
         }
 
+        .bdv-price-wrap {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          margin-bottom: 16px;
+          flex-wrap: wrap;
+        }
+
         .bdv-price {
           font-family: var(--font-oswald), sans-serif;
           font-size: 26px;
           color: #f51b24;
           font-weight: 600;
-          margin-bottom: 16px;
           letter-spacing: 0.02em;
+        }
+
+        .bdv-emi-tag {
+          font-size: 11px;
+          font-weight: 700;
+          color: #e11d48;
+          background: #ffe4e6;
+          border: 1px solid #fecdd3;
+          padding: 3px 8px;
+          border-radius: 4px;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          display: inline-flex;
+          align-items: center;
         }
 
         .bdv-desc {
@@ -472,7 +493,14 @@ const BikeDetailView = ({ bike }) => {
           <div className="bdv-text-wrap">
             <h1 className="bdv-title">{bike.name}</h1>
             {selectedColor.price && (
-              <p className="bdv-price">{selectedColor.price}</p>
+              <div className="bdv-price-wrap">
+                <span className="bdv-price">{selectedColor.price}</span>
+                {bike.emiStarting && (
+                  <span className="bdv-emi-tag">
+                    EMI Starts @ ₹{bike.emiStarting.toLocaleString('en-IN')}
+                  </span>
+                )}
+              </div>
             )}
             <p className="bdv-desc">{bike.description}</p>
 

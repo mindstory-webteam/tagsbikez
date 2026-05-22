@@ -6,6 +6,7 @@ export const bikeData = [
     slug: 'hunter-350',
     name: 'Hunter 350',
     category: 'Roadster',
+    emiStarting: 4999,
     description: 'Agile, compact, and designed for the urban jungle. The Hunter 350 is built for those who want to navigate the city with ease and style.',
     image: img.hunter350,
     colors: [
@@ -44,6 +45,7 @@ export const bikeData = [
     slug: 'classic-350',
     name: 'Classic 350',
     category: 'Classic',
+    emiStarting: 11999,
     description: 'Inspired by the G2 model of the 1950s, the all-new Classic 350 continues to embody the timeless design and dependable performance.',
     image: img.classic350,
     colors: [
@@ -79,6 +81,7 @@ export const bikeData = [
     slug: 'bullet-350',
     name: 'Bullet 350',
     category: 'Classic',
+    emiStarting: 4999,
     description: 'A symbol of resilience and a testament to the enduring spirit of pure motorcycling. The new Bullet 350 is more than just a machine; it is a legacy.',
     image: img.bullet350,
     colors: [
@@ -112,6 +115,7 @@ export const bikeData = [
     slug: 'goan-classic-350',
     name: 'Goan Classic 350',
     category: 'Classic',
+    emiStarting: 11999,
     description: 'A gorgeous, laid-back cruiser version of the iconic Classic. The Goan Classic 350 is built for effortless, stylish touring along coastal roads.',
     image: img.classic350,
     colors: [
@@ -144,6 +148,7 @@ export const bikeData = [
     slug: 'himalayan-450',
     name: 'Himalayan 450',
     category: 'Adventure',
+    emiStarting: 24999,
     description: 'The all-new Himalayan is designed to conquer every terrain, from the highest peaks to the deepest valleys.',
     image: img.himalayan450,
     colors: [
@@ -177,6 +182,7 @@ export const bikeData = [
     slug: 'interceptor-650',
     name: 'Interceptor 650',
     category: 'Cafe Racer',
+    emiStarting: 49999,
     description: 'The Interceptor 650 is a versatile twin-cylinder roadster that captures the essence of the 1960s California cool.',
     image: img.interceptor,
     colors: [
@@ -210,6 +216,7 @@ export const bikeData = [
     slug: 'continental-gt-650',
     name: 'Continental GT 650',
     category: 'Cafe Racer',
+    emiStarting: 49999,
     description: 'Relive the spirit of the 1960s with the Continental GT 650. A true-blue cafe racer that combines vintage style with modern performance.',
     image: img.continentalgt650,
     colors: [
@@ -243,6 +250,7 @@ export const bikeData = [
     slug: 'interceptor-bear-650',
     name: 'Interceptor Bear 650',
     category: 'Cafe Racer',
+    emiStarting: 49999,
     description: 'A scrambler-styled cafe racer powered by the legendary parallel-twin engine, built for wild trails and fast highways.',
     image: img.interceptor,
     colors: [
@@ -275,6 +283,7 @@ export const bikeData = [
     slug: 'meteor-350',
     name: 'Meteor 350',
     category: 'Cruiser',
+    emiStarting: 11999,
     description: 'A classic highway cruiser that introduces advanced J-series engine dynamics and unmatched long-distance comfort.',
     image: img.shotgun650,
     colors: [
@@ -310,6 +319,7 @@ export const bikeData = [
     slug: 'scram-440',
     name: 'Scram 440',
     category: 'Adventure',
+    emiStarting: 24999,
     description: 'Built for the concrete jungle and beyond. The Scram 440 combines high-altitude DNA with authentic urban styling.',
     image: img.scram440,
     colors: [
@@ -342,6 +352,7 @@ export const bikeData = [
     slug: 'super-meteor-650',
     name: 'Super Meteor 650',
     category: 'Cruiser',
+    emiStarting: 49999,
     description: 'The ultimate parallel-twin highway cruiser. Built for endless horizons with massive power and absolute stability.',
     image: img.shotgun650,
     colors: [
@@ -375,6 +386,7 @@ export const bikeData = [
     slug: 'guerrilla-450',
     name: 'Guerrilla 450',
     category: 'Roadster',
+    emiStarting: 24999,
     description: 'A high-performance modern roadster powered by the revolutionary Sherpa liquid-cooled engine, built for aggressive city sprints.',
     image: img.himalayan450,
     colors: [
@@ -411,6 +423,7 @@ export const bikeData = [
     slug: 'shotgun-650',
     name: 'Shotgun 650',
     category: 'Cruiser',
+    emiStarting: 49999,
     description: 'A motorcycle that defies categorization. The Shotgun 650 is a custom-inspired machine built for the creative mind.',
     image: img.shotgun650,
     colors: [
@@ -442,6 +455,7 @@ export const bikeData = [
     slug: 'classic-650',
     name: 'Classic 650',
     category: 'Classic',
+    emiStarting: 49999,
     description: 'The legendary Classic silhouette, reborn with the massive parallel-twin 650cc heart. Timeless styling meets massive torque.',
     image: img.classic350,
     colors: [
