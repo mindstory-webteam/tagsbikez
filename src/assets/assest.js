@@ -58,9 +58,11 @@ import ride1 from './homeaboutsection/ride1.webp'
 import ride2 from './homeaboutsection/ride2.webp' 
 import ride3 from './homeaboutsection/ride3.webp' 
 
+import bikereveal from './bike-reveal.png' 
 
 
 export const img = {
+  bikereveal,
   member1,
   member2,
   member3,
