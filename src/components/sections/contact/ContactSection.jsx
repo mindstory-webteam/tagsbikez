@@ -29,7 +29,7 @@ const locations = [
     service: '7594960068',
     email: 'info.tags.ptkl@gmail.com',
     mapUrl: 'https://maps.app.goo.gl/ynMnJUT4sSbtvYYL6',
-    coords: [10.538669,76.212180],
+    coords: [10.538669, 76.212180],
     socials: {
       whatsapp: 'https://wa.me/917594960033',
       facebook: 'https://www.facebook.com/tagsbikez',
@@ -57,7 +57,7 @@ const locations = [
     service: 'Coming soon',
     email: 'info.tags.vdy@gmail.com',
     mapUrl: '#',
-    coords: [76.4823,10.5928],
+    coords: [76.4823, 10.5928],
     socials: {
       whatsapp: 'https://wa.me/917025282011',
       facebook: 'https://www.facebook.com/tagsbikez',
@@ -71,7 +71,7 @@ const locations = [
     service: 'Coming soon',
     email: 'info.tags.ptkl@gmail.com',
     mapUrl: '#',
-    coords: [76.3087,10.3711],
+    coords: [76.3087, 10.3711],
     socials: {
       whatsapp: 'https://wa.me/917594960033',
       facebook: 'https://www.facebook.com/tagsbikez',
@@ -618,7 +618,8 @@ const ContactSection = () => {
         /* ── MAP ── */
         .map-cell {
           width: 100%;
-          height: 600px;
+          height: 100%;
+          min-height: 600px;
           border-bottom: 1px solid #e0e0e0;
           position: relative;
         }
@@ -673,7 +674,7 @@ const ContactSection = () => {
           .rsa-left, .rsa-right { width: 100%; border-right: none; }
           .rsa-left { border-bottom: none; }
           .interaction-grid { grid-template-columns: 1fr; }
-          .map-cell { border-right: 1px solid #e0e0e0; height: 500px; }
+          .map-cell { border-right: 1px solid #e0e0e0; height: 500px; min-height: 500px; }
         }
 
         @media (max-width: 768px) {
@@ -683,7 +684,7 @@ const ContactSection = () => {
           .showroom-grid { grid-template-columns: 1fr; }
           .rsa-services-list { grid-template-columns: 1fr; gap: 24px; }
           .rsa-left, .rsa-right { padding: 40px 24px; }
-          .map-cell { height: 400px; }
+          .map-cell { height: 400px; min-height: 400px; }
           .map-title-overlay { top: 20px; left: 20px; padding: 16px; }
           .input-row { grid-template-columns: 1fr; gap: 0; }
         }
@@ -774,7 +775,7 @@ const ContactSection = () => {
               {rsaServices.map((s, i) => (
                 <div key={i} className="rsa-service-item">
                   <div className="rsa-service-icon">
-                    <span style={{color: '#e63020', fontSize: '14px', fontWeight: 'bold'}}>0{i + 1}</span>
+                    <span style={{ color: '#e63020', fontSize: '14px', fontWeight: 'bold' }}>0{i + 1}</span>
                   </div>
                   <div className="rsa-service-text">
                     <h4>{s.title}</h4>
@@ -850,12 +851,12 @@ const ContactSection = () => {
               styles={{
                 light: {
                   version: 8,
-                  sources: { osm: { type: "raster", tiles: ["https://tile.openstreetmap.org/{z}/{x}/{y}.png"], tileSize: 256,  maxzoom: 19 } },
+                  sources: { osm: { type: "raster", tiles: ["https://tile.openstreetmap.org/{z}/{x}/{y}.png"], tileSize: 256, maxzoom: 19 } },
                   layers: [{ id: "osm-tiles", type: "raster", source: "osm", minzoom: 0, maxzoom: 19 }],
                 },
                 dark: {
                   version: 8,
-                  sources: { osm: { type: "raster", tiles: ["https://tile.openstreetmap.org/{z}/{x}/{y}.png"], tileSize: 256,  maxzoom: 19 } },
+                  sources: { osm: { type: "raster", tiles: ["https://tile.openstreetmap.org/{z}/{x}/{y}.png"], tileSize: 256, maxzoom: 19 } },
                   layers: [{ id: "osm-tiles", type: "raster", source: "osm", minzoom: 0, maxzoom: 19 }],
                 },
               }}
