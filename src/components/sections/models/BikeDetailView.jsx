@@ -419,6 +419,11 @@ const BikeDetailView = ({ bike }) => {
           .bdv-colors-label {
             margin-bottom: 8px;
           }
+          .bdv-colors-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 32px);
+            gap: 12px;
+          }
           .bdv-stat-item {
             padding: 16px 8px;
           }

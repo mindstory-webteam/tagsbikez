@@ -22,6 +22,7 @@ const FloatingActionButton = () => {
           flex-direction: column;
           align-items: flex-end;
           gap: 15px;
+          pointer-events: none;
         }
 
         .fab-menu {
@@ -105,6 +106,7 @@ const FloatingActionButton = () => {
           justify-content: center;
           transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
           font-size: 20px;
+          pointer-events: auto;
         }
 
         .toggle-icon {
