@@ -12,7 +12,7 @@ const slides = [
   {
     id: 0,
     tag: "Adventure Series",
-    heading: ["Best Adventure", "Tourer"],
+    heading: ["Best Adventure", " Tourer"],
     highlight: "Bikes",
     description:
       "A born-again design built for going through the hills of the countryside. Discovering new roads with powerful performance and premium components for every terrain.",
@@ -33,7 +33,7 @@ const slides = [
   {
     id: 1,
     tag: "Classic Heritage",
-    heading: ["Pure Classic", "Roadster"],
+    heading: ["Pure Classic", " Roadster"],
     highlight: "Spirit",
     description:
       "Timeless styling meets modern engineering. Every curve tells a story of heritage refined for the open road, built for riders who cherish the journey as much as the destination.",
@@ -54,7 +54,7 @@ const slides = [
   {
     id: 2,
     tag: "Street Fighter",
-    heading: ["Urban Street", "Dominator"],
+    heading: ["Urban Street", " Dominator"],
     highlight: "Beast",
     description:
       "Raw power wrapped in aggressive styling. Built for city streets and open highways alike, this machine commands attention and delivers thrills with every twist of the throttle.",
@@ -75,7 +75,7 @@ const slides = [
   {
     id: 3,
     tag: "Off-Road Legend",
-    heading: ["Himalayan", "Explorer"],
+    heading: ["Himalayan", " Explorer"],
     highlight: "Trail",
     description:
       "Engineered for the Himalayas, perfected for every road beyond. Long-travel suspension, rugged build quality, and a heart that never quits wherever you point it, it delivers.",
@@ -670,7 +670,7 @@ export default function PopularBikes() {
             <div className="content-col-inner" key={current}>
               {/* <span className="slide-tag">{slide.tag}</span> */}
               <h2 className="heading">
-                {slide.heading[0]}<br />
+                {slide.heading[0]}
                 {slide.heading[1]} <span>{slide.highlight}</span>
               </h2>
               <p className="description">{slide.description}</p>
@@ -757,9 +757,9 @@ export default function PopularBikes() {
         <div className="m-content">
           <div className="m-content-inner" key={mobileCurrent}>
 
-            <span className="m-tag">{mobileSlide.tag}</span>
+            {/* <span className="m-tag">{mobileSlide.tag}</span> */}
             <h2 className="m-heading">
-              {mobileSlide.heading[0]}<br />
+              {mobileSlide.heading[0]}
               {mobileSlide.heading[1]} <span>{mobileSlide.highlight}</span>
             </h2>
             <p className="m-description">{mobileSlide.description}</p>
