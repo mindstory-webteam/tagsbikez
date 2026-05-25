@@ -386,7 +386,7 @@ export default function BikeSectionSwiper() {
                     </div>
                   ) : bike.comingSoon ? (
                     <div className="fv-card-price-wrap">
-                      <p className="fv-card-price-value" style={{ fontSize: "14px", marginTop: "12px", color: "#e63020" }}>Coming Soon</p>
+                      <p className="fv-card-price-value" style={{ fontSize: "12px", marginTop: "12px", color: "#e63020" }}>Coming Soon</p>
                     </div>
                   ) : null}
                 </div>

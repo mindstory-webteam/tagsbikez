@@ -10,7 +10,7 @@ export default function PrivacyPolicyPage() {
     <div className="policy-wrapper">
       <style>{`
         .policy-wrapper {
-          background: #0a0a0a;
+          background: #ffffff;
           min-height: 100vh;
         }
         .policy-container {
@@ -21,7 +21,7 @@ export default function PrivacyPolicyPage() {
           font-family: var(--font-inter), sans-serif;
           line-height: 1.8;
           font-size: 15px;
-          color: #cccccc;
+          color: #111111;
         }
         .policy-section {
           margin-bottom: 48px;
@@ -30,13 +30,13 @@ export default function PrivacyPolicyPage() {
           font-family: var(--font-oswald), sans-serif;
           font-size: 24px;
           text-transform: uppercase;
-          color: #ffffff;
+          color: #000000;
           margin: 0 0 20px 0;
           letter-spacing: 0.05em;
         }
         .policy-text {
           margin: 0 0 16px 0;
-          color: #b0b0b0;
+          color: #333333;
         }
         .policy-list {
           margin: 16px 0 24px 0;
@@ -47,7 +47,7 @@ export default function PrivacyPolicyPage() {
           position: relative;
           padding-left: 20px;
           margin-bottom: 12px;
-          color: #d0d0d0;
+          color: #333333;
         }
         .policy-list li::before {
           content: "•";
@@ -62,11 +62,11 @@ export default function PrivacyPolicyPage() {
         .policy-date {
           display: inline-block;
           font-size: 12px;
-          color: #666666;
+          color: #555555;
           text-transform: uppercase;
           letter-spacing: 0.1em;
           margin-bottom: 40px;
-          border-bottom: 1px solid #222222;
+          border-bottom: 1px solid #e0e0e0;
           padding-bottom: 8px;
           width: 100%;
         }
@@ -77,7 +77,7 @@ export default function PrivacyPolicyPage() {
           transition: color 0.2s ease-in-out;
         }
         .policy-link:hover {
-          color: #ffffff;
+          color: #d0141d;
         }
 
         @media (max-width: 1024px) {

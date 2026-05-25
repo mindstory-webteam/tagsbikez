@@ -211,8 +211,7 @@ export default function Footer() {
         .ft-loc-val:hover { color: #fff; }
 
         .ft-loc-val.coming {
-          color: #555;
-          font-style: italic;
+          color: #e63020;
         }
 
         .ft-loc-divider {
