@@ -506,30 +506,34 @@ const BikeDetailView = ({ bike }) => {
             )}
             <p className="bdv-desc">{bike.description}</p>
 
-            <div className="bdv-colors-wrap">
-              <span className="bdv-colors-label">Color: {selectedColor.name}</span>
-              <div className="bdv-colors-grid">
-                {bike.colors && bike.colors.map((c, i) => (
-                  <button
-                    key={i}
-                    className={`bdv-color-btn ${selectedColor.name === c.name ? 'active' : ''}`}
-                    style={{ backgroundColor: c.hex }}
-                    onClick={() => setSelectedColor(c)}
-                    aria-label={c.name}
-                  />
-                ))}
+            {bike.colors && bike.colors.length > 0 && (
+              <div className="bdv-colors-wrap">
+                <span className="bdv-colors-label">Color: {selectedColor.name}</span>
+                <div className="bdv-colors-grid">
+                  {bike.colors.map((c, i) => (
+                    <button
+                      key={i}
+                      className={`bdv-color-btn ${selectedColor.name === c.name ? 'active' : ''}`}
+                      style={{ backgroundColor: c.hex }}
+                      onClick={() => setSelectedColor(c)}
+                      aria-label={c.name}
+                    />
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
           </div>
 
-          <div className="bdv-stats-grid">
-            {bike.stats.map((s, i) => (
-              <div className="bdv-stat-item" key={i}>
-                <span className="bdv-stat-val">{s.val}</span>
-                <span className="bdv-stat-label">{s.label}</span>
-              </div>
-            ))}
-          </div>
+          {bike.stats && bike.stats.length > 0 && (
+            <div className="bdv-stats-grid">
+              {bike.stats.map((s, i) => (
+                <div className="bdv-stat-item" key={i}>
+                  <span className="bdv-stat-val">{s.val}</span>
+                  <span className="bdv-stat-label">{s.label}</span>
+                </div>
+              ))}
+            </div>
+          )}
 
           <div className="bdv-footer">
             <a

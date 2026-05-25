@@ -265,8 +265,8 @@ export default function PopularBikes() {
         .pb-bottom-row {
           display: flex;
           align-items: stretch;
-          border: 1px solid #e0e0e0;
           margin-top: 30px;
+          gap: 8px;
         }
 
         .pb-bottom-cell {
@@ -274,8 +274,6 @@ export default function PopularBikes() {
           align-items: center;
           padding: 0;
         }
-
-        .pb-bottom-cell:not(:last-child) { border-right: 1px solid #e0e0e0; }
 
         .cta-btn {
           display: inline-flex;
@@ -322,6 +320,7 @@ export default function PopularBikes() {
           justify-content: flex-end;
           padding: 0 20px;
           gap: 8px;
+          border: 1px solid #e0e0e0;
         }
 
         .slide-dot {
@@ -350,8 +349,50 @@ export default function PopularBikes() {
           to { opacity: 1; transform: translateY(0); }
         }
 
+        /* ── Large desktops (≤ 1440px) ── */
+        @media (max-width: 1440px) {
+          .adventure-section {
+            max-width: 1100px;
+            padding: 0 20px;
+          }
+          .hero-img-wrap { height: 400px; }
+          .heading { font-size: 38px; }
+        }
 
-    
+        /* ── Medium desktops (≤ 1280px) ── */
+        @media (max-width: 1280px) {
+          .adventure-section {
+            max-width: 980px;
+            padding: 0 30px;
+          }
+          .bike-swiper-wrap { margin-left: -40px; }
+          .bike-swiper-clip { max-width: 520px; }
+          .hero-img-wrap { height: 360px; }
+          .heading { font-size: 34px; }
+          .description { font-size: 13px; }
+          .content-col { padding-left: 28px; }
+          .spec-value { font-size: 18px; }
+          .thumb-item { height: 76px; }
+        }
+
+        /* ── Small desktops / large tablets (≤ 1100px) ── */
+        @media (max-width: 1100px) {
+          .adventure-section {
+            max-width: 100%;
+            padding: 0 24px;
+          }
+          .bike-swiper-wrap { margin-left: -20px; }
+          .bike-swiper-clip { max-width: 460px; }
+          .hero-img-wrap { height: 320px; }
+          .heading { font-size: 30px; }
+          .description { font-size: 12.5px; max-width: 420px; }
+          .content-col { padding-left: 20px; }
+          .spec-value { font-size: 16px; }
+          .spec-label { font-size: 9.5px; }
+          .spec-item { padding: 10px 10px; }
+          .thumb-item { height: 66px; }
+          .cta-btn, .cta-ghost { font-size: 11px; padding: 12px 18px; }
+        }
 
         @media (max-width: 1024px) {
 
@@ -505,20 +546,17 @@ export default function PopularBikes() {
             z-index: 1;
           }
 
-          /* Bottom row */
           .m-bottom {
             display: flex;
             align-items: stretch;
-            border: 1px solid #e8e8e8;
             margin-top: 12px;
+            gap: 6px;
           }
 
           .m-bottom-cell {
             display: flex;
             align-items: center;
           }
-
-          .m-bottom-cell:not(:last-child) { border-right: 1px solid #e8e8e8; }
 
           .m-cta-btn {
             background: #f51b24;
@@ -555,6 +593,7 @@ export default function PopularBikes() {
             justify-content: flex-end;
             padding: 0 12px;
             gap: 6px;
+            border: 1px solid #e8e8e8;
           }
 
           .m-dot {
@@ -582,6 +621,11 @@ export default function PopularBikes() {
 
           @keyframes mFadeIn {
             to { opacity: 1; transform: translateY(0); }
+          }
+
+          /* ── Hide dots on small phones ── */
+          @media (max-width: 480px) {
+            .m-dots-cell { display: none; }
           }
         }
       `}</style>
