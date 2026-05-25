@@ -228,7 +228,7 @@ const ContactSection = () => {
     
         .contact-header p {
           font-size: 16px;
-          font-weight: bold;
+          color: #666;
           margin: 0;
           line-height: 1.6;
         }

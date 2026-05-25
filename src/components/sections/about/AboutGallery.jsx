@@ -113,8 +113,8 @@ export default function AboutGallery() {
             font-size: 14px;
             line-height: 1.7;
             margin: 0;
-            font-weight:bold;
-        }
+            color: #666;
+            }
 
         .gallery-desc p + p {
           margin-top: 6px;

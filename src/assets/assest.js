@@ -15,9 +15,9 @@ import bullethandlebar from './bullethandlebar.webp'
 import bullet350engine from './bullet350engine.jpg'
 import bulletback from './bulletback.jpg'
 import bulletfront from './bulletfront.webp'
-import accessories from './accessories.png'
-import parts from './parts.png'
-import gear from './gear.png'
+import lifestyle from './life-style.png'
+import parts from './royal-enfield-parts.png'
+import gear from './riding-gear.png'
 
 
 import Himalayan from './homeaboutsection/Himalayan.jpg'
@@ -105,7 +105,7 @@ export const img = {
   bannerSmall3,
   banner4,
   banner5,
-  accessories,
+  lifestyle,
   parts,
   gear,
   about_bike

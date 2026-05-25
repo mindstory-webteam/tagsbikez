@@ -9,24 +9,24 @@ import AnimatedBtn from "@/components/AnimatedBtn";
 gsap.registerPlugin(ScrollTrigger);
 
 const categories = [
-  {
-    id: "accessories",
-    title: "Motorcycle Accessories",
-    description: "Enhance your ride with our range of precision-engineered genuine accessories built for performance and style.",
-    image: img.parts,
+    {
+    id: "Lifestyle Apparels",
+    title: "Lifestyle Apparels",
+    description: "Discover stylish lifestyle apparel inspired by the spirit of motorcycling, combining everyday comfort with premium quality and timeless design. Perfect for riders who want to carry their passion beyond the road.",
+    image: img.lifestyle,
     link: "https://wa.me/917594960023?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Royal%20Enfield."
   },
   {
-    id: "parts",
-    title: "Lifestyle Apparels",
-    description: "Keep your machine running like new with authentic spare parts designed specifically for your motorcycle.",
-    image: img.accessories,
+    id: "accessories",
+    title: "Motorcycle Accessories",
+    description: "Upgrade your motorcycle with premium genuine accessories designed for durability, enhanced performance, and timeless style. From touring essentials to everyday upgrades, every accessory is crafted to elevate your riding experience.",
+    image: img.parts,
     link: "https://wa.me/917594960023?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Royal%20Enfield."
   },
   {
     id: "gear",
     title: "Riding Gear",
-    description: "Stay safe and look sharp with our collection of premium riding jackets, helmets, and protective equipment.",
+    description: "Ride confidently with premium riding gear engineered for safety, comfort, and long-distance performance. From protective jackets to helmets and gloves, every piece is built for modern adventure riders.",
     image: img.gear,
     link: "https://wa.me/917594960023?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Royal%20Enfield."
   }
