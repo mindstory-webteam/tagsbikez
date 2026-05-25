@@ -311,7 +311,7 @@ export default function EmiCalculator() {
 
   return (
     <section className=" pb-10 lg:pb-20 pt-10">
-      <div className="max-w-[95%] mx-auto px-4">
+      <div className="max-w-[95%] mx-auto px-2">
         <div className="text-center mb-8">
           <p className="text-[28px] md:text-[42px] font-normal mb-2 font-heading tracking-tight uppercase">
             Calculate Your EMI

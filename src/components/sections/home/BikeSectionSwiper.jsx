@@ -312,7 +312,7 @@ export default function BikeSectionSwiper() {
           .fv-top-row { width: 100%; }
           .fv-tabs { width: 100%; }
           .fv-tab { 
-            padding: 7px 12px; 
+            padding: 10px 18px; 
             font-size: 11px; 
           }
         }
