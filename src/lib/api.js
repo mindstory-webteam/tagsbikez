@@ -37,6 +37,17 @@ export async function fetchBanners() {
   }
 }
 
+export async function fetchCareers() {
+  try {
+    const response = await apiClient.get("/api/careers/");
+    return extractResults(response);
+  } catch (err) {
+    console.warn("⚠ fetchCareers failed:", err.message);
+    return null;
+  }
+}
+
+
 export async function fetchEvents(cancelToken) {
   try {
     const config = cancelToken ? { cancelToken } : {};

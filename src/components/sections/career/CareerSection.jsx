@@ -1,6 +1,7 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import AnimatedBtn from "@/components/AnimatedBtn";
+import { fetchCareers } from "@/lib/api";
 
 const WA_NUMBER = "+917594960006"; 
 
@@ -31,6 +32,45 @@ const serviceRoles = [
   { title: "Service Manager" },
 ];
 
+const fallbackDepartments = [
+  {
+    id: "sales-fallback",
+    name: "Sales Department",
+    roles: salesRoles,
+  },
+  {
+    id: "service-fallback",
+    name: "Service Department",
+    roles: serviceRoles,
+  },
+];
+
+function getDeptIcon(name) {
+  const normalized = (name || "").toLowerCase();
+  if (normalized.includes("sales")) {
+    return (
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <path d="M16 10a4 4 0 0 1-8 0"/>
+      </svg>
+    );
+  }
+  if (normalized.includes("service")) {
+    return (
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+      </svg>
+    );
+  }
+  return (
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+      <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+    </svg>
+  );
+}
+
 
 const locations = ["Kuriacira", "Irinjalakuda", "Patturaikkal", "Kodakara", "Vadakkenchery", "Chalakudy"];
 
@@ -39,7 +79,8 @@ function buildWaLink(role) {
   return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
 }
 
-function RoleCard({ title }) {
+function RoleCard({ title, whatsapp_url }) {
+  const href = whatsapp_url || buildWaLink(title);
   return (
     <div className="cr-card">
       <div className="cr-card-left">
@@ -49,7 +90,7 @@ function RoleCard({ title }) {
         <AnimatedBtn
           bgColor="#111"
           hoverColor="#e8282b"
-          href={buildWaLink(title)}
+          href={href}
           target="_blank"
           rel="noopener noreferrer"
           style={{ minWidth: "unset", width: "100%", height: "38px", fontSize: "11px", borderRadius: "3px" }}
@@ -77,6 +118,32 @@ function DeptSection({ icon, label, roles }) {
 }
 
 export default function CareersSection() {
+  const [departments, setDepartments] = useState(fallbackDepartments);
+
+  useEffect(() => {
+    async function loadCareers() {
+      try {
+        const data = await fetchCareers();
+        if (data && data.length > 0) {
+          const activeDepts = data
+            .filter((dept) => dept.is_active)
+            .map((dept) => ({
+              ...dept,
+              roles: (dept.roles || []).filter((role) => role.is_active),
+            }))
+            .filter((dept) => dept.roles.length > 0);
+
+          if (activeDepts.length > 0) {
+            setDepartments(activeDepts);
+          }
+        }
+      } catch (err) {
+        console.warn("CareersSection loadCareers failed:", err);
+      }
+    }
+    loadCareers();
+  }, []);
+
   return (
     <>
       <style>{`
@@ -247,27 +314,14 @@ export default function CareersSection() {
         </div>
 
         <div className="cr-depts-container">
-          <DeptSection
-            icon={
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
-                <line x1="3" y1="6" x2="21" y2="6"/>
-                <path d="M16 10a4 4 0 0 1-8 0"/>
-              </svg>
-            }
-            label="Sales Department"
-            roles={salesRoles}
-          />
-
-          <DeptSection
-            icon={
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
-              </svg>
-            }
-            label="Service Department"
-            roles={serviceRoles}
-          />
+          {departments.map((dept, index) => (
+            <DeptSection
+              key={dept.id || index}
+              icon={getDeptIcon(dept.name)}
+              label={dept.name}
+              roles={dept.roles}
+            />
+          ))}
         </div>
 
       </section>
