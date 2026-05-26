@@ -118,8 +118,8 @@ export default function HeroSection() {
           effect="fade"
           speed={1000}
           pagination={false}
-          autoplay={{ delay: 4000, disableOnInteraction: false }}
-          loop={true}
+          autoplay={bikeData.length > 1 ? { delay: 4000, disableOnInteraction: false } : false}
+          loop={bikeData.length > 1}
           style={{ width: "100%", height: "100%" }}
         >
           {bikeData.map((bike, index) => (
@@ -130,7 +130,7 @@ export default function HeroSection() {
               <div className="desktop-banner">
                 <Image
                   src={bike.img}
-                  alt={bike.title}
+                  alt={bike.title || "Banner Image"}
                   fill
                   sizes="100vw"
                   style={{ objectFit: "cover", objectPosition: "center" }}
@@ -140,7 +140,7 @@ export default function HeroSection() {
               <div className="mobile-banner">
                 <Image
                   src={bike.imgSmall}
-                  alt={bike.title}
+                  alt={bike.title || "Banner Mobile Image"}
                   fill
                   sizes="100vw"
                   style={{ objectFit: "cover", objectPosition: "center" }}
@@ -154,22 +154,26 @@ export default function HeroSection() {
         </Swiper>
 
         {/* Prev */}
-        <button
-          className="hero-nav-btn hero-nav-prev"
-          onClick={() => swiperRef.current?.slidePrev()}
-          aria-label="Previous slide"
-        >
-          <ChevronLeft size={20} strokeWidth={2} />
-        </button>
+        {bikeData.length > 1 && (
+          <button
+            className="hero-nav-btn hero-nav-prev"
+            onClick={() => swiperRef.current?.slidePrev()}
+            aria-label="Previous slide"
+          >
+            <ChevronLeft size={20} strokeWidth={2} />
+          </button>
+        )}
 
         {/* Next */}
-        <button
-          className="hero-nav-btn hero-nav-next"
-          onClick={() => swiperRef.current?.slideNext()}
-          aria-label="Next slide"
-        >
-          <ChevronRight size={20} strokeWidth={2} />
-        </button>
+        {bikeData.length > 1 && (
+          <button
+            className="hero-nav-btn hero-nav-next"
+            onClick={() => swiperRef.current?.slideNext()}
+            aria-label="Next slide"
+          >
+            <ChevronRight size={20} strokeWidth={2} />
+          </button>
+        )}
       </div>
     </>
   );

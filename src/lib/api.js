@@ -27,7 +27,7 @@ export async function fetchBanners() {
       return results.map((item) => ({
         ...item,
         img: item.image_url || item.img,
-        imgSmall: item.image_url || item.imgSmall || item.img,
+        imgSmall: item.mobile_image_url || item.image_url || item.imgSmall || item.img,
       }));
     }
     return results;
