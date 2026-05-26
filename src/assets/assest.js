@@ -30,12 +30,21 @@ import bullet350 from './models/bullet-350.webp'
 import classic350 from './models/classic-350.webp'
 import continentalgt650 from './models/continental-gt-650.webp'
 import himalayan450 from './models/himalayan-450.webp'
-import hunter350 from './models/hunter-350.webp'
 import interceptor from './models/interceptor.webp'
 import scram440 from './models/scram-440.webp'
 import shotgun650 from './models/shotgun-650.webp'
 import about_bike from './about_bike.png'
 
+import hunter350dappergrey from './models/hunter/hunter-350-dapper-grey.webp'
+import hunter350factoryBlack from './models/hunter/hunter-350-factory-Black.webp'
+import hunter350graphitegrey from './models/hunter/hunter-350-graphite-grey.png'
+import hunter350londonred from './models/hunter/hunter-350-london-red.webp'
+import hunter350moonshotwhite from './models/hunter/hunter-350-moonshot-white.webp'
+import hunter350mumbaiyellow from './models/hunter/hunter-350-mumbai-yellow.webp'
+import hunter350rebelblue from './models/hunter/hunter-350-rebel-blue.webp'
+import hunter350riowhite from './models/hunter/hunter-350-rio-white.webp'
+import hunter350tarmacblack from './models/hunter/hunter-350-tarmac-black.webp'
+import hunter350tokyoblack from './models/hunter/hunter-350-tokyo-black.webp'
 
 import event1 from './event/event1.jpeg'
 import event2 from './event/event2.webp'
@@ -62,6 +71,16 @@ import bikereveal from './bike-reveal.png'
 
 
 export const img = {
+  hunter350tokyoblack,
+  hunter350tarmacblack,
+  hunter350riowhite,
+  hunter350rebelblue,
+  hunter350mumbaiyellow,
+  hunter350moonshotwhite,
+  hunter350londonred,
+  hunter350graphitegrey,
+  hunter350factoryBlack,
+  hunter350dappergrey,
   bikereveal,
   member1,
   member2,
@@ -81,7 +100,6 @@ export const img = {
   classic350,
   continentalgt650,
   himalayan450,
-  hunter350,
   interceptor,
   scram440,
   shotgun650,
