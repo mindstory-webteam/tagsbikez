@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { IoIosArrowForward } from "react-icons/io";
 import { bikeData } from '@/lib/data/bikes';
-import { fetchCategories } from "@/lib/api";
+import { fetchCategories, fetchBikes } from "@/lib/api";
 
 function Card({ title, img, slug, category, price, comingSoon }) {
   const CardWrapper = comingSoon ? "div" : Link;
@@ -44,6 +44,7 @@ function Card({ title, img, slug, category, price, comingSoon }) {
 export default function ModelsSection() {
   const [categories, setCategories] = useState(["All", "Classic", "Roadster", "Cruiser", "Cafe Racer", "Adventure"]);
   const [active, setActive] = useState("All");
+  const [bikes, setBikes] = useState(bikeData);
 
   useEffect(() => {
     async function loadCategories() {
@@ -58,12 +59,36 @@ export default function ModelsSection() {
         setCategories(["All", ...fetched]);
       }
     }
+    async function loadBikes() {
+      const data = await fetchBikes();
+      if (data && Array.isArray(data) && data.length > 0) {
+        const mapped = data.map((b) => ({
+          ...b,
+          id: b.id,
+          name: b.name,
+          slug: b.slug,
+          category: typeof b.category === "object" ? b.category?.name : b.category,
+          image: b.featured_image_url || b.image,
+          comingSoon: b.coming_soon ?? b.comingSoon ?? false,
+          colors: Array.isArray(b.colors)
+            ? b.colors.map((c) => ({
+                name: c.name,
+                hex: c.hex,
+                image: c.image_url,
+                price: c.price ? (String(c.price).startsWith("₹") ? c.price : `₹${c.price}`) : null,
+              }))
+            : [],
+        }));
+        setBikes(mapped);
+      }
+    }
     loadCategories();
+    loadBikes();
   }, []);
 
   const filtered = active === "All"
-    ? bikeData
-    : bikeData.filter((b) => b.category?.toLowerCase() === active.toLowerCase());
+    ? bikes
+    : bikes.filter((b) => b.category?.toLowerCase() === active.toLowerCase());
 
   return (
     <>

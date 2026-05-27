@@ -3,13 +3,14 @@ import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { img } from "@/assets/assest";
 import { bikeData } from "@/lib/data/bikes";
-import { fetchCategories } from "@/lib/api";
+import { fetchCategories, fetchBikes } from "@/lib/api";
 
 const CARD_WIDTH = 300;
 
 export default function BikeSectionSwiper() {
   const [categories, setCategories] = useState(["All", "Classic", "Roadster", "Cruiser", "Cafe Racer", "Adventure"]);
   const [activeTab, setActiveTab] = useState("All");
+  const [bikes, setBikes] = useState(bikeData);
   const trackRef = useRef(null);
   const isDragging = useRef(false);
   const startX = useRef(0);
@@ -29,10 +30,34 @@ export default function BikeSectionSwiper() {
         setCategories(["All", ...fetched]);
       }
     }
+    async function loadBikes() {
+      const data = await fetchBikes();
+      if (data && Array.isArray(data) && data.length > 0) {
+        const mapped = data.map((b) => ({
+          ...b,
+          id: b.id,
+          name: b.name,
+          slug: b.slug,
+          category: typeof b.category === "object" ? b.category?.name : b.category,
+          image: b.featured_image_url || b.image,
+          comingSoon: b.coming_soon ?? b.comingSoon ?? false,
+          colors: Array.isArray(b.colors)
+            ? b.colors.map((c) => ({
+                name: c.name,
+                hex: c.hex,
+                image: c.image_url,
+                price: c.price ? (String(c.price).startsWith("₹") ? c.price : `₹${c.price}`) : null,
+              }))
+            : [],
+        }));
+        setBikes(mapped);
+      }
+    }
     loadCategories();
+    loadBikes();
   }, []);
 
-  const items = activeTab === "All" ? bikeData : bikeData.filter(b => b.category?.toLowerCase() === activeTab.toLowerCase());
+  const items = activeTab === "All" ? bikes : bikes.filter(b => b.category?.toLowerCase() === activeTab.toLowerCase());
   const loopedItems = [...items, ...items, ...items, ...items, ...items, ...items];
   const singleSetWidth = items.length * CARD_WIDTH;
 
@@ -64,7 +89,7 @@ export default function BikeSectionSwiper() {
     if (el) el.scrollLeft = singleSetWidth * 2;
     startAuto();
     return () => stopAuto();
-  }, [activeTab]);
+  }, [activeTab, singleSetWidth]);
 
   const onMouseDown = (e) => {
     isDragging.current = true;
