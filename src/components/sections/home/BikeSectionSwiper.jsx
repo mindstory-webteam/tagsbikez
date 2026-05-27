@@ -3,12 +3,12 @@ import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { img } from "@/assets/assest";
 import { bikeData } from "@/lib/data/bikes";
-
-const categories = ["All", "Classic", "Roadster", "Cruiser", "Cafe Racer", "Adventure"];
+import { fetchCategories } from "@/lib/api";
 
 const CARD_WIDTH = 300;
 
 export default function BikeSectionSwiper() {
+  const [categories, setCategories] = useState(["All", "Classic", "Roadster", "Cruiser", "Cafe Racer", "Adventure"]);
   const [activeTab, setActiveTab] = useState("All");
   const trackRef = useRef(null);
   const isDragging = useRef(false);
@@ -16,7 +16,23 @@ export default function BikeSectionSwiper() {
   const savedScroll = useRef(0);
   const animFrameRef = useRef(null);
 
-  const items = activeTab === "All" ? bikeData : bikeData.filter(b => b.category === activeTab);
+  useEffect(() => {
+    async function loadCategories() {
+      const data = await fetchCategories();
+      if (data && Array.isArray(data)) {
+        const fetched = data.map((c) => {
+          return c.name
+            .split(" ")
+            .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+            .join(" ");
+        });
+        setCategories(["All", ...fetched]);
+      }
+    }
+    loadCategories();
+  }, []);
+
+  const items = activeTab === "All" ? bikeData : bikeData.filter(b => b.category?.toLowerCase() === activeTab.toLowerCase());
   const loopedItems = [...items, ...items, ...items, ...items, ...items, ...items];
   const singleSetWidth = items.length * CARD_WIDTH;
 

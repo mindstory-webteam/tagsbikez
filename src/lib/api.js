@@ -32,7 +32,7 @@ export async function fetchBanners() {
     }
     return results;
   } catch (err) {
-    console.warn("⚠ fetchBanners failed:", err.message);
+    console.warn("fetchBanners failed:", err.message);
     return null;
   }
 }
@@ -42,7 +42,7 @@ export async function fetchCareers() {
     const response = await apiClient.get("/api/careers/");
     return extractResults(response);
   } catch (err) {
-    console.warn("⚠ fetchCareers failed:", err.message);
+    console.warn("fetchCareers failed:", err.message);
     return null;
   }
 }
@@ -55,7 +55,7 @@ export async function fetchEvents(cancelToken) {
     return extractResults(response);
   } catch (err) {
     if (axios.isCancel(err)) throw err;
-    console.warn("⚠ fetchEvents failed:", err.message);
+    console.warn("fetchEvents failed:", err.message);
     return null;
   }
 }
@@ -82,7 +82,7 @@ export async function fetchCategories() {
     const response = await apiClient.get("/api/categories/");
     return extractResults(response);
   } catch (err) {
-    console.warn("⚠ fetchCategories failed:", err.message);
+    console.warn("fetchCategories failed:", err.message);
     return null;
   }
 }
@@ -92,7 +92,7 @@ export async function fetchBikes() {
     const response = await apiClient.get("/api/motorcycles/");
     return extractResults(response);
   } catch (err) {
-    console.warn("⚠ fetchBikes failed:", err.message);
+    console.warn("fetchBikes failed:", err.message);
     return null;
   }
 }
@@ -102,7 +102,7 @@ export async function fetchBikeBySlug(slug) {
     const response = await apiClient.get(`/api/motorcycles/${slug}/`);
     return response.data;
   } catch (err) {
-    console.warn(`⚠ fetchBikeBySlug(${slug}) failed:`, err.message);
+    console.warn(`fetchBikeBySlug(${slug}) failed:`, err.message);
     return null;
   }
 }
@@ -115,7 +115,7 @@ export async function fetchColors() {
     const response = await apiClient.get("/api/colors/");
     return extractResults(response);
   } catch (err) {
-    console.warn("⚠ fetchColors failed:", err.message);
+    console.warn("fetchColors failed:", err.message);
     return null;
   }
 }
@@ -127,7 +127,7 @@ export async function fetchTopAbout() {
     if (data && Array.isArray(data.results)) return data.results;
     return data;
   } catch (err) {
-    console.warn("⚠ fetchTopAbout failed:", err.message);
+    console.warn("fetchTopAbout failed:", err.message);
     return null;
   }
 }
@@ -137,7 +137,7 @@ export async function fetchFeatures() {
     const response = await apiClient.get("/api/features/");
     return extractResults(response);
   } catch (err) {
-    console.warn("⚠ fetchFeatures failed:", err.message);
+    console.warn("fetchFeatures failed:", err.message);
     return null;
   }
 }

@@ -1,11 +1,10 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { IoIosArrowForward } from "react-icons/io";
 import { bikeData } from '@/lib/data/bikes';
-
-const categories = ["All", "Classic", "Roadster", "Cruiser", "Cafe Racer", "Adventure"];
+import { fetchCategories } from "@/lib/api";
 
 function Card({ title, img, slug, category, price, comingSoon }) {
   const CardWrapper = comingSoon ? "div" : Link;
@@ -43,11 +42,28 @@ function Card({ title, img, slug, category, price, comingSoon }) {
 }
 
 export default function ModelsSection() {
+  const [categories, setCategories] = useState(["All", "Classic", "Roadster", "Cruiser", "Cafe Racer", "Adventure"]);
   const [active, setActive] = useState("All");
+
+  useEffect(() => {
+    async function loadCategories() {
+      const data = await fetchCategories();
+      if (data && Array.isArray(data)) {
+        const fetched = data.map((c) => {
+          return c.name
+            .split(" ")
+            .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+            .join(" ");
+        });
+        setCategories(["All", ...fetched]);
+      }
+    }
+    loadCategories();
+  }, []);
 
   const filtered = active === "All"
     ? bikeData
-    : bikeData.filter((b) => b.category === active);
+    : bikeData.filter((b) => b.category?.toLowerCase() === active.toLowerCase());
 
   return (
     <>
