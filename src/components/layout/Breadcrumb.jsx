@@ -1,13 +1,32 @@
 "use client";
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { img } from '@/assets/assest';
 import { ChevronRight, } from 'lucide-react';
 import { bikeData } from '@/lib/data/bikes';
+import { fetchBikes } from '@/lib/api';
 
 const Breadcrumb = () => {
   const pathname = usePathname();
+  const [bikes, setBikes] = useState(bikeData);
+
+  useEffect(() => {
+    async function loadBikes() {
+      const data = await fetchBikes();
+      if (data && Array.isArray(data) && data.length > 0) {
+        const mapped = data.map((b) => ({
+          ...b,
+          slug: b.slug,
+          name: b.name,
+          comingSoon: b.coming_soon ?? b.comingSoon ?? false,
+        }));
+        setBikes(mapped);
+      }
+    }
+    loadBikes();
+  }, []);
+
   if (pathname === '/') return null;
 
   const pathSegments = pathname.split('/').filter(s => s);
@@ -263,7 +282,7 @@ const Breadcrumb = () => {
 
         {isModelsPage && (
           <div className="models-capsules">
-            {bikeData.filter(bike => !bike.comingSoon).map(bike => {
+            {bikes.filter(bike => !bike.comingSoon).map(bike => {
               const isActive = pathname === `/models/${bike.slug}`;
               return (
                 <Link
