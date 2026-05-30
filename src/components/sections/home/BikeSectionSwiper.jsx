@@ -3,7 +3,6 @@ import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { img } from "@/assets/assest";
-import { bikeData } from "@/lib/data/bikes";
 import { fetchCategories, fetchBikes } from "@/lib/api";
 
 const CARD_WIDTH = 300;
@@ -11,7 +10,8 @@ const CARD_WIDTH = 300;
 export default function BikeSectionSwiper() {
   const [categories, setCategories] = useState(["All", "Classic", "Roadster", "Cruiser", "Cafe Racer", "Adventure"]);
   const [activeTab, setActiveTab] = useState("All");
-  const [bikes, setBikes] = useState(bikeData);
+  const [bikes, setBikes] = useState([]);
+  const [loading, setLoading] = useState(true);
   const trackRef = useRef(null);
   const isDragging = useRef(false);
   const startX = useRef(0);
@@ -53,7 +53,10 @@ export default function BikeSectionSwiper() {
             : [],
         }));
         setBikes(mapped);
+      } else {
+        setBikes([]);
       }
+      setLoading(false);
     }
     loadCategories();
     loadBikes();
@@ -393,71 +396,79 @@ export default function BikeSectionSwiper() {
 
       {/* Infinite scroll track */}
       <div className="fv-track-outer">
-        <div
-          className="fv-track"
-          ref={trackRef}
-          onMouseDown={onMouseDown}
-          onMouseMove={onMouseMove}
-          onMouseUp={onMouseUp}
-          onMouseLeave={onMouseUp}
-          onTouchStart={onTouchStart}
-          onTouchMove={onTouchMove}
-          onTouchEnd={onTouchEnd}
-        >
-          {loopedItems.map((bike, i) => {
-            const price = bike.colors && bike.colors.length > 0 ? bike.colors[0].price : null;
-            const CardWrapper = bike.comingSoon ? "div" : Link;
-            const hrefProp = bike.comingSoon ? {} : { href: `/models/${bike.slug}` };
+        {loading ? (
+          <p style={{ textAlign: "center", padding: "40px" }}>Loading models</p>
+        ) : items.length > 0 ? (
+          <div
+            className="fv-track"
+            ref={trackRef}
+            onMouseDown={onMouseDown}
+            onMouseMove={onMouseMove}
+            onMouseUp={onMouseUp}
+            onMouseLeave={onMouseUp}
+            onTouchStart={onTouchStart}
+            onTouchMove={onTouchMove}
+            onTouchEnd={onTouchEnd}
+          >
+            {loopedItems.map((bike, i) => {
+              const price = bike.colors && bike.colors.length > 0 ? bike.colors[0].price : null;
+              const CardWrapper = bike.comingSoon ? "div" : Link;
+              const hrefProp = bike.comingSoon ? {} : { href: `/models/${bike.slug}` };
 
-            return (
-              <CardWrapper 
-                className="fv-card" 
-                key={`${bike.id}-${i}`}
-                {...hrefProp}
-                style={bike.comingSoon ? { cursor: "default" } : { textDecoration: "none" }}
-                onClick={(e) => {
-                  if (hasDragged.current) {
-                    e.preventDefault();
-                  }
-                }}
-              >
+              return (
+                <CardWrapper 
+                  className="fv-card" 
+                  key={`${bike.id}-${i}`}
+                  {...hrefProp}
+                  style={bike.comingSoon ? { cursor: "default" } : { textDecoration: "none" }}
+                  onClick={(e) => {
+                    if (hasDragged.current) {
+                      e.preventDefault();
+                    }
+                  }}
+                >
 
-                <div className="fv-card-img-wrap">
-                  <Image
-                    src={bike.image}
-                    alt={bike.name}
-                    className="fv-card-img"
-                    width={260}
-                    height={160}
-                    style={{ objectFit: "contain" }}
-                    draggable={false}
-                  />
-                </div>
-
-                <div className="fv-card-img-border" />
-
-                <div className="fv-card-info-row">
-                  <div className="fv-card-info">
-                    <p className="fv-card-name">{bike.name}</p>
-                    <p className="fv-card-model">{bike.category}</p>
+                  <div className="fv-card-img-wrap">
+                    <Image
+                      src={bike.image}
+                      alt={bike.name}
+                      className="fv-card-img"
+                      width={260}
+                      height={160}
+                      style={{ objectFit: "contain" }}
+                      draggable={false}
+                    />
                   </div>
 
-                  {price ? (
-                    <div className="fv-card-price-wrap">
-                      <p className="fv-card-price-label">Starting from</p>
-                      <p className="fv-card-price-value">{price}</p>
-                    </div>
-                  ) : bike.comingSoon ? (
-                    <div className="fv-card-price-wrap">
-                      <p className="fv-card-price-value" style={{ fontSize: "12px", marginTop: "12px", color: "#e63020" }}>Coming Soon</p>
-                    </div>
-                  ) : null}
-                </div>
+                  <div className="fv-card-img-border" />
 
-              </CardWrapper>
-            )
-          })}
-        </div>
+                  <div className="fv-card-info-row">
+                    <div className="fv-card-info">
+                      <p className="fv-card-name">{bike.name}</p>
+                      <p className="fv-card-model">{bike.category}</p>
+                    </div>
+
+                    {price ? (
+                      <div className="fv-card-price-wrap">
+                        <p className="fv-card-price-label">Starting from</p>
+                        <p className="fv-card-price-value">{price}</p>
+                      </div>
+                    ) : bike.comingSoon ? (
+                      <div className="fv-card-price-wrap">
+                        <p className="fv-card-price-value" style={{ fontSize: "12px", marginTop: "12px", color: "#e63020" }}>Coming Soon</p>
+                      </div>
+                    ) : null}
+                  </div>
+
+                </CardWrapper>
+              )
+            })}
+          </div>
+        ) : (
+          <p style={{ textAlign: "center", padding: "40px", fontSize: "18px", color: "#666" }}>
+            No bikes available
+          </p>
+        )}
       </div>
     </section>
   );

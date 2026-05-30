@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { IoIosArrowForward } from "react-icons/io";
-import { bikeData } from '@/lib/data/bikes';
 import { fetchCategories, fetchBikes } from "@/lib/api";
 
 function Card({ title, img, slug, category, price, comingSoon }) {
@@ -44,7 +43,8 @@ function Card({ title, img, slug, category, price, comingSoon }) {
 export default function ModelsSection() {
   const [categories, setCategories] = useState(["All", "Classic", "Roadster", "Cruiser", "Cafe Racer", "Adventure"]);
   const [active, setActive] = useState("All");
-  const [bikes, setBikes] = useState(bikeData);
+  const [bikes, setBikes] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function loadCategories() {
@@ -80,7 +80,10 @@ export default function ModelsSection() {
             : [],
         }));
         setBikes(mapped);
+      } else {
+        setBikes([]);
       }
+      setLoading(false);
     }
     loadCategories();
     loadBikes();
@@ -300,17 +303,25 @@ export default function ModelsSection() {
           </div>
 
           <div className="models-grid">
-            {filtered.map((b) => (
-              <Card
-                key={b.id}
-                title={b.name}
-                img={b.image}
-                slug={b.slug}
-                category={b.category}
-                price={b.colors && b.colors.length > 0 ? b.colors[0].price : null}
-                comingSoon={b.comingSoon}
-              />
-            ))}
+            {loading ? (
+              <p style={{ gridColumn: "1 / -1", textAlign: "center", padding: "40px" }}>Loading models...</p>
+            ) : filtered.length > 0 ? (
+              filtered.map((b) => (
+                <Card
+                  key={b.id}
+                  title={b.name}
+                  img={b.image}
+                  slug={b.slug}
+                  category={b.category}
+                  price={b.colors && b.colors.length > 0 ? b.colors[0].price : null}
+                  comingSoon={b.comingSoon}
+                />
+              ))
+            ) : (
+              <p style={{ gridColumn: "1 / -1", textAlign: "center", padding: "40px", fontSize: "18px", color: "#666" }}>
+                No bikes available
+              </p>
+            )}
           </div>
         </div>
       </section>

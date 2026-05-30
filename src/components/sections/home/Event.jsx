@@ -5,78 +5,7 @@ import Image from "next/image";
 import { img } from "@/assets/assest";
 import axios from "axios";
 
-const mockEvents = [
-  {
-    id: 1,
-    title: "Student work on display at Khazar University Art Gallery Exhibition",
-    startingPoint: "Thrissur",
-    destination: "Kochi",
-    startdate: new Date(2026, 11, 5),
-    enddate: new Date(2026, 11, 15),
-    image: img.event1,
-    infoUrl: "#",
-  },
-  {
-    id: 2,
-    title: "Musical performances by students along with many guest performers",
-    startingPoint: "Thrissur",
-    destination: "Palakkad",
-    startdate: new Date(2026, 11, 7),
-    enddate: new Date(2026, 11, 17),
-    image: img.event2,
-    infoUrl: "#",
-  },
-  {
-    id: 3,
-    title: "History and Evolution of Typography lecture with Rizvan Baghirli",
-    startingPoint: "Thrissur",
-    destination: "Wayanad",
-    startdate: new Date(2026, 11, 15),
-    enddate: new Date(2026, 11, 25),
-    image: img.event3,
-    infoUrl: "#",
-  },
-  {
-    id: 4,
-    title: "Inter-Uni Football Tournament: Khazar vs ADU",
-    startingPoint: "Thrissur",
-    destination: "Munnar",
-    startdate: new Date(2026, 11, 28),
-    enddate: new Date(2026, 11, 29),
-    image: img.event4,
-    infoUrl: "#",
-  },
-  {
-    id: 5,
-    title: "Royal Enfield Riders Meetup at City Square",
-    startingPoint: "Thrissur",
-    destination: "Calicut",
-    startdate: new Date(2026, 11, 28),
-    enddate: new Date(2026, 11, 29),
-    image: img.event5,
-    infoUrl: "#",
-  },
-  {
-    id: 6,
-    title: "Photography Walk Street Culture Edition",
-    startingPoint: "Thrissur",
-    destination: "Kottayam",
-    startdate: new Date(2026, 11, 28),
-    enddate: new Date(2026, 11, 29),
-    image: img.event6,
-    infoUrl: "#",
-  },
-  {
-    id: 7,
-    title: "Live Jazz Night at the Open Courtyard",
-    startingPoint: "Thrissur",
-    destination: "Vagamon",
-    startdate: new Date(2026, 11, 28),
-    enddate: new Date(2026, 11, 29),
-    image: img.event7,
-    infoUrl: "#",
-  },
-];
+const mockEvents = [];
 
 function parseLocalDate(dateInput) {
   if (!dateInput) return null;
@@ -277,7 +206,7 @@ export default function UpcomingEvents() {
     async function loadEvents() {
       const apiUrl = process.env.NEXT_PUBLIC_API_URL;
       if (!apiUrl) {
-        setEvents(mockEvents);
+        setEvents([]);
         setLoading(false);
         return;
       }
@@ -305,7 +234,7 @@ export default function UpcomingEvents() {
         console.error("Error fetching events from backend:", err);
         if (active) {
           setError(err.message);
-          setEvents(mockEvents);
+          setEvents([]);
           setLoading(false);
         }
       }
@@ -707,10 +636,16 @@ export default function UpcomingEvents() {
                 Array.from({ length: cardsPerPage }).map((_, i) => (
                   <EventCardSkeleton key={i} />
                 ))
-              ) : (
+              ) : sorted.length > 0 ? (
                 sorted.map((ev) => (
                   <EventCard key={ev.id} event={ev} />
                 ))
+              ) : (
+                <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
+                   <p style={{ textAlign: "center", padding: "40px", fontSize: "18px", color: "#666" }}>
+                     No events available
+                   </p>
+                </div>
               )}
             </div>
           </div>

@@ -6,25 +6,13 @@ import { fetchGallery } from "@/lib/api";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const fallbackGalleryItems = [
-  { id: 1, src: "https://images.pexels.com/photos/1413412/pexels-photo-1413412.jpeg" },
-  { id: 2, src: "https://images.pexels.com/photos/2393821/pexels-photo-2393821.jpeg" },
-  { id: 3, src: "https://images.pexels.com/photos/1715193/pexels-photo-1715193.jpeg" },
-  { id: 4, src: "https://images.pexels.com/photos/3807517/pexels-photo-3807517.jpeg" },
-  { id: 5, src: "https://images.pexels.com/photos/2611690/pexels-photo-2611690.jpeg" },
-  { id: 6, src: "https://images.pexels.com/photos/39693/motorcycle-racer-racing-race-speed-39693.jpeg" },
-  { id: 7, src: "https://images.pexels.com/photos/1119796/pexels-photo-1119796.jpeg" },
-  { id: 8, src: "https://images.pexels.com/photos/4065906/pexels-photo-4065906.jpeg" },
-  { id: 9, src: "https://images.pexels.com/photos/3278215/pexels-photo-3278215.jpeg" },
-  { id: 10, src: "https://images.pexels.com/photos/2519374/pexels-photo-2519374.jpeg" },
-  { id: 11, src: "https://images.pexels.com/photos/1058334/pexels-photo-1058334.jpeg" },
-];
-
+const fallbackGalleryItems = [];
 
 export default function AboutGallery() {
   const sectionRef = useRef(null);
   const itemRefs = useRef([]);
   const [galleryItems, setGalleryItems] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function loadGallery() {
@@ -32,8 +20,9 @@ export default function AboutGallery() {
       if (data && data.length > 0) {
         setGalleryItems(data);
       } else {
-        setGalleryItems(fallbackGalleryItems);
+        setGalleryItems([]);
       }
+      setLoading(false);
     }
     loadGallery();
   }, []);
@@ -203,19 +192,27 @@ export default function AboutGallery() {
 
       {/*  Grid  */}
       <div className="gallery-grid">
-        {galleryItems.map((item, i) => (
-          <div
-            key={item.id}
-            className="g-item"
-            ref={(el) => (itemRefs.current[i] = el)}
-          >
-            <img
-              src={item.src && item.src.includes("pexels.com") ? `${item.src}?auto=compress&cs=tinysrgb&w=800` : (item.src || "")}
-              alt={item.caption || ""}
-              className="g-img"
-            />
-          </div>
-        ))}
+        {loading ? (
+          <p style={{ gridColumn: "1 / -1", textAlign: "center", padding: "40px" }}>Loading gallery...</p>
+        ) : galleryItems.length > 0 ? (
+          galleryItems.map((item, i) => (
+            <div
+              key={item.id}
+              className="g-item"
+              ref={(el) => (itemRefs.current[i] = el)}
+            >
+              <img
+                src={item.src && item.src.includes("pexels.com") ? `${item.src}?auto=compress&cs=tinysrgb&w=800` : (item.src || "")}
+                alt={item.caption || ""}
+                className="g-img"
+              />
+            </div>
+          ))
+        ) : (
+          <p style={{ gridColumn: "1 / -1", textAlign: "center", padding: "40px", fontSize: "18px", color: "#666" }}>
+            No gallery available
+          </p>
+        )}
       </div>
     </section>
   );
