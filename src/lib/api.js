@@ -19,10 +19,36 @@ function extractResults(response) {
   throw new Error("Invalid API response format");
 }
 
+async function fetchAllPaginated(endpoint, config = {}) {
+  let allResults = [];
+  let url = endpoint;
+  const baseUrlPath = endpoint.split('?')[0];
+
+  while (url) {
+    const response = await apiClient.get(url, config);
+    const data = response.data;
+    
+    if (data && Array.isArray(data.results)) {
+      allResults = [...allResults, ...data.results];
+      if (data.next) {
+        const qs = data.next.split('?')[1];
+        url = qs ? `${baseUrlPath}?${qs}` : null;
+      } else {
+        url = null;
+      }
+    } else if (Array.isArray(data)) {
+      allResults = [...allResults, ...data];
+      url = null;
+    } else {
+      break;
+    }
+  }
+  return allResults;
+}
+
 export async function fetchBanners() {
   try {
-    const response = await apiClient.get("/api/banners/");
-    const results = extractResults(response);
+    const results = await fetchAllPaginated("/api/banners/");
     if (results && Array.isArray(results)) {
       return results.map((item) => ({
         ...item,
@@ -39,8 +65,7 @@ export async function fetchBanners() {
 
 export async function fetchCareers() {
   try {
-    const response = await apiClient.get("/api/careers/");
-    return extractResults(response);
+    return await fetchAllPaginated("/api/careers/");
   } catch (err) {
     console.warn("fetchCareers failed:", err.message);
     return null;
@@ -51,8 +76,7 @@ export async function fetchCareers() {
 export async function fetchEvents(cancelToken) {
   try {
     const config = cancelToken ? { cancelToken } : {};
-    const response = await apiClient.get("/api/events/", config);
-    return extractResults(response);
+    return await fetchAllPaginated("/api/events/", config);
   } catch (err) {
     if (axios.isCancel(err)) throw err;
     console.warn("fetchEvents failed:", err.message);
@@ -62,8 +86,7 @@ export async function fetchEvents(cancelToken) {
 
 export async function fetchGallery() {
   try {
-    const response = await apiClient.get("/api/gallery/");
-    const results = extractResults(response);
+    const results = await fetchAllPaginated("/api/gallery/");
     if (results && Array.isArray(results)) {
       return results.map((item) => ({
         ...item,
@@ -79,8 +102,7 @@ export async function fetchGallery() {
 
 export async function fetchCategories() {
   try {
-    const response = await apiClient.get("/api/categories/");
-    return extractResults(response);
+    return await fetchAllPaginated("/api/categories/");
   } catch (err) {
     console.warn("fetchCategories failed:", err.message);
     return null;
@@ -89,8 +111,7 @@ export async function fetchCategories() {
 
 export async function fetchBikes() {
   try {
-    const response = await apiClient.get("/api/motorcycles/");
-    return extractResults(response);
+    return await fetchAllPaginated("/api/motorcycles/");
   } catch (err) {
     console.warn("fetchBikes failed:", err.message);
     return null;
@@ -112,8 +133,7 @@ export const fetchMotorcycleBySlug = fetchBikeBySlug;
 
 export async function fetchColors() {
   try {
-    const response = await apiClient.get("/api/colors/");
-    return extractResults(response);
+    return await fetchAllPaginated("/api/colors/");
   } catch (err) {
     console.warn("fetchColors failed:", err.message);
     return null;
@@ -122,10 +142,7 @@ export async function fetchColors() {
 
 export async function fetchTopAbout() {
   try {
-    const response = await apiClient.get("/api/top-about/");
-    const data = response.data;
-    if (data && Array.isArray(data.results)) return data.results;
-    return data;
+    return await fetchAllPaginated("/api/top-about/");
   } catch (err) {
     console.warn("fetchTopAbout failed:", err.message);
     return null;
@@ -134,8 +151,7 @@ export async function fetchTopAbout() {
 
 export async function fetchFeatures() {
   try {
-    const response = await apiClient.get("/api/features/");
-    return extractResults(response);
+    return await fetchAllPaginated("/api/features/");
   } catch (err) {
     console.warn("fetchFeatures failed:", err.message);
     return null;
