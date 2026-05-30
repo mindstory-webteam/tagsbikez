@@ -1,6 +1,7 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { img } from "@/assets/assest";
 import { bikeData } from "@/lib/data/bikes";
 import { fetchCategories, fetchBikes } from "@/lib/api";
@@ -16,6 +17,7 @@ export default function BikeSectionSwiper() {
   const startX = useRef(0);
   const savedScroll = useRef(0);
   const animFrameRef = useRef(null);
+  const hasDragged = useRef(false);
 
   useEffect(() => {
     async function loadCategories() {
@@ -93,6 +95,7 @@ export default function BikeSectionSwiper() {
 
   const onMouseDown = (e) => {
     isDragging.current = true;
+    hasDragged.current = false;
     startX.current = e.pageX - trackRef.current.offsetLeft;
     savedScroll.current = trackRef.current.scrollLeft;
     stopAuto();
@@ -100,9 +103,15 @@ export default function BikeSectionSwiper() {
 
   const onMouseMove = (e) => {
     if (!isDragging.current) return;
-    e.preventDefault();
+    
     const x = e.pageX - trackRef.current.offsetLeft;
     const walk = x - startX.current;
+    
+    if (Math.abs(walk) > 5) {
+      hasDragged.current = true;
+    }
+    
+    e.preventDefault();
     const el = trackRef.current;
     el.scrollLeft = savedScroll.current - walk;
     if (el.scrollLeft >= singleSetWidth * 4) el.scrollLeft -= singleSetWidth * 2;
@@ -397,8 +406,21 @@ export default function BikeSectionSwiper() {
         >
           {loopedItems.map((bike, i) => {
             const price = bike.colors && bike.colors.length > 0 ? bike.colors[0].price : null;
+            const CardWrapper = bike.comingSoon ? "div" : Link;
+            const hrefProp = bike.comingSoon ? {} : { href: `/models/${bike.slug}` };
+
             return (
-              <div className="fv-card" key={`${bike.id}-${i}`}>
+              <CardWrapper 
+                className="fv-card" 
+                key={`${bike.id}-${i}`}
+                {...hrefProp}
+                style={bike.comingSoon ? { cursor: "default" } : { textDecoration: "none" }}
+                onClick={(e) => {
+                  if (hasDragged.current) {
+                    e.preventDefault();
+                  }
+                }}
+              >
 
                 <div className="fv-card-img-wrap">
                   <Image
@@ -432,7 +454,7 @@ export default function BikeSectionSwiper() {
                   ) : null}
                 </div>
 
-              </div>
+              </CardWrapper>
             )
           })}
         </div>
