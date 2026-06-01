@@ -504,7 +504,7 @@ const BikeDetailView = ({ bike }) => {
                 <span className="bdv-price">{selectedColor.price}</span>
                 {bike.emiStarting && (
                   <span className="bdv-emi-tag">
-                    EMI Starts @ ₹{bike.emiStarting.toLocaleString('en-IN')}
+                    Lowest Down Payment @ ₹{bike.emiStarting.toLocaleString('en-IN')}
                   </span>
                 )}
               </div>

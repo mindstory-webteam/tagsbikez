@@ -5,7 +5,7 @@ import Link from "next/link";
 import { IoIosArrowForward } from "react-icons/io";
 import { fetchCategories, fetchBikes } from "@/lib/api";
 
-function Card({ title, img, slug, category, price, comingSoon }) {
+function Card({ title, img, slug, category, price, comingSoon, emiStarting }) {
   const CardWrapper = comingSoon ? "div" : Link;
   const hrefProp = comingSoon ? {} : { href: `/models/${slug}` };
 
@@ -23,7 +23,14 @@ function Card({ title, img, slug, category, price, comingSoon }) {
         <div className="models-card-overlay" />
       </div>
       <div className="models-card-info">
-        <p className="models-card-subtitle">{category}</p>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <p className="models-card-subtitle">{category}</p>
+          {emiStarting && (
+            <span className="models-card-emi-tag">
+              Lowest Down Payment @ ₹{emiStarting.toLocaleString('en-IN')}
+            </span>
+          )}
+        </div>
         <div className="models-card-bottom">
           <div>
             <p className="models-card-title">{title}</p>
@@ -70,6 +77,7 @@ export default function ModelsSection() {
           category: typeof b.category === "object" ? b.category?.name : b.category,
           image: b.featured_image_url || b.image,
           comingSoon: b.coming_soon ?? b.comingSoon ?? false,
+          emiStarting: b.emi_starting || b.emiStarting,
           colors: Array.isArray(b.colors)
             ? b.colors.map((c) => ({
                 name: c.name,
@@ -217,6 +225,16 @@ export default function ModelsSection() {
           margin: 0;
         }
 
+        .models-card-emi-tag {
+          font-size: 9px;
+          font-weight: 600;
+          color: #fff;
+          background: #f51b24;
+          padding: 3px 6px;
+          border-radius: 4px;
+          white-space: nowrap;
+        }
+
         .models-card-bottom {
           display: flex;
           align-items: center;
@@ -315,6 +333,7 @@ export default function ModelsSection() {
                   category={b.category}
                   price={b.colors && b.colors.length > 0 ? b.colors[0].price : null}
                   comingSoon={b.comingSoon}
+                  emiStarting={b.emiStarting}
                 />
               ))
             ) : (
