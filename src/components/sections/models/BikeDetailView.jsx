@@ -92,8 +92,8 @@ const BikeDetailView = ({ bike }) => {
         .bdv-emi-tag {
           font-size: 11px;
           font-weight: 700;
-          color: #e11d48;
-          background: #ffe4e6;
+          color: #fff;
+          background: red;
           border: 1px solid #fecdd3;
           padding: 3px 8px;
           border-radius: 4px;
