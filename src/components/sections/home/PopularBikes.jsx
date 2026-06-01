@@ -10,26 +10,26 @@ import AnimatedBtn from "@/components/AnimatedBtn";
 
 const slides = [
   {
-    id: 0,
-    tag: "Adventure Series",
-    heading: ["Best Adventure", " Tourer"],
-    highlight: "Bikes",
-    description:
-      "A born-again design built for going through the hills of the countryside. Discovering new roads with powerful performance and premium components for every terrain.",
-    specs: [
-      { label: "Engine", value: "349cc" },
-      { label: "Power", value: "20.2 BHP" },
-      { label: "Torque", value: "27 Nm" },
-      { label: "Weight", value: "195 kg" },
-    ],
-    heroImg: img.bulletimg,
-    thumbnails: [
-      { id: 1, img: img.bulletfront, label: "Frame Detail" },
-      { id: 2, img: img.bullet350engine, label: "Motor Unit" },
-      { id: 3, img: img.bulletback, label: "Handlebar" },
-      { id: 4, img: img.bulletback, label: "Side" },
-    ],
-  },
+  id: 0,
+  tag: "Classic Series",
+  heading: ["The Timeless", " Classic"],
+  highlight: "350",
+  description:
+    "An iconic retro cruiser built for effortless daily commutes and relaxed weekend rides. Combining post-war styling with a smooth, modern counterbalanced engine for the ultimate visual and riding pleasure.",
+  specs: [
+    { label: "Engine", value: "349cc J-Series" },
+    { label: "Power", value: "20.2 BHP" },
+    { label: "Torque", value: "27 Nm" },
+    { label: "Weight", value: "195 kg" },
+  ],
+  heroImg: img.classic350,
+  thumbnails: [
+    { id: 1, img: img.classic350, label: "Casquette Headlamp" },
+    { id: 2, img: img.classic350engine, label: "J-Series Motor" },
+    { id: 3, img: img.classic350front, label: "Digi-Analog Cluster" },
+    { id: 4, img: img.classic350handlebar, label: "Teardrop Fuel Tank" },
+  ],
+},
   {
     id: 1,
     tag: "Classic Heritage",

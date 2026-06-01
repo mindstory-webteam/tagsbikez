@@ -472,7 +472,7 @@ export default function Footer() {
             <Link href="/terms" className="ft-bottom-link">Terms &amp; Conditions</Link>
           </div>
           <div className="ft-bottom-cell" style={{ justifyContent: "center" }}>
-            <span className="ft-bottom-copy">© 2024 <span className="text-red-500">Tagsbikez.</span> All rights reserved.</span>
+            <span className="ft-bottom-copy">© 2026 <span className="text-red-500">Tagsbikez.</span> All rights reserved.</span>
           </div>
           <div className="ft-bottom-cell ft-bottom-dev">
             <a href="https://mpxcode.com/">

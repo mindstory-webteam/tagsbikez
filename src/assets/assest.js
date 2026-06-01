@@ -70,7 +70,20 @@ import ride3 from './homeaboutsection/ride3.webp'
 import bikereveal from './bike-reveal.png' 
 
 
+
+import classic350 from   './models/classic350/classic350.png'
+import classic350handlebar from   './models/classic350/bullethandlebar.png'
+import classic350engine from   './models/classic350/engine350.png'
+import classic350front from   './models/classic350/front.png'
+import classic350rear from   './models/classic350/rear.webp'
+
+
 export const img = {
+  classic350,
+  classic350handlebar,
+  classic350engine,
+  classic350front,
+  classic350rear,
   hunter350tokyoblack,
   hunter350tarmacblack,
   hunter350riowhite,
