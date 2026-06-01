@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { IoIosArrowForward } from "react-icons/io";
 import { fetchCategories, fetchBikes } from "@/lib/api";
+import { bikeData } from "@/lib/data/bikes";
 
 function Card({ title, img, slug, category, price, comingSoon, emiStarting }) {
   const CardWrapper = comingSoon ? "div" : Link;
@@ -25,8 +26,16 @@ function Card({ title, img, slug, category, price, comingSoon, emiStarting }) {
       <div className="models-card-info">
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <p className="models-card-subtitle">{category}</p>
-          {emiStarting && (
-            <span className="models-card-emi-tag">
+          {emiStarting > 0 && !comingSoon && (
+            <span 
+              className="models-card-emi-tag"
+              style={{ cursor: 'pointer' }}
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                window.open(`https://wa.me/917594960023?text=I'm%20interested%20in%20the%20${title}`, '_blank', 'noopener,noreferrer');
+              }}
+            >
               Lowest Down Payment @ ₹{emiStarting.toLocaleString('en-IN')}
             </span>
           )}
@@ -68,25 +77,30 @@ export default function ModelsSection() {
     }
     async function loadBikes() {
       const data = await fetchBikes();
-      if (data && Array.isArray(data) && data.length > 0) {
-        const mapped = data.map((b) => ({
-          ...b,
-          id: b.id,
-          name: b.name,
-          slug: b.slug,
-          category: typeof b.category === "object" ? b.category?.name : b.category,
-          image: b.featured_image_url || b.image,
-          comingSoon: b.coming_soon ?? b.comingSoon ?? false,
-          emiStarting: b.emi_starting || b.emiStarting,
-          colors: Array.isArray(b.colors)
-            ? b.colors.map((c) => ({
-                name: c.name,
-                hex: c.hex,
-                image: c.image_url,
-                price: c.price ? (String(c.price).startsWith("₹") ? c.price : `₹${c.price}`) : null,
-              }))
-            : [],
-        }));
+      const bikesList = (data && Array.isArray(data) && data.length > 0) ? data : bikeData;
+      
+      if (bikesList && bikesList.length > 0) {
+        const mapped = bikesList.map((b) => {
+          const localBike = bikeData.find(lb => lb.slug === b.slug);
+          return {
+            ...b,
+            id: b.id,
+            name: b.name,
+            slug: b.slug,
+            category: typeof b.category === "object" ? b.category?.name : b.category,
+            image: b.featured_image_url || b.image,
+            comingSoon: b.coming_soon ?? b.comingSoon ?? false,
+            emiStarting: b.emi_starting ?? b.emiStarting ?? (localBike ? localBike.emiStarting : null),
+            colors: Array.isArray(b.colors)
+              ? b.colors.map((c) => ({
+                  name: c.name,
+                  hex: c.hex,
+                  image: c.image_url || c.image,
+                  price: c.price ? (String(c.price).startsWith("₹") ? c.price : `₹${c.price}`) : null,
+                }))
+              : [],
+          };
+        });
         setBikes(mapped);
       } else {
         setBikes([]);

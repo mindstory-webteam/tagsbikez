@@ -502,10 +502,16 @@ const BikeDetailView = ({ bike }) => {
             {selectedColor.price && (
               <div className="bdv-price-wrap">
                 <span className="bdv-price">{selectedColor.price}</span>
-                {bike.emiStarting && (
-                  <span className="bdv-emi-tag">
+                {bike.emiStarting > 0 && !bike.comingSoon && (
+                  <a
+                    href={`https://wa.me/917594960023?text=I'm%20interested%20in%20the%20${bike.name}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bdv-emi-tag"
+                    style={{ textDecoration: 'none', cursor: 'pointer' }}
+                  >
                     Lowest Down Payment @ ₹{bike.emiStarting.toLocaleString('en-IN')}
-                  </span>
+                  </a>
                 )}
               </div>
             )}
