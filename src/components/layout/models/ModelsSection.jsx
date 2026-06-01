@@ -44,7 +44,7 @@ function Card({ title, img, slug, category, price, comingSoon, emiStarting }) {
           <div>
             <p className="models-card-title">{title}</p>
             {price ? (
-              <p className="models-card-price">Starting from {price}</p>
+              <p className="models-card-price">On-road price starting from {price}</p>
             ) : comingSoon ? (
               <p className="models-card-price" style={{ color: "#e63020", fontWeight: "bold" }}>Coming Soon</p>
             ) : null}

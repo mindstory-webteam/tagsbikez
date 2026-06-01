@@ -25,8 +25,8 @@ const slides = [
   heroImg: img.classic350,
   thumbnails: [
     { id: 1, img: img.classic350front, label: "Casquette Headlamp" },
-    { id: 2, img: img.classic350engine, label: "J-Series Motor" },
-    { id: 3, img: img.classic350handlebar, label: "Digi-Analog Cluster" },
+    { id: 2, img: img.classic350handlebar, label: "Digi-Analog Cluster" },
+    { id: 3, img: img.classic350engine, label: "J-Series Motor" },
     { id: 4, img: img.classic350rear, label: "Teardrop Fuel Tank" },
   ],
 },

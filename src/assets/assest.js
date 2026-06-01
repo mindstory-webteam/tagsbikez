@@ -67,9 +67,9 @@ import bikereveal from './bike-reveal.png'
 
 import classic350 from   './models/classic350/classic350.png'
 import classic350handlebar from   './models/classic350/bullethandlebar.png'
-import classic350engine from   './models/classic350/engine350.png'
+import classic350engine from   './models/classic350/classic350engine.png'
 import classic350front from   './models/classic350/front.png'
-import classic350rear from   './models/classic350/rear.webp'
+import classic350rear from   './models/classic350/rear.png'
 
 import hunter350 from   './models/hunter350/hunter350.png'
 import hunter350handlebar from   './models/hunter350/hunter350handlebar.png'
