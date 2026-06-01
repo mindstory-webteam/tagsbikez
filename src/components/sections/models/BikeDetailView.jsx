@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { Download, MessageSquare } from 'lucide-react';
+import CircularText from '@/components/ui/CircularText';
 
 const BikeDetailView = ({ bike }) => {
   const [selectedColor, setSelectedColor] = useState(
@@ -62,6 +63,7 @@ const BikeDetailView = ({ bike }) => {
           display: flex;
           flex-direction: column;
           justify-content: center;
+          position: relative;
         }
 
         .bdv-title {
@@ -507,10 +509,34 @@ const BikeDetailView = ({ bike }) => {
                     href={`https://wa.me/917594960023?text=I'm%20interested%20in%20the%20${bike.name}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bdv-emi-tag"
-                    style={{ textDecoration: 'none', cursor: 'pointer' }}
+                    style={{
+                      textDecoration: 'none',
+                      cursor: 'pointer',
+                      position: 'absolute',
+                      top: '10px',
+                      right: '10px',
+                      width: '110px',
+                      height: '110px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      background: '#fff',
+                      border: '1.5px solid #f51b24',
+                      borderRadius: '50%',
+                      color: '#f51b24',
+                      boxShadow: '0 4px 12px rgba(0, 0, 0, 0.08)',
+                      zIndex: 10
+                    }}
                   >
-                    Lowest Down Payment @ ₹{bike.emiStarting.toLocaleString('en-IN')}
+                    <CircularText
+                      text="LOWEST·DOWN·PAYMENT·"
+                      onHover="speedUp"
+                      spinDuration={20}
+                      className="custom-class"
+                    />
+                    <div style={{ position: 'relative', zIndex: 2, fontSize: '13px', fontWeight: 'bold', textAlign: 'center', lineHeight: '1.2' }}>
+                      ₹{bike.emiStarting.toLocaleString('en-IN')}
+                    </div>
                   </a>
                 )}
               </div>
