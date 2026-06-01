@@ -444,17 +444,17 @@ const BikeDetailView = ({ bike }) => {
             margin-bottom: 16px;
           }
           .bdv-emi-circle-btn {
-            width: 70px;
-            height: 70px;
-            top: -20px;
-            right: 0px;
+            width: 65px;
+            height: 65px;
+            top: 20px;
+            right: 20px;
             border-width: 1px;
           }
           .bdv-emi-circle-price {
-            font-size: 10px;
+            font-size: 9px;
           }
           .bdv-emi-circle-btn .circular-text span {
-            font-size: 9px !important;
+            font-size: 8px !important;
           }
           .bdv-colors-wrap {
             margin-top: 16px;
