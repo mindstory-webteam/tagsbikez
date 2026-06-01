@@ -112,6 +112,34 @@ const BikeDetailView = ({ bike }) => {
           margin-bottom: 20px;
         }
 
+        .bdv-emi-circle-btn {
+          text-decoration: none;
+          cursor: pointer;
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          width: 110px;
+          height: 110px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: #fff;
+          border: 1.5px solid #f51b24;
+          border-radius: 50%;
+          color: #f51b24;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+          z-index: 10;
+        }
+
+        .bdv-emi-circle-price {
+          position: relative;
+          z-index: 2;
+          font-size: 13px;
+          font-weight: bold;
+          text-align: center;
+          line-height: 1.2;
+        }
+
         /* COLORS */
         .bdv-colors-wrap {
           margin-top: 20px;
@@ -415,6 +443,19 @@ const BikeDetailView = ({ bike }) => {
             font-size: 13px;
             margin-bottom: 16px;
           }
+          .bdv-emi-circle-btn {
+            width: 70px;
+            height: 70px;
+            top: -20px;
+            right: 0px;
+            border-width: 1px;
+          }
+          .bdv-emi-circle-price {
+            font-size: 10px;
+          }
+          .bdv-emi-circle-btn .circular-text span {
+            font-size: 9px !important;
+          }
           .bdv-colors-wrap {
             margin-top: 16px;
           }
@@ -509,24 +550,7 @@ const BikeDetailView = ({ bike }) => {
                     href={`https://wa.me/917594960023?text=I'm%20interested%20in%20the%20${bike.name}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{
-                      textDecoration: 'none',
-                      cursor: 'pointer',
-                      position: 'absolute',
-                      top: '10px',
-                      right: '10px',
-                      width: '110px',
-                      height: '110px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      background: '#fff',
-                      border: '1.5px solid #f51b24',
-                      borderRadius: '50%',
-                      color: '#f51b24',
-                      boxShadow: '0 4px 12px rgba(0, 0, 0, 0.08)',
-                      zIndex: 10
-                    }}
+                    className="bdv-emi-circle-btn"
                   >
                     <CircularText
                       text="LOWEST·DOWN·PAYMENT·"
@@ -534,7 +558,7 @@ const BikeDetailView = ({ bike }) => {
                       spinDuration={20}
                       className="custom-class"
                     />
-                    <div style={{ position: 'relative', zIndex: 2, fontSize: '13px', fontWeight: 'bold', textAlign: 'center', lineHeight: '1.2' }}>
+                    <div className="bdv-emi-circle-price">
                       ₹{bike.emiStarting.toLocaleString('en-IN')}
                     </div>
                   </a>
