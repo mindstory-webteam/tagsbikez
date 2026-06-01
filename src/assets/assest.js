@@ -11,10 +11,6 @@ import bannerSmall3 from './banner/banner-small-3.png'
 import banner4 from './banner/banner4.jpg'
 import banner5 from './banner/banner5.jpg'
 
-import bullethandlebar from './bullethandlebar.webp'
-import bullet350engine from './bullet350engine.jpg'
-import bulletback from './bulletback.jpg'
-import bulletfront from './bulletfront.webp'
 import lifestyle from './life-style.png'
 import parts from './royal-enfield-parts.png'
 import gear from './riding-gear.png'
@@ -26,8 +22,6 @@ import royalenfield1 from './homeaboutsection/royalenfield1.jpg'
 import royalenfieldfury from './homeaboutsection/royalenfieldfury.jpg'
 import scram1 from './homeaboutsection/scram1.jpg'
 
-import bullet350 from './models/bullet-350.webp'
-import classic350 from './models/classic-350.webp'
 import continentalgt650 from './models/continental-gt-650.webp'
 import himalayan450 from './models/himalayan-450.webp'
 import interceptor from './models/interceptor.webp'
@@ -77,8 +71,27 @@ import classic350engine from   './models/classic350/engine350.png'
 import classic350front from   './models/classic350/front.png'
 import classic350rear from   './models/classic350/rear.webp'
 
+import hunter350 from   './models/hunter350/hunter350.png'
+import hunter350handlebar from   './models/hunter350/hunter350handlebar.png'
+import hunter350rear from   './models/hunter350/hunter350rear.png'
+import hunter350front from   './models/hunter350/hunter350front.png'
+import hunter350engine from   './models/hunter350/hunter350engine.png'
+
+
+import bullet350 from   './models/bullet350/bullet350.webp'
+import bullet350front from   './models/bullet350/bullet350front.png'
+import bullet350rear from   './models/bullet350/bullet350rear.png'
+import bullet350engine from   './models/bullet350/bullet350engine.png'
 
 export const img = {
+  hunter350,
+  bullet350engine,
+  bullet350rear,
+  bullet350front,
+  hunter350rear,
+  hunter350engine,
+  hunter350front,
+  hunter350handlebar,
   classic350,
   classic350handlebar,
   classic350engine,
@@ -123,11 +136,6 @@ export const img = {
   royalenfieldfury,
   royalenfield1, 
   tagsbikezwhite,
-  bullethandlebar,
-  bullet350engine,
-  bulletback,
-  bulletimg,
-  bulletfront,
   banner1,
   bannerSmall1,
   banner2,

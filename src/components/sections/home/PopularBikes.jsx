@@ -17,82 +17,61 @@ const slides = [
   description:
     "An iconic retro cruiser built for effortless daily commutes and relaxed weekend rides. Combining post-war styling with a smooth, modern counterbalanced engine for the ultimate visual and riding pleasure.",
   specs: [
-    { label: "Engine", value: "349cc J-Series" },
+    { label: "Engine", value: "349cc" },
     { label: "Power", value: "20.2 BHP" },
     { label: "Torque", value: "27 Nm" },
     { label: "Weight", value: "195 kg" },
   ],
   heroImg: img.classic350,
   thumbnails: [
-    { id: 1, img: img.classic350, label: "Casquette Headlamp" },
+    { id: 1, img: img.classic350front, label: "Casquette Headlamp" },
     { id: 2, img: img.classic350engine, label: "J-Series Motor" },
-    { id: 3, img: img.classic350front, label: "Digi-Analog Cluster" },
-    { id: 4, img: img.classic350handlebar, label: "Teardrop Fuel Tank" },
+    { id: 3, img: img.classic350handlebar, label: "Digi-Analog Cluster" },
+    { id: 4, img: img.classic350rear, label: "Teardrop Fuel Tank" },
   ],
 },
-  {
-    id: 1,
-    tag: "Classic Heritage",
-    heading: ["Pure Classic", " Roadster"],
-    highlight: "Spirit",
-    description:
-      "Timeless styling meets modern engineering. Every curve tells a story of heritage refined for the open road, built for riders who cherish the journey as much as the destination.",
-    specs: [
-      { label: "Engine", value: "411cc" },
-      { label: "Power", value: "24.3 BHP" },
-      { label: "Torque", value: "32 Nm" },
-      { label: "Weight", value: "213 kg" },
-    ],
-    heroImg: img.bulletimg,
-    thumbnails: [
-      { id: 1, img: img.bullethandlebar, label: "Handlebars" },
-      { id: 2, img: img.bulletback, label: "Rear Profile" },
-      { id: 3, img: img.bullet350engine, label: "Engine" },
-      { id: 4, img: img.bulletback, label: "Side" },
-    ],
-  },
-  {
-    id: 2,
-    tag: "Street Fighter",
-    heading: ["Urban Street", " Dominator"],
-    highlight: "Beast",
-    description:
-      "Raw power wrapped in aggressive styling. Built for city streets and open highways alike, this machine commands attention and delivers thrills with every twist of the throttle.",
-    specs: [
-      { label: "Engine", value: "648cc" },
-      { label: "Power", value: "47.6 BHP" },
-      { label: "Torque", value: "52 Nm" },
-      { label: "Weight", value: "202 kg" },
-    ],
-    heroImg: img.bulletimg,
-    thumbnails: [
-      { id: 1, img: img.bulletfront, label: "Front Fascia" },
-      { id: 2, img: img.bulletback, label: "Exhaust" },
-      { id: 3, img: img.bullet350engine, label: "Twin Engine" },
-      { id: 4, img: img.bulletback, label: "Side" },
-    ],
-  },
-  {
-    id: 3,
-    tag: "Off-Road Legend",
-    heading: ["Himalayan", " Explorer"],
-    highlight: "Trail",
-    description:
-      "Engineered for the Himalayas, perfected for every road beyond. Long-travel suspension, rugged build quality, and a heart that never quits wherever you point it, it delivers.",
-    specs: [
-      { label: "Engine", value: "452cc" },
-      { label: "Power", value: "40 BHP" },
-      { label: "Torque", value: "40 Nm" },
-      { label: "Weight", value: "196 kg" },
-    ],
-    heroImg: img.bulletimg,
-    thumbnails: [
-      { id: 1, img: img.bulletfront, label: "Front Guard" },
-      { id: 2, img: img.bullet350engine, label: "Engine Bay" },
-      { id: 3, img: img.bulletback, label: "Luggage Rack" },
-      { id: 4, img: img.bulletback, label: "Side" },
-    ],
-  },
+{
+  id: 1,
+  tag: "Urban Roadster",
+  heading: ["Agile Street", " Roadster"],
+  highlight: "Hunter",
+  description:
+    "An urban-style roadster engineered for sharp handling and effortless city maneuvering. A compact geometry combined with a punchy motor makes darting through traffic an absolute blast.",
+  specs: [
+    { label: "Engine", value: "349cc" },
+    { label: "Power", value: "20.2 BHP" },
+    { label: "Torque", value: "27 Nm" },
+    { label: "Weight", value: "181 kg" },
+  ],
+  heroImg: img.hunter350,
+  thumbnails: [
+    { id: 1, img: img.hunter350front, label: "Retro Headlamp" },
+    { id: 2, img: img.hunter350engine, label: "J-Series Engine" },
+    { id: 3, img: img.hunter350handlebar, label: "Flat Handlebar" },
+    { id: 4, img: img.hunter350rear, label: "Contoured Seat" },
+  ],
+},
+ {
+  id: 2,
+  tag: "The Legend",
+  heading: ["Pure Undiluted", " Heritage"],
+  highlight: "Bullet",
+  description:
+    "The longest-running motorcycle in continuous production, carrying an unmatched legacy. Stripped of pretense, its authoritative presence and signature thump command respect on every road.",
+  specs: [
+    { label: "Engine", value: "349cc" },
+    { label: "Power", value: "20.2 BHP" },
+    { label: "Torque", value: "27 Nm" },
+    { label: "Weight", value: "195 kg" },
+  ],
+  heroImg: img.bullet350,
+  thumbnails: [
+    { id: 1, img: img.bullet350front, label: "Hand-Painted Tank" },
+    { id: 2, img: img.bullet350engine, label: "J-Series Engine" },
+    { id: 3, img: img.classic350handlebar, label: "Upright Handlebar" },
+    { id: 4, img: img.bullet350rear, label: "Single-Piece Seat" },
+  ],
+},
 ];
 
 export default function PopularBikes() {
