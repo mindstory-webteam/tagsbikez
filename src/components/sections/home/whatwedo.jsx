@@ -133,7 +133,7 @@ export default function WhatWeDoSection() {
         }
 
         .wwd-inner {
-          max-width: 1400px;
+          max-width: 1450px;
           margin: 0 auto;
           width: 100%;
         }
