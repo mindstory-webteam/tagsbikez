@@ -25,9 +25,9 @@ const slides = [
   heroImg: img.classic350,
   thumbnails: [
     { id: 1, img: img.classic350front, label: "Casquette Headlamp" },
-    { id: 2, img: img.classic350handlebar, label: "Digi-Analog Cluster" },
-    { id: 3, img: img.classic350engine, label: "J-Series Motor" },
-    { id: 4, img: img.classic350rear, label: "Teardrop Fuel Tank" },
+    { id: 2, img: img.classic350rear, label: "Teardrop Fuel Tank" },
+    { id: 3, img: img.classic350handlebar, label: "Digi-Analog Cluster" },
+    { id: 4, img: img.classic350engine, label: "J-Series Motor" },
   ],
 },
 {
@@ -46,9 +46,9 @@ const slides = [
   heroImg: img.hunter350,
   thumbnails: [
     { id: 1, img: img.hunter350front, label: "Retro Headlamp" },
-    { id: 2, img: img.classic350engine, label: "J-Series Engine" },
+    { id: 2, img: img.hunter350rear, label: "Contoured Seat" },
     { id: 3, img: img.hunter350handlebar, label: "Flat Handlebar" },
-    { id: 4, img: img.hunter350rear, label: "Contoured Seat" },
+    { id: 4, img: img.classic350engine, label: "J-Series Engine" },
   ],
 },
  {
@@ -67,9 +67,9 @@ const slides = [
   heroImg: img.bullet350,
   thumbnails: [
     { id: 1, img: img.bullet350front, label: "Hand-Painted Tank" },
-    { id: 2, img: img.classic350engine, label: "J-Series Engine" },
+    { id: 2, img: img.bullet350rear, label: "Single-Piece Seat" },
     { id: 3, img: img.classic350handlebar, label: "Upright Handlebar" },
-    { id: 4, img: img.bullet350rear, label: "Single-Piece Seat" },
+    { id: 4, img: img.classic350engine, label: "J-Series Engine" },
   ],
 },
 ];
