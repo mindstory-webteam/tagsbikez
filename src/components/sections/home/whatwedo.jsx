@@ -126,7 +126,7 @@ export default function WhatWeDoSection() {
       <style>{`
         .wwd-section {
           background-color: #ffffff;
-          padding: 40px 40px 80px 40px;
+          padding: 20px 40px 80px 40px;
           min-height: 100vh;
           display: flex;
           align-items: center;
