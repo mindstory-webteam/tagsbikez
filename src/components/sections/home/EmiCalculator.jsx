@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo, useEffect, useRef } from "react";
+import Image from "next/image";
 import { img } from "@/assets/assest";
 import AnimatedBtn from "@/components/AnimatedBtn";
 
@@ -498,9 +499,12 @@ export default function EmiCalculator() {
               >
                 Apply for Finance
               </AnimatedBtn> */}
-              <p className="text-center text-gray-500 text-[9px] mt-4 font-body leading-relaxed opacity-60">
-                *Calculations are indicative and subject to final approval from banking partners.
-              </p>
+              <div className="grid grid-cols-4 gap-2 sm:gap-6 mt-6 bg-white py-4 px-3 sm:px-6 rounded-xl items-center justify-items-center">
+                <Image src={img.icicibank} alt="ICICI Bank" className="w-full h-auto max-h-4 sm:max-h-7 object-contain" />
+                <Image src={img.bajajfinserv} alt="Bajaj Finserv" className="w-full h-auto max-h-4 sm:max-h-7 object-contain" />
+                <Image src={img.hdfc} alt="HDFC Bank" className="w-full h-auto max-h-4 sm:max-h-7 object-contain" />
+                <Image src={img.idfc} alt="IDFC FIRST Bank" className="w-full h-auto max-h-4 sm:max-h-7 object-contain" />
+              </div>
             </div>
           </div>
         </div>

@@ -83,7 +83,18 @@ import bullet350front from   './models/bullet350/bullet350front.png'
 import bullet350rear from   './models/bullet350/bullet350rear.png'
 import bullet350engine from   './models/bullet350/bullet350engine.png'
 
+import bajajfinserv from   './partnerbrand/bajajfinserv.png'
+import hdfc from   './partnerbrand/hdfc.png'
+import icicibank from   './partnerbrand/icicibank.png'
+import idfc from   './partnerbrand/idfc.png'
+
+
+
 export const img = {
+  bajajfinserv,
+  hdfc,
+  icicibank,
+  idfc,
   hunter350,
   bullet350engine,
   bullet350rear,
