@@ -89,20 +89,32 @@ export default function WhatWeDoSection() {
         },
       });
 
-      tl.to(section, { backgroundColor: "#ffffffff", duration: 0.8, ease: "power2.inOut" }, 0);
-      tl.to(heading, { color: "#040404ff", duration: 0.8, ease: "power2.inOut" }, 0);
-      tl.to(gridWrap, { borderTopColor: "#e0e0e0", borderLeftColor: "#e0e0e0", duration: 0.8, ease: "power2.inOut" }, 0);
-      tl.to(cardBorderEls, { borderRightColor: "#e0e0e0", borderBottomColor: "#e0e0e0", duration: 0.8, ease: "power2.inOut" }, 0);
+      // Animate grid borders from white to dark
+      tl.to(gridWrap, {
+        borderTopColor: "#2a2a2a",
+        borderLeftColor: "#2a2a2a",
+        duration: 0.8,
+        ease: "power2.inOut",
+      }, 0);
 
+      // Animate only the card backgrounds from white to dark (like AccessoriesSection)
+      tl.to(cardBorderEls, {
+        backgroundColor: "#1a1a1a",
+        borderRightColor: "#2a2a2a",
+        borderBottomColor: "#2a2a2a",
+        duration: 0.8,
+        ease: "power2.inOut",
+      }, 0);
+
+      // Animate text to white as cards go dark
       stepEls.forEach((el, i) => {
         if (!el) return;
         const title = el.querySelector(".step-title");
         const desc = el.querySelector(".step-desc");
-        
+
         tl.fromTo(el, { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, i * 0.1);
-        
-        tl.to(title, { color: "#000000ff", duration: 0.8, ease: "power2.inOut" }, 0);
-        tl.to(desc, { color: "#555555", duration: 0.8, ease: "power2.inOut" }, 0);
+        tl.to(title, { color: "#ffffff", duration: 0.8, ease: "power2.inOut" }, 0);
+        tl.to(desc, { color: "rgba(255,255,255,0.6)", duration: 0.8, ease: "power2.inOut" }, 0);
       });
     }, section);
 
@@ -113,8 +125,8 @@ export default function WhatWeDoSection() {
     <>
       <style>{`
         .wwd-section {
-          background-color: #000000ff;
-          padding: 80px 40px;
+          background-color: #ffffff;
+          padding: 40px 40px 80px 40px;
           min-height: 100vh;
           display: flex;
           align-items: center;
@@ -130,7 +142,7 @@ export default function WhatWeDoSection() {
           font-size:42px;
           line-height: 1.15;
           max-width: 480px;
-          color: #ffffffff;
+          color: #111111;
           font-weight: 400;
           margin: 0 0 56px 0;
         }
@@ -160,16 +172,18 @@ export default function WhatWeDoSection() {
         .wwd-grid {
           display: grid;
           grid-template-columns: 1fr 1fr;
-          border-top: 1px solid #222;
-          border-left: 1px solid #222;
+          border-top: 1px solid #e0e0e0;
+          border-left: 1px solid #e0e0e0;
         }
 
         .wwd-card-border {
-          border-right: 1px solid #222;
-          border-bottom: 1px solid #222;
+          border-right: 1px solid #e0e0e0;
+          border-bottom: 1px solid #e0e0e0;
           padding: 28px 24px;
           box-sizing: border-box;
           height: 100%;
+          background-color: #ffffff;
+          transition: background 0.3s ease;
         }
 
         .wwd-card-header {
@@ -195,14 +209,14 @@ export default function WhatWeDoSection() {
           margin: 0;
           line-height: 1.3;
           text-transform: uppercase;
-          color: #ffffff; /* Starts as white on dark background */
+          color: #111111;
         }
 
         .step-desc {
           font-size: 13px;
           line-height: 1.7;
           margin: 0;
-          color: #aaaaaa; /* Starts as readable grey on dark background */
+          color: #555555;
         }
 
         /* Clamps text to 5 lines */
