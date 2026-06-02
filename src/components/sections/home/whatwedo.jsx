@@ -79,12 +79,11 @@ export default function WhatWeDoSection() {
     const gridWrap = gridWrapRef.current;
 
     const ctx = gsap.context(() => {
-      // ── Color / background animation fires ONCE and stays permanently dark ──
       const colorTl = gsap.timeline({
         scrollTrigger: {
           trigger: section,
           start: "top 60%",
-          once: true,           // never reverses — cards stay dark after first scroll-in
+          once: true,           
         },
       });
 

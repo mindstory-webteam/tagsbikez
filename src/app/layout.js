@@ -22,6 +22,12 @@ const inter = Inter({
 export const metadata = {
   title: "Tagsbikez | Authorized Royal Enfield Dealership",
   description: "Experience the thrill of riding with Tagsbikez, your authorized Royal Enfield dealership in Thrissur.",
+  icons: [
+    {
+      rel: "icon",
+      url: "/favicon.ico",
+    },
+  ],
 };
 
 export default function RootLayout({ children }) {
