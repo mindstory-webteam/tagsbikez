@@ -293,7 +293,7 @@ export default function WhatWeDoSection() {
         /*  MOBILE  */
         @media (max-width: 768px) {
           .wwd-section {
-            padding: 60px 20px;
+            padding: 40px 20px;
             min-height: unset;
             align-items: flex-start;
           }
