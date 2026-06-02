@@ -74,31 +74,28 @@ export default function WhatWeDoSection() {
 
   useEffect(() => {
     const section = sectionRef.current;
-    const heading = headingRef.current;
     const stepEls = stepRefs.current;
     const cardBorderEls = cardBorderRefs.current;
     const gridWrap = gridWrapRef.current;
 
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
+      // ── Color / background animation fires ONCE and stays permanently dark ──
+      const colorTl = gsap.timeline({
         scrollTrigger: {
           trigger: section,
           start: "top 60%",
-          end: "bottom 40%",
-          toggleActions: "play reverse play reverse",
+          once: true,           // never reverses — cards stay dark after first scroll-in
         },
       });
 
-      // Animate grid borders from white to dark
-      tl.to(gridWrap, {
+      colorTl.to(gridWrap, {
         borderTopColor: "#2a2a2a",
         borderLeftColor: "#2a2a2a",
         duration: 0.8,
         ease: "power2.inOut",
       }, 0);
 
-      // Animate only the card backgrounds from white to dark (like AccessoriesSection)
-      tl.to(cardBorderEls, {
+      colorTl.to(cardBorderEls, {
         backgroundColor: "#1a1a1a",
         borderRightColor: "#2a2a2a",
         borderBottomColor: "#2a2a2a",
@@ -106,20 +103,39 @@ export default function WhatWeDoSection() {
         ease: "power2.inOut",
       }, 0);
 
-      // Animate text to white as cards go dark
-      stepEls.forEach((el, i) => {
+      stepEls.forEach((el) => {
         if (!el) return;
         const title = el.querySelector(".step-title");
         const desc = el.querySelector(".step-desc");
+        colorTl.to(title, { color: "#ffffff", duration: 0.8, ease: "power2.inOut" }, 0);
+        colorTl.to(desc,  { color: "rgba(255,255,255,0.85)", duration: 0.8, ease: "power2.inOut" }, 0);
+      });
 
-        tl.fromTo(el, { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, i * 0.1);
-        tl.to(title, { color: "#ffffff", duration: 0.8, ease: "power2.inOut" }, 0);
-        tl.to(desc, { color: "rgba(255,255,255,0.6)", duration: 0.8, ease: "power2.inOut" }, 0);
+      // ── Fade-in stagger for each card (separate trigger, also once) ──
+      stepEls.forEach((el, i) => {
+        if (!el) return;
+        gsap.fromTo(
+          el,
+          { opacity: 0, y: 24 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.5,
+            ease: "power2.out",
+            delay: i * 0.1,
+            scrollTrigger: {
+              trigger: el,
+              start: "top 85%",
+              once: true,
+            },
+          }
+        );
       });
     }, section);
 
     return () => ctx.revert();
   }, []);
+
 
   return (
     <>
