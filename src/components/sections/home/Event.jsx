@@ -642,7 +642,7 @@ export default function UpcomingEvents() {
                 ))
               ) : (
                 <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
-                   <p style={{ textAlign: "center", padding: "40px", fontSize: "18px", color: "#666" }}>
+                   <p style={{ textAlign: "center", padding: "150px", fontSize: "18px", color: "#666" }}>
                      No events available
                    </p>
                 </div>
