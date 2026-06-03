@@ -56,6 +56,27 @@ function Card({ title, img, slug, category, price, comingSoon, emiStarting }) {
   );
 }
 
+function ModelCardSkeleton() {
+  return (
+    <div className="models-card models-card-skeleton">
+      <div className="models-card-img-wrap models-skeleton-img" />
+      <div className="models-card-info">
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div className="models-skeleton-line" style={{ width: '60px', height: '10px' }} />
+          <div className="models-skeleton-line" style={{ width: '80px', height: '18px', borderRadius: '4px' }} />
+        </div>
+        <div className="models-card-bottom">
+          <div style={{ flex: 1 }}>
+            <div className="models-skeleton-line" style={{ width: '70%', height: '16px', marginBottom: '8px' }} />
+            <div className="models-skeleton-line" style={{ width: '90%', height: '11px' }} />
+          </div>
+          <div className="models-skeleton-circle" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function ModelsSection() {
   const [categories, setCategories] = useState(["All", "Classic", "Roadster", "Cruiser", "Cafe Racer", "Adventure"]);
   const [active, setActive] = useState("All");
@@ -118,6 +139,51 @@ export default function ModelsSection() {
   return (
     <>
       <style>{`
+        /* Skeleton styles */
+        .models-card-skeleton {
+          pointer-events: none;
+          user-select: none;
+          cursor: default !important;
+        }
+        .models-skeleton-line {
+          background: #ebebeb;
+          border-radius: 4px;
+          position: relative;
+          overflow: hidden;
+        }
+        .models-skeleton-circle {
+          width: 28px;
+          height: 28px;
+          border-radius: 50%;
+          background: #ebebeb;
+          position: relative;
+          overflow: hidden;
+          flex-shrink: 0;
+        }
+        .models-skeleton-img {
+          background: #f0f0f0 !important;
+          position: relative;
+          overflow: hidden;
+        }
+        .models-skeleton-line::after,
+        .models-skeleton-circle::after,
+        .models-skeleton-img::after {
+          content: '';
+          position: absolute;
+          top: 0; right: 0; bottom: 0; left: 0;
+          transform: translateX(-100%);
+          background-image: linear-gradient(
+            90deg,
+            rgba(255,255,255,0) 0%,
+            rgba(255,255,255,0.4) 20%,
+            rgba(255,255,255,0.7) 60%,
+            rgba(255,255,255,0) 100%
+          );
+          animation: models-shimmer 1.8s infinite ease-out;
+        }
+        @keyframes models-shimmer {
+          100% { transform: translateX(100%); }
+        }
         .models-section {
           background: #ffffff;
           padding: 80px 40px;
@@ -336,7 +402,9 @@ export default function ModelsSection() {
 
           <div className="models-grid">
             {loading ? (
-              <p style={{ gridColumn: "1 / -1", textAlign: "center", padding: "40px" }}>Loading models...</p>
+              Array.from({ length: 8 }).map((_, i) => (
+                <ModelCardSkeleton key={i} />
+              ))
             ) : filtered.length > 0 ? (
               filtered.map((b) => (
                 <Card
