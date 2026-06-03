@@ -1,5 +1,6 @@
 import tagsbikezlogo from './tagsbikez.png'
 import tagsbikezwhite from './tagsbikezwhitelogo.png'
+import mindpixel from './mindpixel.webp'
 import bulletimg from './bulletimg.png'
 
 import banner1 from './banner/banner1.png'
@@ -158,5 +159,6 @@ export const img = {
   lifestyle,
   parts,
   gear,
-  about_bike
+  about_bike,
+  mindpixel
 }
