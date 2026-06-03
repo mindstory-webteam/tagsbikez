@@ -230,7 +230,11 @@ const CustomDropdown = ({ label, options, value, onChange, placeholder }) => {
       </div>
 
       {isOpen && (
-        <div className="absolute z-50 w-full mt-2 bg-white border border-gray-100  max-h-60 overflow-y-auto animate-in fade-in slide-in-from-top-2 duration-200">
+        <div
+          className="absolute z-50 w-full mt-2 bg-white border border-gray-100 max-h-60 overflow-y-auto animate-in fade-in slide-in-from-top-2 duration-200"
+          style={{ overscrollBehavior: "contain" }}
+          onWheel={(e) => e.stopPropagation()}
+        >
           {options.map((opt, i) => (
             <div
               key={i}
