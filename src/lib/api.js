@@ -158,4 +158,75 @@ export async function fetchFeatures() {
   }
 }
 
+/**
+ * Fetches bikes and categories shaped for the EMI Calculator.
+ * Returns:
+ *   { bikesData: { [categoryName]: [{id, name, model, price, emiStarting}] }, categories: string[] }
+ * Falls back gracefully — returns null on failure so the caller can use static data.
+ */
+export async function fetchEmiData() {
+  try {
+    const [bikes, cats] = await Promise.all([
+      fetchAllPaginated("/api/motorcycles/"),
+      fetchAllPaginated("/api/categories/"),
+    ]);
+
+    if (!bikes || !Array.isArray(bikes) || bikes.length === 0) return null;
+
+    // Build category list
+    const categoryNames = (cats && Array.isArray(cats) && cats.length > 0)
+      ? cats.map((c) =>
+          c.name
+            .split(" ")
+            .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+            .join(" ")
+        )
+      : [];
+
+    // Expand each bike into one entry per color variant
+    const allVariants = [];
+    let idx = 1;
+    for (const bike of bikes.filter((b) => !b.coming_soon && !b.comingSoon)) {
+      const bikeName = bike.name || "";
+      const catRaw = typeof bike.category === "object" ? bike.category?.name : bike.category;
+      const category = catRaw
+        ? catRaw.split(" ").map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ")
+        : "All";
+      const emiStarting = bike.emi_starting ?? bike.emiStarting ?? null;
+
+      const colors = Array.isArray(bike.colors) ? bike.colors : [];
+      if (colors.length === 0) {
+        // Bike without color variants — use bike-level price if available
+        const rawPrice = bike.price ?? bike.base_price ?? null;
+        if (rawPrice) {
+          const priceStr = String(rawPrice).startsWith("₹") ? rawPrice : `₹${Number(rawPrice).toLocaleString("en-IN")}`;
+          allVariants.push({ id: idx++, name: bikeName, model: bikeName, price: priceStr, category, emiStarting });
+        }
+      } else {
+        for (const color of colors) {
+          const rawPrice = color.price ?? bike.price ?? bike.base_price ?? null;
+          if (!rawPrice) continue;
+          const priceStr = String(rawPrice).startsWith("₹") ? rawPrice : `₹${Number(rawPrice).toLocaleString("en-IN")}`;
+          allVariants.push({ id: idx++, name: bikeName, model: color.name || bikeName, price: priceStr, category, emiStarting });
+        }
+      }
+    }
+
+    if (allVariants.length === 0) return null;
+
+    // Group by category
+    const grouped = { All: allVariants };
+    for (const cat of categoryNames) {
+      const filtered = allVariants.filter((v) => v.category?.toLowerCase() === cat.toLowerCase());
+      if (filtered.length > 0) grouped[cat] = filtered;
+    }
+
+    return { bikesData: grouped, categories: ["All", ...categoryNames.filter((c) => grouped[c])] };
+  } catch (err) {
+    console.warn("fetchEmiData failed:", err.message);
+    return null;
+  }
+}
+
 export { apiClient, API_BASE };
+

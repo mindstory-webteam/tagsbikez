@@ -4,6 +4,7 @@ import { useState, useMemo, useEffect, useRef } from "react";
 import Image from "next/image";
 import { img } from "@/assets/assest";
 import AnimatedBtn from "@/components/AnimatedBtn";
+import { fetchEmiData } from "@/lib/api";
 
 const formatCurrency = (val) =>
   new Intl.NumberFormat("en-IN", {
@@ -270,16 +271,37 @@ const getMinDownPayment = (bike) => {
 
 export default function EmiCalculator() {
   const [category, setCategory] = useState("All");
+  const [bikesData, setBikesData] = useState(BIKES_DATA);
+  const [categories, setCategories] = useState(Object.keys(BIKES_DATA));
   const [selectedBike, setSelectedBike] = useState(BIKES_DATA["All"][0]);
   const [downAmount, setDownAmount] = useState(4999);
   const [loanYears, setLoanYears] = useState(3);
   const [interestRate, setInterestRate] = useState(10.5);
 
+  // Fetch live data from API; fall back to static BIKES_DATA if unavailable
+  useEffect(() => {
+    async function loadEmiData() {
+      const result = await fetchEmiData();
+      if (result && result.bikesData && result.categories) {
+        setBikesData(result.bikesData);
+        setCategories(result.categories);
+        const firstBike = result.bikesData["All"]?.[0];
+        if (firstBike) {
+          setSelectedBike(firstBike);
+          setDownAmount(
+            firstBike.emiStarting ?? getMinDownPayment(firstBike)
+          );
+        }
+      }
+    }
+    loadEmiData();
+  }, []);
+
   const purchasePrice = parsePrice(selectedBike.price);
 
   useEffect(() => {
     if (selectedBike) {
-      setDownAmount(getMinDownPayment(selectedBike));
+      setDownAmount(selectedBike.emiStarting ?? getMinDownPayment(selectedBike));
     }
   }, [selectedBike]);
 
@@ -308,7 +330,7 @@ export default function EmiCalculator() {
     };
   }, [loanAmount, loanYears, interestRate]);
 
-  const bikeOptions = BIKES_DATA[category].map((b) => ({
+  const bikeOptions = (bikesData[category] || []).map((b) => ({
     label: `${b.name} - ${b.model}`,
     subLabel: b.price,
     value: b,
@@ -334,11 +356,12 @@ export default function EmiCalculator() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <CustomDropdown
                   label="Select Category"
-                  options={Object.keys(BIKES_DATA)}
+                  options={categories}
                   value={category}
                   onChange={(val) => {
                     setCategory(val);
-                    setSelectedBike(BIKES_DATA[val][0]);
+                    const first = (bikesData[val] || [])[0];
+                    if (first) setSelectedBike(first);
                   }}
                 />
                 <CustomDropdown
