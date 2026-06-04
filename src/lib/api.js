@@ -183,6 +183,17 @@ export async function fetchEmiData() {
         )
       : [];
 
+    // Helper: convert API price strings like "1,69,263" or 169263 → "₹1,69,263"
+    const toRupees = (raw) => {
+      if (!raw && raw !== 0) return null;
+      const str = String(raw);
+      if (str.startsWith("₹")) return str;
+      // Strip existing commas, then reformat with Indian locale
+      const num = Number(str.replace(/,/g, ""));
+      if (isNaN(num)) return null;
+      return `₹${num.toLocaleString("en-IN")}`;
+    };
+
     // Expand each bike into one entry per color variant
     const allVariants = [];
     let idx = 1;
@@ -192,21 +203,22 @@ export async function fetchEmiData() {
       const category = catRaw
         ? catRaw.split(" ").map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ")
         : "All";
-      const emiStarting = bike.emi_starting ?? bike.emiStarting ?? null;
+      // API field is emi_starts_at (not emi_starting)
+      const emiStarting = bike.emi_starts_at != null
+        ? Number(String(bike.emi_starts_at).replace(/,/g, ""))
+        : (bike.emi_starting ?? bike.emiStarting ?? null);
 
       const colors = Array.isArray(bike.colors) ? bike.colors : [];
       if (colors.length === 0) {
-        // Bike without color variants — use bike-level price if available
-        const rawPrice = bike.price ?? bike.base_price ?? null;
-        if (rawPrice) {
-          const priceStr = String(rawPrice).startsWith("₹") ? rawPrice : `₹${Number(rawPrice).toLocaleString("en-IN")}`;
+        // Bike without color variants — use bike-level price
+        const priceStr = toRupees(bike.base_price ?? bike.price);
+        if (priceStr) {
           allVariants.push({ id: idx++, name: bikeName, model: bikeName, price: priceStr, category, emiStarting });
         }
       } else {
         for (const color of colors) {
-          const rawPrice = color.price ?? bike.price ?? bike.base_price ?? null;
-          if (!rawPrice) continue;
-          const priceStr = String(rawPrice).startsWith("₹") ? rawPrice : `₹${Number(rawPrice).toLocaleString("en-IN")}`;
+          const priceStr = toRupees(color.price ?? bike.base_price ?? bike.price);
+          if (!priceStr) continue;
           allVariants.push({ id: idx++, name: bikeName, model: color.name || bikeName, price: priceStr, category, emiStarting });
         }
       }
