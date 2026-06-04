@@ -27,7 +27,9 @@ const Breadcrumb = () => {
     loadBikes();
   }, []);
 
-  if (pathname === '/') return null;
+  // Hide on the home page. Some hosting environments (proxies, static exports)
+  // resolve the root as '/index' instead of '/', so guard all variants.
+  if (!pathname || pathname === '/' || pathname === '/index') return null;
 
   const pathSegments = pathname.split('/').filter(s => s);
   const pageName = pathSegments[pathSegments.length - 1]?.replace(/-/g, ' ') || 'Page';
