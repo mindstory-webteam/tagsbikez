@@ -2,8 +2,12 @@ import React from 'react';
 import AboutGallery from '@/components/sections/about/AboutGallery';
 
 export const metadata = {
-  title: "Gallery | TagsBikez - Royal Enfield Showroom Thrissur",
-  description: "Explore our collection of moments captured on the road, at rallies, and beyond with TagsBikez.",
+  title: "Gallery | Royal Enfield Bikes & Events | Tags Bikez",
+  description:
+    "Browse photos of Royal Enfield motorcycles, showroom highlights, customer deliveries, rides, and events at Tags Bikez.",
+  alternates: {
+    canonical: "https://tagsbikez.com/gallery",
+  },
 };
 
 const GalleryPage = () => {

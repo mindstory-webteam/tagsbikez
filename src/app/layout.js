@@ -20,8 +20,16 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "Tagsbikez | Authorized Royal Enfield Dealership",
-  description: "Experience the thrill of riding with Tagsbikez, your authorized Royal Enfield dealership in Thrissur.",
+  metadataBase: new URL("https://tagsbikez.com"),
+  title: {
+    default: "Tags Bikez | Royal Enfield Dealer in Kerala",
+    template: "%s | Tags Bikez",
+  },
+  description:
+    "Explore the latest Royal Enfield motorcycles, offers, accessories, and services at Tags Bikez, your trusted Royal Enfield dealership in Kerala.",
+  alternates: {
+    canonical: "https://tagsbikez.com/",
+  },
   icons: [
     {
       rel: "icon",

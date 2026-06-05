@@ -4,8 +4,12 @@ import OurStory from '@/components/sections/about/OurStory';
 import OurMembers from '@/components/sections/about/OurMembers';
 
 export const metadata = {
-  title: "About Us | TagsBikez - Royal Enfield Showroom Thrissur",
-  description: "Learn more about TagsBikez, the premier authorized Royal Enfield dealership in Thrissur, and our seamless bike buying process.",
+  title: "About Tags Bikez | Authorized Royal Enfield Dealer",
+  description:
+    "Learn about Tags Bikez, an authorized Royal Enfield dealership committed to delivering exceptional motorcycle sales and service experiences.",
+  alternates: {
+    canonical: "https://tagsbikez.com/about",
+  },
 };
 
 const AboutPage = () => {
