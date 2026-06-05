@@ -415,7 +415,7 @@ export default function AboutSection() {
               <div className="as-pill">Genuine Accessories</div>
               <div className="as-pill">Easy EMI</div>
               <a
-                href="https://www.instagram.com/tagsrides?igsh=eW5qaHJnZGgxeTFk"
+                href="https://www.instagram.com/royalenfield.reown?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
                 target="_blank"
                 rel="noopener noreferrer"
                 className="as-pill as-pill-insta"
