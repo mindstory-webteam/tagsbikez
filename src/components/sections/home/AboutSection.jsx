@@ -435,7 +435,7 @@ export default function AboutSection() {
                   <circle cx="12" cy="12" r="4.5" stroke="url(#ig-grad-pill)" strokeWidth="1.8" fill="none" />
                   <circle cx="17.5" cy="6.5" r="1" fill="url(#ig-grad-pill)" />
                 </svg>
-                Pre-Owned Vehicles
+                re-Owned Vehicles
               </a>
             </div>
 
