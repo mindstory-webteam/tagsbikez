@@ -111,7 +111,7 @@ export default function ModelsSection() {
             category: typeof b.category === "object" ? b.category?.name : b.category,
             image: b.featured_image_url || b.image,
             comingSoon: b.coming_soon ?? b.comingSoon ?? false,
-            emiStarting: b.emi_starting ?? b.emiStarting ?? (localBike ? localBike.emiStarting : null),
+            emiStarting: b.emi_starts_at ?? b.emi_starting ?? b.emiStarting ?? (localBike ? localBike.emiStarting : null),
             colors: Array.isArray(b.colors)
               ? b.colors.map((c) => ({
                   name: c.name,
