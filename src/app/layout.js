@@ -26,7 +26,7 @@ export const metadata = {
     template: "%s | Tags Bikez",
   },
   description:
-    "Explore the latest Royal Enfield motorcycles, offers, accessories, and services at Tags Bikez, your trusted Royal Enfield dealership in Kerala.",
+    "Explore the latest Royal Enfield motorcycles, offers, accessories, and services at Tags Bikez, your trusted Royal Enfield dealership in Thrissur, Kerala.",
   alternates: {
     canonical: "https://tagsbikez.com/",
   },

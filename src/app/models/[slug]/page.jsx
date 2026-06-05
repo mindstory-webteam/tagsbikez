@@ -105,7 +105,15 @@ export async function generateMetadata({ params }) {
     "classic-650": {
       title: "Royal Enfield Classic 650 in Kerala | Tags Bikez",
       description: "Explore the Royal Enfield Classic 650, blending iconic heritage styling with powerful twin-cylinder performance."
-    }
+    },
+    "meteor-350": {
+      title: "Royal Enfield Meteor 350 in Thrissur, Kerala | Tags Bikez",
+      description: "Experience ultimate cruising comfort with the Royal Enfield Meteor 350, Explore colors, specs, and EMI options at Tags Bikez."
+    },
+    "interceptor-bear-650": {
+      title: "Royal Enfield Interceptor Bear 650 in Thrissur, Kerala | Tags Bikez",
+      description: "Explore the Royal Enfield Interceptor Bear 650, a modern classic roadster delivering smooth twin-cylinder performance."
+    },
   };
 
   const matched = metadataMap[slug];

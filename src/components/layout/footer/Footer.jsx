@@ -401,7 +401,7 @@ export default function Footer() {
               style={{ objectFit: "contain", marginBottom: "20px" }}
             />
             <p className="ft-tagline">
-              Authorized Royal Enfield dealership in Kerala.
+              Authorized Royal Enfield dealership in Thrissur,Kerala.
             </p>
             <nav className="ft-nav">
               {navLinks.map((link) => (
