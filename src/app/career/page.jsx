@@ -3,7 +3,12 @@ import React from 'react';
 
 
 export const metadata = {
-  title: "Career | TagsBikez - Royal Enfield Showroom Thrissur",
+  title: "Careers at Tags Bikez | Join Our Team",
+  description:
+    "Explore career opportunities at Tags Bikez and become part of a passionate team dedicated to the Royal Enfield riding community.",
+  alternates: {
+    canonical: "https://tagsbikez.com/career",
+  },
 };
 
 const CareerPage = () => {

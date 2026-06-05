@@ -1,10 +1,13 @@
 import React from "react";
 
 export const metadata = {
-  title: "Privacy Policy | Tags Bikez Royal Enfield Showroom Thrissur",
-  description: "Read our Privacy Policy to understand how Tags Bikez collects, uses, and protects your personal information.",
+  title: "Privacy Policy | Tags Bikez",
+  description:
+    "Read the Tags Bikez Privacy Policy to understand how we collect, use, and protect your personal information.",
+  alternates: {
+    canonical: "https://tagsbikez.com/privacy",
+  },
 };
-
 export default function PrivacyPolicyPage() {
   return (
     <div className="policy-wrapper">
