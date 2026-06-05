@@ -81,7 +81,7 @@ const locations = [
 ];
 
 const socialLinks = [
-  { icon: <FaFacebookF />, url: 'https://www.facebook.com/tagsbikez', label: 'Facebook' },
+  { icon: <FaFacebookF />, url: 'https://www.facebook.com/tagsbikezofficial', label: 'Facebook' },
   { icon: <FaWhatsapp />, url: 'https://wa.me/917594960023?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Royal%20Enfield.', label: 'Whatsapp' },
   { icon: <FaInstagram />, url: 'https://www.instagram.com/tagsbikez?igsh=YzNqbWZ5YnhmOWRi', label: 'Instagram' },
   { icon: <FaYoutube />, url: 'https://www.youtube.com/@imfranciz', label: 'YouTube' },

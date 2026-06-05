@@ -1,8 +1,12 @@
 import React from "react";
 
 export const metadata = {
-  title: "Terms & Conditions | Tags Bikez Royal Enfield Showroom Thrissur",
-  description: "Read the Terms & Conditions of Tags Bikez to understand the rules and guidelines for using our website.",
+  title: "Terms & Conditions | Tags Bikez",
+  description:
+    "Review the Terms and Conditions governing the use of the Tags Bikez website and services.",
+  alternates: {
+    canonical: "https://tagsbikez.com/terms",
+  },
 };
 
 export default function TermsConditionsPage() {
