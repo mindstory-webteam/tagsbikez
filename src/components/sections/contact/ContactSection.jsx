@@ -168,10 +168,24 @@ const ContactSection = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setStatus('submitting');
+    
+    const phone = form.enquiryType === 'Service' ? '917594960020' : '917594960023';
+    
+    const textMessage = `New Contact Form Submission:
+*Name:* ${form.name}
+*Email:* ${form.email}
+*Location:* ${form.location || 'Not Specified'}
+*Enquiry Type:* ${form.enquiryType || 'General Enquiry'}
+*Message:* ${form.message}`;
+
+    const waUrl = `https://wa.me/${phone}?text=${encodeURIComponent(textMessage)}`;
+    
     setTimeout(() => {
       setStatus('success');
+      window.open(waUrl, '_blank', 'noopener,noreferrer');
       setForm({ name: '', email: '', location: '', enquiryType: '', message: '' });
-    }, 1500);
+      setStatus('idle');
+    }, 1000);
   };
 
   const locationOptions = locations.map((loc) => ({

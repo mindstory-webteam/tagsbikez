@@ -58,6 +58,10 @@ export async function generateMetadata({ params }) {
   if (!bike) return { title: 'Bike Not Found' };
 
   const metadataMap = {
+    "hunter-350": {
+      title: "Royal Enfield Hunter 350 in Kerala | Tags Bikez",
+      description: "Discover the Royal Enfield Hunter 350 featuring agile handling, modern styling, and urban performance. Book a test ride today."
+    },
     "bullet-350": {
       title: "Royal Enfield Bullet 350 in Kerala | Tags Bikez",
       description: "Experience the legendary Royal Enfield Bullet 350, blending timeless design, comfort, and dependable performance."
