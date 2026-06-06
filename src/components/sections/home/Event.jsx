@@ -44,6 +44,13 @@ function getCardsPerPage(width) {
 function EventCard({ event }) {
   const start = formatParts(event.startdate);
   const end = formatParts(event.enddate);
+
+  // Determine if the event has already passed
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const endDate = parseLocalDate(event.enddate);
+  const isPast = endDate && endDate < today;
+
   return (
     <div className="ev-card">
       <div className="ev-top">
@@ -102,16 +109,28 @@ function EventCard({ event }) {
             alt={event.title}
             fill
             className="ev-img"
-            style={{ objectFit: "cover" }}
+            style={{
+              objectFit: "cover",
+              filter: isPast ? "grayscale(100%)" : "none",
+              transition: "filter 0.3s ease",
+            }}
           />
         ) : (
-          <div style={{ width: "100%", height: "100%", background: "#f0f0f0" }} />
+          <div
+            style={{
+              width: "100%",
+              height: "100%",
+              background: isPast ? "#ccc" : "#f0f0f0",
+            }}
+          />
         )}
-        <div className="ev-actions">
-          <Link href={event.infoUrl} className="ev-btn">
-            More info
-          </Link>
-        </div>
+        {!isPast && (
+          <div className="ev-actions">
+            <Link href={event.infoUrl} className="ev-btn">
+              More info
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );
@@ -575,7 +594,7 @@ export default function UpcomingEvents() {
       <section className="ev-section">
         <div className="ev-inner">
           <div className="ev-header">
-            <h2 className="ev-heading">Upcoming events</h2>
+            <h2 className="ev-heading">Events</h2>
             <nav className="ev-nav" aria-label="Events navigation">
               <a
                 href="https://www.instagram.com/tagsrides?igsh=eW5qaHJnZGgxeTFk"
@@ -636,16 +655,10 @@ export default function UpcomingEvents() {
                 Array.from({ length: cardsPerPage }).map((_, i) => (
                   <EventCardSkeleton key={i} />
                 ))
-              ) : sorted.length > 0 ? (
+              ) : (
                 sorted.map((ev) => (
                   <EventCard key={ev.id} event={ev} />
                 ))
-              ) : (
-                <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
-                   <p style={{ textAlign: "center", padding: "150px", fontSize: "18px", color: "#666" }}>
-                     No events available
-                   </p>
-                </div>
               )}
             </div>
           </div>
