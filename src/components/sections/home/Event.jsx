@@ -411,7 +411,21 @@ export default function UpcomingEvents() {
           transition: border-color 0.2s, background 0.2s, color 0.2s;
           white-space: nowrap;
         }
+        .ev-wa-link {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          padding: 8px 16px;
+          border: 1px solid #ddd;
+          text-decoration: none;
+          color: #25d366;
+          font-size: 13px;
+          font-weight: 500;
+          transition: border-color 0.2s, background 0.2s, color 0.2s;
+          white-space: nowrap;
+        }
       
+       
         .ev-insta-icon {
           width: 18px;
           height: 18px;
@@ -613,8 +627,8 @@ export default function UpcomingEvents() {
             margin: 0 0 20px;
           }
           .ev-nav { flex-shrink: 0; }
-          .ev-insta-link span { display: none; }
-          .ev-insta-link { padding: 8px 10px; }
+          .ev-insta-link span, .ev-wa-link span { display: none; }
+          .ev-insta-link, .ev-wa-link { padding: 8px 10px; }
           .ev-top { min-height: 140px; padding: 16px 14px 14px; }
           .ev-day { font-size: 32px; }
           .ev-img-wrap { height: 180px; }
@@ -629,6 +643,18 @@ export default function UpcomingEvents() {
           <div className="ev-header">
             <h2 className="ev-heading">Events</h2>
             <nav className="ev-nav" aria-label="Events navigation">
+              <a
+                href="https://chat.whatsapp.com/Ioch7JBnyvzJXBDzF1GX5Z"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ev-wa-link"
+                aria-label="Join our WhatsApp Group"
+              >
+                <svg className="ev-insta-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12.012 2c-5.506 0-9.988 4.482-9.988 9.988 0 1.834.498 3.55 1.362 5.029L2 22l5.127-1.319a9.92 9.92 0 004.885 1.307h.005c5.506 0 9.993-4.482 9.993-9.993C22 6.482 17.518 2 12.012 2zm4.78 12.63c-.22.616-1.284 1.196-1.77 1.254-.44.05-1.01.077-2.926-.714-2.443-1.01-4.004-3.486-4.126-3.648-.122-.163-1.006-1.341-1.006-2.556 0-1.215.632-1.81.857-2.053.226-.244.493-.306.657-.306.163 0 .327.001.468.007.147.006.347-.056.543.418.2.486.685 1.67.746 1.793.061.123.102.266.02.43-.081.163-.122.265-.245.408-.122.143-.257.32-.367.43-.122.122-.25.255-.107.502.142.245.634 1.045 1.362 1.693.938.837 1.728 1.096 1.973 1.218.245.123.388.102.53-.061.144-.163.614-.715.777-.96.163-.245.327-.204.552-.122.224.082 1.428.674 1.674.797.244.122.408.184.469.286.06.102.06.596-.16 1.212z" fill="#25d366" />
+                </svg>
+                <span>Join</span>
+              </a>
               <a
                 href="https://www.instagram.com/tagsrides?igsh=eW5qaHJnZGgxeTFk"
                 target="_blank"
