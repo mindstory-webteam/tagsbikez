@@ -58,12 +58,12 @@ function EventCard({ event }) {
           <span>{event.title}</span>
           {!isPast && (
             <span style={{
-              background: "#e6f4ea",
+              background: "#fafafa",
               color: "#ff0000",
+              border: "1px solid #e0e0e0",
               fontSize: "10px",
               fontWeight: "600",
-              padding: "2px 8px",
-              borderRadius: "12px",
+              padding: "4px 8px",
               textTransform: "uppercase",
               letterSpacing: "0.05em",
               display: "inline-block"
