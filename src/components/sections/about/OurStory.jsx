@@ -140,7 +140,7 @@ const OurStory = () => {
 
         @media (max-width: 768px) {
           .story-section {
-            padding: 20px 20px 40px 20px;
+            padding: 20px 20px 0px 20px;
             min-height: unset;
           }
           .story-img-wrap {
@@ -162,7 +162,7 @@ const OurStory = () => {
 
         @media (max-width: 600px) {
           .story-section {
-            padding: 20px 16px 40px 16px;
+            padding: 20px 16px 0px 16px;
           }
           .story-inner {
             gap: 20px;

@@ -2,6 +2,7 @@ import React from 'react';
 import CompanySection from '@/components/sections/about/CompanySection';
 import OurStory from '@/components/sections/about/OurStory';
 import OurMembers from '@/components/sections/about/OurMembers';
+import ReviewsSection from '@/components/sections/about/ReviewsSection';
 
 export const metadata = {
   title: "About Tags Bikez | Authorized Royal Enfield Dealer",
@@ -18,6 +19,7 @@ const AboutPage = () => {
       <CompanySection />
       <OurMembers />
       <OurStory />
+      <ReviewsSection />
     </div>
   )
 }

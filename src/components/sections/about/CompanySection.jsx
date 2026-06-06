@@ -46,7 +46,7 @@ const CompanySection = () => {
       <style>{`
         .cp-section {
           background: #fff;
-          padding: 80px 40px;
+          padding: 90px 40px 80px 40px;
         }
 
         .cp-inner {
