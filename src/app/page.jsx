@@ -13,7 +13,7 @@ import AccessoriesSection from '@/components/sections/home/AccessoriesSection'
 import EmiCalculator from '@/components/sections/home/EmiCalculator'
 
 export const metadata = {
-  title: "Tags Bikez | Royal Enfield Dealer in Kerala",
+  title: "Tags Bikez | Royal Enfield Dealer in Thrissur, Kerala",
   description:
     "Explore the latest Royal Enfield motorcycles, offers, accessories, and services at Tags Bikez, your trusted Royal Enfield dealership in Thrissur, Kerala.",
   alternates: {

@@ -22,7 +22,7 @@ const inter = Inter({
 export const metadata = {
   metadataBase: new URL("https://tagsbikez.com"),
   title: {
-    default: "Tags Bikez | Royal Enfield Dealer in Kerala",
+    default: "Tags Bikez | Royal Enfield Dealer in Thrissur, Kerala",
     template: "%s | Tags Bikez",
   },
   description:
