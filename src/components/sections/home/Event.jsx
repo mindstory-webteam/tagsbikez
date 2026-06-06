@@ -54,7 +54,24 @@ function EventCard({ event }) {
   return (
     <div className="ev-card">
       <div className="ev-top">
-        <p className="ev-title">{event.title}</p>
+        <p className="ev-title" style={{ display: "flex", alignItems: "center", justifyContent: "between", gap: "8px", flexWrap: "wrap" }}>
+          <span>{event.title}</span>
+          {!isPast && (
+            <span style={{
+              background: "#e6f4ea",
+              color: "#ff0000",
+              fontSize: "10px",
+              fontWeight: "600",
+              padding: "2px 8px",
+              borderRadius: "12px",
+              textTransform: "uppercase",
+              letterSpacing: "0.05em",
+              display: "inline-block"
+            }}>
+              Upcoming
+            </span>
+          )}
+        </p>
 
         <div className="ev-locations">
           <div className="ev-loc">
