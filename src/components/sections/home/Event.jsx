@@ -195,7 +195,7 @@ export default function UpcomingEvents() {
     const d2 = parseLocalDate(b.startdate);
     if (!d1) return 1;
     if (!d2) return -1;
-    return d1 - d2;
+    return d2 - d1;
   });
 
   const totalPages = Math.ceil(sorted.length / cardsPerPage);
