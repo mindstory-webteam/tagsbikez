@@ -448,14 +448,14 @@ export default function AboutSection() {
             <div className="as-img-col" ref={colARef}>
               {colA.map((src, i) => (
                 <div className="as-img-box" key={`a-${i}`}>
-                  <img src={src?.src || src} alt="Bike" loading="lazy" />
+                  <img src={src?.src || src}  loading="lazy" />
                 </div>
               ))}
             </div>
             <div className="as-img-col" ref={colBRef} style={{ marginTop: "-120px" }}>
               {colB.map((src, i) => (
                 <div className="as-img-box" key={`b-${i}`}>
-                  <img src={src?.src || src} alt="Bike" loading="lazy" />
+                  <img src={src?.src || src}  loading="lazy" />
                 </div>
               ))}
             </div>

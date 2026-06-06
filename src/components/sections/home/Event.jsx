@@ -418,7 +418,7 @@ export default function UpcomingEvents() {
           padding: 8px 16px;
           border: 1px solid #ddd;
           text-decoration: none;
-          color: #25d366;
+          color: #111;
           font-size: 13px;
           font-weight: 500;
           transition: border-color 0.2s, background 0.2s, color 0.2s;
