@@ -467,7 +467,7 @@ export default function AboutSection() {
             <div className="as-scroll-strip" ref={scrollStripRef}>
               {[...allImgs, ...allImgs].map((src, i) => (
                 <div className="as-scroll-img" key={i}>
-                  <img src={src?.src || src} alt="Bike" loading="lazy" />
+                  <img src={src?.src || src}  loading="lazy" />
                 </div>
               ))}
             </div>

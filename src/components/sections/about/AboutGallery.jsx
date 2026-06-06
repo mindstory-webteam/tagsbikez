@@ -203,7 +203,7 @@ export default function AboutGallery() {
             >
               <img
                 src={item.src && item.src.includes("pexels.com") ? `${item.src}?auto=compress&cs=tinysrgb&w=800` : (item.src || "")}
-                alt={item.caption || ""}
+                alt=""
                 className="g-img"
               />
             </div>
