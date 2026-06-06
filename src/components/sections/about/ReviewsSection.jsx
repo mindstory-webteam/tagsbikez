@@ -6,19 +6,19 @@ import reviewUserIcon from '@/assets/reviewusericon.png';
 const mockReviews = [
   {
     id: 1,
-    name: "vishnu prasad",
+    name: "Vishnu prasad",
     description: "Had a wonderful experience with my new Royal Enfield bike delivery. The entire process was smooth, well-coordinated, and hassle-free. The bike was delivered in perfect condition, and everything was clearly explained during the handover. Special appreciation to Jitheesh, for his professionalism, patience, and continuous support from booking till delivery. He made the whole experience easy and memorable. Highly recommend this showroom.",
     image: reviewUserIcon
   },
   {
     id: 2,
-    name: "shahir mon",
+    name: "Shahir mon",
     description: "I recently bought the latest Royal Enfield Himalaya. I had a very good experience in the showroom. The sales executive named 'Divya' in particular inspired me to buy that bike. She was very polite and explained everything in detaily.. Great experience.. A special Thanks to Divya",
     image: reviewUserIcon
   },
   {
     id: 3,
-    name: "sathyadev mj",
+    name: "Sathyadev mj",
     description: "Had a great experience at this dealership. The whole process was smooth and easy. A big thanks to Mr clinton & jithesh for helping me throughout. They where friendly, patient, and explained everything clearly. Really happy with the service. Highly recommended! ",
     image: reviewUserIcon
   },

@@ -56,7 +56,7 @@ function EventCard({ event }) {
       <div className="ev-top">
         <p className="ev-title" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "8px", flexWrap: "wrap", wordBreak: "break-word", overflowWrap: "anywhere" }}>
           <span style={{ flex: "1 1 120px", minWidth: 0, wordBreak: "break-word" }}>{event.title}</span>
-          {!isPast && (
+          {!isPast ? (
             <span style={{
               background: "#fafafa",
               color: "#ff0000",
@@ -70,6 +70,21 @@ function EventCard({ event }) {
               flexShrink: 0
             }}>
               Upcoming
+            </span>
+          ) : (
+            <span style={{
+              background: "#fafafa",
+              color: "#888888",
+              border: "1px solid #e0e0e0",
+              fontSize: "10px",
+              fontWeight: "600",
+              padding: "4px 8px",
+              textTransform: "uppercase",
+              letterSpacing: "0.05em",
+              display: "inline-block",
+              flexShrink: 0
+            }}>
+              Ended
             </span>
           )}
         </p>
