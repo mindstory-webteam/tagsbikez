@@ -74,7 +74,7 @@ function EventCard({ event }) {
           ) : (
             <span style={{
               background: "#fafafa",
-              color: "#888888",
+              color: "#ff0000",
               border: "1px solid #e0e0e0",
               fontSize: "10px",
               fontWeight: "600",
