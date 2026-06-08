@@ -48,7 +48,7 @@ export default function RootLayout({ children }) {
         <LenisProvider>
           <Navbar />
           <Breadcrumb />
-          <main className="flex-grow">{children}</main>
+          <main className="grow">{children}</main>
           <Footer />
           <FloatingActionButton />
         </LenisProvider>
