@@ -682,7 +682,7 @@ export default function PopularBikes() {
                   </AnimatedBtn>
                 </div>
                 <div className="pb-bottom-cell">
-                  <AnimatedBtn href="https://wa.me/917594960023?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Royal%20Enfield." target="_blank" style={{ height: '56px' }}>
+                  <AnimatedBtn href="https://wa.me/917594960023?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Royal%20Enfield." bgColor="#f51b24" hoverColor="#111" target="_blank" style={{ height: '56px' }}>
                     Test Ride
                   </AnimatedBtn>
                 </div>
