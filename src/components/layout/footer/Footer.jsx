@@ -48,8 +48,13 @@ const locations = [
     service: "Coming Soon",
     email: "info.tags.vdy@gmail.com",
   },
-
-
+  {
+    area: "Chalakudy",
+    name: "TagsBikez Chalakudy",
+    sales: "+91 7594954444",
+    service: "+91 7594960060",
+    email: "info.tags.ptkl@gmail.com",
+  },
 ];
 
 const socialIcons = {

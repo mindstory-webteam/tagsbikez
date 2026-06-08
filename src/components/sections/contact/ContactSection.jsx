@@ -78,6 +78,20 @@ const locations = [
       instagram: 'https://www.instagram.com/tagsbikez_kodakara?igsh=ZWdrYWllMGxmazRz',
     },
   },
+  {
+    name: 'TagsBikez Chalakudy',
+    place: 'Chalakudy',
+    sales: '7594954444',
+    service: '7594960060',
+    email: 'info.tags.ptkl@gmail.com',
+    mapUrl: '#',
+    coords: [76.3310, 10.3105],
+    socials: {
+      whatsapp: 'https://wa.me/917594954444',
+      facebook: '#',
+      instagram: '#',
+    },
+  },
 ];
 
 const socialLinks = [
@@ -754,21 +768,7 @@ const ContactSection = () => {
               )}
             </div>
           ))}
-          {/* Follow Us Card */}
-          <div className="loc-cell">
-            <span className="tag">Follow Us</span>
-            <h4>Stay Connected</h4>
-            <div className="social-row mt-4">
-              {socialLinks.map((s, i) => (
-                <a key={i} href={s.url} className="social-link" aria-label={s.label} target="_blank" rel="noopener noreferrer">
-                  {s.icon}
-                </a>
-              ))}
-            </div>
-            <p className="text-[11px] text-gray-500 mt-6 leading-relaxed">
-              Follow our journey and stay updated with latest Royal Enfield news and events.
-            </p>
-          </div>
+
         </div>
 
         <div className="rsa-section">
