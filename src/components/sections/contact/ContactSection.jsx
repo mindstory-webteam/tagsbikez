@@ -88,7 +88,7 @@ const locations = [
     coords: [76.3310, 10.3105],
     socials: {
       whatsapp: 'https://wa.me/917594954444',
-      facebook: '#',
+      facebook: 'https://www.facebook.com/tagsbikez',
       instagram: '#',
     },
   },
