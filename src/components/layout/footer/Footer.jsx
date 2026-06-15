@@ -14,14 +14,14 @@ const navLinks = [
 
 const locations = [
    {
-    area: "Kuriachira, Thrissur",
+    area: "Kuriachira",
     name: "TagsBikez Kuriachira",
     sales: "+91 7594960023",
     service: "+91 7594960020",
     email: "info.tags.tcr@gmail.com",
   },
   {
-    area: "Patturaikkal, Thrissur",
+    area: "Patturaikkal",
     name: "TagsBikez Patturaikkal",
     sales: "+91 7594960033",
     service: "+91 7594960068",
