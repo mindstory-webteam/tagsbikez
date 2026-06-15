@@ -27,7 +27,7 @@ function Card({ title, img, slug, category, price, comingSoon, emiStarting }) {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <p className="models-card-subtitle">{category}</p>
           {emiStarting > 0 && !comingSoon && (
-            <span 
+            <span
               className="models-card-emi-tag"
               style={{ cursor: 'pointer' }}
               onClick={(e) => {
@@ -99,7 +99,7 @@ export default function ModelsSection() {
     async function loadBikes() {
       const data = await fetchBikes();
       const bikesList = (data && Array.isArray(data) && data.length > 0) ? data : bikeData;
-      
+
       if (bikesList && bikesList.length > 0) {
         const mapped = bikesList.map((b) => {
           const localBike = bikeData.find(lb => lb.slug === b.slug);
@@ -114,11 +114,11 @@ export default function ModelsSection() {
             emiStarting: b.emi_starts_at ?? b.emi_starting ?? b.emiStarting ?? (localBike ? localBike.emiStarting : null),
             colors: Array.isArray(b.colors)
               ? b.colors.map((c) => ({
-                  name: c.name,
-                  hex: c.hex,
-                  image: c.image_url || c.image,
-                  price: c.price ? (String(c.price).startsWith("₹") ? c.price : `₹${c.price}`) : null,
-                }))
+                name: c.name,
+                hex: c.hex,
+                image: c.image_url || c.image,
+                price: c.price ? (String(c.price).startsWith("₹") ? c.price : `₹${c.price}`) : null,
+              }))
               : [],
           };
         });

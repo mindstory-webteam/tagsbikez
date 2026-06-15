@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { ShieldCheck, Wrench, Clock } from "lucide-react";
+import { ShieldCheck, Wrench, Clock,BadgeCheck } from "lucide-react";
 import { img } from "@/assets/assest";
 import { fetchGallery } from "@/lib/api";
 
@@ -14,7 +14,7 @@ const features = [
     desc: "Official Royal Enfield dealership in Thrissur certified, trusted, and factory-backed since day one.",
   },
   {
-    icon: <ShieldCheck size={20} strokeWidth={1.6} color="#e8282b" />,
+    icon: <BadgeCheck size={20} strokeWidth={1.6} color="#e8282b" />,
     title: "Genuine Parts & Service",
     desc: "Every service uses 100% genuine Royal Enfield parts. Your motorcycle deserves nothing less.",
   },
