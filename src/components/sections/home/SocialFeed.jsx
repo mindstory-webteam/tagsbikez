@@ -105,7 +105,6 @@ const SocialFeed = () => {
         .sf-swiper-wrap {
           flex: 1;
           padding: 40px 0;
-          background: #fcfcfc;
           overflow: hidden;
         }
 

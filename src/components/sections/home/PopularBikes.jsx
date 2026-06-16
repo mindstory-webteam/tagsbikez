@@ -402,7 +402,6 @@ export default function PopularBikes() {
             }
             .m-description {
               font-size: 14px;
-              -webkit-line-clamp: unset;
             }
             .m-spec-value {
               font-size: 18px;
@@ -462,10 +461,6 @@ export default function PopularBikes() {
             line-height: 1.55;
             color: #777;
             margin: 0 0 14px;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
           }
 
           /* Specs — 4 col */
