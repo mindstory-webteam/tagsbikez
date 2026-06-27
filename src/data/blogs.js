@@ -1,3 +1,4 @@
+import { img } from "@/assets/assest";
 export const blogsData = [
   {
     id: "featured-1",
@@ -12,7 +13,7 @@ export const blogsData = [
     author: "Admin",
     date: "Mar 20, 2026",
     popular: false,
-    image: "https://images.pexels.com/photos/2116475/pexels-photo-2116475.jpeg?auto=compress&cs=tinysrgb&w=800"
+    image: img.himalayan450
   },
   {
     id: "featured-2",
@@ -27,7 +28,7 @@ export const blogsData = [
     author: "Admin",
     date: "Mar 20, 2026",
     popular: false,
-    image: "https://images.pexels.com/photos/1119796/pexels-photo-1119796.jpeg?auto=compress&cs=tinysrgb&w=600"
+    image: img.ride1
   },
   {
     id: "featured-3",
@@ -42,7 +43,7 @@ export const blogsData = [
     author: "Admin",
     date: "Mar 18, 2026",
     popular: true,
-    image: "https://images.pexels.com/photos/1119796/pexels-photo-1119796.jpeg?auto=compress&cs=tinysrgb&w=600"
+    image: img.classic350
   },
   {
     id: "featured-4",
@@ -57,7 +58,7 @@ export const blogsData = [
     author: "Admin",
     date: "Mar 15, 2026",
     popular: true,
-    image: "https://images.pexels.com/photos/1715184/pexels-photo-1715184.jpeg?auto=compress&cs=tinysrgb&w=300"
+    image: img.gear
   },
   {
     id: "featured-5",
@@ -72,7 +73,7 @@ export const blogsData = [
     author: "Admin",
     date: "Mar 12, 2026",
     popular: false,
-    image: "https://images.pexels.com/photos/1191060/pexels-photo-1191060.jpeg?auto=compress&cs=tinysrgb&w=300"
+    image: img.interceptor
   },
   {
     id: "featured-6",
@@ -87,7 +88,7 @@ export const blogsData = [
     author: "Admin",
     date: "Mar 10, 2026",
     popular: true,
-    image: "https://images.pexels.com/photos/3311574/pexels-photo-3311574.jpeg?auto=compress&cs=tinysrgb&w=300"
+    image: img.ride3
   },
   {
     id: "latest-1",
@@ -102,7 +103,7 @@ export const blogsData = [
     author: "Admin",
     date: "Mar 08, 2026",
     popular: true,
-    image: "https://images.pexels.com/photos/2827735/pexels-photo-2827735.jpeg?auto=compress&cs=tinysrgb&w=800"
+    image: img.about_bike
   },
   {
     id: "latest-2",
@@ -117,7 +118,7 @@ export const blogsData = [
     author: "Admin",
     date: "Mar 05, 2026",
     popular: false,
-    image: "https://images.pexels.com/photos/2393821/pexels-photo-2393821.jpeg?auto=compress&cs=tinysrgb&w=800"
+    image: img.hunter350
   },
   {
     id: "latest-3",
@@ -132,7 +133,7 @@ export const blogsData = [
     author: "Admin",
     date: "Mar 02, 2026",
     popular: false,
-    image: "https://images.pexels.com/photos/315938/pexels-photo-315938.jpeg?auto=compress&cs=tinysrgb&w=800"
+    image: img.parts
   },
   {
     id: "latest-4",
@@ -147,7 +148,7 @@ export const blogsData = [
     author: "Admin",
     date: "Feb 28, 2026",
     popular: false,
-    image: "https://images.pexels.com/photos/3311574/pexels-photo-3311574.jpeg?auto=compress&cs=tinysrgb&w=800"
+    image: img.bullet350
   },
   {
     id: "pop-1",
@@ -162,7 +163,7 @@ export const blogsData = [
     author: "Admin",
     date: "Feb 20, 2026",
     popular: true,
-    image: "https://images.pexels.com/photos/1715184/pexels-photo-1715184.jpeg?auto=compress&cs=tinysrgb&w=800"
+    image: img.lifestyle
   },
   {
     id: "pop-2",
@@ -177,7 +178,7 @@ export const blogsData = [
     author: "Admin",
     date: "Feb 15, 2026",
     popular: true,
-    image: "https://images.pexels.com/photos/1119796/pexels-photo-1119796.jpeg?auto=compress&cs=tinysrgb&w=800"
+    image: img.ride2
   },
   {
     id: "pop-3",
@@ -192,7 +193,7 @@ export const blogsData = [
     author: "Admin",
     date: "Jan 30, 2026",
     popular: true,
-    image: "https://images.pexels.com/photos/1119796/pexels-photo-1119796.jpeg?auto=compress&cs=tinysrgb&w=800"
+    image: img.bullet350engine
   },
   {
     id: "pop-4",
@@ -207,7 +208,7 @@ export const blogsData = [
     author: "Admin",
     date: "Jan 12, 2026",
     popular: true,
-    image: "https://images.pexels.com/photos/2393821/pexels-photo-2393821.jpeg?auto=compress&cs=tinysrgb&w=800"
+    image: img.shotgun650
   },
   {
     id: "pop-5",
@@ -222,7 +223,7 @@ export const blogsData = [
     author: "Admin",
     date: "Dec 25, 2025",
     popular: true,
-    image: "https://images.pexels.com/photos/3311574/pexels-photo-3311574.jpeg?auto=compress&cs=tinysrgb&w=800"
+    image: img.hunter350factoryBlack
   }
 ];
 
