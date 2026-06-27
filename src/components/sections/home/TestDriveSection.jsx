@@ -3,7 +3,14 @@ import Image from "next/image";
 import { img } from "@/assets/assest";
 import AnimatedBtn from "@/components/AnimatedBtn";
 
-export default function TestDriveSection() {
+export default function TestDriveSection({ 
+  location = "Thrissur",
+  bgImage = img.banner4,
+  heading = <>Free Test Ride <br />Feel the Thrill First</>,
+  subtitle = "Book a free test ride today and experience the power, comfort, and style before you commit. No pressure  just pure ride.",
+  buttonText = "Book a Ride",
+  buttonLink = "https://wa.me/917594960023?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Royal%20Enfield."
+}) {
   return (
     <section style={{
       position: "relative",
@@ -13,7 +20,7 @@ export default function TestDriveSection() {
     }}>
       {/* Background Image */}
       <Image
-        src={img.banner4}
+        src={bgImage}
         alt="Test Drive"
         fill
         style={{ objectFit: "cover", objectPosition: "center" }}
@@ -47,7 +54,7 @@ export default function TestDriveSection() {
           margin: "0 0 16px 0",
           letterSpacing: "-0.5px",
         }}>
-          Free Test Ride <br />Feel the Thrill First
+          {heading}
         </h2>
 
         {/* Subtitle */}
@@ -58,14 +65,13 @@ export default function TestDriveSection() {
           lineHeight: 1.6,
           maxWidth: 420,
         }}>
-          Book a free test ride today and experience the power,
-          comfort, and style before you commit. No pressure  just pure ride.
+          {subtitle}
         </p>
 
         {/* CTA Button */}
         <div>
-          <AnimatedBtn bgColor="red" href="https://wa.me/917594960023?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Royal%20Enfield.">
-            Book a Ride
+          <AnimatedBtn bgColor="red" href={buttonLink}>
+            {buttonText}
           </AnimatedBtn>
         </div>
       </div>

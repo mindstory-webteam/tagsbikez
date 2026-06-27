@@ -2,7 +2,7 @@
 import { useState } from "react";
 import AnimatedBtn from "@/components/AnimatedBtn";
 
-const faqs = [
+const defaultFaqs = [
   {
     id: 1,
     question: "Which Royal Enfield model should I choose?",
@@ -41,8 +41,100 @@ const faqs = [
   },
 ];
 
-const FAQSection = () => {
+const locationData = {
+  Chalakudy: {
+    heading: "Chalakudy Royal Enfield FAQs",
+    subtext: "Find answers to all your questions about purchasing and servicing your motorcycle at TagsBikez Chalakudy.",
+    faqs: [
+      { id: 1, question: "Where is your Chalakudy showroom located?", answer: "Our showroom is centrally located in Chalakudy. You can find our exact address and directions on the Contact page." },
+      { id: 2, question: "Can I book a test ride in Chalakudy?", answer: "Absolutely. We offer test rides for all the latest models directly from our Chalakudy location." },
+      { id: 3, question: "Do you provide servicing in Chalakudy?", answer: "Yes, our Chalakudy facility includes a fully equipped service center with certified Royal Enfield mechanics." },
+      { id: 4, question: "Are genuine accessories available here?", answer: "Yes, we stock a wide range of official Royal Enfield accessories and riding gear at our Chalakudy outlet." },
+      { id: 5, question: "What finance options do you offer?", answer: "We partner with leading banks to provide attractive EMI schemes and quick loan approvals at our Chalakudy branch." },
+      { id: 6, question: "How quickly can I get my bike delivered?", answer: "Delivery times depend on the model and color availability, but we strive for the fastest possible handover in Chalakudy." }
+    ]
+  },
+  Irinjalakuda: {
+    heading: "Irinjalakuda Showroom FAQs",
+    subtext: "Got questions? We have answers. Learn more about buying your dream Royal Enfield in Irinjalakuda.",
+    faqs: [
+      { id: 1, question: "Is TagsBikez Irinjalakuda an authorized dealer?", answer: "Yes, we are a fully authorized Royal Enfield dealership serving the Irinjalakuda region." },
+      { id: 2, question: "Which models are available for a test ride?", answer: "We have test ride vehicles for popular models like Classic 350, Hunter 350, Meteor, and Himalayan at our Irinjalakuda showroom." },
+      { id: 3, question: "Do you offer exchange programs?", answer: "Yes, we provide easy exchange options where you can trade in your old bike for a brand new Royal Enfield." },
+      { id: 4, question: "Can I service my bike here?", answer: "Yes, our Irinjalakuda service center is equipped with genuine parts and trained technicians to maintain your motorcycle." },
+      { id: 5, question: "Do you sell official riding gear?", answer: "Yes, you can browse and purchase authentic Royal Enfield apparel and gear directly at our Irinjalakuda location." },
+      { id: 6, question: "What are the showroom timings?", answer: "Our Irinjalakuda showroom is open from Monday to Saturday, 9 AM to 6 PM." }
+    ]
+  },
+  Kodakara: {
+    heading: "Your Kodakara Dealership FAQs",
+    subtext: "Everything you need to know about purchasing, servicing, and riding Royal Enfield motorcycles in Kodakara.",
+    faqs: [
+      { id: 1, question: "Does the Kodakara showroom have all models?", answer: "We showcase the complete range of Royal Enfield motorcycles. Drop by our Kodakara showroom to explore them." },
+      { id: 2, question: "Can I get my bike serviced in Kodakara?", answer: "Yes, our Kodakara location features a dedicated service center to handle all your maintenance needs." },
+      { id: 3, question: "Are financing facilities available?", answer: "We offer hassle-free finance options with minimum documentation right here at TagsBikez Kodakara." },
+      { id: 4, question: "Do I need to pre-book a test ride?", answer: "While walk-ins are welcome, we recommend pre-booking a test ride online or via phone to ensure availability." },
+      { id: 5, question: "Can I customize my bike?", answer: "Yes, you can choose from a variety of genuine accessories to personalize your Royal Enfield before delivery." },
+      { id: 6, question: "Is the Kodakara showroom open on Sundays?", answer: "Please contact our Kodakara showroom directly or check our Contact page for Sunday working hours." }
+    ]
+  },
+  Kuriachira: {
+    heading: "TagsBikez Kuriachira FAQs",
+    subtext: "Your top questions answered regarding the Royal Enfield experience at our premium Kuriachira dealership.",
+    faqs: [
+      { id: 1, question: "Where in Kuriachira are you located?", answer: "We are situated in the heart of Kuriachira, easily accessible for all your Royal Enfield needs." },
+      { id: 2, question: "Do you stock genuine RE spare parts?", answer: "Yes, our Kuriachira service center exclusively uses 100% genuine Royal Enfield parts." },
+      { id: 3, question: "How long does a regular service take?", answer: "Routine maintenance typically takes a few hours. We recommend booking an appointment at our Kuriachira center to save time." },
+      { id: 4, question: "Can I buy riding jackets and helmets here?", answer: "Yes, our Kuriachira showroom has a dedicated section for official Royal Enfield riding gear and apparel." },
+      { id: 5, question: "What documents do I bring for a test ride?", answer: "Please bring your valid driving licence and wear closed shoes when visiting Kuriachira for a test ride." },
+      { id: 6, question: "Do you offer loan assistance?", answer: "Absolutely. Our finance team in Kuriachira will guide you through the best EMI plans available." }
+    ]
+  },
+  Patturaikkal: {
+    heading: "Patturaikkal Showroom FAQs",
+    subtext: "Get all the details about owning and maintaining your Royal Enfield from TagsBikez Patturaikkal.",
+    faqs: [
+      { id: 1, question: "Is the Patturaikkal showroom an official dealer?", answer: "Yes, TagsBikez Patturaikkal is an authorized Royal Enfield dealership offering sales, service, and spares." },
+      { id: 2, question: "How can I book my motorcycle?", answer: "You can book your bike directly at our Patturaikkal showroom or securely online through the Royal Enfield website." },
+      { id: 3, question: "Are test rides free?", answer: "Yes, test rides are completely free. Just visit our Patturaikkal dealership with your driving licence." },
+      { id: 4, question: "What is the warranty on a new bike?", answer: "All new Royal Enfield motorcycles come with a standard manufacturer's warranty. Ask our Patturaikkal team about extended warranty options." },
+      { id: 5, question: "Can I purchase accessories later?", answer: "Yes, you can buy and install genuine accessories at our Patturaikkal center anytime after your purchase." },
+      { id: 6, question: "How often should I service my bike?", answer: "Service intervals vary by model. Our Patturaikkal service advisors will provide you with a detailed maintenance schedule." }
+    ]
+  },
+  Vadakkencherry: {
+    heading: "Vadakkencherry Royal Enfield FAQs",
+    subtext: "Learn more about our services, test rides, and the Royal Enfield lineup available at Vadakkencherry.",
+    faqs: [
+      { id: 1, question: "What models are displayed in Vadakkencherry?", answer: "Our Vadakkencherry showroom features the latest models including the Classic, Hunter, Meteor, and Himalayan." },
+      { id: 2, question: "Do you provide after-sales service here?", answer: "Yes, our Vadakkencherry branch has a fully operational service center to take care of your motorcycle." },
+      { id: 3, question: "Can I get my bike washed during service?", answer: "Yes, a professional wash and detailing are part of our standard servicing procedures in Vadakkencherry." },
+      { id: 4, question: "Are financing options fast?", answer: "We partner with top financiers to ensure quick loan processing and delivery from our Vadakkencherry showroom." },
+      { id: 5, question: "Do you sell Royal Enfield merchandise?", answer: "Yes, check out our collection of official t-shirts, jackets, and accessories at the Vadakkencherry store." },
+      { id: 6, question: "How do I schedule a service appointment?", answer: "You can book your service slot via phone or WhatsApp using the contact numbers provided for our Vadakkencherry center." }
+    ]
+  },
+  Kunnamkulam: {
+    heading: "Kunnamkulam Royal Enfield FAQs",
+    subtext: "Learn more about our services, test rides, and the Royal Enfield lineup available at Kunnamkulam.",
+    faqs: [
+      { id: 1, question: "What models are displayed in Kunnamkulam?", answer: "Our Kunnamkulam showroom features the latest models including the Classic, Hunter, Meteor, and Himalayan." },
+      { id: 2, question: "Do you provide after-sales service here?", answer: "Yes, our Kunnamkulam branch has a fully operational service center to take care of your motorcycle." },
+      { id: 3, question: "Can I get my bike washed during service?", answer: "Yes, a professional wash and detailing are part of our standard servicing procedures in Kunnamkulam." },
+      { id: 4, question: "Are financing options fast?", answer: "We partner with top financiers to ensure quick loan processing and delivery from our Kunnamkulam showroom." },
+      { id: 5, question: "Do you sell Royal Enfield merchandise?", answer: "Yes, check out our collection of official t-shirts, jackets, and accessories at the Kunnamkulam store." },
+      { id: 6, question: "How do I schedule a service appointment?", answer: "You can book your service slot via phone or WhatsApp using the contact numbers provided for our Kunnamkulam center." }
+    ]
+  }
+};
+
+const FAQSection = ({ location = "Thrissur", customFaqs, customHeading, customSubtext }) => {
   const [open, setOpen] = useState(1);
+
+  const locInfo = locationData[location] || {};
+  const faqs = customFaqs || locInfo.faqs || defaultFaqs;
+  const heading = customHeading || locInfo.heading || "Everything You Need to Know Before You Ride";
+  const subtext = customSubtext || locInfo.subtext || "We're here to make your rental experience easy and enjoyable. Browse through our most common questions to get started with confidence.";
 
   const toggle = (id) => setOpen((prev) => (prev === id ? null : id));
 
@@ -238,9 +330,9 @@ const FAQSection = () => {
           {/* Left */}
           <div className="faq-left">
             <p className="faq-eyebrow">Frequently Asked Questions</p>
-            <h2 className="faq-heading">Everything You Need to Know Before You Ride</h2>
+            <h2 className="faq-heading">{heading}</h2>
             <p className="faq-subtext">
-              We're here to make your rental experience easy and enjoyable. Browse through our most common questions to get started with confidence.
+              {subtext}
             </p>
             <AnimatedBtn href="/contact">
               Contact

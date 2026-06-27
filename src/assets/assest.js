@@ -54,44 +54,93 @@ import companysectionimg from './aboutpage/companysectionimg.png'
 
 import member1 from './members/member1.png'
 import member2 from './members/member2.png'
-import member3 from './members/member3.png' 
+import member3 from './members/member3.png'
 
 
 
-import ride1 from './homeaboutsection/ride1.webp' 
-import ride2 from './homeaboutsection/ride2.webp' 
-import ride3 from './homeaboutsection/ride3.webp' 
+import ride1 from './homeaboutsection/ride1.webp'
+import ride2 from './homeaboutsection/ride2.webp'
+import ride3 from './homeaboutsection/ride3.webp'
 
-import bikereveal from './bike-reveal.png' 
-
-
-
-import classic350 from   './models/classic350/classic350.png'
-import classic350handlebar from   './models/classic350/bullethandlebar.png'
-import classic350engine from   './models/classic350/classic350engine.png'
-import classic350front from   './models/classic350/front.png'
-import classic350rear from   './models/classic350/rear.png'
-
-import hunter350 from   './models/hunter350/hunter350.png'
-import hunter350handlebar from   './models/hunter350/hunter350handlebar.png'
-import hunter350rear from   './models/hunter350/hunter350rear.png'
-import hunter350front from   './models/hunter350/hunter350front.png'
-import hunter350engine from   './models/hunter350/hunter350engine.png'
+import bikereveal from './bike-reveal.png'
 
 
-import bullet350 from   './models/bullet350/bullet350.webp'
-import bullet350front from   './models/bullet350/bullet350front.png'
-import bullet350rear from   './models/bullet350/bullet350rear.png'
-import bullet350engine from   './models/bullet350/bullet350engine.png'
 
-import bajajfinserv from   './partnerbrand/bajajfinserv.png'
-import hdfc from   './partnerbrand/hdfc.png'
-import icicibank from   './partnerbrand/icicibank.png'
-import idfc from   './partnerbrand/idfc.png'
+import classic350 from './models/classic350/classic350.png'
+import classic350handlebar from './models/classic350/bullethandlebar.png'
+import classic350engine from './models/classic350/classic350engine.png'
+import classic350front from './models/classic350/front.png'
+import classic350rear from './models/classic350/rear.png'
+
+import hunter350 from './models/hunter350/hunter350.png'
+import hunter350handlebar from './models/hunter350/hunter350handlebar.png'
+import hunter350rear from './models/hunter350/hunter350rear.png'
+import hunter350front from './models/hunter350/hunter350front.png'
+import hunter350engine from './models/hunter350/hunter350engine.png'
 
 
+import bullet350 from './models/bullet350/bullet350.webp'
+import bullet350front from './models/bullet350/bullet350front.png'
+import bullet350rear from './models/bullet350/bullet350rear.png'
+import bullet350engine from './models/bullet350/bullet350engine.png'
+
+import bajajfinserv from './partnerbrand/bajajfinserv.png'
+import hdfc from './partnerbrand/hdfc.png'
+import icicibank from './partnerbrand/icicibank.png'
+import idfc from './partnerbrand/idfc.png'
+
+import whatwedochalukady from './whatwedo/what-we-do-chalakudy.jpg'
+import whatwedoirinjalakuda from './whatwedo/what-we-do-irinjalakuda.jpg'
+import whatwedokodakara from './whatwedo/what-we-do-Kodakara.jpg'
+import whatwedokunnamkulam from './whatwedo/what-we-do-kunnamkulam.jpg'
+import whatwedoimg from './whatwedo/what-we-do-img.jpg'
+
+import aboutchalakudyimg1 from './homeaboutsection/chalakudy/about-chalakudy-img1.jpg'
+import aboutchalakudyimg2 from './homeaboutsection/chalakudy/about-chalakudy-img2.jpg'
+import aboutchalakudyimg3 from './homeaboutsection/chalakudy/about-chalakudy-img3.jpg'
+import aboutchalakudyimg4 from './homeaboutsection/chalakudy/about-chalakudy-img4.jpg'
+import aboutchalakudyimg5 from './homeaboutsection/chalakudy/about-chalakudy-img5.jpg'
+
+
+import aboutirinjalakudaimg1 from './homeaboutsection/irinjalakuda/about-irinjalakuda-img1.jpg'
+import aboutirinjalakudaimg2 from './homeaboutsection/irinjalakuda/about-irinjalakuda-img2.jpg'
+import aboutirinjalakudaimg3 from './homeaboutsection/irinjalakuda/about-irinjalakuda-img3.jpg'
+import aboutirinjalakudaimg4 from './homeaboutsection/irinjalakuda/about-irinjalakuda-img4.jpg'
+
+import aboutkodakaraimg1 from './homeaboutsection/kodakara/about-kodakara-img1.jpg'
+import aboutkodakaraimg2 from './homeaboutsection/kodakara/about-kodakara-img2.jpg'
+import aboutkodakaraimg3 from './homeaboutsection/kodakara/about-kodakara-img3.jpg'
+import aboutkodakaraimg4 from './homeaboutsection/kodakara/about-kodakara-img4.jpg'
+
+
+import aboutkunnamkulamimg1 from './homeaboutsection/kunnamkulam/about-kunnamkulam-img1.jpg'
+import aboutkunnamkulamimg2 from './homeaboutsection/kunnamkulam/about-kunnamkulam-img2.jpg'
+import aboutkunnamkulamimg3 from './homeaboutsection/kunnamkulam/about-kunnamkulam-img3.jpg'
+import aboutkunnamkulamimg4 from './homeaboutsection/kunnamkulam/about-kunnamkulam-img4.jpg'
 
 export const img = {
+  aboutkunnamkulamimg1,
+  aboutkunnamkulamimg2,
+  aboutkunnamkulamimg3,
+  aboutkunnamkulamimg4,
+  whatwedoimg,
+  whatwedokunnamkulam,
+  aboutkodakaraimg1,
+  aboutkodakaraimg2,
+  aboutkodakaraimg3,
+  aboutkodakaraimg4,
+  whatwedokodakara,
+  aboutirinjalakudaimg1,
+  aboutirinjalakudaimg2,
+  aboutirinjalakudaimg3,
+  aboutirinjalakudaimg4,
+  whatwedoirinjalakuda,
+  aboutchalakudyimg1,
+  aboutchalakudyimg2,
+  aboutchalakudyimg3,
+  aboutchalakudyimg4,
+  aboutchalakudyimg5,
+  whatwedochalukady,
   bajajfinserv,
   hdfc,
   icicibank,
@@ -134,7 +183,7 @@ export const img = {
   event5,
   event6,
   event7,
-  bullet350, 
+  bullet350,
   classic350,
   continentalgt650,
   himalayan450,
@@ -146,7 +195,7 @@ export const img = {
   Himalayan2,
   scram1,
   royalenfieldfury,
-  royalenfield1, 
+  royalenfield1,
   tagsbikezwhite,
   banner1,
   bannerSmall1,

@@ -7,40 +7,148 @@ import { fetchGallery } from "@/lib/api";
 const fallbackColA = [img.Himalayan, img.royalenfieldfury, img.Himalayan2, img.scram1, img.royalenfield1];
 const fallbackColB = [img.ride2, img.ride3, img.royalenfield1, img.royalenfieldfury, img.ride1];
 
-const features = [
-  {
-    icon: <ShieldCheck size={20} strokeWidth={1.6} color="#e8282b" />,
-    title: "Authorised RE Dealer",
-    desc: "Official Royal Enfield dealership in Thrissur certified, trusted, and factory-backed since day one.",
+const locationData = {
+  Chalakudy: {
+    bannerHeading: "Your Trusted Royal Enfield Partner in Chalakudy",
+    bannerSub: "Experience the legacy of pure motorcycling at TagsBikez Chalakudy. We bring you the latest 2026 Royal Enfield lineup with unmatched customer service.",
+    features: [
+      { icon: <ShieldCheck size={20} strokeWidth={1.6} color="#e8282b" />, title: "Authorised Chalakudy Dealer", desc: "Certified Royal Enfield dealership in Chalakudy, delivering authentic experiences since day one." },
+      { icon: <BadgeCheck size={20} strokeWidth={1.6} color="#e8282b" />, title: "Genuine Spares & Accessories", desc: "Customize and maintain your ride with 100% genuine Royal Enfield parts and gear available in Chalakudy." },
+      { icon: <Wrench size={20} strokeWidth={1.6} color="#e8282b" />, title: "Factory-Trained Technicians", desc: "Our mechanics in Chalakudy are rigorously trained by Royal Enfield to ensure your motorcycle performs at its peak." },
+      { icon: <Clock size={20} strokeWidth={1.6} color="#e8282b" />, title: "Seamless Test Rides", desc: "Book a hassle-free test ride today at our Chalakudy showroom and feel the power before you buy." },
+    ],
+    colA: [img.aboutchalakudyimg1, img.aboutchalakudyimg5, img.aboutchalakudyimg3, img.aboutchalakudyimg4, img.aboutchalakudyimg2],
+    colB: [img.aboutchalakudyimg4, img.aboutchalakudyimg2, img.aboutchalakudyimg3, img.aboutchalakudyimg5, img.aboutchalakudyimg1],
   },
-  {
-    icon: <BadgeCheck size={20} strokeWidth={1.6} color="#e8282b" />,
-    title: "Genuine Parts & Service",
-    desc: "Every service uses 100% genuine Royal Enfield parts. Your motorcycle deserves nothing less.",
+  Irinjalakuda: {
+    bannerHeading: "Discover Royal Enfield in Irinjalakuda",
+    bannerSub: "TagsBikez Irinjalakuda offers the complete range of Royal Enfield motorcycles. Join our riding community and start your journey today.",
+    features: [
+      { icon: <ShieldCheck size={20} strokeWidth={1.6} color="#e8282b" />, title: "Irinjalakuda's Official Dealer", desc: "Your certified and trusted Royal Enfield showroom located right in the heart of Irinjalakuda." },
+      { icon: <BadgeCheck size={20} strokeWidth={1.6} color="#e8282b" />, title: "Authentic Parts", desc: "We stock only genuine Royal Enfield components to guarantee the longevity and reliability of your motorcycle." },
+      { icon: <Wrench size={20} strokeWidth={1.6} color="#e8282b" />, title: "Expert Servicing", desc: "Leave your bike in the safe hands of our Irinjalakuda service experts for precision maintenance and repairs." },
+      { icon: <Clock size={20} strokeWidth={1.6} color="#e8282b" />, title: "Instant Test Rides", desc: "Walk into our Irinjalakuda showroom and take your favorite Royal Enfield for a spin without any waiting." },
+    ],
+    colA: [img.aboutirinjalakudaimg1, img.aboutirinjalakudaimg2, img.aboutirinjalakudaimg3, img.aboutirinjalakudaimg4, img.aboutirinjalakudaimg1],
+    colB: [img.aboutirinjalakudaimg3, img.aboutirinjalakudaimg4, img.aboutirinjalakudaimg1, img.aboutirinjalakudaimg1, img.aboutirinjalakudaimg2],
   },
-  {
-    icon: <Wrench size={20} strokeWidth={1.6} color="#e8282b" />,
-    title: "Expert Technicians",
-    desc: "Our RE-certified technicians are trained directly at Royal Enfield service academies.",
+  Kodakara: {
+    bannerHeading: "Royal Enfield Excellence in Kodakara",
+    bannerSub: "Fuel your passion for riding with TagsBikez Kodakara. We provide an exceptional showroom experience and comprehensive servicing for all models.",
+    features: [
+      { icon: <ShieldCheck size={20} strokeWidth={1.6} color="#e8282b" />, title: "Authorised Dealer Kodakara", desc: "Proudly serving the Kodakara community as an official and trusted Royal Enfield partner." },
+      { icon: <BadgeCheck size={20} strokeWidth={1.6} color="#e8282b" />, title: "Quality Parts Guaranteed", desc: "Enhance your ride using only factory-approved genuine parts and accessories at our Kodakara center." },
+      { icon: <Wrench size={20} strokeWidth={1.6} color="#e8282b" />, title: "Skilled Mechanics", desc: "Our Kodakara service team brings years of specialized experience to keep your Royal Enfield running perfectly." },
+      { icon: <Clock size={20} strokeWidth={1.6} color="#e8282b" />, title: "Book Your Test Ride", desc: "Experience the thrill of Royal Enfield firsthand. Schedule your test ride at our Kodakara location easily." },
+    ],
+    colA: [img.aboutkodakaraimg1, img.aboutkodakaraimg2, img.aboutkodakaraimg3, img.aboutkodakaraimg4, img.aboutkodakaraimg1],
+    colB: [img.aboutkodakaraimg3, img.aboutkodakaraimg4, img.aboutkodakaraimg1, img.aboutkodakaraimg3, img.aboutkodakaraimg4],
   },
-  {
-    icon: <Clock size={20} strokeWidth={1.6} color="#e8282b" />,
-    title: "Easy Test Rides",
-    desc: "Walk in, pick your model, and ride. Hassle-free test rides available every day at our Thrissur showroom.",
+  Kuriachira: {
+    bannerHeading: "Welcome to TagsBikez Kuriachira",
+    bannerSub: "Immerse yourself in the world of Royal Enfield at our premium Kuriachira dealership. Explore new models and get top-notch maintenance.",
+    features: [
+      { icon: <ShieldCheck size={20} strokeWidth={1.6} color="#e8282b" />, title: "Kuriachira RE Showroom", desc: "Experience authenticity at Kuriachira's recognized Royal Enfield dealership, built on trust and passion." },
+      { icon: <BadgeCheck size={20} strokeWidth={1.6} color="#e8282b" />, title: "Genuine Motorcycling Gear", desc: "From engine parts to riding gear, find exactly what you need at our Kuriachira outlet." },
+      { icon: <Wrench size={20} strokeWidth={1.6} color="#e8282b" />, title: "Certified Servicing", desc: "Our Kuriachira workshop ensures your Royal Enfield receives the care it needs to conquer any terrain." },
+      { icon: <Clock size={20} strokeWidth={1.6} color="#e8282b" />, title: "Quick Test Rides", desc: "Get behind the handlebars today. Visit TagsBikez Kuriachira for a quick and easy test ride setup." },
+    ],
+    colA: [img.banner5, img.ride3, img.scram1, img.bullet350, img.royalenfield1],
+    colB: [img.Himalayan2, img.ride2, img.hunter350, img.royalenfieldfury, img.Himalayan],
   },
-];
+  Patturaikkal: {
+    bannerHeading: "Your Royal Enfield Destination in Patturaikkal",
+    bannerSub: "Start your adventure with TagsBikez Patturaikkal. We are committed to providing the best motorcycles and after-sales service in the region.",
+    features: [
+      { icon: <ShieldCheck size={20} strokeWidth={1.6} color="#e8282b" />, title: "Patturaikkal Certified Dealer", desc: "A fully authorized Royal Enfield dealership ensuring peace of mind with every purchase in Patturaikkal." },
+      { icon: <BadgeCheck size={20} strokeWidth={1.6} color="#e8282b" />, title: "Authentic RE Accessories", desc: "Style your motorcycle with confidence using genuine accessories from our Patturaikkal store." },
+      { icon: <Wrench size={20} strokeWidth={1.6} color="#e8282b" />, title: "Pro Technicians", desc: "Our specialized mechanics in Patturaikkal diagnose and resolve any issues with utmost precision." },
+      { icon: <Clock size={20} strokeWidth={1.6} color="#e8282b" />, title: "Ride Before You Buy", desc: "Feel the thumping engine for yourself. We offer immediate test rides at the Patturaikkal showroom." },
+    ],
+    colA: [img.Himalayan, img.banner2, img.ride1, img.royalenfieldfury, img.scram1],
+    colB: [img.hunter350, img.ride2, img.classic350, img.Himalayan2, img.royalenfield1],
+  },
+  Vadakkencherry: {
+    bannerHeading: "TagsBikez Vadakkencherry Showroom",
+    bannerSub: "Discover pure motorcycling right in your neighborhood. TagsBikez Vadakkencherry offers the latest Royal Enfield bikes and professional care.",
+    features: [
+      { icon: <ShieldCheck size={20} strokeWidth={1.6} color="#e8282b" />, title: "Vadakkencherry Authorized", desc: "The go-to Royal Enfield dealership in Vadakkencherry, delivering legends on two wheels." },
+      { icon: <BadgeCheck size={20} strokeWidth={1.6} color="#e8282b" />, title: "100% Genuine Care", desc: "Maintain your ride's integrity with genuine parts supplied directly to our Vadakkencherry facility." },
+      { icon: <Wrench size={20} strokeWidth={1.6} color="#e8282b" />, title: "Master Mechanics", desc: "Trust your bike with our RE-certified experts in Vadakkencherry for smooth and strong performance." },
+      { icon: <Clock size={20} strokeWidth={1.6} color="#e8282b" />, title: "Explore Models on Road", desc: "Step in and ride out. Enjoy flexible test rides available daily at Vadakkencherry." },
+    ],
+    colA: [img.Himalayan2, img.banner4, img.ride3, img.royalenfield1, img.bullet350],
+    colB: [img.scram1, img.ride1, img.banner5, img.royalenfieldfury, img.Himalayan],
+  },
+  Kunnamkulam: {
+    bannerHeading: "Discover Royal Enfield in Kunnamkulam",
+    bannerSub: "TagsBikez Kunnamkulam offers the complete range of Royal Enfield motorcycles. Join our riding community and start your journey today.",
+    features: [
+      { icon: <ShieldCheck size={20} strokeWidth={1.6} color="#e8282b" />, title: "Kunnamkulam Authorized", desc: "The go-to Royal Enfield dealership in Kunnamkulam, delivering legends on two wheels." },
+      { icon: <BadgeCheck size={20} strokeWidth={1.6} color="#e8282b" />, title: "100% Genuine Care", desc: "Maintain your ride's integrity with genuine parts supplied directly to our Kunnamkulam facility." },
+      { icon: <Wrench size={20} strokeWidth={1.6} color="#e8282b" />, title: "Master Mechanics", desc: "Trust your bike with our RE-certified experts in Kunnamkulam for smooth and strong performance." },
+      { icon: <Clock size={20} strokeWidth={1.6} color="#e8282b" />, title: "Explore Models on Road", desc: "Step in and ride out. Enjoy flexible test rides available daily at Kunnamkulam." },
+    ],
+    colA: [img.aboutkunnamkulamimg1, img.aboutkunnamkulamimg2, img.aboutkunnamkulamimg3, img.aboutkunnamkulamimg4, img.aboutkunnamkulamimg1],
+    colB: [img.aboutkunnamkulamimg3, img.aboutkunnamkulamimg4, img.aboutkunnamkulamimg1, img.aboutkunnamkulamimg2, img.aboutkunnamkulamimg3],
+  }
+};
 
-export default function AboutSection() {
+const getFeatures = (location = "Thrissur") => {
+  if (locationData[location]) return locationData[location].features;
+  return [
+    {
+      icon: <ShieldCheck size={20} strokeWidth={1.6} color="#e8282b" />,
+      title: "Authorised RE Dealer",
+      desc: `Official Royal Enfield dealership in ${location} certified, trusted, and factory-backed since day one.`,
+    },
+    {
+      icon: <BadgeCheck size={20} strokeWidth={1.6} color="#e8282b" />,
+      title: "Genuine Parts & Service",
+      desc: "Every service uses 100% genuine Royal Enfield parts. Your motorcycle deserves nothing less.",
+    },
+    {
+      icon: <Wrench size={20} strokeWidth={1.6} color="#e8282b" />,
+      title: "Expert Technicians",
+      desc: "Our RE-certified technicians are trained directly at Royal Enfield service academies.",
+    },
+    {
+      icon: <Clock size={20} strokeWidth={1.6} color="#e8282b" />,
+      title: "Easy Test Rides",
+      desc: `Walk in, pick your model, and ride. Hassle-free test rides available every day at our ${location} showroom.`,
+    },
+  ];
+};
+
+export default function AboutSection({ 
+  location = "Thrissur",
+  customFeatures,
+  bannerHeading,
+  bannerSub,
+  customColA,
+  customColB,
+  customMobileImgs
+}) {
+  const locInfo = locationData[location] || {};
+  const features = customFeatures || locInfo.features || getFeatures(location);
   const sectionRef = useRef(null);
   const colARef = useRef(null);
   const colBRef = useRef(null);
   const scrollStripRef = useRef(null);
 
-  const [colA, setColA] = useState(fallbackColA);
-  const [colB, setColB] = useState(fallbackColB);
-  const [allImgs, setAllImgs] = useState([...fallbackColA, ...fallbackColB]);
+  const initialColA = customColA || locInfo.colA || fallbackColA;
+  const initialColB = customColB || locInfo.colB || fallbackColB;
+  const initialAllImgs = customMobileImgs || [...initialColA, ...initialColB];
+
+  const finalBannerHeading = bannerHeading || locInfo.bannerHeading || <>Your Trusted Royal Enfield<br />Showroom.</>;
+  const finalBannerSub = bannerSub || locInfo.bannerSub || `TagsBikez is ${location}'s authorised Royal Enfield dealership offering the full 2026 lineup and expert servicing.`;
+
+  const [colA, setColA] = useState(initialColA);
+  const [colB, setColB] = useState(initialColB);
+  const [allImgs, setAllImgs] = useState(initialAllImgs);
 
   useEffect(() => {
+    if (customColA || customColB || locInfo.colA || locInfo.colB) return;
     async function loadGalleryData() {
       try {
         const data = await fetchGallery();
@@ -74,7 +182,7 @@ export default function AboutSection() {
       }
     }
     loadGalleryData();
-  }, []);
+  }, [customColA, customColB]);
 
   useEffect(() => {
     let ctx;
@@ -404,10 +512,10 @@ export default function AboutSection() {
         <div className="as-banner">
           <div className="as-banner-left">
             <h3 className="as-banner-heading">
-              Your Trusted Royal Enfield<br />Showroom.
+              {finalBannerHeading}
             </h3>
             <p className="as-banner-sub">
-              TagsBikez is Thrissur's authorised Royal Enfield dealership offering the full 2026 lineup and expert servicing.
+              {finalBannerSub}
             </p>
 
             <div className="as-info-pills">
