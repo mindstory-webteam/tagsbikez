@@ -89,11 +89,15 @@ import hdfc from './partnerbrand/hdfc.png'
 import icicibank from './partnerbrand/icicibank.png'
 import idfc from './partnerbrand/idfc.png'
 
+import whatwedoimg from './whatwedo/what-we-do-img.jpg'
 import whatwedochalukady from './whatwedo/what-we-do-chalakudy.jpg'
 import whatwedoirinjalakuda from './whatwedo/what-we-do-irinjalakuda.jpg'
 import whatwedokodakara from './whatwedo/what-we-do-Kodakara.jpg'
 import whatwedokunnamkulam from './whatwedo/what-we-do-kunnamkulam.jpg'
-import whatwedoimg from './whatwedo/what-we-do-img.jpg'
+import whatwedokuriachira from './whatwedo/what-we-do-kuriachira.jpg'
+import whatwedopatturaikkal from './whatwedo/what-we-do-patturaikkal.jpg'
+import whatwedovadakkencherry from './whatwedo/what-we-do-vadakkencherry.jpg'
+import whatwedothriprayar from './whatwedo/what-we-do-thriprayar.jpg'
 
 import aboutchalakudyimg1 from './homeaboutsection/chalakudy/about-chalakudy-img1.jpg'
 import aboutchalakudyimg2 from './homeaboutsection/chalakudy/about-chalakudy-img2.jpg'
@@ -118,7 +122,47 @@ import aboutkunnamkulamimg2 from './homeaboutsection/kunnamkulam/about-kunnamkul
 import aboutkunnamkulamimg3 from './homeaboutsection/kunnamkulam/about-kunnamkulam-img3.jpg'
 import aboutkunnamkulamimg4 from './homeaboutsection/kunnamkulam/about-kunnamkulam-img4.jpg'
 
+import aboutkuriachiraimg1 from './homeaboutsection/kuriachira/kuriachiraimg1.jpg'
+import aboutkuriachiraimg2 from './homeaboutsection/kuriachira/kuriachiraimg2.jpg'
+import aboutkuriachiraimg3 from './homeaboutsection/kuriachira/kuriachiraimg3.jpg'
+import aboutkuriachiraimg4 from './homeaboutsection/kuriachira/kuriachiraimg4.jpg'
+
+import aboutpatturaikkalimg1 from './homeaboutsection/patturaikkal/patturaikkalimg1.jpg'
+import aboutpatturaikkalimg2 from './homeaboutsection/patturaikkal/patturaikkalimg2.jpg'
+import aboutpatturaikkalimg3 from './homeaboutsection/patturaikkal/patturaikkalimg3.jpg'
+import aboutpatturaikkalimg4 from './homeaboutsection/patturaikkal/patturaikkalimg4.jpg'
+
+import aboutthriprayarimg1 from './homeaboutsection/thriprayar/thriprayarimg1.jpg'
+import aboutthriprayarimg2 from './homeaboutsection/thriprayar/thriprayarimg2.jpg'
+import aboutthriprayarimg3 from './homeaboutsection/thriprayar/thriprayarimg3.jpg'
+import aboutthriprayarimg4 from './homeaboutsection/thriprayar/thriprayarimg4.jpg'
+
+import aboutvadakkencherryimg1 from './homeaboutsection/vadakkencherry/vadakkencherryimg1.jpg'
+import aboutvadakkencherryimg2 from './homeaboutsection/vadakkencherry/vadakkencherryimg2.jpg'
+import aboutvadakkencherryimg3 from './homeaboutsection/vadakkencherry/vadakkencherryimg3.jpg'
+import aboutvadakkencherryimg4 from './homeaboutsection/vadakkencherry/vadakkencherryimg4.jpg'
+
 export const img = {
+  whatwedothriprayar,
+  whatwedovadakkencherry,
+  whatwedopatturaikkal,
+  whatwedokuriachira,
+  aboutvadakkencherryimg1,
+  aboutvadakkencherryimg2,
+  aboutvadakkencherryimg3,
+  aboutvadakkencherryimg4,
+  aboutthriprayarimg1,
+  aboutthriprayarimg2,
+  aboutthriprayarimg3,
+  aboutthriprayarimg4,
+  aboutpatturaikkalimg1,
+  aboutpatturaikkalimg2,
+  aboutpatturaikkalimg3,
+  aboutpatturaikkalimg4,
+  aboutkuriachiraimg1,
+  aboutkuriachiraimg2,
+  aboutkuriachiraimg3,
+  aboutkuriachiraimg4,
   aboutkunnamkulamimg1,
   aboutkunnamkulamimg2,
   aboutkunnamkulamimg3,

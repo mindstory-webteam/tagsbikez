@@ -29,8 +29,8 @@ const locationData = {
       { icon: <Wrench size={20} strokeWidth={1.6} color="#e8282b" />, title: "Expert Servicing", desc: "Leave your bike in the safe hands of our Irinjalakuda service experts for precision maintenance and repairs." },
       { icon: <Clock size={20} strokeWidth={1.6} color="#e8282b" />, title: "Instant Test Rides", desc: "Walk into our Irinjalakuda showroom and take your favorite Royal Enfield for a spin without any waiting." },
     ],
-    colA: [img.aboutirinjalakudaimg1, img.aboutirinjalakudaimg2, img.aboutirinjalakudaimg3, img.aboutirinjalakudaimg4, img.aboutirinjalakudaimg1],
-    colB: [img.aboutirinjalakudaimg3, img.aboutirinjalakudaimg4, img.aboutirinjalakudaimg1, img.aboutirinjalakudaimg1, img.aboutirinjalakudaimg2],
+    colA: [img.aboutirinjalakudaimg1, img.aboutirinjalakudaimg2, img.aboutirinjalakudaimg3, img.aboutirinjalakudaimg4, img.aboutirinjalakudaimg3],
+    colB: [img.aboutirinjalakudaimg4, img.aboutirinjalakudaimg3, img.aboutirinjalakudaimg2, img.aboutirinjalakudaimg1, img.aboutirinjalakudaimg4],
   },
   Kodakara: {
     bannerHeading: "Royal Enfield Excellence in Kodakara",
@@ -41,8 +41,8 @@ const locationData = {
       { icon: <Wrench size={20} strokeWidth={1.6} color="#e8282b" />, title: "Skilled Mechanics", desc: "Our Kodakara service team brings years of specialized experience to keep your Royal Enfield running perfectly." },
       { icon: <Clock size={20} strokeWidth={1.6} color="#e8282b" />, title: "Book Your Test Ride", desc: "Experience the thrill of Royal Enfield firsthand. Schedule your test ride at our Kodakara location easily." },
     ],
-    colA: [img.aboutkodakaraimg1, img.aboutkodakaraimg2, img.aboutkodakaraimg3, img.aboutkodakaraimg4, img.aboutkodakaraimg1],
-    colB: [img.aboutkodakaraimg3, img.aboutkodakaraimg4, img.aboutkodakaraimg1, img.aboutkodakaraimg3, img.aboutkodakaraimg4],
+    colA: [img.aboutkodakaraimg1, img.aboutkodakaraimg2, img.aboutkodakaraimg3, img.aboutkodakaraimg4, img.aboutkodakaraimg3],
+    colB: [img.aboutkodakaraimg4, img.aboutkodakaraimg3, img.aboutkodakaraimg2, img.aboutkodakaraimg1, img.aboutkodakaraimg4],
   },
   Kuriachira: {
     bannerHeading: "Welcome to TagsBikez Kuriachira",
@@ -53,8 +53,8 @@ const locationData = {
       { icon: <Wrench size={20} strokeWidth={1.6} color="#e8282b" />, title: "Certified Servicing", desc: "Our Kuriachira workshop ensures your Royal Enfield receives the care it needs to conquer any terrain." },
       { icon: <Clock size={20} strokeWidth={1.6} color="#e8282b" />, title: "Quick Test Rides", desc: "Get behind the handlebars today. Visit TagsBikez Kuriachira for a quick and easy test ride setup." },
     ],
-    colA: [img.banner5, img.ride3, img.scram1, img.bullet350, img.royalenfield1],
-    colB: [img.Himalayan2, img.ride2, img.hunter350, img.royalenfieldfury, img.Himalayan],
+    colA: [img.aboutkuriachiraimg1, img.aboutkuriachiraimg2, img.aboutkuriachiraimg3, img.aboutkuriachiraimg4, img.aboutkuriachiraimg3],
+    colB: [img.aboutkuriachiraimg4, img.aboutkuriachiraimg3, img.aboutkuriachiraimg2, img.aboutkuriachiraimg1, img.aboutkuriachiraimg4],
   },
   Patturaikkal: {
     bannerHeading: "Your Royal Enfield Destination in Patturaikkal",
@@ -65,8 +65,8 @@ const locationData = {
       { icon: <Wrench size={20} strokeWidth={1.6} color="#e8282b" />, title: "Pro Technicians", desc: "Our specialized mechanics in Patturaikkal diagnose and resolve any issues with utmost precision." },
       { icon: <Clock size={20} strokeWidth={1.6} color="#e8282b" />, title: "Ride Before You Buy", desc: "Feel the thumping engine for yourself. We offer immediate test rides at the Patturaikkal showroom." },
     ],
-    colA: [img.Himalayan, img.banner2, img.ride1, img.royalenfieldfury, img.scram1],
-    colB: [img.hunter350, img.ride2, img.classic350, img.Himalayan2, img.royalenfield1],
+    colA: [img.aboutpatturaikkalimg1, img.aboutpatturaikkalimg2, img.aboutpatturaikkalimg3, img.aboutpatturaikkalimg4, img.aboutpatturaikkalimg3],
+    colB: [img.aboutpatturaikkalimg4, img.aboutpatturaikkalimg3, img.aboutpatturaikkalimg2, img.aboutpatturaikkalimg1, img.aboutpatturaikkalimg4],
   },
   Vadakkencherry: {
     bannerHeading: "TagsBikez Vadakkencherry Showroom",
@@ -77,8 +77,8 @@ const locationData = {
       { icon: <Wrench size={20} strokeWidth={1.6} color="#e8282b" />, title: "Master Mechanics", desc: "Trust your bike with our RE-certified experts in Vadakkencherry for smooth and strong performance." },
       { icon: <Clock size={20} strokeWidth={1.6} color="#e8282b" />, title: "Explore Models on Road", desc: "Step in and ride out. Enjoy flexible test rides available daily at Vadakkencherry." },
     ],
-    colA: [img.Himalayan2, img.banner4, img.ride3, img.royalenfield1, img.bullet350],
-    colB: [img.scram1, img.ride1, img.banner5, img.royalenfieldfury, img.Himalayan],
+    colA: [img.aboutvadakkencherryimg1, img.aboutvadakkencherryimg2, img.aboutvadakkencherryimg3, img.aboutvadakkencherryimg4, img.aboutvadakkencherryimg3],
+    colB: [img.aboutvadakkencherryimg4, img.aboutvadakkencherryimg3, img.aboutvadakkencherryimg2, img.aboutvadakkencherryimg1, img.aboutvadakkencherryimg4],
   },
   Kunnamkulam: {
     bannerHeading: "Discover Royal Enfield in Kunnamkulam",
@@ -89,8 +89,20 @@ const locationData = {
       { icon: <Wrench size={20} strokeWidth={1.6} color="#e8282b" />, title: "Master Mechanics", desc: "Trust your bike with our RE-certified experts in Kunnamkulam for smooth and strong performance." },
       { icon: <Clock size={20} strokeWidth={1.6} color="#e8282b" />, title: "Explore Models on Road", desc: "Step in and ride out. Enjoy flexible test rides available daily at Kunnamkulam." },
     ],
-    colA: [img.aboutkunnamkulamimg1, img.aboutkunnamkulamimg2, img.aboutkunnamkulamimg3, img.aboutkunnamkulamimg4, img.aboutkunnamkulamimg1],
-    colB: [img.aboutkunnamkulamimg3, img.aboutkunnamkulamimg4, img.aboutkunnamkulamimg1, img.aboutkunnamkulamimg2, img.aboutkunnamkulamimg3],
+    colA: [img.aboutkunnamkulamimg1, img.aboutkunnamkulamimg2, img.aboutkunnamkulamimg3, img.aboutkunnamkulamimg4, img.aboutkunnamkulamimg3],
+    colB: [img.aboutkunnamkulamimg4, img.aboutkunnamkulamimg3, img.aboutkunnamkulamimg2, img.aboutkunnamkulamimg1, img.aboutkunnamkulamimg4],
+  },
+  Thriprayar: {
+    bannerHeading: "Your Trusted Royal Enfield Partner in Thriprayar",
+    bannerSub: "Experience the legacy of pure motorcycling at TagsBikez Thriprayar. We bring you the latest 2026 Royal Enfield lineup with unmatched customer service.",
+    features: [
+      { icon: <ShieldCheck size={20} strokeWidth={1.6} color="#e8282b" />, title: "Authorised Thriprayar Dealer", desc: "Certified Royal Enfield dealership in Thriprayar, delivering authentic experiences since day one." },
+      { icon: <BadgeCheck size={20} strokeWidth={1.6} color="#e8282b" />, title: "Genuine Spares & Accessories", desc: "Customize and maintain your ride with 100% genuine Royal Enfield parts and gear available in Thriprayar." },
+      { icon: <Wrench size={20} strokeWidth={1.6} color="#e8282b" />, title: "Factory-Trained Technicians", desc: "Our mechanics in Thriprayar are rigorously trained by Royal Enfield to ensure your motorcycle performs at its peak." },
+      { icon: <Clock size={20} strokeWidth={1.6} color="#e8282b" />, title: "Seamless Test Rides", desc: "Book a hassle-free test ride today at our Thriprayar showroom and feel the power before you buy." },
+    ],
+    colA: [img.aboutthriprayarimg1, img.aboutthriprayarimg2, img.aboutthriprayarimg3, img.aboutthriprayarimg4, img.aboutthriprayarimg3],
+    colB: [img.aboutthriprayarimg4, img.aboutthriprayarimg3, img.aboutthriprayarimg2, img.aboutthriprayarimg1, img.aboutthriprayarimg4],
   }
 };
 

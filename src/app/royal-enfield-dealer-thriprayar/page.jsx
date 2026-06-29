@@ -29,12 +29,12 @@ const ThriprayarPage = () => {
       <BikeSectionSwiper />
       <EmiCalculator/>
       <UpcomingEvents />
-      <WhatWeDoSection location="thriprayar" />
-      <AboutSection location="thriprayar" />
-      <AccessoriesSection location="thriprayar" />
-      <FAQSection location="thriprayar" />
+      <WhatWeDoSection location="Thriprayar" />
+      <AboutSection location="Thriprayar" />
+      <AccessoriesSection location="Thriprayar" />
+      <FAQSection location="Thriprayar" />
       <div id="test-ride">
-        <TestDriveSection location="thriprayar" />
+        <TestDriveSection location="Thriprayar" />
       </div>
       <SocialFeed />
     </>

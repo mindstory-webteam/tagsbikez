@@ -36,6 +36,7 @@ export default function Navbar() {
         setVisible(true);
         setScrolled(true);
       }
+      
 
       setLastScrollY(currentScrollY);
     };

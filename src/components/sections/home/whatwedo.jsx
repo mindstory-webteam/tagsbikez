@@ -110,7 +110,7 @@ const locationData = {
     ]
   },
   Kuriachira: {
-    image: img.banner1,
+    image: img.whatwedokuriachira,
     steps: [
       {
         number: "01",
@@ -135,7 +135,7 @@ const locationData = {
     ]
   },
   Patturaikkal: {
-    image: img.Himalayan,
+    image: img.whatwedopatturaikkal,
     steps: [
       {
         number: "01",
@@ -160,7 +160,7 @@ const locationData = {
     ]
   },
   Vadakkencherry: {
-    image: img.Himalayan2,
+    image: img.whatwedovadakkencherry,
     steps: [
       {
         number: "01",
@@ -181,6 +181,31 @@ const locationData = {
         number: "04",
         title: "ON-TIME DELIVERY",
         description: "We value your time and excitement. Our Vadakkencherry team is committed to on-time delivery, managing all documentation and pre-ride inspections so you can start making memories immediately.",
+      },
+    ]
+  },
+  Thriprayar: {
+    image: img.whatwedothriprayar,
+    steps: [
+      {
+        number: "01",
+        title: "THRIPRAYAR SHOWROOM",
+        description: "TagsBikez Thriprayar is your premier destination for Royal Enfield. Experience the perfect blend of classic design and modern engineering as you explore our wide range of motorcycles suited for every kind of rider.",
+      },
+      {
+        number: "02",
+        title: "RELIABLE MAINTENANCE",
+        description: "Rely on our Thriprayar service experts to keep your motorcycle in prime condition. With state-of-the-art facilities and genuine spares, we deliver maintenance services you can trust for a safe and smooth ride.",
+      },
+      {
+        number: "03",
+        title: "FLEXIBLE PURCHASE OPTIONS",
+        description: "We offer flexible purchase options at our Thriprayar branch, including attractive loan schemes and zero hidden fees. Buying your favorite Royal Enfield is now a straightforward and joyous process.",
+      },
+      {
+        number: "04",
+        title: "ON-TIME DELIVERY",
+        description: "We value your time and excitement. Our Thriprayar team is committed to on-time delivery, managing all documentation and pre-ride inspections so you can start making memories immediately.",
       },
     ]
   }
