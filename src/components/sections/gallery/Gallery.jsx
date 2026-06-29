@@ -8,11 +8,12 @@ gsap.registerPlugin(ScrollTrigger);
 
 const fallbackGalleryItems = [];
 
-export default function AboutGallery() {
+export default function Gallery() {
   const sectionRef = useRef(null);
   const itemRefs = useRef([]);
   const [galleryItems, setGalleryItems] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     async function loadGallery() {
@@ -27,9 +28,16 @@ export default function AboutGallery() {
     loadGallery();
   }, []);
 
+  const itemsPerPage = 12;
+  const totalPages = Math.ceil(galleryItems.length / itemsPerPage);
+  const currentItems = galleryItems.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
+
   useEffect(() => {
-    if (galleryItems.length === 0) return;
-    itemRefs.current = itemRefs.current.slice(0, galleryItems.length);
+    if (currentItems.length === 0) return;
+    itemRefs.current = itemRefs.current.slice(0, currentItems.length);
 
     const ctx = gsap.context(() => {
       itemRefs.current.forEach((el, i) => {
@@ -54,7 +62,7 @@ export default function AboutGallery() {
     }, sectionRef);
 
     return () => ctx.revert();
-  }, [galleryItems]);
+  }, [galleryItems, currentPage]);
 
   return (
     <section ref={sectionRef} className="gallery-section">
@@ -178,6 +186,39 @@ export default function AboutGallery() {
             gap: 4px;
           }
         }
+
+        /* Pagination Styles */
+        .pagination {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 16px;
+          margin-top: 60px;
+        }
+        .pagination button {
+          padding: 8px 16px;
+          border: 1px solid #eaeaea;
+          background: transparent;
+          cursor: pointer;
+          font-family: var(--font-oswald), sans-serif;
+          text-transform: uppercase;
+          font-size: 14px;
+          letter-spacing: 0.05em;
+          transition: all 0.3s;
+        }
+        .pagination button:hover:not(:disabled) {
+          background: #e8282b;
+          color: #fff;
+          border-color: #e8282b;
+        }
+        .pagination button:disabled {
+          opacity: 0.5;
+          cursor: not-allowed;
+        }
+        .pagination span {
+          font-size: 14px;
+          color: #555;
+        }
       `}</style>
 
       {/*  Header  */}
@@ -194,8 +235,8 @@ export default function AboutGallery() {
       <div className="gallery-grid">
         {loading ? (
           <p style={{ gridColumn: "1 / -1", textAlign: "center", padding: "40px" }}>Loading gallery...</p>
-        ) : galleryItems.length > 0 ? (
-          galleryItems.map((item, i) => (
+        ) : currentItems.length > 0 ? (
+          currentItems.map((item, i) => (
             <div
               key={item.id}
               className="g-item"
@@ -214,6 +255,24 @@ export default function AboutGallery() {
           </p>
         )}
       </div>
+
+      {totalPages > 1 && (
+        <div className="pagination">
+          <button 
+            onClick={() => setCurrentPage(p => Math.max(1, p - 1))} 
+            disabled={currentPage === 1}
+          >
+            Prev
+          </button>
+          <span>Page {currentPage} of {totalPages}</span>
+          <button 
+            onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))} 
+            disabled={currentPage === totalPages}
+          >
+            Next
+          </button>
+        </div>
+      )}
     </section>
   );
 }

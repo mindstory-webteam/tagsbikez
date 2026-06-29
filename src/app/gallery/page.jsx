@@ -1,5 +1,5 @@
 import React from 'react';
-import AboutGallery from '@/components/sections/about/AboutGallery';
+import Gallery from '@/components/sections/gallery/Gallery';
 
 export const metadata = {
   title: "Gallery | Royal Enfield Bikes & Events | Tags Bikez",
@@ -13,7 +13,7 @@ export const metadata = {
 const GalleryPage = () => {
   return (
     <div className="gallery-page bg-white">
-      <AboutGallery />
+      <Gallery />
     </div>
   );
 };
