@@ -89,7 +89,7 @@ export default function HeroSection() {
         .desktop-banner { display: block; height: 100%; width: 100%; position: absolute; inset: 0; }
         .mobile-banner { display: none; height: 100%; width: 100%; position: absolute; inset: 0; }
 
-        @media (max-width: 768px) {
+        @media (max-width: 1100px) {
           .hero-root {
             /* On mobile, use 60vh so it doesn't dominate the whole screen */
             height: 60vh;
@@ -132,7 +132,7 @@ export default function HeroSection() {
                   src={bike.img}
                   alt={bike.title || "Banner Image"}
                   fill
-                  sizes="100vw"
+                  sizes="(max-width: 1100px) 0vw, 100vw"
                   style={{ objectFit: "cover", objectPosition: "center" }}
                   priority={index === 0}
                 />
@@ -142,7 +142,7 @@ export default function HeroSection() {
                   src={bike.imgSmall}
                   alt={bike.title || "Banner Mobile Image"}
                   fill
-                  sizes="100vw"
+                  sizes="(max-width: 1100px) 100vw, 0vw"
                   style={{ objectFit: "cover", objectPosition: "center" }}
                   priority={index === 0}
                 />

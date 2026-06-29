@@ -404,7 +404,7 @@ export default function Footer() {
               alt="Tagsbikez Logo"
               width={160}
               height={50}
-              style={{ objectFit: "contain", marginBottom: "20px" }}
+              style={{ objectFit: "contain", marginBottom: "20px", width: "auto", height: "auto" }}
             />
             <p className="ft-tagline">
               Authorized Royal Enfield dealership in Thrissur,Kerala.

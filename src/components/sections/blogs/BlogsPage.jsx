@@ -69,7 +69,7 @@ export default function BlogsPage() {
           color: inherit;
           display: block;
         }
-        .card-link:hover .title {
+        .card-link .title:hover {
           color: #e8282b;
           text-decoration: underline;
         }
@@ -152,7 +152,7 @@ export default function BlogsPage() {
           text-transform: uppercase;
           letter-spacing: 0.05em;
         }
-        .card-latest:hover .read-more-text {
+        .read-more-text:hover {
           text-decoration: underline;
         }
 

@@ -482,6 +482,7 @@ export default function AboutSection({
 
         /*  BREAKPOINTS  */
         @media (max-width: 1100px) {
+          .as-root { padding-top: 0px; }
           .as-banner {
             grid-template-columns: 1fr;
             height: auto;

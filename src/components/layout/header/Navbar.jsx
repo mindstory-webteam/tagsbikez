@@ -215,6 +215,7 @@ export default function Navbar() {
             src={img.tagsbikezwhite}
             alt="Logo"
             fill
+            sizes="160px"
             style={{ objectFit: "contain" }}
             priority
           />
@@ -268,7 +269,7 @@ export default function Navbar() {
             alt="Logo"
             width={120}
             height={36}
-            style={{ objectFit: "contain" }}
+            style={{ objectFit: "contain", width: "auto", height: "auto" }}
           />
           <button 
             className="sidebar-close"

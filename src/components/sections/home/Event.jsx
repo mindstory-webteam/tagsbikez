@@ -615,7 +615,7 @@ export default function UpcomingEvents() {
         }
         @media (max-width: 1200px) {
           .ev-section {
-            padding: 0 40px 100px 40px;
+            padding: 0 40px 60px 40px;
           }
         }
         @media (max-width: 600px) {
