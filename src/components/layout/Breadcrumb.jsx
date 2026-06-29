@@ -175,27 +175,7 @@ const Breadcrumb = () => {
           color: #fff;
         }
 
-        .skeleton-capsule {
-          width: 90px;
-          height: 36px;
-          background: rgba(255,255,255,0.05);
-          border-color: rgba(255,255,255,0.1);
-          position: relative;
-          overflow: hidden;
-          color: transparent;
-          pointer-events: none;
-        }
-        .skeleton-capsule::after {
-          content: '';
-          position: absolute;
-          inset: 0;
-          transform: translateX(-100%);
-          background-image: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0) 100%);
-          animation: shimmer 1.5s infinite ease-out;
-        }
-        @keyframes shimmer {
-          100% { transform: translateX(100%); }
-        }
+
 
         @media (max-width: 768px) {
           .hero-breadcrumb {
@@ -313,24 +293,18 @@ const Breadcrumb = () => {
 
         {isModelsPage && (
           <div className="models-capsules">
-            {loading ? (
-              Array.from({ length: 8 }).map((_, i) => (
-                <div key={i} className="bike-capsule skeleton-capsule" />
-              ))
-            ) : (
-              bikes.filter(bike => !bike.comingSoon).map(bike => {
-                const isActive = pathname === `/models/${bike.slug}`;
-                return (
-                  <Link
-                    key={bike.slug}
-                    href={`/models/${bike.slug}`}
-                    className={`bike-capsule ${isActive ? 'active' : ''}`}
-                  >
-                    {bike.name}
-                  </Link>
-                );
-              })
-            )}
+            {bikes.filter(bike => !bike.comingSoon).map(bike => {
+              const isActive = pathname === `/models/${bike.slug}`;
+              return (
+                <Link
+                  key={bike.slug}
+                  href={`/models/${bike.slug}`}
+                  className={`bike-capsule ${isActive ? 'active' : ''}`}
+                >
+                  {bike.name}
+                </Link>
+              );
+            })}
           </div>
         )}
       </div>
