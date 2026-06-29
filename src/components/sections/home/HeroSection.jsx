@@ -8,12 +8,30 @@ import "swiper/css/effect-fade";
 import Image from "next/image";
 import { img } from "@/assets/assest";
 import { fetchBanners } from "@/lib/api";
-
-
+const fallbackBikeData = [
+  {
+    title: "THE CLASSIC 350",
+    subtitle: "A timeless icon redefined for the modern road.",
+    img: img.banner1,
+    imgSmall: img.bannerSmall1,
+  },
+  {
+    title: "INTERCEPTOR 650",
+    subtitle: "Raw power meets classic British roadster soul.",
+    img: img.banner2,
+    imgSmall: img.bannerSmall2,
+  },
+  {
+    title: "CONTINENTAL GT",
+    subtitle: "The ultimate cafe racer experience for the purist.",
+    img: img.banner3,
+    imgSmall: img.bannerSmall3,
+  },
+];
 
 export default function HeroSection() {
   const swiperRef = useRef(null);
-  const [bikeData, setBikeData] = useState([]);
+  const [bikeData, setBikeData] = useState(fallbackBikeData);
 
   useEffect(() => {
     async function loadBanners() {
@@ -29,7 +47,7 @@ export default function HeroSection() {
     loadBanners();
   }, []);
 
-
+  const isFallback = bikeData === fallbackBikeData;
 
   return (
     <>
@@ -93,7 +111,7 @@ export default function HeroSection() {
 
       <div className="hero-root">
         <Swiper
-          key="live"
+          key={isFallback ? "fallback" : "live"}
           onSwiper={(swiper) => (swiperRef.current = swiper)}
           modules={[Autoplay, EffectFade]}
           effect="fade"
