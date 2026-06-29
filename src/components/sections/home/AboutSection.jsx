@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import { ShieldCheck, Wrench, Clock,BadgeCheck } from "lucide-react";
 import { img } from "@/assets/assest";
 import { fetchGallery } from "@/lib/api";
@@ -141,6 +142,8 @@ export default function AboutSection({
   customColB,
   customMobileImgs
 }) {
+  const pathname = usePathname();
+  const isHomePage = pathname === '/';
   const locInfo = locationData[location] || {};
   const features = customFeatures || locInfo.features || getFeatures(location);
   const sectionRef = useRef(null);
@@ -256,7 +259,7 @@ export default function AboutSection({
         .as-root {
           background: #fff;
           width: 100%;
-          padding: 80px 0 0px 0px;
+          padding: ${isHomePage ? '80px' : '0px'} 0 0px 0px;
         }
 
         .as-container {
