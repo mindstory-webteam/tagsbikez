@@ -615,11 +615,11 @@ export default function UpcomingEvents() {
         }
         @media (max-width: 1200px) {
           .ev-section {
-            padding: 0 40px 60px 40px;
+            padding: 40px  40px 20px 40px;
           }
         }
         @media (max-width: 600px) {
-          .ev-section { padding: 24px 16px 60px; }
+          .ev-section { padding: 40px 24px 16px 60px; }
           .ev-heading { font-size: 28px; }
           .ev-header {
             flex-wrap: nowrap;
