@@ -375,7 +375,7 @@ export default function UpcomingEvents() {
 
         .ev-section {
           background: #fff;
-          padding: 0 0 100px 0;
+          padding: 0 40px 100px 40px;
         }
         .ev-inner {
           max-width: 1430px;
