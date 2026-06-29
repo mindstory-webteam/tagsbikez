@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { IoIosArrowForward } from "react-icons/io";
 import { fetchCategories, fetchBikes } from "@/lib/api";
-import { bikeData } from "@/lib/data/bikes";
+
 
 function Card({ title, img, slug, category, price, comingSoon, emiStarting }) {
   const CardWrapper = comingSoon ? "div" : Link;
@@ -98,11 +98,11 @@ export default function ModelsSection() {
     }
     async function loadBikes() {
       const data = await fetchBikes();
-      const bikesList = (data && Array.isArray(data) && data.length > 0) ? data : bikeData;
+      const bikesList = (data && Array.isArray(data) && data.length > 0) ? data : [];
 
       if (bikesList && bikesList.length > 0) {
         const mapped = bikesList.map((b) => {
-          const localBike = bikeData.find(lb => lb.slug === b.slug);
+
           return {
             ...b,
             id: b.id,
@@ -111,7 +111,7 @@ export default function ModelsSection() {
             category: typeof b.category === "object" ? b.category?.name : b.category,
             image: b.featured_image_url || b.image,
             comingSoon: b.coming_soon ?? b.comingSoon ?? false,
-            emiStarting: b.emi_starts_at ?? b.emi_starting ?? b.emiStarting ?? (localBike ? localBike.emiStarting : null),
+            emiStarting: b.emi_starts_at ?? b.emi_starting ?? b.emiStarting ?? null,
             colors: Array.isArray(b.colors)
               ? b.colors.map((c) => ({
                 name: c.name,
