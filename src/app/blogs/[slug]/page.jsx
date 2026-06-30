@@ -288,7 +288,6 @@ export default async function BlogDetail({ params }) {
             
             <div className="clear-float"></div>
 
-            <h3 className="sub-heading">Future Legend</h3>
             
             <div className="rating-section">
               <div className="rating-text">
