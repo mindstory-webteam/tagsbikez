@@ -278,7 +278,7 @@ export default async function BlogDetail({ params }) {
 
           {/* Right Content */}
           <div className="article-body">
-            {post.content && post.content[0] ? (
+            {post.content && post.content.length > 0 ? (
               <p>{post.content[0]}</p>
             ) : null}
 
@@ -293,8 +293,8 @@ export default async function BlogDetail({ params }) {
                 <Image src={heroImage} alt="Article Image" fill style={{ objectFit: 'cover' }} />
                 <div className="embedded-caption">1/3 Scenic riding route captured</div>
               </div>
-              {post.content && post.content.length > 1 ? (
-                post.content.slice(1).map((paragraph, idx) => (
+              {post.content && post.content.length > 2 ? (
+                post.content.slice(1, -1).map((paragraph, idx) => (
                   <p key={idx}>{paragraph}</p>
                 ))
               ) : null}
@@ -302,16 +302,15 @@ export default async function BlogDetail({ params }) {
             
             <div className="clear-float"></div>
 
-            
-            <div className="rating-section">
-              <div className="rating-text">
-                <p>
-                  Make sure your machine is as ready as you are. Regular maintenance, using genuine spare parts, and wearing proper safety gear are the pillars of a successful long-distance journey. Visit any of our TagsBikez service centers to get your motorcycle thoroughly checked before you hit the highway. Safe riding!
-                </p>
+            {post.content && post.content.length > 1 ? (
+              <div className="rating-section">
+                <div className="rating-text">
+                  <p>
+                    {post.content[post.content.length - 1]}
+                  </p>
+                </div>
               </div>
-              
-
-            </div>
+            ) : null}
 
           </div>
         </div>
