@@ -11,36 +11,36 @@ const fallbackColB = [img.ride2, img.ride3, img.royalenfield1, img.royalenfieldf
 const locationData = {
   Chalakudy: {
     bannerHeading: "Your Trusted Royal Enfield Partner in Chalakudy",
-    bannerSub: "Experience the legacy of pure motorcycling at TagsBikez Chalakudy. We bring you the latest 2026 Royal Enfield lineup with unmatched customer service.",
+    bannerSub: "TagsBikez is a trusted choice for riders who want a smooth Royal Enfield buying experience in Chalakudy and nearby Thrissur areas. As a Royal Enfield dealer in Chalakudy, we help you explore motorcycles, compare models, book test rides, understand finance options, select genuine accessories, and plan your delivery. Whether you are a first-time buyer or upgrading to a new Royal Enfield, our team provides clear and friendly guidance. Visit our Royal Enfield showroom in Chalakudy and enjoy a confident buying experience.",
     features: [
-      { icon: <ShieldCheck size={20} strokeWidth={1.6} color="#e8282b" />, title: "Authorised Chalakudy Dealer", desc: "Certified Royal Enfield dealership in Chalakudy, delivering authentic experiences since day one." },
-      { icon: <BadgeCheck size={20} strokeWidth={1.6} color="#e8282b" />, title: "Genuine Spares & Accessories", desc: "Customize and maintain your ride with 100% genuine Royal Enfield parts and gear available in Chalakudy." },
-      { icon: <Wrench size={20} strokeWidth={1.6} color="#e8282b" />, title: "Factory-Trained Technicians", desc: "Our mechanics in Chalakudy are rigorously trained by Royal Enfield to ensure your motorcycle performs at its peak." },
-      { icon: <Clock size={20} strokeWidth={1.6} color="#e8282b" />, title: "Seamless Test Rides", desc: "Book a hassle-free test ride today at our Chalakudy showroom and feel the power before you buy." },
+      { icon: <ShieldCheck size={20} strokeWidth={1.6} color="#e8282b" />, title: "Trusted Royal Enfield Showroom in Chalakudy", desc: "If you are looking for a customer-friendly Royal Enfield showroom in Chalakudy, TagsBikez is a trusted place to visit. Our team provides model guidance, test ride assistance, booking support, and clear sales consultation." },
+      { icon: <BadgeCheck size={20} strokeWidth={1.6} color="#e8282b" />, title: "Genuine Parts & Accessories Support", desc: "TagsBikez Chalakudy helps riders enquire about genuine Royal Enfield spare parts and accessories. We guide you in choosing the right parts and add-ons based on your bike model, safety, comfort, and riding purpose." },
+      { icon: <Wrench size={20} strokeWidth={1.6} color="#e8282b" />, title: "Expert Service Guidance", desc: "For Royal Enfield service and maintenance support in Chalakudy, you can contact TagsBikez for proper guidance. Our team helps you understand service options, technical support, and trusted care through the dealership network." },
+      { icon: <Clock size={20} strokeWidth={1.6} color="#e8282b" />, title: "Book a Royal Enfield Test Ride", desc: "Before booking your bike, experience the ride quality first-hand. You can book a Royal Enfield test ride in Chalakudy and understand the comfort, power, and road presence of your preferred model." },
     ],
     colA: [img.aboutchalakudyimg1, img.aboutchalakudyimg5, img.aboutchalakudyimg3, img.aboutchalakudyimg4, img.aboutchalakudyimg2],
     colB: [img.aboutchalakudyimg4, img.aboutchalakudyimg2, img.aboutchalakudyimg3, img.aboutchalakudyimg5, img.aboutchalakudyimg1],
   },
   Irinjalakuda: {
     bannerHeading: "Discover Royal Enfield in Irinjalakuda",
-    bannerSub: "TagsBikez Irinjalakuda offers the complete range of Royal Enfield motorcycles. Join our riding community and start your journey today.",
+    bannerSub: "TagsBikez makes the Royal Enfield experience easier and more reliable for riders in Irinjalakuda and nearby Thrissur locations. As a trusted Royal Enfield dealer in Irinjalakuda, we help you explore bikes, compare models, book test rides, understand finance options, choose genuine accessories, and plan a smooth delivery. Whether you are buying your first Royal Enfield or upgrading to a new motorcycle, our showroom team gives clear support without pressure. Visit our Royal Enfield showroom in Irinjalakuda and ride home with confidence.",
     features: [
-      { icon: <ShieldCheck size={20} strokeWidth={1.6} color="#e8282b" />, title: "Irinjalakuda's Official Dealer", desc: "Your certified and trusted Royal Enfield showroom located right in the heart of Irinjalakuda." },
-      { icon: <BadgeCheck size={20} strokeWidth={1.6} color="#e8282b" />, title: "Authentic Parts", desc: "We stock only genuine Royal Enfield components to guarantee the longevity and reliability of your motorcycle." },
-      { icon: <Wrench size={20} strokeWidth={1.6} color="#e8282b" />, title: "Expert Servicing", desc: "Leave your bike in the safe hands of our Irinjalakuda service experts for precision maintenance and repairs." },
-      { icon: <Clock size={20} strokeWidth={1.6} color="#e8282b" />, title: "Instant Test Rides", desc: "Walk into our Irinjalakuda showroom and take your favorite Royal Enfield for a spin without any waiting." },
+      { icon: <ShieldCheck size={20} strokeWidth={1.6} color="#e8282b" />, title: "Trusted Royal Enfield Showroom in Irinjalakuda", desc: "If you are looking for a premium Royal Enfield showroom experience in Irinjalakuda, TagsBikez is here to help. You can get model guidance, booking support, test ride assistance, and friendly sales consultation from our team." },
+      { icon: <BadgeCheck size={20} strokeWidth={1.6} color="#e8282b" />, title: "Genuine Parts & Accessories Support", desc: "TagsBikez Irinjalakuda helps riders enquire about genuine Royal Enfield spare parts and accessories. Our team guides you in choosing the right options based on your motorcycle model, safety, performance, and long-term use." },
+      { icon: <Wrench size={20} strokeWidth={1.6} color="#e8282b" />, title: "Expert Service Guidance", desc: "For Royal Enfield service and maintenance enquiries in Irinjalakuda, you can contact TagsBikez for proper guidance. We help riders understand service support, technical care, and trusted maintenance assistance." },
+      { icon: <Clock size={20} strokeWidth={1.6} color="#e8282b" />, title: "Book a Royal Enfield Test Ride", desc: "Before choosing your bike, experience the comfort, power, and riding feel firsthand. You can book a Royal Enfield test ride in Irinjalakuda and understand which model suits you best." },
     ],
     colA: [img.aboutirinjalakudaimg1, img.aboutirinjalakudaimg2, img.aboutirinjalakudaimg3, img.aboutirinjalakudaimg4, img.aboutirinjalakudaimg3],
     colB: [img.aboutirinjalakudaimg4, img.aboutirinjalakudaimg3, img.aboutirinjalakudaimg2, img.aboutirinjalakudaimg1, img.aboutirinjalakudaimg4],
   },
   Kodakara: {
     bannerHeading: "Royal Enfield Excellence in Kodakara",
-    bannerSub: "Fuel your passion for riding with TagsBikez Kodakara. We provide an exceptional showroom experience and comprehensive servicing for all models.",
+    bannerSub: "TagsBikez is the right choice for making the premium Royal Enfield experience easier for riders in Kodakara and nearby Thrissur locations. As a trusted Royal Enfield dealer in Kodakara, we help you explore motorcycles, compare models, book test rides, understand finance options, select genuine accessories, and plan a smooth delivery. Whether you are buying your first Royal Enfield or upgrading to a new ride, our showroom team provides clear guidance without pressure. Visit our Royal Enfield Showroom in Kodakara and ride with confidence.",
     features: [
-      { icon: <ShieldCheck size={20} strokeWidth={1.6} color="#e8282b" />, title: "Authorised Dealer Kodakara", desc: "Proudly serving the Kodakara community as an official and trusted Royal Enfield partner." },
-      { icon: <BadgeCheck size={20} strokeWidth={1.6} color="#e8282b" />, title: "Quality Parts Guaranteed", desc: "Enhance your ride using only factory-approved genuine parts and accessories at our Kodakara center." },
-      { icon: <Wrench size={20} strokeWidth={1.6} color="#e8282b" />, title: "Skilled Mechanics", desc: "Our Kodakara service team brings years of specialized experience to keep your Royal Enfield running perfectly." },
-      { icon: <Clock size={20} strokeWidth={1.6} color="#e8282b" />, title: "Book Your Test Ride", desc: "Experience the thrill of Royal Enfield firsthand. Schedule your test ride at our Kodakara location easily." },
+      { icon: <ShieldCheck size={20} strokeWidth={1.6} color="#e8282b" />, title: "Trusted Royal Enfield Showroom in Kodakara", desc: "If local riders are looking for a premium Royal Enfield showroom experience, they can visit TagsBikez Kodakara. Here, you will get model guidance, booking support, test ride assistance, and customer-friendly sales consultation." },
+      { icon: <BadgeCheck size={20} strokeWidth={1.6} color="#e8282b" />, title: "Genuine Parts & Accessories Support", desc: "Genuine Royal Enfield spare parts and accessories guidance is available here to help you maintain your motorcycle reliably. Our team helps Kodakara riders choose the right parts by considering safety, performance, and long-term value." },
+      { icon: <Wrench size={20} strokeWidth={1.6} color="#e8282b" />, title: "Expert Service Guidance", desc: "If you need help with Royal Enfield maintenance or service enquiries, you can contact TagsBikez Kodakara. We help you get proper service support, technical guidance, and trusted care through the dealership network." },
+      { icon: <Clock size={20} strokeWidth={1.6} color="#e8282b" />, title: "Book a Royal Enfield Test Ride", desc: "Before making a decision, experience the comfort, road presence, and riding feel of your preferred model. By booking a Royal Enfield test ride in Kodakara, you can experience the bike first-hand." },
     ],
     colA: [img.aboutkodakaraimg1, img.aboutkodakaraimg2, img.aboutkodakaraimg3, img.aboutkodakaraimg4, img.aboutkodakaraimg3],
     colB: [img.aboutkodakaraimg4, img.aboutkodakaraimg3, img.aboutkodakaraimg2, img.aboutkodakaraimg1, img.aboutkodakaraimg4],
@@ -59,36 +59,36 @@ const locationData = {
   },
   Patturaikkal: {
     bannerHeading: "Your Royal Enfield Destination in Patturaikkal",
-    bannerSub: "Start your adventure with TagsBikez Patturaikkal. We are committed to providing the best motorcycles and after-sales service in the region.",
+    bannerSub: "TagsBikez makes the Royal Enfield experience easier for riders in Patturaikkal, Thrissur city, and nearby locations. As a trusted Royal Enfield dealer in Patturaikkal, we help you explore motorcycles, compare models, book test rides, understand finance options, choose genuine accessories, and plan a smooth delivery. Whether you are buying your first Royal Enfield or upgrading to a new motorcycle, our showroom team provides clear guidance without pressure. Visit our Royal Enfield showroom in Patturaikkal and ride with confidence.",
     features: [
-      { icon: <ShieldCheck size={20} strokeWidth={1.6} color="#e8282b" />, title: "Patturaikkal Certified Dealer", desc: "A fully authorized Royal Enfield dealership ensuring peace of mind with every purchase in Patturaikkal." },
-      { icon: <BadgeCheck size={20} strokeWidth={1.6} color="#e8282b" />, title: "Authentic RE Accessories", desc: "Style your motorcycle with confidence using genuine accessories from our Patturaikkal store." },
-      { icon: <Wrench size={20} strokeWidth={1.6} color="#e8282b" />, title: "Pro Technicians", desc: "Our specialized mechanics in Patturaikkal diagnose and resolve any issues with utmost precision." },
-      { icon: <Clock size={20} strokeWidth={1.6} color="#e8282b" />, title: "Ride Before You Buy", desc: "Feel the thumping engine for yourself. We offer immediate test rides at the Patturaikkal showroom." },
+      { icon: <ShieldCheck size={20} strokeWidth={1.6} color="#e8282b" />, title: "Trusted Royal Enfield Showroom in Patturaikkal", desc: "If you are looking for a customer-friendly Royal Enfield showroom in Patturaikkal, TagsBikez is here to help. You can get model guidance, booking support, test ride assistance, and clear sales consultation." },
+      { icon: <BadgeCheck size={20} strokeWidth={1.6} color="#e8282b" />, title: "Genuine Parts & Accessories Support", desc: "TagsBikez Patturaikkal helps riders enquire about genuine Royal Enfield spare parts and accessories. Our team helps you choose the right parts and add-ons based on your bike model, safety, comfort, and long-term use." },
+      { icon: <Wrench size={20} strokeWidth={1.6} color="#e8282b" />, title: "Expert Service Guidance", desc: "For Royal Enfield service and maintenance enquiries in Patturaikkal, you can contact TagsBikez for proper guidance. We help riders understand service support, technical care, and trusted maintenance assistance." },
+      { icon: <Clock size={20} strokeWidth={1.6} color="#e8282b" />, title: "Book a Royal Enfield Test Ride", desc: "Before booking your bike, experience the comfort and riding feel firsthand. You can book a Royal Enfield test ride in Patturaikkal and understand which model suits your riding style best." },
     ],
     colA: [img.aboutpatturaikkalimg1, img.aboutpatturaikkalimg2, img.aboutpatturaikkalimg3, img.aboutpatturaikkalimg4, img.aboutpatturaikkalimg3],
     colB: [img.aboutpatturaikkalimg4, img.aboutpatturaikkalimg3, img.aboutpatturaikkalimg2, img.aboutpatturaikkalimg1, img.aboutpatturaikkalimg4],
   },
   Vadakkencherry: {
     bannerHeading: "TagsBikez Vadakkencherry Showroom",
-    bannerSub: "Discover pure motorcycling right in your neighborhood. TagsBikez Vadakkencherry offers the latest Royal Enfield bikes and professional care.",
+    bannerSub: "TagsBikez makes the Royal Enfield buying experience easier for riders in Vadakkencherry and nearby locations. As a trusted Royal Enfield dealer in Vadakkencherry, we help you explore motorcycles, compare models, book test rides, understand finance options, choose genuine accessories, and plan a smooth delivery. Whether you are purchasing your first Royal Enfield or upgrading to a new model, our showroom team gives clear guidance without pressure. Visit our Royal Enfield showroom in Vadakkencherry and ride with confidence.",
     features: [
-      { icon: <ShieldCheck size={20} strokeWidth={1.6} color="#e8282b" />, title: "Vadakkencherry Authorized", desc: "The go-to Royal Enfield dealership in Vadakkencherry, delivering legends on two wheels." },
-      { icon: <BadgeCheck size={20} strokeWidth={1.6} color="#e8282b" />, title: "100% Genuine Care", desc: "Maintain your ride's integrity with genuine parts supplied directly to our Vadakkencherry facility." },
-      { icon: <Wrench size={20} strokeWidth={1.6} color="#e8282b" />, title: "Master Mechanics", desc: "Trust your bike with our RE-certified experts in Vadakkencherry for smooth and strong performance." },
-      { icon: <Clock size={20} strokeWidth={1.6} color="#e8282b" />, title: "Explore Models on Road", desc: "Step in and ride out. Enjoy flexible test rides available daily at Vadakkencherry." },
+      { icon: <ShieldCheck size={20} strokeWidth={1.6} color="#e8282b" />, title: "Trusted Royal Enfield Showroom in Vadakkencherry", desc: "If you are looking for a reliable Royal Enfield showroom experience in Vadakkencherry, TagsBikez is here to support you. Our team provides model guidance, booking support, test ride assistance, and friendly consultation." },
+      { icon: <BadgeCheck size={20} strokeWidth={1.6} color="#e8282b" />, title: "Genuine Parts & Accessories Support", desc: "TagsBikez Vadakkencherry helps riders enquire about genuine Royal Enfield spare parts and accessories. Our team guides you in choosing the right parts by considering your bike model, safety, comfort, and long-term performance." },
+      { icon: <Wrench size={20} strokeWidth={1.6} color="#e8282b" />, title: "Expert Service Guidance", desc: "For Royal Enfield maintenance or service enquiries in Vadakkencherry, you can contact TagsBikez for proper support. We help you understand service guidance, technical care, and trusted maintenance assistance." },
+      { icon: <Clock size={20} strokeWidth={1.6} color="#e8282b" />, title: "Book a Royal Enfield Test Ride", desc: "A test ride helps you understand the real riding feel of your preferred motorcycle. You can book a Royal Enfield test ride in Vadakkencherry and experience the comfort, power, and road presence first-hand." },
     ],
     colA: [img.aboutvadakkencherryimg1, img.aboutvadakkencherryimg2, img.aboutvadakkencherryimg3, img.aboutvadakkencherryimg4, img.aboutvadakkencherryimg3],
     colB: [img.aboutvadakkencherryimg4, img.aboutvadakkencherryimg3, img.aboutvadakkencherryimg2, img.aboutvadakkencherryimg1, img.aboutvadakkencherryimg4],
   },
   Kunnamkulam: {
     bannerHeading: "Discover Royal Enfield in Kunnamkulam",
-    bannerSub: "TagsBikez Kunnamkulam offers the complete range of Royal Enfield motorcycles. Join our riding community and start your journey today.",
+    bannerSub: "TagsBikez is a trusted choice for riders who want a better Royal Enfield experience in Kunnamkulam and nearby Thrissur locations. As a Royal Enfield dealer in Kunnamkulam, we help you explore motorcycles, compare models, book test rides, understand finance options, select genuine accessories, and plan a smooth delivery. Whether you are buying your first Royal Enfield or upgrading to a new ride, our showroom team provides clear guidance without pressure. Visit our Royal Enfield showroom in Kunnamkulam and ride with confidence.",
     features: [
-      { icon: <ShieldCheck size={20} strokeWidth={1.6} color="#e8282b" />, title: "Kunnamkulam Authorized", desc: "The go-to Royal Enfield dealership in Kunnamkulam, delivering legends on two wheels." },
-      { icon: <BadgeCheck size={20} strokeWidth={1.6} color="#e8282b" />, title: "100% Genuine Care", desc: "Maintain your ride's integrity with genuine parts supplied directly to our Kunnamkulam facility." },
-      { icon: <Wrench size={20} strokeWidth={1.6} color="#e8282b" />, title: "Master Mechanics", desc: "Trust your bike with our RE-certified experts in Kunnamkulam for smooth and strong performance." },
-      { icon: <Clock size={20} strokeWidth={1.6} color="#e8282b" />, title: "Explore Models on Road", desc: "Step in and ride out. Enjoy flexible test rides available daily at Kunnamkulam." },
+      { icon: <ShieldCheck size={20} strokeWidth={1.6} color="#e8282b" />, title: "Trusted Royal Enfield Showroom in Kunnamkulam", desc: "If you are looking for a premium Royal Enfield showroom experience in Kunnamkulam, TagsBikez is ready to help. You can get model guidance, booking support, test ride assistance, and customer-friendly consultation." },
+      { icon: <BadgeCheck size={20} strokeWidth={1.6} color="#e8282b" />, title: "Genuine Parts & Accessories Support", desc: "TagsBikez Kunnamkulam helps riders enquire about genuine Royal Enfield spare parts and accessories. Our team supports you in choosing parts and add-ons based on safety, comfort, performance, and long-term value." },
+      { icon: <Wrench size={20} strokeWidth={1.6} color="#e8282b" />, title: "Expert Service Guidance", desc: "For Royal Enfield maintenance or service enquiries in Kunnamkulam, you can contact TagsBikez for proper guidance. We help riders get clear service support, technical care, and trusted maintenance assistance." },
+      { icon: <Clock size={20} strokeWidth={1.6} color="#e8282b" />, title: "Book a Royal Enfield Test Ride", desc: "Before making your final decision, experience your preferred bike first-hand. You can book a Royal Enfield test ride in Kunnamkulam and understand the comfort, road presence, and riding feel of the model." },
     ],
     colA: [img.aboutkunnamkulamimg1, img.aboutkunnamkulamimg2, img.aboutkunnamkulamimg3, img.aboutkunnamkulamimg4, img.aboutkunnamkulamimg3],
     colB: [img.aboutkunnamkulamimg4, img.aboutkunnamkulamimg3, img.aboutkunnamkulamimg2, img.aboutkunnamkulamimg1, img.aboutkunnamkulamimg4],
@@ -369,7 +369,7 @@ export default function AboutSection({
           color: rgba(255,255,255,0.5);
           line-height: 1.7;
           margin-bottom: 32px;
-          max-width: 450px;
+          max-width: 750px;
         }
 
         .as-info-pills {

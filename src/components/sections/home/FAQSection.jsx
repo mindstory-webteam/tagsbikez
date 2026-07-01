@@ -46,36 +46,45 @@ const locationData = {
     heading: "Chalakudy Royal Enfield FAQs",
     subtext: "Find answers to all your questions about purchasing and servicing your motorcycle at TagsBikez Chalakudy.",
     faqs: [
-      { id: 1, question: "Where is your Chalakudy showroom located?", answer: "Our showroom is centrally located in Chalakudy. You can find our exact address and directions on the Contact page." },
-      { id: 2, question: "Can I book a test ride in Chalakudy?", answer: "Absolutely. We offer test rides for all the latest models directly from our Chalakudy location." },
-      { id: 3, question: "Do you provide servicing in Chalakudy?", answer: "Yes, our Chalakudy facility includes a fully equipped service center with certified Royal Enfield mechanics." },
-      { id: 4, question: "Are genuine accessories available here?", answer: "Yes, we stock a wide range of official Royal Enfield accessories and riding gear at our Chalakudy outlet." },
-      { id: 5, question: "What finance options do you offer?", answer: "We partner with leading banks to provide attractive EMI schemes and quick loan approvals at our Chalakudy branch." },
-      { id: 6, question: "How quickly can I get my bike delivered?", answer: "Delivery times depend on the model and color availability, but we strive for the fastest possible handover in Chalakudy." }
+      { id: 1, question: "How can I book a Royal Enfield test ride in Chalakudy?", answer: "You can book a Royal Enfield test ride in Chalakudy by contacting TagsBikez through phone, WhatsApp, or the website." },
+      { id: 2, question: "Can I service my Royal Enfield at TagsBikez Chalakudy?", answer: "Yes, you can contact TagsBikez Chalakudy for Royal Enfield service support and availability details." },
+      { id: 3, question: "Are genuine Royal Enfield spare parts available in Chalakudy?", answer: "Yes, TagsBikez Chalakudy can help you enquire about genuine Royal Enfield spare parts for your motorcycle." },
+      { id: 4, question: "Can I buy Royal Enfield accessories at the Chalakudy showroom?", answer: "Yes, you can enquire about Royal Enfield accessories at TagsBikez Chalakudy based on your bike model and needs." },
+      { id: 5, question: "Are EMI options available for Royal Enfield bikes in Chalakudy?", answer: "Yes, TagsBikez Chalakudy can guide you with EMI and finance options for Royal Enfield bike purchases." },
+      { id: 6, question: "How long does Royal Enfield bike delivery take?", answer: "Delivery time depends on model availability, booking status, registration, and showroom updates." },
+      { id: 7, question: "Can I contact the Chalakudy showroom through WhatsApp?", answer: "Yes, you can use WhatsApp to enquire about models, test rides, accessories, finance, and delivery updates." },
+      { id: 8, question: "Does TagsBikez Chalakudy provide delivery support?", answer: "Yes, the team assists with booking updates, documentation, registration guidance, and delivery coordination." },
+      { id: 9, question: "Which Royal Enfield bike is best for me?", answer: "TagsBikez Chalakudy can help you choose the right Royal Enfield based on your riding style, budget, and comfort." }
     ]
   },
   Irinjalakuda: {
     heading: "Irinjalakuda Showroom FAQs",
     subtext: "Got questions? We have answers. Learn more about buying your dream Royal Enfield in Irinjalakuda.",
     faqs: [
-      { id: 1, question: "Is TagsBikez Irinjalakuda an authorized dealer?", answer: "Yes, we are a fully authorized Royal Enfield dealership serving the Irinjalakuda region." },
-      { id: 2, question: "Which models are available for a test ride?", answer: "We have test ride vehicles for popular models like Classic 350, Hunter 350, Meteor, and Himalayan at our Irinjalakuda showroom." },
-      { id: 3, question: "Do you offer exchange programs?", answer: "Yes, we provide easy exchange options where you can trade in your old bike for a brand new Royal Enfield." },
-      { id: 4, question: "Can I service my bike here?", answer: "Yes, our Irinjalakuda service center is equipped with genuine parts and trained technicians to maintain your motorcycle." },
-      { id: 5, question: "Do you sell official riding gear?", answer: "Yes, you can browse and purchase authentic Royal Enfield apparel and gear directly at our Irinjalakuda location." },
-      { id: 6, question: "What are the showroom timings?", answer: "Our Irinjalakuda showroom is open from Monday to Saturday, 9 AM to 6 PM." }
+      { id: 1, question: "How can I book a Royal Enfield test ride in Irinjalakuda?", answer: "You can book a Royal Enfield test ride in Irinjalakuda by contacting TagsBikez through phone, WhatsApp, or the website." },
+      { id: 2, question: "Can I service my Royal Enfield at TagsBikez Irinjalakuda?", answer: "Yes, you can contact TagsBikez Irinjalakuda for Royal Enfield service support and availability details." },
+      { id: 3, question: "Are genuine Royal Enfield spare parts available in Irinjalakuda?", answer: "Yes, TagsBikez Irinjalakuda can help you enquire about genuine Royal Enfield spare parts for your bike." },
+      { id: 4, question: "Can I buy Royal Enfield accessories at the Irinjalakuda showroom?", answer: "Yes, you can enquire about Royal Enfield accessories at TagsBikez Irinjalakuda based on your model and needs." },
+      { id: 5, question: "Are EMI options available for Royal Enfield bikes in Irinjalakuda?", answer: "Yes, TagsBikez Irinjalakuda can guide you with EMI and finance options for Royal Enfield purchases." },
+      { id: 6, question: "How long does Royal Enfield bike delivery take?", answer: "Delivery time depends on model availability, booking status, registration, and showroom updates." },
+      { id: 7, question: "Can I contact the Irinjalakuda showroom through WhatsApp?", answer: "Yes, you can use WhatsApp to enquire about models, test rides, accessories, finance, and delivery updates." },
+      { id: 8, question: "Does TagsBikez Irinjalakuda provide delivery support?", answer: "Yes, the team assists with booking updates, documentation, registration guidance, and delivery coordination." },
+      { id: 9, question: "Which Royal Enfield bike is best for me?", answer: "TagsBikez Irinjalakuda can help you choose the right Royal Enfield based on your riding style, comfort, and budget." }
     ]
   },
   Kodakara: {
     heading: "Your Kodakara Dealership FAQs",
     subtext: "Everything you need to know about purchasing, servicing, and riding Royal Enfield motorcycles in Kodakara.",
     faqs: [
-      { id: 1, question: "Does the Kodakara showroom have all models?", answer: "We showcase the complete range of Royal Enfield motorcycles. Drop by our Kodakara showroom to explore them." },
-      { id: 2, question: "Can I get my bike serviced in Kodakara?", answer: "Yes, our Kodakara location features a dedicated service center to handle all your maintenance needs." },
-      { id: 3, question: "Are financing facilities available?", answer: "We offer hassle-free finance options with minimum documentation right here at TagsBikez Kodakara." },
-      { id: 4, question: "Do I need to pre-book a test ride?", answer: "While walk-ins are welcome, we recommend pre-booking a test ride online or via phone to ensure availability." },
-      { id: 5, question: "Can I customize my bike?", answer: "Yes, you can choose from a variety of genuine accessories to personalize your Royal Enfield before delivery." },
-      { id: 6, question: "Is the Kodakara showroom open on Sundays?", answer: "Please contact our Kodakara showroom directly or check our Contact page for Sunday working hours." }
+      { id: 1, question: "How can I book a Royal Enfield test ride in Kodakara?", answer: "You can book a Royal Enfield test ride in Kodakara by contacting the showroom through phone, WhatsApp, or the website." },
+      { id: 2, question: "Can I service my Royal Enfield at TagsBikez Kodakara?", answer: "Yes, you can contact TagsBikez Kodakara for Royal Enfield service support and availability details." },
+      { id: 3, question: "Are genuine Royal Enfield spare parts available in Kodakara?", answer: "Yes, TagsBikez Kodakara can help you enquire about genuine Royal Enfield spare parts for your motorcycle." },
+      { id: 4, question: "Can I buy Royal Enfield accessories at the Kodakara showroom?", answer: "Yes, you can enquire about Royal Enfield accessories at TagsBikez Kodakara based on your bike model and needs." },
+      { id: 5, question: "Are EMI options available for Royal Enfield bikes in Kodakara?", answer: "Yes, TagsBikez Kodakara can guide you with EMI and finance options for Royal Enfield bike purchases." },
+      { id: 6, question: "How long does Royal Enfield bike delivery take?", answer: "Delivery time depends on model availability, booking status, registration, and showroom updates." },
+      { id: 7, question: "Can I contact the showroom through WhatsApp?", answer: "Yes, you can use WhatsApp to enquire about models, test rides, accessories, finance, and delivery updates." },
+      { id: 8, question: "Does TagsBikez Kodakara provide delivery support?", answer: "Yes, the showroom team assists customers with booking updates, documentation, registration guidance, and delivery coordination." },
+      { id: 9, question: "Which Royal Enfield bike is best for me?", answer: "The TagsBikez Kodakara team can help you choose the right Royal Enfield based on your riding style and budget." }
     ]
   },
   Kuriachira: {
@@ -94,36 +103,45 @@ const locationData = {
     heading: "Patturaikkal Showroom FAQs",
     subtext: "Get all the details about owning and maintaining your Royal Enfield from TagsBikez Patturaikkal.",
     faqs: [
-      { id: 1, question: "Is the Patturaikkal showroom an official dealer?", answer: "Yes, TagsBikez Patturaikkal is an authorized Royal Enfield dealership offering sales, service, and spares." },
-      { id: 2, question: "How can I book my motorcycle?", answer: "You can book your bike directly at our Patturaikkal showroom or securely online through the Royal Enfield website." },
-      { id: 3, question: "Are test rides free?", answer: "Yes, test rides are completely free. Just visit our Patturaikkal dealership with your driving licence." },
-      { id: 4, question: "What is the warranty on a new bike?", answer: "All new Royal Enfield motorcycles come with a standard manufacturer's warranty. Ask our Patturaikkal team about extended warranty options." },
-      { id: 5, question: "Can I purchase accessories later?", answer: "Yes, you can buy and install genuine accessories at our Patturaikkal center anytime after your purchase." },
-      { id: 6, question: "How often should I service my bike?", answer: "Service intervals vary by model. Our Patturaikkal service advisors will provide you with a detailed maintenance schedule." }
+      { id: 1, question: "How can I book a Royal Enfield test ride in Patturaikkal?", answer: "You can book a Royal Enfield test ride in Patturaikkal by contacting TagsBikez through phone, WhatsApp, or the website." },
+      { id: 2, question: "Can I service my Royal Enfield at TagsBikez Patturaikkal?", answer: "Yes, you can contact TagsBikez Patturaikkal for Royal Enfield service support and availability details." },
+      { id: 3, question: "Are genuine Royal Enfield spare parts available in Patturaikkal?", answer: "Yes, TagsBikez Patturaikkal can help you enquire about genuine Royal Enfield spare parts for your motorcycle." },
+      { id: 4, question: "Can I buy Royal Enfield accessories at the Patturaikkal showroom?", answer: "Yes, you can enquire about Royal Enfield accessories at TagsBikez Patturaikkal based on your bike model and needs." },
+      { id: 5, question: "Are EMI options available for Royal Enfield bikes in Patturaikkal?", answer: "Yes, TagsBikez Patturaikkal can guide you with EMI and finance options for Royal Enfield bike purchases." },
+      { id: 6, question: "How long does Royal Enfield bike delivery take?", answer: "Delivery time depends on model availability, booking status, registration, and showroom updates." },
+      { id: 7, question: "Can I contact the Patturaikkal showroom through WhatsApp?", answer: "Yes, you can use WhatsApp to enquire about models, test rides, accessories, finance, and delivery updates." },
+      { id: 8, question: "Does TagsBikez Patturaikkal provide delivery support?", answer: "Yes, the team assists with booking updates, documentation, registration guidance, and delivery coordination." },
+      { id: 9, question: "Which Royal Enfield bike is best for me?", answer: "TagsBikez Patturaikkal can help you choose the right Royal Enfield based on your riding style, budget, and comfort." }
     ]
   },
   Vadakkencherry: {
     heading: "Vadakkencherry Royal Enfield FAQs",
     subtext: "Learn more about our services, test rides, and the Royal Enfield lineup available at Vadakkencherry.",
     faqs: [
-      { id: 1, question: "What models are displayed in Vadakkencherry?", answer: "Our Vadakkencherry showroom features the latest models including the Classic, Hunter, Meteor, and Himalayan." },
-      { id: 2, question: "Do you provide after-sales service here?", answer: "Yes, our Vadakkencherry branch has a fully operational service center to take care of your motorcycle." },
-      { id: 3, question: "Can I get my bike washed during service?", answer: "Yes, a professional wash and detailing are part of our standard servicing procedures in Vadakkencherry." },
-      { id: 4, question: "Are financing options fast?", answer: "We partner with top financiers to ensure quick loan processing and delivery from our Vadakkencherry showroom." },
-      { id: 5, question: "Do you sell Royal Enfield merchandise?", answer: "Yes, check out our collection of official t-shirts, jackets, and accessories at the Vadakkencherry store." },
-      { id: 6, question: "How do I schedule a service appointment?", answer: "You can book your service slot via phone or WhatsApp using the contact numbers provided for our Vadakkencherry center." }
+      { id: 1, question: "How can I book a Royal Enfield test ride in Vadakkencherry?", answer: "You can book a Royal Enfield test ride in Vadakkencherry by contacting TagsBikez through phone, WhatsApp, or the website." },
+      { id: 2, question: "Can I service my Royal Enfield at TagsBikez Vadakkencherry?", answer: "Yes, you can contact TagsBikez Vadakkencherry for Royal Enfield service support and availability details." },
+      { id: 3, question: "Are genuine Royal Enfield spare parts available in Vadakkencherry?", answer: "Yes, TagsBikez Vadakkencherry can help you enquire about genuine Royal Enfield spare parts for your motorcycle." },
+      { id: 4, question: "Can I buy Royal Enfield accessories at the Vadakkencherry showroom?", answer: "Yes, you can enquire about Royal Enfield accessories at TagsBikez Vadakkencherry based on your bike model and needs." },
+      { id: 5, question: "Are EMI options available for Royal Enfield bikes in Vadakkencherry?", answer: "Yes, TagsBikez Vadakkencherry can guide you with EMI and finance options for Royal Enfield bike purchases." },
+      { id: 6, question: "How long does Royal Enfield bike delivery take?", answer: "Delivery time depends on model availability, booking status, registration, and showroom updates." },
+      { id: 7, question: "Can I contact the Vadakkencherry showroom through WhatsApp?", answer: "Yes, you can use WhatsApp to enquire about models, test rides, accessories, finance, and delivery updates." },
+      { id: 8, question: "Does TagsBikez Vadakkencherry provide delivery support?", answer: "Yes, the team assists with booking updates, documentation, registration guidance, and delivery coordination." },
+      { id: 9, question: "Which Royal Enfield bike is best for me?", answer: "TagsBikez Vadakkencherry can help you choose the right Royal Enfield based on your riding needs, budget, and comfort." }
     ]
   },
   Kunnamkulam: {
     heading: "Kunnamkulam Royal Enfield FAQs",
     subtext: "Learn more about our services, test rides, and the Royal Enfield lineup available at Kunnamkulam.",
     faqs: [
-      { id: 1, question: "What models are displayed in Kunnamkulam?", answer: "Our Kunnamkulam showroom features the latest models including the Classic, Hunter, Meteor, and Himalayan." },
-      { id: 2, question: "Do you provide after-sales service here?", answer: "Yes, our Kunnamkulam branch has a fully operational service center to take care of your motorcycle." },
-      { id: 3, question: "Can I get my bike washed during service?", answer: "Yes, a professional wash and detailing are part of our standard servicing procedures in Kunnamkulam." },
-      { id: 4, question: "Are financing options fast?", answer: "We partner with top financiers to ensure quick loan processing and delivery from our Kunnamkulam showroom." },
-      { id: 5, question: "Do you sell Royal Enfield merchandise?", answer: "Yes, check out our collection of official t-shirts, jackets, and accessories at the Kunnamkulam store." },
-      { id: 6, question: "How do I schedule a service appointment?", answer: "You can book your service slot via phone or WhatsApp using the contact numbers provided for our Kunnamkulam center." }
+      { id: 1, question: "How can I book a Royal Enfield test ride in Kunnamkulam?", answer: "You can book a Royal Enfield test ride in Kunnamkulam by contacting TagsBikez by phone, WhatsApp, or the website." },
+      { id: 2, question: "Can I service my Royal Enfield at TagsBikez Kunnamkulam?", answer: "Yes, you can contact TagsBikez Kunnamkulam for Royal Enfield service support and availability details." },
+      { id: 3, question: "Are genuine Royal Enfield spare parts available in Kunnamkulam?", answer: "Yes, TagsBikez Kunnamkulam can help you enquire about genuine Royal Enfield spare parts for your motorcycle." },
+      { id: 4, question: "Can I buy Royal Enfield accessories at the Kunnamkulam showroom?", answer: "Yes, you can enquire about Royal Enfield accessories at TagsBikez Kunnamkulam based on your bike model and needs." },
+      { id: 5, question: "Are EMI options available for Royal Enfield bikes in Kunnamkulam?", answer: "Yes, TagsBikez Kunnamkulam can guide you with EMI and finance options for Royal Enfield bike purchases." },
+      { id: 6, question: "How long does Royal Enfield bike delivery take?", answer: "Delivery time depends on model availability, booking status, registration, and showroom updates." },
+      { id: 7, question: "Can I contact the Kunnamkulam showroom through WhatsApp?", answer: "Yes, you can use WhatsApp to enquire about models, test rides, accessories, finance, and delivery updates." },
+      { id: 8, question: "Does TagsBikez Kunnamkulam provide delivery support?", answer: "Yes, the team assists with booking updates, documentation, registration guidance, and delivery coordination." },
+      { id: 9, question: "Which Royal Enfield bike is best for me?", answer: "TagsBikez Kunnamkulam can help you choose the right Royal Enfield based on your riding style, purpose, and budget." }
     ]
   }
 };

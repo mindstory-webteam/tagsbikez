@@ -36,70 +36,70 @@ const locationCategories = {
   Chalakudy: [
     {
       id: "Lifestyle Apparels",
-      title: "Chalakudy Rider Apparels",
-      description: "Express your passion for Royal Enfield in Chalakudy with our premium lifestyle apparel. Discover t-shirts, jackets, and casual wear designed for pure motorcycling enthusiasts.",
+      title: "Royal Enfield Riding Apparel in Chalakudy",
+      description: "Enhance your riding lifestyle with Royal Enfield riding apparel made for comfort, style, and regular use. TagsBikez Chalakudy helps you explore rider wear and motorcycling essentials that suit your bike and personality. WhatsApp our team to know the latest collections.",
       image: img.lifestyle,
-      link: "https://wa.me/917594954444?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Apparels%20in%20Chalakudy."
+      link: "https://wa.me/917594960023?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Apparels%20in%20Chalakudy."
     },
     {
       id: "accessories",
-      title: "Genuine Accessories Chalakudy",
-      description: "Personalize your ride with 100% genuine Royal Enfield accessories available at our Chalakudy showroom. Enhance your motorcycle's performance, comfort, and style.",
+      title: "Royal Enfield Accessories in Chalakudy",
+      description: "Make your motorcycle more comfortable, stylish, and travel-ready with genuine Royal Enfield accessories. From guards and seats to mirrors, luggage options, and model-specific add-ons, our Chalakudy team helps you choose accessories based on your riding needs.",
       image: img.parts,
-      link: "https://wa.me/917594954444?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Accessories%20in%20Chalakudy."
+      link: "https://wa.me/917594960023?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Accessories%20in%20Chalakudy."
     },
     {
       id: "gear",
-      title: "Chalakudy Riding Gear",
-      description: "Stay safe on the roads of Chalakudy and beyond with our high-quality riding gear. Find CE-certified helmets, protective jackets, and durable gloves built for every adventure.",
+      title: "Riding Safety Gear for Chalakudy Riders",
+      description: "Safety gear is important for both daily rides and long-distance journeys. TagsBikez Chalakudy helps riders explore helmets, gloves, jackets, and protective essentials for better comfort and confidence. Message us on WhatsApp to check available options and sizes.",
       image: img.gear,
-      link: "https://wa.me/917594954444?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Riding%20Gear%20in%20Chalakudy."
+      link: "https://wa.me/917594960023?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Riding%20Gear%20in%20Chalakudy."
     }
   ],
   Irinjalakuda: [
     {
       id: "Lifestyle Apparels",
-      title: "Irinjalakuda Lifestyle Wear",
-      description: "Carry the Royal Enfield legacy wherever you go in Irinjalakuda. Our exclusive lifestyle apparel blends classic motorcycle culture with everyday comfort.",
+      title: "Royal Enfield Riding Apparel in Irinjalakuda",
+      description: "Complete your riding lifestyle with Royal Enfield riding apparel designed for comfort, style, and everyday use. From casual rider wear to motorcycling essentials, TagsBikez Irinjalakuda helps you explore apparel that matches your bike and personality. WhatsApp our team to know the latest collection and availability.",
       image: img.lifestyle, 
-      link: "https://wa.me/917594951111?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Apparels%20in%20Irinjalakuda."
+      link: "https://wa.me/917594960023?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Apparels%20in%20Irinjalakuda."
     },
     {
       id: "accessories",
-      title: "Motorcycle Parts Irinjalakuda",
-      description: "Upgrade your Royal Enfield with certified genuine accessories from our Irinjalakuda outlet. Built for durability and perfectly matched to your machine.",
+      title: "Royal Enfield Accessories in Irinjalakuda",
+      description: "Personalize your bike with genuine Royal Enfield accessories that improve style, comfort, utility, and touring convenience. Whether you need guards, seats, mirrors, luggage options, or model-specific add-ons, our Irinjalakuda team will guide you based on your riding needs.",
       image: img.parts,
-      link: "https://wa.me/917594951111?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Accessories%20in%20Irinjalakuda."
+      link: "https://wa.me/917594960023?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Accessories%20in%20Irinjalakuda."
     },
     {
       id: "gear",
-      title: "Protective Gear Irinjalakuda",
-      description: "Ride with confidence. Explore our premium collection of riding gear in Irinjalakuda, including all-weather jackets, riding boots, and full-face helmets.",
+      title: "Riding Safety Gear for Irinjalakuda Riders",
+      description: "Ride with better confidence using quality safety gear suitable for Royal Enfield riders. TagsBikez Irinjalakuda helps customers explore helmets, gloves, jackets, and protective riding essentials for daily rides and long trips. Message us on WhatsApp to check available sizes and options.",
       image: img.gear,
-      link: "https://wa.me/917594951111?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Riding%20Gear%20in%20Irinjalakuda."
+      link: "https://wa.me/917594960023?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Riding%20Gear%20in%20Irinjalakuda."
     }
   ],
   Kodakara: [
     {
       id: "Lifestyle Apparels",
-      title: "Kodakara Motorcycling Apparel",
-      description: "Step out in style with our official Royal Enfield apparel in Kodakara. Designed for riders who appreciate quality and heritage off the saddle.",
+      title: "Royal Enfield Riding Apparel in Kodakara",
+      description: "Complete your riding lifestyle with Royal Enfield-inspired apparel designed for comfort, style, and everyday use. From casual rider wear to premium motorcycling essentials, TagsBikez Kodakara helps you explore apparel that matches your bike and your personality. It is a perfect choice for city rides, weekend trips, and gifting. WhatsApp our Kodakara team to know the latest collections and availability.",
       image: img.lifestyle,
-      link: "https://wa.me/917594960033?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Apparels%20in%20Kodakara."
+      link: "https://wa.me/917594960023?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Apparels%20in%20Kodakara."
     },
     {
       id: "accessories",
-      title: "Custom Accessories Kodakara",
-      description: "Transform your bike's look and functionality. TagsBikez Kodakara offers a wide range of official Royal Enfield accessories tailored to your needs.",
+      title: "Royal Enfield Accessories in Kodakara",
+      description: "Personalize your motorcycle with genuine Royal Enfield accessories that improve style, comfort, utility, and touring convenience. Whether you need guards, seats, mirrors, luggage solutions, or model-specific add-ons, our Kodakara showroom team will guide you based on your riding needs. Make your bike truly yours by enquiring today through WhatsApp for accessory options and fitting support.",
       image: img.parts,
-      link: "https://wa.me/917594960033?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Accessories%20in%20Kodakara."
+      link: "https://wa.me/917594960023?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Accessories%20in%20Kodakara."
     },
     {
       id: "gear",
-      title: "Kodakara Safety Gear",
-      description: "Gear up for your next long ride from Kodakara. We provide top-tier riding protective equipment ensuring maximum safety and unparalleled comfort.",
+      title: "Riding Safety Gear for Kodakara Riders",
+      description: "Ride with more confidence by using quality safety gear suitable for Royal Enfield riders. TagsBikez Kodakara helps customers explore helmets, gloves, jackets, and protective riding essentials for daily commutes and long-distance trips. Good gear provides comfort, protection, and peace of mind on every ride. Message us on WhatsApp to know the available safety gear and sizes.",
       image: img.gear,
-      link: "https://wa.me/917594960033?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Riding%20Gear%20in%20Kodakara."
+      link: "https://wa.me/917594960023?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Riding%20Gear%20in%20Kodakara."
     }
   ],
   Kuriachira: [
@@ -128,72 +128,72 @@ const locationCategories = {
   Patturaikkal: [
     {
       id: "Lifestyle Apparels",
-      title: "Patturaikkal Casual Wear",
-      description: "Show off your Royal Enfield pride in Patturaikkal. Our lifestyle apparel range includes premium t-shirts, shirts, and accessories for every rider.",
+      title: "Royal Enfield Riding Apparel in Patturaikkal",
+      description: "Complete your riding lifestyle with Royal Enfield riding apparel designed for comfort, style, and everyday use. From casual rider wear to motorcycling essentials, TagsBikez Patturaikkal helps you explore apparel that matches your bike and personality. WhatsApp our team to know the latest collections and availability.",
       image: img.lifestyle,
-      link: "https://wa.me/917594960033?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Apparels%20in%20Patturaikkal."
+      link: "https://wa.me/917594960023?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Apparels%20in%20Patturaikkal."
     },
     {
       id: "accessories",
-      title: "Bike Accessories Patturaikkal",
-      description: "Visit our Patturaikkal store to find official Royal Enfield accessories that perfectly blend aesthetics, utility, and factory-tested durability.",
+      title: "Royal Enfield Accessories in Patturaikkal",
+      description: "Personalize your motorcycle with genuine Royal Enfield accessories that improve style, comfort, utility, and touring convenience. Whether you need guards, seats, mirrors, luggage options, or model-specific add-ons, our Patturaikkal showroom team will guide you based on your riding needs.",
       image: img.parts,
-      link: "https://wa.me/917594960033?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Accessories%20in%20Patturaikkal."
+      link: "https://wa.me/917594960023?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Accessories%20in%20Patturaikkal."
     },
     {
       id: "gear",
-      title: "Premium Gear Patturaikkal",
-      description: "Prepare for any terrain with our Patturaikkal collection of Royal Enfield riding gear. Engineered to protect, designed to look great.",
+      title: "Riding Safety Gear for Patturaikkal Riders",
+      description: "Ride with better protection and confidence using quality riding gear. TagsBikez Patturaikkal helps customers explore helmets, gloves, jackets, and protective essentials for daily commutes and long-distance trips. Message us on WhatsApp to know the available gear and sizes.",
       image: img.gear,
-      link: "https://wa.me/917594960033?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Riding%20Gear%20in%20Patturaikkal."
+      link: "https://wa.me/917594960023?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Riding%20Gear%20in%20Patturaikkal."
     }
   ],
   Vadakkencherry: [
     {
       id: "Lifestyle Apparels",
-      title: "Vadakkencherry Lifestyle Apparels",
-      description: "Bring the essence of motorcycling into your daily wardrobe. Shop the official Royal Enfield lifestyle collection at TagsBikez Vadakkencherry.",
+      title: "Royal Enfield Riding Apparel in Vadakkencherry",
+      description: "Complete your riding lifestyle with Royal Enfield riding apparel designed for comfort, style, and everyday use. TagsBikez Vadakkencherry helps riders explore apparel that matches their bike, personality, and riding needs. WhatsApp our team to know the latest collections and availability.",
       image: img.lifestyle, 
-      link: "https://wa.me/917025282011?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Apparels%20in%20Vadakkencherry."
+      link: "https://wa.me/917594960023?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Apparels%20in%20Vadakkencherry."
     },
     {
       id: "accessories",
-      title: "Vadakkencherry RE Spares",
-      description: "Equip your Royal Enfield with authentic accessories designed for superior performance and unmatched style, available now in Vadakkencherry.",
+      title: "Royal Enfield Accessories in Vadakkencherry",
+      description: "Upgrade your motorcycle with genuine Royal Enfield accessories that improve style, comfort, utility, and touring convenience. Whether you need guards, seats, mirrors, luggage support, or model-specific add-ons, our Vadakkencherry team will guide you based on your riding style.",
       image: img.parts,
-      link: "https://wa.me/917025282011?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Accessories%20in%20Vadakkencherry."
+      link: "https://wa.me/917594960023?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Accessories%20in%20Vadakkencherry."
     },
     {
       id: "gear",
-      title: "Riding Gear Vadakkencherry",
-      description: "Ensure your safety on every journey. Get fitted with Royal Enfield's certified protective riding gear at our Vadakkencherry dealership.",
+      title: "Riding Safety Gear for Vadakkencherry Riders",
+      description: "Good safety gear gives better comfort and protection on every ride. TagsBikez Vadakkencherry helps riders explore helmets, gloves, jackets, and protective essentials for daily commutes and long-distance trips. Message us on WhatsApp to check available gear and sizes.",
       image: img.gear,
-      link: "https://wa.me/917025282011?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Riding%20Gear%20in%20Vadakkencherry."
+      link: "https://wa.me/917594960023?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Riding%20Gear%20in%20Vadakkencherry."
     }
   ],
   Kunnamkulam: [
     {
       id: "Lifestyle Apparels",
-      title: "Kunnamkulam Lifestyle Apparels",
-      description: "Bring the essence of motorcycling into your daily wardrobe. Shop the official Royal Enfield lifestyle collection at TagsBikez Kunnamkulam.",
+      title: "Royal Enfield Riding Apparel in Kunnamkulam",
+      description: "Complete your motorcycling lifestyle with Royal Enfield riding apparel designed for comfort, style, and regular use. TagsBikez Kunnamkulam helps riders explore apparel that suits their bike and personality. WhatsApp our team to know the latest collections and availability.",
       image: img.lifestyle, 
-      link: "https://wa.me/917025282011?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Apparels%20in%20Kunnamkulam."
+      link: "https://wa.me/917594960023?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Apparels%20in%20Kunnamkulam."
     },
     {
       id: "accessories",
-      title: "Kunnamkulam RE Spares",
-      description: "Equip your Royal Enfield with authentic accessories designed for superior performance and unmatched style, available now in Kunnamkulam.",
+      title: "Royal Enfield Accessories in Kunnamkulam",
+      description: "Personalize your motorcycle with genuine Royal Enfield accessories that improve style, comfort, utility, and touring convenience. Whether you need guards, seats, mirrors, luggage solutions, or model-specific accessories, our Kunnamkulam team will guide you properly.",
       image: img.parts,
-      link: "https://wa.me/917025282011?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Accessories%20in%20Kunnamkulam."
+      link: "https://wa.me/917594960023?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Accessories%20in%20Kunnamkulam."
     },
     {
       id: "gear",
-      title: "Riding Gear Kunnamkulam",
-      description: "Ensure your safety on every journey. Get fitted with Royal Enfield's certified protective riding gear at our Kunnamkulam dealership.",
+      title: "Riding Safety Gear for Kunnamkulam Riders",
+      description: "Ride with better safety and confidence using quality riding gear. TagsBikez Kunnamkulam helps customers explore helmets, gloves, jackets, and protective essentials for daily travel and long-distance rides. Message us on WhatsApp to know the available gear and sizes.",
       image: img.gear,
-      link: "https://wa.me/917025282011?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Riding%20Gear%20in%20Kunnamkulam."
+      link: "https://wa.me/917594960023?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Riding%20Gear%20in%20Kunnamkulam."
     }
-  ]
+  ],
 };
 
 const getCategories = (location) => {

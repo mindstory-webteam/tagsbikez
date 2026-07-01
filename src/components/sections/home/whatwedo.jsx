@@ -14,23 +14,23 @@ const locationData = {
     steps: [
       {
         number: "01",
-        title: "ROYAL ENFIELD DEALER CHALAKUDY",
-        description: "Welcome to the premier Royal Enfield destination in Chalakudy. We bring the legendary heritage of Royal Enfield closer to you, offering a stunning lineup from the Classic 350 to the Himalayan. As an authorized dealer, we guarantee genuine motorcycles, factory warranty, and an unparalleled purchasing experience. Discover the spirit of motorcycling with our dedicated Chalakudy team.",
+        title: "Royal Enfield Dealer in Chalakudy",
+        description: "Are you searching for a reliable Royal Enfield dealer in Chalakudy? TagsBikez helps riders explore Royal Enfield motorcycles with confidence, clarity, and proper guidance. Whether you want a stylish bike for daily use, a powerful motorcycle for highway rides, or a touring-friendly model for weekend trips, our team helps you find the right match. At our Royal Enfield showroom in Chalakudy, you can get support with model selection, colour options, booking procedures, finance guidance, genuine accessories, and delivery updates. We make the buying journey simple and transparent for every rider. Visit TagsBikez Chalakudy and start your Royal Enfield experience with trusted support.",
       },
       {
         number: "02",
-        title: "EXPERT SERVICE CENTER",
-        description: "Your motorcycle deserves expert care. Our advanced service center in Chalakudy features factory-trained mechanics who know every detail of your Royal Enfield. From periodic maintenance to major repairs, we use only authentic parts and the latest diagnostic tools to keep your ride smooth and reliable on every journey.",
+        title: "Reliable Royal Enfield Service Support",
+        description: "Every Royal Enfield needs regular care to stay smooth, safe, and road-ready. TagsBikez Chalakudy supports riders with service guidance, maintenance assistance, genuine spare parts enquiries, and expert support. Whether you need help with routine service, inspection, repair guidance, or part replacement enquiries, our team is ready to assist. Riders in Chalakudy and nearby Thrissur locations can contact us to know the latest service support and availability.",
       },
       {
         number: "03",
-        title: "TRANSPARENT PRICING",
-        description: "We believe in making your dream ride affordable and stress-free. At TagsBikez Chalakudy, you will find transparent pricing without any hidden costs. We provide tailored EMI plans and quick loan approvals through leading finance partners, ensuring a smooth path to ownership.",
+        title: "Easy Booking & Finance Guidance",
+        description: "Owning a Royal Enfield becomes easier when you get the right guidance. At our Royal Enfield showroom in Chalakudy, we explain model prices, booking steps, EMI options, exchange support, and dealership offers in a clear and simple way. Our team helps you plan your purchase without confusion. From comparing models to understanding finance options, we support you at every stage. Enquire today and move closer to your dream Royal Enfield.",
       },
       {
         number: "04",
-        title: "SEAMLESS DELIVERY",
-        description: "Experience the joy of riding with our prompt delivery services in Chalakudy. We handle all documentation, registration, and insurance seamlessly. Every bike goes through rigorous quality checks so that when you receive the keys, your Royal Enfield is absolutely road-ready.",
+        title: "Smooth Delivery Experience",
+        description: "TagsBikez Chalakudy gives importance to a smooth and organized delivery experience. From booking confirmation to final delivery, our team helps you with documentation, registration guidance, payment coordination, accessory fitting updates, and delivery scheduling. We keep you informed throughout the process so you can take your Royal Enfield home with confidence. For riders in Chalakudy and nearby areas, we make every delivery step clear and convenient.",
       },
     ]
   },
@@ -39,23 +39,23 @@ const locationData = {
     steps: [
       {
         number: "01",
-        title: "YOUR IRINJALAKUDA DEALER",
-        description: "Explore the world of pure motorcycling right here in Irinjalakuda. Our showroom features the complete range of Royal Enfield motorcycles, designed for both daily commutes and epic adventures. Let our passionate team guide you in finding the perfect bike that matches your lifestyle.",
+        title: "Royal Enfield Dealer in Irinjalakuda",
+        description: "Looking for a trusted Royal Enfield dealer in Irinjalakuda? TagsBikez helps local riders explore the Royal Enfield motorcycle range with clear guidance and complete support. Whether you need a classic bike for daily rides or a touring-ready motorcycle for long journeys, our team helps you choose the right model based on your riding style, comfort, budget, and purpose. At our Royal Enfield showroom in Irinjalakuda, you can get assistance with model comparison, colour options, booking details, finance support, accessories, and delivery updates. We keep the process simple, transparent, and rider-friendly so you can make the right decision with confidence. Visit TagsBikez Irinjalakuda and begin your Royal Enfield journey with expert support.",
       },
       {
         number: "02",
-        title: "PREMIUM MAINTENANCE",
-        description: "Keep the soul of your Royal Enfield alive with our premium service at Irinjalakuda. Our state-of-the-art facility provides comprehensive maintenance and repair services using genuine components, ensuring maximum performance and longevity for your beloved machine.",
+        title: "Reliable Royal Enfield Service Support",
+        description: "Your Royal Enfield deserves proper care to perform well on every ride. TagsBikez Irinjalakuda supports riders with service guidance, maintenance assistance, genuine spare parts enquiries, and expert support. Whether you need regular service information, inspection guidance, or part replacement support, our team helps make the process easier. For riders in Irinjalakuda and nearby Thrissur areas, we provide clear service-related guidance so you can maintain your motorcycle with confidence. Contact our team to know the latest service support and availability.",
       },
       {
         number: "03",
-        title: "EASY FINANCING",
-        description: "Bringing home a Royal Enfield in Irinjalakuda is simpler than ever. Enjoy attractive pricing, transparent deals, and flexible financing options tailored to your budget. Our dedicated finance team will assist you every step of the way.",
+        title: "Easy Booking & Finance Guidance",
+        description: "Buying a Royal Enfield should be exciting and stress-free. At our Royal Enfield showroom in Irinjalakuda, we explain model pricing, booking steps, EMI options, exchange support, and available dealership offers in a simple way. Our team helps you understand the complete purchase process before making a decision. From choosing the right bike to planning the payment, we guide you at every step. Enquire today and get the right support for your dream Royal Enfield.",
       },
       {
         number: "04",
-        title: "HASSLE-FREE HANDOVER",
-        description: "We take the stress out of buying a new motorcycle. From the moment you book to the exciting handover day in Irinjalakuda, we ensure a smooth, transparent, and timely process, complete with a thorough pre-delivery inspection.",
+        title: "Smooth Delivery Experience",
+        description: "TagsBikez Irinjalakuda focuses on giving every customer a smooth and well-organized delivery experience. From booking confirmation to final delivery, our team assists with documentation, registration guidance, payment coordination, accessory fitting updates, and delivery scheduling. We make every step clear before you take your Royal Enfield home. For riders in Irinjalakuda and nearby locations, our goal is to make the delivery process simple, transparent, and memorable.",
       },
     ]
   },
@@ -64,23 +64,23 @@ const locationData = {
     steps: [
       {
         number: "01",
-        title: "ROYAL ENFIELD KODAKARA",
-        description: "TagsBikez Kodakara is your gateway to the Royal Enfield lifestyle. Whether you seek the vintage appeal of the Bullet or the modern flair of the Meteor, our authorized dealership offers a complete selection to fuel your passion for riding.",
+        title: "ROYAL ENFIELD DEALER IN KODAKARA",
+        description: "Are you looking for a trusted Royal Enfield dealer in Kodakara? TagsBikez helps local riders explore the Royal Enfield range with confidence. From everyday classics to touring-ready motorcycles, our team helps you choose the right model that suits your needs. We explain model choices, colours, booking details, finance support, accessories, and delivery updates in a simple and rider-friendly way. Visit our Kodakara showroom and start your Royal Enfield journey with the right guidance.",
       },
       {
         number: "02",
-        title: "DEDICATED SERVICE CARE",
-        description: "Trust your Royal Enfield with our skilled technicians in Kodakara. We provide dedicated servicing, detailed diagnostics, and genuine spare parts to ensure your motorcycle delivers optimal performance on every ride.",
+        title: "RELIABLE ROYAL ENFIELD SERVICE SUPPORT",
+        description: "Your Royal Enfield needs proper care after every ride. At TagsBikez Kodakara, we help riders with service guidance, maintenance support, genuine spare parts enquiries, and expert assistance. Whether you need regular service, inspection, or part replacement support, our team is always ready to make the process easier for riders in Kodakara and nearby Thrissur areas. Contact us to know the current service availability.",
       },
       {
         number: "03",
-        title: "UNBEATABLE OFFERS",
-        description: "Take advantage of our exclusive deals and attractive pricing at the Kodakara showroom. With flexible EMI schemes and zero hidden charges, owning a legendary Royal Enfield has never been more accessible.",
+        title: "EASY BOOKING & FINANCE GUIDANCE",
+        description: "Owning a Royal Enfield should feel exciting, not confusing. At our Royal Enfield Showroom in Kodakara, our team clearly explains model pricing, booking steps, EMI options, exchange support, and the latest dealership offers. We keep the purchase process transparent so you can plan your bike purchase with confidence. Enquire today and get the right support for your dream ride.",
       },
       {
         number: "04",
-        title: "SWIFT DELIVERY PROCESS",
-        description: "Start your motorcycling journey without delay. Our Kodakara team guarantees a swift and organized delivery process, handling all paperwork efficiently so you can hit the road with confidence.",
+        title: "SMOOTH DELIVERY EXPERIENCE",
+        description: "From booking confirmation to vehicle delivery, TagsBikez Kodakara always focuses on a smooth and well-organized customer experience. Our team assists you with documentation, registration guidance, payment coordination, accessory fitting updates, and delivery scheduling. For riders in Kodakara and nearby areas, we make every step clear before you take your Royal Enfield home. Book your bike and enjoy a confident delivery experience.",
       },
     ]
   },
@@ -89,23 +89,23 @@ const locationData = {
     steps: [
       {
         number: "01",
-        title: "KUNNAMKULAM'S FINEST DEALER",
-        description: "Welcome to TagsBikez Kunnamkulam, where the Royal Enfield legacy thrives. We offer a premium showroom experience with an extensive display of the latest models. Let us help you find the motorcycle that resonates with your spirit of exploration.",
+        title: "Royal Enfield Dealer in Kunnamkulam",
+        description: "Looking for a trusted Royal Enfield dealer in Kunnamkulam? TagsBikez helps riders explore Royal Enfield motorcycles with clear information and friendly support. Whether you need a bike for daily rides, relaxed weekend trips, or long-distance touring, our team helps you choose a model that suits your riding style and budget. At our Royal Enfield showroom in Kunnamkulam, you can get support with model choices, colour options, booking details, finance guidance, accessories, and delivery updates. We explain every step in a simple and transparent way so you can make your purchase decision with confidence.",
       },
       {
         number: "02",
-        title: "AUTHORISED SERVICE",
-        description: "Experience top-tier maintenance at our Kunnamkulam service center. Equipped with advanced tools and genuine parts, our certified mechanics ensure that your Royal Enfield maintains its iconic roar and reliability.",
+        title: "Reliable Royal Enfield Service Support",
+        description: "Your Royal Enfield needs proper maintenance to stay safe, smooth, and road-ready. TagsBikez Kunnamkulam helps riders with service guidance, maintenance support, genuine spare parts enquiries, and expert assistance. Whether you need regular service information, inspection guidance, or part replacement support, our team makes the process easier. Riders in Kunnamkulam and nearby Thrissur areas can contact us for current service availability and support.",
       },
       {
         number: "03",
-        title: "SMART FINANCING",
-        description: "Make a smart investment with our clear pricing and easy financing solutions in Kunnamkulam. We partner with top financiers to provide you with affordable EMI options and a hassle-free purchasing experience.",
+        title: "Easy Booking & Finance Guidance",
+        description: "Owning a Royal Enfield becomes easier when the purchase process is clear. At our Royal Enfield showroom in Kunnamkulam, we help you understand model pricing, booking steps, EMI options, exchange support, and the latest dealership offers. Our team keeps the process simple and transparent from enquiry to booking. You can plan your bike purchase confidently with the right guidance. Contact TagsBikez Kunnamkulam today and take the next step toward your dream ride.",
       },
       {
         number: "04",
-        title: "PERFECT HANDOVER",
-        description: "Celebrate your new ride with our flawless handover experience in Kunnamkulam. We meticulously inspect and prepare every motorcycle, ensuring it meets the highest standards before you take it home.",
+        title: "Smooth Delivery Experience",
+        description: "TagsBikez Kunnamkulam focuses on giving customers a smooth and well-managed delivery experience. From booking confirmation to vehicle handover, our team assists with documentation, registration guidance, payment coordination, accessory fitting updates, and delivery scheduling. We make sure every customer understands the process before taking the Royal Enfield home. For riders in Kunnamkulam and nearby areas, we make the delivery journey simple and memorable.",
       },
     ]
   },
@@ -139,23 +139,23 @@ const locationData = {
     steps: [
       {
         number: "01",
-        title: "PATTURAIKKAL MOTORCYCLES",
-        description: "Discover authentic riding at our Patturaikkal showroom. We bring you the complete Royal Enfield lineup in an environment that celebrates motorcycle culture. Join our community and start your next adventure today.",
+        title: "Royal Enfield Dealer in Patturaikkal",
+        description: "Are you looking for a trusted Royal Enfield dealer in Patturaikkal? TagsBikez helps riders explore the Royal Enfield range with clear information, friendly guidance, and complete support. Whether you want a motorcycle for daily use, city rides, weekend travel, or long-distance touring, our team helps you choose the right model based on your needs. At our Royal Enfield showroom in Patturaikkal, you can get support with model comparison, colour options, booking details, finance guidance, genuine accessories, and delivery updates. We keep the process simple and transparent so you can make the right decision without confusion. Visit TagsBikez Patturaikkal and begin your Royal Enfield journey with confidence.",
       },
       {
         number: "02",
-        title: "PRECISION SERVICING",
-        description: "At Patturaikkal, we understand your bike's DNA. Our precision servicing guarantees that every tune-up and repair enhances your motorcycle's performance, using only official Royal Enfield components.",
+        title: "Reliable Royal Enfield Service Support",
+        description: "Your Royal Enfield needs timely care to perform well on every ride. TagsBikez Patturaikkal helps riders with service guidance, maintenance support, genuine spare parts enquiries, and expert assistance. Whether you need regular service guidance, inspection support, or part replacement information, our team helps make the process easier. Riders in Patturaikkal, Thrissur city, and nearby areas can contact us to know the latest service support and availability.",
       },
       {
         number: "03",
-        title: "VALUE DRIVEN PRICING",
-        description: "Enjoy value-driven pricing at TagsBikez Patturaikkal. We offer straightforward costs, excellent financing plans, and seasonal promotions to make your dream bike a reality without breaking the bank.",
+        title: "Easy Booking & Finance Guidance",
+        description: "Buying a Royal Enfield should feel exciting, not complicated. At our Royal Enfield showroom in Patturaikkal, our team explains model pricing, booking steps, EMI options, exchange support, and dealership offers in a clear and simple way. We help you understand the complete purchase process before booking your bike. From choosing the right model to planning your payment, TagsBikez Patturaikkal gives you the support you need for a confident purchase.",
       },
       {
         number: "04",
-        title: "READY TO RIDE",
-        description: "Your journey starts the moment you step into our Patturaikkal dealership. We ensure quick processing and detailed pre-delivery checks, so your new Royal Enfield is perfectly tuned and ready to ride.",
+        title: "Smooth Delivery Experience",
+        description: "TagsBikez Patturaikkal focuses on giving customers a smooth and well-organized delivery experience. From booking confirmation to final handover, our team assists with documentation, registration guidance, payment coordination, accessory fitting updates, and delivery scheduling. We keep every step clear before you take your Royal Enfield home. For riders in Patturaikkal and nearby Thrissur areas, our goal is to make the delivery process simple, transparent, and memorable.",
       },
     ]
   },
@@ -164,23 +164,23 @@ const locationData = {
     steps: [
       {
         number: "01",
-        title: "VADAKKENCHERRY SHOWROOM",
-        description: "TagsBikez Vadakkencherry is your premier destination for Royal Enfield. Experience the perfect blend of classic design and modern engineering as you explore our wide range of motorcycles suited for every kind of rider.",
+        title: "Royal Enfield Dealer in Vadakkencherry",
+        description: "Searching for a trusted Royal Enfield dealer in Vadakkencherry? TagsBikez helps local riders explore the Royal Enfield motorcycle range with the right guidance and support. Whether you are looking for a comfortable bike for everyday travel, a stylish machine for city rides, or a strong touring motorcycle for long-distance journeys, our team helps you choose the right model. At our Royal Enfield showroom in Vadakkencherry, you can get help with model comparison, colour options, booking details, finance support, genuine accessories, and delivery updates. We keep the process simple, transparent, and easy to understand. Visit TagsBikez Vadakkencherry and start your Royal Enfield journey with confidence.",
       },
       {
         number: "02",
-        title: "RELIABLE MAINTENANCE",
-        description: "Rely on our Vadakkencherry service experts to keep your motorcycle in prime condition. With state-of-the-art facilities and genuine spares, we deliver maintenance services you can trust for a safe and smooth ride.",
+        title: "Reliable Royal Enfield Service Support",
+        description: "A Royal Enfield performs better when it receives the right care at the right time. TagsBikez Vadakkencherry helps riders with service guidance, maintenance support, genuine spare parts enquiries, and expert assistance. Whether you need regular service guidance, inspection support, or part replacement information, our team helps you understand the next steps clearly. Riders in Vadakkencherry and nearby areas can contact us for current service support and availability.",
       },
       {
         number: "03",
-        title: "FLEXIBLE PURCHASE OPTIONS",
-        description: "We offer flexible purchase options at our Vadakkencherry branch, including attractive loan schemes and zero hidden fees. Buying your favorite Royal Enfield is now a straightforward and joyous process.",
+        title: "Easy Booking & Finance Guidance",
+        description: "Buying a Royal Enfield should be clear, simple, and enjoyable. At our Royal Enfield showroom in Vadakkencherry, our team explains model pricing, booking steps, EMI options, exchange support, and dealership offers in a customer-friendly way. We help you plan your purchase based on your budget and riding needs. From enquiry to booking, our team gives proper support so you can make a confident decision. Contact us today to get started.",
       },
       {
         number: "04",
-        title: "ON-TIME DELIVERY",
-        description: "We value your time and excitement. Our Vadakkencherry team is committed to on-time delivery, managing all documentation and pre-ride inspections so you can start making memories immediately.",
+        title: "Smooth Delivery Experience",
+        description: "TagsBikez Vadakkencherry focuses on making the bike delivery process smooth and well-organized. From booking confirmation to final handover, our team assists with documentation, registration guidance, payment coordination, accessory fitting updates, and delivery scheduling. We make sure every important step is clearly explained before you take your Royal Enfield home. For riders in Vadakkencherry and nearby locations, we aim to deliver a comfortable and confident customer experience.",
       },
     ]
   },
