@@ -2,12 +2,12 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { blogsData } from '@/data/blogs';
 import { Star } from 'lucide-react';
 
-export default function BlogsPage() {
-  const latest = blogsData.filter(blog => !blog.popular);
-  const popular = blogsData.filter(blog => blog.popular);
+export default function BlogsPage({ initialBlogs = [] }) {
+  const safeBlogs = Array.isArray(initialBlogs) ? initialBlogs : [];
+  const latest = safeBlogs.filter(blog => !blog.popular);
+  const popular = safeBlogs.filter(blog => blog.popular);
 
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 4;
@@ -256,10 +256,10 @@ export default function BlogsPage() {
           {/* Latest Posts */}
           <div className="latest-posts-wrapper">
             <div className="latest-grid">
-              {currentLatest.map(post => (
-                <Link href={`/blogs/${post.slug}`} key={post.id} className="card-link card-latest">
+              {currentLatest.map((post, idx) => (
+                <Link href={`/blogs/${post.slug || ''}`} key={post.id || `latest-${idx}`} className="card-link card-latest">
                   <div className="img-wrapper">
-                    <Image src={post.image} alt={post.title} fill sizes="(max-width: 768px) 100vw, 50vw" />
+                    <Image src={post.image || "https://images.pexels.com/photos/2116475/pexels-photo-2116475.jpeg?auto=compress&cs=tinysrgb&w=800"} alt={post.title || "Blog Post"} fill sizes="(max-width: 768px) 100vw, 50vw" />
                   </div>
                   <h3 className="title">{post.title}</h3>
                   <p className="excerpt">{post.excerpt}</p>
@@ -277,10 +277,10 @@ export default function BlogsPage() {
           <div className="popular-section">
             <h2 style={{ fontSize: '24px', fontFamily: 'var(--font-oswald), sans-serif', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '24px' }}>Popular</h2>
             <div className="popular-list">
-              {currentPopular.map((post) => (
-                <Link href={`/blogs/${post.slug}`} key={post.id} className="card-link popular-item">
+              {currentPopular.map((post, idx) => (
+                <Link href={`/blogs/${post.slug || ''}`} key={post.id || `popular-${idx}`} className="card-link popular-item">
                   <div className="img-wrapper">
-                    <Image src={post.image} alt={post.title} fill sizes="80px" style={{ objectFit: 'cover' }} />
+                    <Image src={post.image || "https://images.pexels.com/photos/2116475/pexels-photo-2116475.jpeg?auto=compress&cs=tinysrgb&w=200"} alt={post.title || "Blog Post"} fill sizes="80px" style={{ objectFit: 'cover' }} />
                   </div>
                   <div className="popular-content">
                     <h3 className="title">{post.title}</h3>

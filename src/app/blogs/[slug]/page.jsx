@@ -2,26 +2,40 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { getPostBySlug, blogsData } from '@/data/blogs';
 import { ChevronLeft } from 'lucide-react';
 
 export async function generateStaticParams() {
-  return blogsData.map((post) => ({ 
-    slug: post.slug,
-  }));
+  try {
+    const res = await fetch('https://api.tagsbikez.com/api/blog/');
+    const data = await res.json();
+    return (data.results || []).map((post) => ({ 
+      slug: post.slug,
+    }));
+  } catch (error) {
+    return [];
+  }
+}
+
+async function getPost(slug) {
+  try {
+    const res = await fetch(`https://api.tagsbikez.com/api/blog/${slug}/`, { cache: 'no-store' });
+    if (!res.ok) return null;
+    return await res.json();
+  } catch (error) {
+    return null;
+  }
 }
 
 export default async function BlogDetail({ params }) {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const post = await getPost(slug);
 
   if (!post) {
     notFound();
   }
 
-  const currentIndex = blogsData.findIndex((p) => p.slug === slug);
-  const prevPost = currentIndex > 0 ? blogsData[currentIndex - 1] : null;
-  const nextPost = currentIndex < blogsData.length - 1 ? blogsData[currentIndex + 1] : null;
+  const prevPost = post.previous_post && typeof post.previous_post === 'object' ? post.previous_post : null;
+  const nextPost = post.next_post && typeof post.next_post === 'object' ? post.next_post : null;
 
   const heroImage = post.image || "https://images.pexels.com/photos/2116475/pexels-photo-2116475.jpeg?auto=compress&cs=tinysrgb&w=1200";
   
@@ -305,11 +319,11 @@ export default async function BlogDetail({ params }) {
 
       {/* Footer Navigation */}
       <div className="footer-nav">
-        {prevPost ? (
+        {prevPost && prevPost.slug ? (
           <div>
             <Link href={`/blogs/${prevPost.slug}`} className="nav-card">
               <div className="nav-bg">
-                <Image src={prevPost.image || heroImage} alt={prevPost.title} fill />
+                <Image src={prevPost.image || heroImage} alt={prevPost.title || "Previous article"} fill />
               </div>
               <div className="nav-content">
                 <div className="nav-label">Previous</div>
@@ -322,11 +336,11 @@ export default async function BlogDetail({ params }) {
           </div>
         ) : <div />}
 
-        {nextPost ? (
+        {nextPost && nextPost.slug ? (
           <div>
             <Link href={`/blogs/${nextPost.slug}`} className="nav-card">
               <div className="nav-bg">
-                <Image src={nextPost.image || heroImage} alt={nextPost.title} fill />
+                <Image src={nextPost.image || heroImage} alt={nextPost.title || "Next article"} fill />
               </div>
               <div className="nav-content">
                 <div className="nav-label">Next</div>

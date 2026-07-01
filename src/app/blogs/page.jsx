@@ -6,6 +6,19 @@ export const metadata = {
   keywords: 'Royal Enfield blogs, riding tips, motorcycle features, RE community, TagsBikez blogs, bike riding guide, Thrissur motorcycle stories',
 };
 
-export default function Page() {
-  return <BlogsPage />;
+async function getBlogs() {
+  try {
+    const res = await fetch('https://api.tagsbikez.com/api/blog/', { cache: 'no-store' });
+    if (!res.ok) return [];
+    const data = await res.json();
+    return data.results || [];
+  } catch (error) {
+    console.error('Error fetching blogs:', error);
+    return [];
+  }
+}
+
+export default async function Page() {
+  const blogs = await getBlogs();
+  return <BlogsPage initialBlogs={blogs} />;
 }
