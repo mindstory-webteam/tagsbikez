@@ -398,6 +398,11 @@ export default function UpcomingEvents() {
           align-items: center;
           gap: 8px;
         }
+        .ev-nav-group {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
         .ev-insta-link {
           display: flex;
           align-items: center;
@@ -619,21 +624,24 @@ export default function UpcomingEvents() {
           }
         }
         @media (max-width: 600px) {
-          .ev-section { padding: 40px 24px 16px 60px; }
-          .ev-heading { font-size: 28px; }
+          .ev-section { padding: 40px 20px 20px 20px; }
+          .ev-heading { font-size: 28px; margin: 0; }
           .ev-header {
             flex-wrap: nowrap;
             gap: 8px;
             margin: 0 0 20px;
           }
-          .ev-nav { flex-shrink: 0; }
+          .ev-nav { 
+            width: auto;
+            flex-shrink: 0;
+            gap: 6px; 
+          }
           .ev-insta-link span, .ev-wa-link span { display: none; }
           .ev-insta-link, .ev-wa-link { padding: 8px 10px; }
           .ev-top { min-height: 140px; padding: 16px 14px 14px; }
           .ev-day { font-size: 32px; }
           .ev-img-wrap { height: 180px; }
           .ev-nav-btn { width: 36px; height: 36px; }
-          .ev-header { margin: 0 0 20px; }
           .ev-track-outer { --gap: 12px; }
         }
       `}</style>
@@ -643,61 +651,65 @@ export default function UpcomingEvents() {
           <div className="ev-header">
             <h2 className="ev-heading">Events</h2>
             <nav className="ev-nav" aria-label="Events navigation">
-              <a
-                href="https://chat.whatsapp.com/Ioch7JBnyvzJXBDzF1GX5Z"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="ev-wa-link"
-                aria-label="Join our WhatsApp Group"
-              >
-                <svg className="ev-insta-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12.012 2c-5.506 0-9.988 4.482-9.988 9.988 0 1.834.498 3.55 1.362 5.029L2 22l5.127-1.319a9.92 9.92 0 004.885 1.307h.005c5.506 0 9.993-4.482 9.993-9.993C22 6.482 17.518 2 12.012 2zm4.78 12.63c-.22.616-1.284 1.196-1.77 1.254-.44.05-1.01.077-2.926-.714-2.443-1.01-4.004-3.486-4.126-3.648-.122-.163-1.006-1.341-1.006-2.556 0-1.215.632-1.81.857-2.053.226-.244.493-.306.657-.306.163 0 .327.001.468.007.147.006.347-.056.543.418.2.486.685 1.67.746 1.793.061.123.102.266.02.43-.081.163-.122.265-.245.408-.122.143-.257.32-.367.43-.122.122-.25.255-.107.502.142.245.634 1.045 1.362 1.693.938.837 1.728 1.096 1.973 1.218.245.123.388.102.53-.061.144-.163.614-.715.777-.96.163-.245.327-.204.552-.122.224.082 1.428.674 1.674.797.244.122.408.184.469.286.06.102.06.596-.16 1.212z" fill="#25d366" />
-                </svg>
-                <span>Join</span>
-              </a>
-              <a
-                href="https://www.instagram.com/tagsrides?igsh=eW5qaHJnZGgxeTFk"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="ev-insta-link"
-                aria-label="Visit tagsrides on Instagram"
-              >
-                <svg className="ev-insta-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <defs>
-                    <linearGradient id="ig-grad" x1="0%" y1="100%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor="#f09433"/>
-                      <stop offset="25%" stopColor="#e6683c"/>
-                      <stop offset="50%" stopColor="#dc2743"/>
-                      <stop offset="75%" stopColor="#cc2366"/>
-                      <stop offset="100%" stopColor="#bc1888"/>
-                    </linearGradient>
-                  </defs>
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="url(#ig-grad)" strokeWidth="1.8" fill="none"/>
-                  <circle cx="12" cy="12" r="4.5" stroke="url(#ig-grad)" strokeWidth="1.8" fill="none"/>
-                  <circle cx="17.5" cy="6.5" r="1" fill="url(#ig-grad)"/>
-                </svg>
-                <span>@tagsrides</span>
-              </a>
-              <button
-                className="ev-nav-btn"
-                onClick={() => setPage((p) => Math.max(0, p - 1))}
-                disabled={!canPrev}
-                aria-label="Previous page"
-              >
-                <svg viewBox="0 0 24 24">
-                  <polyline points="15 18 9 12 15 6" />
-                </svg>
-              </button>
-              <button
-                className="ev-nav-btn"
-                onClick={() => setPage((p) => Math.min(totalPages - 1, p + 1))}
-                disabled={!canNext}
-                aria-label="Next page"
-              >
-                <svg viewBox="0 0 24 24">
-                  <polyline points="9 18 15 12 9 6" />
-                </svg>
-              </button>
+              <div className="ev-nav-group">
+                <a
+                  href="https://chat.whatsapp.com/Ioch7JBnyvzJXBDzF1GX5Z"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="ev-wa-link"
+                  aria-label="Join our WhatsApp Group"
+                >
+                  <svg className="ev-insta-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.012 2c-5.506 0-9.988 4.482-9.988 9.988 0 1.834.498 3.55 1.362 5.029L2 22l5.127-1.319a9.92 9.92 0 004.885 1.307h.005c5.506 0 9.993-4.482 9.993-9.993C22 6.482 17.518 2 12.012 2zm4.78 12.63c-.22.616-1.284 1.196-1.77 1.254-.44.05-1.01.077-2.926-.714-2.443-1.01-4.004-3.486-4.126-3.648-.122-.163-1.006-1.341-1.006-2.556 0-1.215.632-1.81.857-2.053.226-.244.493-.306.657-.306.163 0 .327.001.468.007.147.006.347-.056.543.418.2.486.685 1.67.746 1.793.061.123.102.266.02.43-.081.163-.122.265-.245.408-.122.143-.257.32-.367.43-.122.122-.25.255-.107.502.142.245.634 1.045 1.362 1.693.938.837 1.728 1.096 1.973 1.218.245.123.388.102.53-.061.144-.163.614-.715.777-.96.163-.245.327-.204.552-.122.224.082 1.428.674 1.674.797.244.122.408.184.469.286.06.102.06.596-.16 1.212z" fill="#25d366" />
+                  </svg>
+                  <span>Join</span>
+                </a>
+                <a
+                  href="https://www.instagram.com/tagsrides?igsh=eW5qaHJnZGgxeTFk"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="ev-insta-link"
+                  aria-label="Visit tagsrides on Instagram"
+                >
+                  <svg className="ev-insta-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                      <linearGradient id="ig-grad" x1="0%" y1="100%" x2="100%" y2="0%">
+                        <stop offset="0%" stopColor="#f09433"/>
+                        <stop offset="25%" stopColor="#e6683c"/>
+                        <stop offset="50%" stopColor="#dc2743"/>
+                        <stop offset="75%" stopColor="#cc2366"/>
+                        <stop offset="100%" stopColor="#bc1888"/>
+                      </linearGradient>
+                    </defs>
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="url(#ig-grad)" strokeWidth="1.8" fill="none"/>
+                    <circle cx="12" cy="12" r="4.5" stroke="url(#ig-grad)" strokeWidth="1.8" fill="none"/>
+                    <circle cx="17.5" cy="6.5" r="1" fill="url(#ig-grad)"/>
+                  </svg>
+                  <span>@tagsrides</span>
+                </a>
+              </div>
+              <div className="ev-nav-group">
+                <button
+                  className="ev-nav-btn"
+                  onClick={() => setPage((p) => Math.max(0, p - 1))}
+                  disabled={!canPrev}
+                  aria-label="Previous page"
+                >
+                  <svg viewBox="0 0 24 24">
+                    <polyline points="15 18 9 12 15 6" />
+                  </svg>
+                </button>
+                <button
+                  className="ev-nav-btn"
+                  onClick={() => setPage((p) => Math.min(totalPages - 1, p + 1))}
+                  disabled={!canNext}
+                  aria-label="Next page"
+                >
+                  <svg viewBox="0 0 24 24">
+                    <polyline points="9 18 15 12 9 6" />
+                  </svg>
+                </button>
+              </div>
             </nav>
           </div>
 
