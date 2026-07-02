@@ -95,12 +95,12 @@ const locationData = {
   },
   Thriprayar: {
     bannerHeading: "Your Trusted Royal Enfield Partner in Thriprayar",
-    bannerSub: "Experience the legacy of pure motorcycling at TagsBikez Thriprayar. We bring you the latest 2026 Royal Enfield lineup with unmatched customer service.",
+    bannerSub: "TagsBikez Thriprayar makes the Royal Enfield experience easier for riders in Thriprayar and nearby Thrissur locations. As a trusted Royal Enfield dealer in Thriprayar, we help you explore motorcycles, compare models, book test rides, check finance options, choose genuine accessories, and plan a smooth delivery. Whether you are buying your first Royal Enfield or moving to a new model, our showroom team gives clear information without pressure. Visit our Royal Enfield showroom in Thriprayar and start your ride with confidence.",
     features: [
-      { icon: <ShieldCheck size={20} strokeWidth={1.6} color="#e8282b" />, title: "Authorised Thriprayar Dealer", desc: "Certified Royal Enfield dealership in Thriprayar, delivering authentic experiences since day one." },
-      { icon: <BadgeCheck size={20} strokeWidth={1.6} color="#e8282b" />, title: "Genuine Spares & Accessories", desc: "Customize and maintain your ride with 100% genuine Royal Enfield parts and gear available in Thriprayar." },
-      { icon: <Wrench size={20} strokeWidth={1.6} color="#e8282b" />, title: "Factory-Trained Technicians", desc: "Our mechanics in Thriprayar are rigorously trained by Royal Enfield to ensure your motorcycle performs at its peak." },
-      { icon: <Clock size={20} strokeWidth={1.6} color="#e8282b" />, title: "Seamless Test Rides", desc: "Book a hassle-free test ride today at our Thriprayar showroom and feel the power before you buy." },
+      { icon: <ShieldCheck size={20} strokeWidth={1.6} color="#e8282b" />, title: "Authorised Thriprayar Dealer", desc: "TagsBikez Thriprayar gives riders a trusted Royal Enfield showroom experience with model guidance, booking support, test ride assistance, and customer-friendly consultation." },
+      { icon: <BadgeCheck size={20} strokeWidth={1.6} color="#e8282b" />, title: "Genuine Spares & Accessories", desc: "Maintain and personalize your Royal Enfield with genuine spare parts and accessories support. Our Thriprayar team helps you choose the right options based on your bike model and riding needs." },
+      { icon: <Wrench size={20} strokeWidth={1.6} color="#e8282b" />, title: "Factory-Trained Technicians", desc: "For Royal Enfield service and maintenance enquiries in Thriprayar, our team helps you get proper support, technical guidance, and trusted care." },
+      { icon: <Clock size={20} strokeWidth={1.6} color="#e8282b" />, title: "Seamless Test Rides", desc: "Before booking your bike, experience the ride firsthand. You can book a Royal Enfield test ride in Thriprayar and understand the comfort, power, and road feel of your preferred model." },
     ],
     colA: [img.aboutthriprayarimg1, img.aboutthriprayarimg2, img.aboutthriprayarimg3, img.aboutthriprayarimg4, img.aboutthriprayarimg3],
     colB: [img.aboutthriprayarimg4, img.aboutthriprayarimg3, img.aboutthriprayarimg2, img.aboutthriprayarimg1, img.aboutthriprayarimg4],

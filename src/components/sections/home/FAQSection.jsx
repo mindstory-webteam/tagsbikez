@@ -147,6 +147,21 @@ const locationData = {
       { id: 9, question: "Which Royal Enfield bike is best for me?", answer: "TagsBikez Kunnamkulam can help you choose the right Royal Enfield based on your riding style, purpose, and budget." }
     ]
   },
+  Thriprayar: {
+    heading: "TagsBikez Thriprayar FAQs",
+    subtext: "Find answers to all your questions about purchasing and servicing your motorcycle at TagsBikez Thriprayar.",
+    faqs: [
+      { id: 1, question: "Which Royal Enfield model should I choose?", answer: "The right model depends on your riding style, comfort needs, budget, and travel plans." },
+      { id: 2, question: "Can I book a Royal Enfield test ride in Thriprayar?", answer: "Yes, you can contact TagsBikez Thriprayar to book a Royal Enfield test ride." },
+      { id: 3, question: "Are EMI options available for Royal Enfield bikes?", answer: "Yes, the Thriprayar team can guide you with EMI and finance options." },
+      { id: 4, question: "Can I buy Royal Enfield accessories in Thriprayar?", answer: "Yes, you can enquire about genuine Royal Enfield accessories based on your bike model." },
+      { id: 5, question: "Are spare parts available at TagsBikez Thriprayar?", answer: "Yes, TagsBikez Thriprayar can help you enquire about genuine Royal Enfield spare parts." },
+      { id: 6, question: "Can I service my Royal Enfield at TagsBikez Thriprayar?", answer: "Yes, you can contact the Thriprayar team for Royal Enfield service support and availability." },
+      { id: 7, question: "What documents are required to buy a bike?", answer: "You may need ID proof, address proof, PAN card, and finance-related documents if choosing EMI." },
+      { id: 8, question: "How long does delivery take?", answer: "Delivery time depends on model availability, booking status, registration, and showroom updates." },
+      { id: 9, question: "Is Royal Enfield good for long rides?", answer: "Yes, many Royal Enfield models are suitable for long rides when chosen according to your comfort and travel needs." }
+    ]
+  },
   Thrissur: {
     heading: "Thrissur Royal Enfield FAQs",
     subtext: "Find answers to all your questions about purchasing and servicing your motorcycle at TagsBikez Thrissur.",

@@ -194,6 +194,29 @@ const locationCategories = {
       link: "https://wa.me/917594960023?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Riding%20Gear%20in%20Kunnamkulam."
     }
   ],
+  Thriprayar: [
+    {
+      id: "Lifestyle Apparels",
+      title: "Lifestyle Apparels",
+      description: "Carry your riding style beyond the road with Royal Enfield-inspired lifestyle apparel. TagsBikez Thriprayar helps riders explore comfortable and stylish clothing options for daily use, rides, and gifting. Contact our team on WhatsApp to know the latest collection and availability.",
+      image: img.lifestyle, 
+      link: "https://wa.me/917594960023?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Apparels%20in%20Thriprayar."
+    },
+    {
+      id: "accessories",
+      title: "Motorcycle Accessories",
+      description: "Upgrade your Royal Enfield with genuine accessories that improve comfort, protection, utility, and style. Whether you need guards, seats, mirrors, luggage solutions, or model-specific add-ons, our Thriprayar team will guide you based on your riding needs.",
+      image: img.parts,
+      link: "https://wa.me/917594960023?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Accessories%20in%20Thriprayar."
+    },
+    {
+      id: "gear",
+      title: "Riding Gear",
+      description: "Good riding gear gives better comfort and protection on every ride. TagsBikez Thriprayar helps riders explore helmets, gloves, jackets, and protective essentials for daily travel and long-distance trips. Message us on WhatsApp to check available sizes and options.",
+      image: img.gear,
+      link: "https://wa.me/917594960023?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Riding%20Gear%20in%20Thriprayar."
+    }
+  ]
 };
 
 const getCategories = (location) => {

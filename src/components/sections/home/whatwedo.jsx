@@ -190,22 +190,22 @@ const locationData = {
       {
         number: "01",
         title: "THRIPRAYAR SHOWROOM",
-        description: "TagsBikez Thriprayar is your premier destination for Royal Enfield. Experience the perfect blend of classic design and modern engineering as you explore our wide range of motorcycles suited for every kind of rider.",
+        description: "Are you searching for a trusted Royal Enfield dealer in Thriprayar? TagsBikez Thriprayar helps local riders explore Royal Enfield motorcycles with clear guidance and friendly support. Whether you need a bike for daily travel, weekend rides, coastal routes, or long-distance journeys, our team will help you find the right model. At our Royal Enfield showroom in Thriprayar, you can check model choices, colours, booking details, finance support, genuine accessories, and delivery updates. We keep the buying process simple and clear, so you can choose your Royal Enfield with confidence.",
       },
       {
         number: "02",
         title: "RELIABLE MAINTENANCE",
-        description: "Rely on our Thriprayar service experts to keep your motorcycle in prime condition. With state-of-the-art facilities and genuine spares, we deliver maintenance services you can trust for a safe and smooth ride.",
+        description: "A Royal Enfield performs better when it gets the right care at the right time. TagsBikez Thriprayar helps riders with service guidance, maintenance support, genuine spare parts enquiries, and expert assistance. Whether you need regular service support, inspection guidance, part replacement information, or maintenance advice, our team is ready to help. Riders from Thriprayar and nearby Thrissur areas can contact us to know the current service availability.",
       },
       {
         number: "03",
         title: "FLEXIBLE PURCHASE OPTIONS",
-        description: "We offer flexible purchase options at our Thriprayar branch, including attractive loan schemes and zero hidden fees. Buying your favorite Royal Enfield is now a straightforward and joyous process.",
+        description: "Owning a Royal Enfield becomes easier when the purchase process is explained properly. At our Royal Enfield showroom in Thriprayar, we guide you through model pricing, booking steps, EMI options, exchange support, and available offers. Our team helps you compare models, understand payment options, and plan your bike purchase without confusion. Enquire today and get the right support for your dream Royal Enfield.",
       },
       {
         number: "04",
         title: "ON-TIME DELIVERY",
-        description: "We value your time and excitement. Our Thriprayar team is committed to on-time delivery, managing all documentation and pre-ride inspections so you can start making memories immediately.",
+        description: "TagsBikez Thriprayar focuses on making your bike delivery smooth and well-organized. From booking confirmation to final handover, our team assists with documentation, registration guidance, payment coordination, accessory fitting updates, and delivery scheduling. We keep every step clear before you take your Royal Enfield home. For riders in Thriprayar and nearby locations, our goal is to make the delivery experience simple, transparent, and memorable.",
       },
     ]
   }
