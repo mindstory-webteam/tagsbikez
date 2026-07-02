@@ -12,9 +12,10 @@ import WhatWeDoSection from '@/components/sections/home/whatwedo';
 import React from 'react';
 
 export const metadata = {
-  robots: {
-    index: false,
-    follow: false,
+  title: "Tags Bikez | Royal Enfield Dealer in Chalakudy",
+  description: "Explore the latest Royal Enfield motorcycles, offers, accessories, and services at Tags Bikez, your trusted Royal Enfield dealership in Chalakudy.",
+  alternates: {
+    canonical: "https://tagsbikez.com/royal-enfield-dealer-chalakudy",
   },
 };
 
