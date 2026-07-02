@@ -12,15 +12,15 @@ import WhatWeDoSection from '@/components/sections/home/whatwedo';
 import React from 'react';
 
 export const metadata = {
-  title: "Tags Bikez | Royal Enfield Dealer in Irinjalakuda",
-  description: "Explore the latest Royal Enfield motorcycles, offers, accessories, and services at Tags Bikez, your trusted Royal Enfield dealership in Irinjalakuda.",
+  title: "Tags Bikez | Royal Enfield Dealer in Patturaikkal",
+  description: "Explore the latest Royal Enfield motorcycles, offers, accessories, and services at Tags Bikez, your trusted Royal Enfield dealership in Patturaikkal.",
   alternates: {
-    canonical: "https://tagsbikez.com/royal-enfield-dealer-irinjalakuda",
+    canonical: "https://tagsbikez.com/royal-enfield-showroom-patturaikkal",
   },
 };
 
 
-const IrinjalakudaPage = () => {
+const PatturaikkalPage = () => {
   return (
     <>
        <HeroSection />
@@ -30,16 +30,16 @@ const IrinjalakudaPage = () => {
       <BikeSectionSwiper />
       <EmiCalculator/>
       <UpcomingEvents />
-      <WhatWeDoSection location="Irinjalakuda" />
-      <AboutSection location="Irinjalakuda" />
-      <AccessoriesSection location="Irinjalakuda" />
-      <FAQSection location="Irinjalakuda" />
+      <WhatWeDoSection location="Patturaikkal" />
+      <AboutSection location="Patturaikkal" />
+      <AccessoriesSection location="Patturaikkal" />
+      <FAQSection location="Patturaikkal" />
       <div id="test-ride">
-        <TestDriveSection location="Irinjalakuda" />
+        <TestDriveSection location="Patturaikkal" />
       </div>
       <SocialFeed />
     </>
   );
 };
 
-export default IrinjalakudaPage;
+export default PatturaikkalPage;

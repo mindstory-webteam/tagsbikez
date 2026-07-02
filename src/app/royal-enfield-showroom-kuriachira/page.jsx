@@ -12,15 +12,15 @@ import WhatWeDoSection from '@/components/sections/home/whatwedo';
 import React from 'react';
 
 export const metadata = {
-  title: "Tags Bikez | Royal Enfield Dealer in Kodakara",
-  description: "Explore the latest Royal Enfield motorcycles, offers, accessories, and services at Tags Bikez, your trusted Royal Enfield dealership in Kodakara.",
+  title: "Tags Bikez | Royal Enfield Dealer in Kuriachira",
+  description: "Explore the latest Royal Enfield motorcycles, offers, accessories, and services at Tags Bikez, your trusted Royal Enfield dealership in Kuriachira.",
   alternates: {
-    canonical: "https://tagsbikez.com/royal-enfield-dealer-kodakara",
+    canonical: "https://tagsbikez.com/royal-enfield-showroom-kuriachira",
   },
 };
 
 
-const KodakaraPage = () => {
+const KuriachiraPage = () => {
   return (
     <>
        <HeroSection />
@@ -30,16 +30,16 @@ const KodakaraPage = () => {
       <BikeSectionSwiper />
       <EmiCalculator/>
       <UpcomingEvents />
-      <WhatWeDoSection location="Kodakara" />
-      <AboutSection location="Kodakara" />
-      <AccessoriesSection location="Kodakara" />
-      <FAQSection location="Kodakara" />
+      <WhatWeDoSection location="Kuriachira" />
+      <AboutSection location="Kuriachira" />
+      <AccessoriesSection location="Kuriachira" />
+      <FAQSection location="Kuriachira" />
       <div id="test-ride">
-        <TestDriveSection location="Kodakara" />
+        <TestDriveSection location="Kuriachira" />
       </div>
       <SocialFeed />
     </>
   );
 };
 
-export default KodakaraPage;
+export default KuriachiraPage;

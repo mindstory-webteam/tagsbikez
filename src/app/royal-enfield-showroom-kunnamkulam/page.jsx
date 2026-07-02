@@ -12,15 +12,15 @@ import WhatWeDoSection from '@/components/sections/home/whatwedo';
 import React from 'react';
 
 export const metadata = {
-  title: "Tags Bikez | Royal Enfield Dealer in Vadakkencherry",
-  description: "Explore the latest Royal Enfield motorcycles, offers, accessories, and services at Tags Bikez, your trusted Royal Enfield dealership in Vadakkencherry.",
+  title: "Tags Bikez | Royal Enfield Dealer in Kunnamkulam",
+  description: "Explore the latest Royal Enfield motorcycles, offers, accessories, and services at Tags Bikez, your trusted Royal Enfield dealership in Kunnamkulam.",
   alternates: {
-    canonical: "https://tagsbikez.com/royal-enfield-dealer-vadakkencherry",
+    canonical: "https://tagsbikez.com/royal-enfield-showroom-kunnamkulam",
   },
 };
 
 
-const VadakkencherryPage = () => {
+const KunnamkulamPage = () => {
   return (
     <>
        <HeroSection />
@@ -30,16 +30,16 @@ const VadakkencherryPage = () => {
       <BikeSectionSwiper />
       <EmiCalculator/>
       <UpcomingEvents />
-      <WhatWeDoSection location="Vadakkencherry" />
-      <AboutSection location="Vadakkencherry" />
-      <AccessoriesSection location="Vadakkencherry" />
-      <FAQSection location="Vadakkencherry" />
+      <WhatWeDoSection location="Kunnamkulam" />
+      <AboutSection location="Kunnamkulam" />
+      <AccessoriesSection location="Kunnamkulam" />
+      <FAQSection location="Kunnamkulam" />
       <div id="test-ride">
-        <TestDriveSection location="Vadakkencherry" />
+        <TestDriveSection location="Kunnamkulam" />
       </div>
       <SocialFeed />
     </>
   );
 };
 
-export default VadakkencherryPage;
+export default KunnamkulamPage;
