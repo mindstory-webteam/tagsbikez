@@ -91,12 +91,15 @@ const locationData = {
     heading: "TagsBikez Kuriachira FAQs",
     subtext: "Your top questions answered regarding the Royal Enfield experience at our premium Kuriachira dealership.",
     faqs: [
-      { id: 1, question: "Where in Kuriachira are you located?", answer: "We are situated in the heart of Kuriachira, easily accessible for all your Royal Enfield needs." },
-      { id: 2, question: "Do you stock genuine RE spare parts?", answer: "Yes, our Kuriachira service center exclusively uses 100% genuine Royal Enfield parts." },
-      { id: 3, question: "How long does a regular service take?", answer: "Routine maintenance typically takes a few hours. We recommend booking an appointment at our Kuriachira center to save time." },
-      { id: 4, question: "Can I buy riding jackets and helmets here?", answer: "Yes, our Kuriachira showroom has a dedicated section for official Royal Enfield riding gear and apparel." },
-      { id: 5, question: "What documents do I bring for a test ride?", answer: "Please bring your valid driving licence and wear closed shoes when visiting Kuriachira for a test ride." },
-      { id: 6, question: "Do you offer loan assistance?", answer: "Absolutely. Our finance team in Kuriachira will guide you through the best EMI plans available." }
+      { id: 1, question: "Where is TagsBikez Kuriachira located?", answer: "TagsBikez Kuriachira is located in Kuriachira and is easy to reach for Royal Enfield enquiries, service support, and test rides." },
+      { id: 2, question: "Do you provide Royal Enfield test rides in Kuriachira?", answer: "Yes, you can contact TagsBikez Kuriachira to book a Royal Enfield test ride." },
+      { id: 3, question: "Can I service my Royal Enfield at TagsBikez Kuriachira?", answer: "Yes, you can contact the Kuriachira team for Royal Enfield service support and current availability." },
+      { id: 4, question: "Are genuine Royal Enfield spare parts available in Kuriachira?", answer: "Yes, TagsBikez Kuriachira can help you enquire about genuine Royal Enfield spare parts." },
+      { id: 5, question: "Can I buy Royal Enfield accessories in Kuriachira?", answer: "Yes, you can enquire about Royal Enfield accessories based on your bike model and riding needs." },
+      { id: 6, question: "Are EMI options available for Royal Enfield bikes?", answer: "Yes, the Kuriachira team can guide you with EMI and finance options for Royal Enfield purchases." },
+      { id: 7, question: "What documents are needed for a test ride?", answer: "You usually need a valid driving licence to take a Royal Enfield test ride." },
+      { id: 8, question: "How long does bike delivery take?", answer: "Delivery time depends on model availability, booking status, registration, and showroom updates." },
+      { id: 9, question: "Which Royal Enfield model is best for me?", answer: "TagsBikez Kuriachira can help you choose a suitable model based on your riding style, comfort, and budget." }
     ]
   },
   Patturaikkal: {

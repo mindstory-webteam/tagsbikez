@@ -115,22 +115,22 @@ const locationData = {
       {
         number: "01",
         title: "KURIACHIRA'S FINEST DEALER",
-        description: "Welcome to TagsBikez Kuriachira, where the Royal Enfield legacy thrives. We offer a premium showroom experience with an extensive display of the latest models. Let us help you find the motorcycle that resonates with your spirit of exploration.",
+        description: "Looking for a reliable Royal Enfield dealer in Kuriachira? TagsBikez Kuriachira helps riders explore the Royal Enfield range in a clear and comfortable way. Whether you need a motorcycle for daily travel, weekend rides, city use, or long-distance trips, our team will help you choose a model that fits your style, budget, and riding needs. Visit our Royal Enfield showroom in Kuriachira to check available models, colours, booking details, finance options, accessories, and delivery updates. We explain each step clearly, so you can make your decision without confusion.",
       },
       {
         number: "02",
         title: "AUTHORISED SERVICE",
-        description: "Experience top-tier maintenance at our Kuriachira service center. Equipped with advanced tools and genuine parts, our certified mechanics ensure that your Royal Enfield maintains its iconic roar and reliability.",
+        description: "Your Royal Enfield needs regular care to stay smooth, safe, and ready for every ride. At TagsBikez Kuriachira, we guide riders with service support, maintenance advice, genuine spare parts enquiries, and expert assistance. Whether it is routine service, inspection, part replacement support, or general maintenance guidance, our team is here to help. Riders from Kuriachira, Thrissur city, and nearby areas can contact us to know the latest service availability and booking details.",
       },
       {
         number: "03",
         title: "SMART FINANCING",
-        description: "Make a smart investment with our clear pricing and easy financing solutions in Kuriachira. We partner with top financiers to provide you with affordable EMI options and a hassle-free purchasing experience.",
+        description: "Buying a Royal Enfield should be simple and stress-free. At our Royal Enfield showroom in Kuriachira, we help you understand model pricing, booking steps, EMI options, exchange support, and current offers. From your first enquiry to the final booking, our team keeps the process clear. You can compare models, understand payment options, and plan your purchase with confidence. Visit TagsBikez Kuriachira or contact us for finance guidance on your preferred Royal Enfield motorcycle.",
       },
       {
         number: "04",
         title: "PERFECT HANDOVER",
-        description: "Celebrate your new ride with our flawless handover experience in Kuriachira. We meticulously inspect and prepare every motorcycle, ensuring it meets the highest standards before you take it home.",
+        description: "Taking delivery of a new bike is always special. At TagsBikez Kuriachira, we make the delivery process clear and well-organised from the beginning. Our team helps with documentation, registration guidance, payment coordination, accessory fitting updates, and delivery scheduling. Before you ride your Royal Enfield home, we keep you informed about every important step. For riders in Kuriachira and nearby Thrissur locations, our focus is to make the handover smooth, clear, and memorable.",
       },
     ]
   },
