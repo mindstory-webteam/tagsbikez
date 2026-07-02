@@ -373,7 +373,7 @@ export default function BikeSectionSwiper() {
 
       {/* Header with Title and Tabs */}
       <div className="fv-header">
-        <h2 className="fv-heading">Our Models</h2>
+        <h1 className="fv-heading">Our Models</h1>
 
         {/* Tabs */}
         <div className="fv-top-row">
