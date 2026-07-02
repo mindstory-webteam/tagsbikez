@@ -143,6 +143,21 @@ const locationData = {
       { id: 8, question: "Does TagsBikez Kunnamkulam provide delivery support?", answer: "Yes, the team assists with booking updates, documentation, registration guidance, and delivery coordination." },
       { id: 9, question: "Which Royal Enfield bike is best for me?", answer: "TagsBikez Kunnamkulam can help you choose the right Royal Enfield based on your riding style, purpose, and budget." }
     ]
+  },
+  Thrissur: {
+    heading: "Thrissur Royal Enfield FAQs",
+    subtext: "Find answers to all your questions about purchasing and servicing your motorcycle at TagsBikez Thrissur.",
+    faqs: [
+      { id: 1, question: "How can I book a Royal Enfield test ride in Thrissur?", answer: "You can book a Royal Enfield test ride in Thrissur by contacting TagsBikez through phone, WhatsApp, or the website." },
+      { id: 2, question: "Can I service my Royal Enfield at TagsBikez Thrissur?", answer: "Yes, you can contact TagsBikez Thrissur for Royal Enfield service support and availability details." },
+      { id: 3, question: "Are genuine Royal Enfield spare parts available in Thrissur?", answer: "Yes, TagsBikez Thrissur can help you enquire about genuine Royal Enfield spare parts for your motorcycle." },
+      { id: 4, question: "Can I buy Royal Enfield accessories at the Thrissur showroom?", answer: "Yes, you can enquire about Royal Enfield accessories at TagsBikez Thrissur based on your bike model and needs." },
+      { id: 5, question: "Are EMI options available for Royal Enfield bikes in Thrissur?", answer: "Yes, TagsBikez Thrissur can guide you with EMI and finance options for Royal Enfield bike purchases." },
+      { id: 6, question: "How long does Royal Enfield bike delivery take?", answer: "Delivery time depends on model availability, booking status, registration, and showroom updates." },
+      { id: 7, question: "Can I contact the Thrissur showroom through WhatsApp?", answer: "Yes, you can use WhatsApp to enquire about models, test rides, accessories, finance, and delivery updates." },
+      { id: 8, question: "Does TagsBikez Thrissur provide delivery support?", answer: "Yes, the team assists with booking updates, documentation, registration guidance, and delivery coordination." },
+      { id: 9, question: "Which Royal Enfield bike is best for me?", answer: "TagsBikez Thrissur can help you choose the right Royal Enfield based on your riding style, budget, and comfort." }
+    ]
   }
 };
 
@@ -242,7 +257,7 @@ const FAQSection = ({ location = "Thrissur", customFaqs, customHeading, customSu
         .faq-list {
           display: flex;
           flex-direction: column;
-          gap: 12px;
+          gap: 6px;
         }
 
         .faq-item {
@@ -262,7 +277,7 @@ const FAQSection = ({ location = "Thrissur", customFaqs, customHeading, customSu
           display: flex;
           align-items: center;
           justify-content: space-between;
-          padding: 18px 20px;
+          padding: 10px 14px;
           background: none;
           border: none;
           cursor: pointer;
@@ -276,10 +291,10 @@ const FAQSection = ({ location = "Thrissur", customFaqs, customHeading, customSu
         }
 
         .faq-q-text {
-          font-size: 14.5px;
+          font-size: 14px;
           font-weight: 500;
           color: #111;
-          line-height: 1.4;
+          line-height: 1.3;
           transition: color 0.18s;
         }
 
@@ -288,8 +303,8 @@ const FAQSection = ({ location = "Thrissur", customFaqs, customHeading, customSu
         }
 
         .faq-icon {
-          width: 28px;
-          height: 28px;
+          width: 24px;
+          height: 24px;
           border-radius: 50%;
           border: 1.5px solid #ddd;
           display: flex;
@@ -318,18 +333,18 @@ const FAQSection = ({ location = "Thrissur", customFaqs, customHeading, customSu
           max-height: 0;
           overflow: hidden;
           transition: max-height 0.35s ease, padding 0.2s ease;
-          padding: 0 20px;
+          padding: 0 14px;
         }
 
         .faq-answer.open {
           max-height: 300px;
-          padding: 16px 20px 20px;
+          padding: 8px 14px 12px;
         }
 
         .faq-answer p {
-          font-size: 13.5px;
+          font-size: 13px;
           color: #666;
-          line-height: 1.75;
+          line-height: 1.5;
           margin: 0;
         }
 
