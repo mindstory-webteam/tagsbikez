@@ -12,8 +12,8 @@ import WhatWeDoSection from '@/components/sections/home/whatwedo';
 import React from 'react';
 
 export const metadata = {
-  title: "Tags Bikez | Royal Enfield Dealer in Vadakkencherry",
-  description: "Explore the latest Royal Enfield motorcycles, offers, accessories, and services at Tags Bikez, your trusted Royal Enfield dealership in Vadakkencherry.",
+  title: "Royal Enfield Showroom Vadakkencherry | TagsBikez",
+  description: "Visit the Royal Enfield showroom in Vadakkencherry by TagsBikez. Find the latest motorcycles, book a test ride, explore finance plans, servicing, and genuine accessories.",
   alternates: {
     canonical: "https://tagsbikez.com/royal-enfield-showroom-vadakkencherry",
   },

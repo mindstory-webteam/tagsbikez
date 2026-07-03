@@ -12,8 +12,8 @@ import WhatWeDoSection from '@/components/sections/home/whatwedo';
 import React from 'react';
 
 export const metadata = {
-  title: "Tags Bikez | Royal Enfield Dealer in Thriprayar",
-  description: "Explore the latest Royal Enfield motorcycles, offers, accessories, and services at Tags Bikez, your trusted Royal Enfield dealership in Thriprayar.",
+  title: "Royal Enfield Showroom Thriprayar | TagsBikez",
+  description: "Explore the Royal Enfield showroom in Thriprayar with TagsBikez. Browse new motorcycles, book a test ride, avail finance support, servicing, and authentic accessories.",
   alternates: {
     canonical: "https://tagsbikez.com/royal-enfield-showroom-thriprayar",
   },

@@ -12,8 +12,8 @@ import WhatWeDoSection from '@/components/sections/home/whatwedo';
 import React from 'react';
 
 export const metadata = {
-  title: "Tags Bikez | Royal Enfield Dealer in Kodakara",
-  description: "Explore the latest Royal Enfield motorcycles, offers, accessories, and services at Tags Bikez, your trusted Royal Enfield dealership in Kodakara.",
+  title: "Royal Enfield Showroom Kodakara | TagsBikez",
+  description: "Explore the Royal Enfield showroom in Kodakara with TagsBikez. Discover new Royal Enfield bikes, test rides, finance options, expert service, and genuine accessories.",
   alternates: {
     canonical: "https://tagsbikez.com/royal-enfield-showroom-kodakara",
   },

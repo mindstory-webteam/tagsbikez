@@ -12,8 +12,8 @@ import WhatWeDoSection from '@/components/sections/home/whatwedo';
 import React from 'react';
 
 export const metadata = {
-  title: "Tags Bikez | Royal Enfield Dealer in Kuriachira",
-  description: "Explore the latest Royal Enfield motorcycles, offers, accessories, and services at Tags Bikez, your trusted Royal Enfield dealership in Kuriachira.",
+  title: "Royal Enfield Showroom Kuriachira, Thrissur | TagsBikez",
+  description: "Visit the Royal Enfield showroom in Kuriachira, Thrissur at TagsBikez. Explore the latest Royal Enfield motorcycles, book a test ride, access finance options, servicing, and genuine accessories.",
   alternates: {
     canonical: "https://tagsbikez.com/royal-enfield-showroom-kuriachira",
   },

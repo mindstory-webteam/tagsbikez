@@ -12,8 +12,8 @@ import WhatWeDoSection from '@/components/sections/home/whatwedo';
 import React from 'react';
 
 export const metadata = {
-  title: "Tags Bikez | Royal Enfield Dealer in Kunnamkulam",
-  description: "Explore the latest Royal Enfield motorcycles, offers, accessories, and services at Tags Bikez, your trusted Royal Enfield dealership in Kunnamkulam.",
+  title: "Royal Enfield Showroom Kunnamkulam | TagsBikez",
+  description: "Visit the Royal Enfield showroom in Kunnamkulam at TagsBikez. Discover the latest Royal Enfield motorcycles, test rides, finance assistance, servicing, and genuine accessories.",
   alternates: {
     canonical: "https://tagsbikez.com/royal-enfield-showroom-kunnamkulam",
   },
