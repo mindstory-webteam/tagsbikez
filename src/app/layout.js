@@ -24,7 +24,7 @@ export const metadata = {
   metadataBase: new URL("https://tagsbikez.com"),
   title: {
     default: "Tags Bikez | Royal Enfield Dealer in Thrissur, Kerala",
-    template: "%s | Tags Bikez",
+    template: "%s ",
   },
   description:
     "Explore the latest Royal Enfield motorcycles, offers, accessories, and services at Tags Bikez, your trusted Royal Enfield dealership in Thrissur, Kerala.",
