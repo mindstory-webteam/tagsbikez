@@ -169,13 +169,13 @@ export default function Navbar() {
           width: 100%;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
           .nav-links-desktop { display: none !important; }
           .nav-cta { display: none !important; }
           .hamburger { display: flex !important; }
         }
 
-        @media (min-width: 769px) {
+        @media (min-width: 1025px) {
           .mobile-sidebar, .sidebar-overlay {
             display: none !important;
           }
