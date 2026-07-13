@@ -1,7 +1,6 @@
 export default function sitemap() {
-  const baseUrl = "https://yourdomain.com";
+  const baseUrl = "https://tagsbikez.com/";
 
-  // List all static routes in your application
   const routes = [
     "",
     "/about",

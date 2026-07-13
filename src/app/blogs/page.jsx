@@ -18,6 +18,8 @@ async function getBlogs() {
   }
 }
 
+export const dynamic = 'force-dynamic';
+
 export default async function Page() {
   const blogs = await getBlogs();
   return <BlogsPage initialBlogs={blogs} />;
