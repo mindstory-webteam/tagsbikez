@@ -16,7 +16,7 @@ export default function sitemap() {
     "/royal-enfield-showroom-irinjalakuda",
     "/royal-enfield-showroom-kodakara",
     "/royal-enfield-showroom-kunnamkulam",
-    "/royal-enfield-showroom-kuriachira",
+
     "/royal-enfield-showroom-patturaikkal",
     "/royal-enfield-showroom-thriprayar",
     "/royal-enfield-showroom-vadakkencherry",

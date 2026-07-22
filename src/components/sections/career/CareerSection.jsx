@@ -72,7 +72,7 @@ function getDeptIcon(name) {
 }
 
 
-const locations = ["Kuriacira", "Irinjalakuda", "Patturaikkal", "Kodakara", "Vadakkenchery", "Chalakudy"];
+const locations = ["Irinjalakuda", "Patturaikkal", "Kodakara", "Vadakkenchery", "Chalakudy"];
 
 function buildWaLink(role) {
   const msg = `Hi TagsBikez, I am interested in the *${role}* position. Please share more details.`;

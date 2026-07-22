@@ -5,7 +5,7 @@ import { img } from "@/assets/assest";
 
 const navLinks = [
   { name: "HOME", path: "/" },
-  { name: "MODEL", path: "/models" },
+  { name: "MODELS", path: "/models" },
   { name: "ABOUT", path: "/about" },
   { name: "GALLERY", path: "/gallery" },
   // { name: "BLOGS", path: "/blogs" },
@@ -20,8 +20,7 @@ const locations = [
     sales: "+91 7594960023",
     service: "+91 7594960020",
     email: "info.tags.tcr@gmail.com",
-  },
-  {
+  },{
     area: "Patturaikkal",
     name: "TagsBikez Patturaikkal",
     sales: "+91 7594960033",

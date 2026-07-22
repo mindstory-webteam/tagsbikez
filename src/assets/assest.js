@@ -94,7 +94,6 @@ import whatwedochalukady from './whatwedo/what-we-do-chalakudy.jpg'
 import whatwedoirinjalakuda from './whatwedo/what-we-do-irinjalakuda.jpg'
 import whatwedokodakara from './whatwedo/what-we-do-Kodakara.jpg'
 import whatwedokunnamkulam from './whatwedo/what-we-do-kunnamkulam.jpg'
-import whatwedokuriachira from './whatwedo/what-we-do-kuriachira.jpg'
 import whatwedopatturaikkal from './whatwedo/what-we-do-patturaikkal.jpg'
 import whatwedovadakkencherry from './whatwedo/what-we-do-vadakkencherry.jpg'
 import whatwedothriprayar from './whatwedo/what-we-do-thriprayar.jpg'
@@ -122,10 +121,7 @@ import aboutkunnamkulamimg2 from './homeaboutsection/kunnamkulam/about-kunnamkul
 import aboutkunnamkulamimg3 from './homeaboutsection/kunnamkulam/about-kunnamkulam-img3.jpg'
 import aboutkunnamkulamimg4 from './homeaboutsection/kunnamkulam/about-kunnamkulam-img4.jpg'
 
-import aboutkuriachiraimg1 from './homeaboutsection/kuriachira/kuriachiraimg1.jpg'
-import aboutkuriachiraimg2 from './homeaboutsection/kuriachira/kuriachiraimg2.jpg'
-import aboutkuriachiraimg3 from './homeaboutsection/kuriachira/kuriachiraimg3.jpg'
-import aboutkuriachiraimg4 from './homeaboutsection/kuriachira/kuriachiraimg4.jpg'
+
 
 import aboutpatturaikkalimg1 from './homeaboutsection/patturaikkal/patturaikkalimg1.jpg'
 import aboutpatturaikkalimg2 from './homeaboutsection/patturaikkal/patturaikkalimg2.jpg'
@@ -146,7 +142,6 @@ export const img = {
   whatwedothriprayar,
   whatwedovadakkencherry,
   whatwedopatturaikkal,
-  whatwedokuriachira,
   aboutvadakkencherryimg1,
   aboutvadakkencherryimg2,
   aboutvadakkencherryimg3,
@@ -158,11 +153,6 @@ export const img = {
   aboutpatturaikkalimg1,
   aboutpatturaikkalimg2,
   aboutpatturaikkalimg3,
-  aboutpatturaikkalimg4,
-  aboutkuriachiraimg1,
-  aboutkuriachiraimg2,
-  aboutkuriachiraimg3,
-  aboutkuriachiraimg4,
   aboutkunnamkulamimg1,
   aboutkunnamkulamimg2,
   aboutkunnamkulamimg3,

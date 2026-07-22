@@ -9,20 +9,6 @@ import AnimatedBtn from '@/components/AnimatedBtn';
 
 const locations = [
   {
-    name: 'TagsBikez Kuriachira',
-    place: 'Kuriachira, Thrissur',
-    sales: '7594960023',
-    service: '7594960020',
-    email: 'info.tags.tcr@gmail.com',
-    mapUrl: 'https://maps.app.goo.gl/Ph4Z1EwxQajAN4Nm7',
-    coords: [10.50718330732976, 76.22384026880816],
-    socials: {
-      whatsapp: 'https://wa.me/917594960023',
-      facebook: 'https://www.facebook.com/tagsbikez',
-      instagram: 'https://www.instagram.com/tagsbikez?igsh=YzNqbWZ5YnhmOWRi',
-    },
-  },
-  {
     name: 'TagsBikez Patturaikkal',
     place: 'Patturaikkal, Thrissur',
     sales: '7594960033',

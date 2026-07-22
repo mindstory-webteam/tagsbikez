@@ -87,21 +87,7 @@ const locationData = {
       { id: 9, question: "Which Royal Enfield bike is best for me?", answer: "The TagsBikez Kodakara team can help you choose the right Royal Enfield based on your riding style and budget." }
     ]
   },
-  Kuriachira: {
-    heading: "TagsBikez Kuriachira FAQs",
-    subtext: "Your top questions answered regarding the Royal Enfield experience at our premium Kuriachira dealership.",
-    faqs: [
-      { id: 1, question: "Where is TagsBikez Kuriachira located?", answer: "TagsBikez Kuriachira is located in Kuriachira and is easy to reach for Royal Enfield enquiries, service support, and test rides." },
-      { id: 2, question: "Do you provide Royal Enfield test rides in Kuriachira?", answer: "Yes, you can contact TagsBikez Kuriachira to book a Royal Enfield test ride." },
-      { id: 3, question: "Can I service my Royal Enfield at TagsBikez Kuriachira?", answer: "Yes, you can contact the Kuriachira team for Royal Enfield service support and current availability." },
-      { id: 4, question: "Are genuine Royal Enfield spare parts available in Kuriachira?", answer: "Yes, TagsBikez Kuriachira can help you enquire about genuine Royal Enfield spare parts." },
-      { id: 5, question: "Can I buy Royal Enfield accessories in Kuriachira?", answer: "Yes, you can enquire about Royal Enfield accessories based on your bike model and riding needs." },
-      { id: 6, question: "Are EMI options available for Royal Enfield bikes?", answer: "Yes, the Kuriachira team can guide you with EMI and finance options for Royal Enfield purchases." },
-      { id: 7, question: "What documents are needed for a test ride?", answer: "You usually need a valid driving licence to take a Royal Enfield test ride." },
-      { id: 8, question: "How long does bike delivery take?", answer: "Delivery time depends on model availability, booking status, registration, and showroom updates." },
-      { id: 9, question: "Which Royal Enfield model is best for me?", answer: "TagsBikez Kuriachira can help you choose a suitable model based on your riding style, comfort, and budget." }
-    ]
-  },
+
   Patturaikkal: {
     heading: "Patturaikkal Showroom FAQs",
     subtext: "Get all the details about owning and maintaining your Royal Enfield from TagsBikez Patturaikkal.",

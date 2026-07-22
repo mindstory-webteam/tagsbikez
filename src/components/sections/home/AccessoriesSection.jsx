@@ -102,29 +102,7 @@ const locationCategories = {
       link: "https://wa.me/917594960023?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Riding%20Gear%20in%20Kodakara."
     }
   ],
-  Kuriachira: [
-    {
-      id: "Lifestyle Apparels",
-      title: "Signature Wear",
-      description: "Complete your riding lifestyle with Royal Enfield-inspired apparel made for comfort, daily use, and rider style. TagsBikez Kuriachira helps you explore clothing options for city rides, weekend plans, and gifting. Contact our team on WhatsApp to check the latest availability.",
-      image: img.lifestyle,
-      link: "https://wa.me/917594960023?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Apparels%20in%20Kuriachira."
-    },
-    {
-      id: "accessories",
-      title: "Royal Enfield Accessories",
-      description: "Personalise your Royal Enfield with genuine accessories that improve comfort, utility, protection, and style. Whether you need guards, seats, mirrors, luggage support, or model-specific accessories, our Kuriachira team will guide you based on your bike and riding needs.",
-      image: img.parts,
-      link: "https://wa.me/917594960023?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Accessories%20in%20Kuriachira."
-    },
-    {
-      id: "gear",
-      title: "Rider Gear",
-      description: "Ride with better safety and confidence using quality riding gear. TagsBikez Kuriachira helps riders explore helmets, gloves, jackets, and other protective essentials for daily rides and long trips. Message us on WhatsApp to check available sizes and options.",
-      image: img.gear,
-      link: "https://wa.me/917594960023?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Riding%20Gear%20in%20Kuriachira."
-    }
-  ],
+
   Patturaikkal: [
     {
       id: "Lifestyle Apparels",
