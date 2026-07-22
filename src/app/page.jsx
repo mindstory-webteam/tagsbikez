@@ -24,6 +24,102 @@ export const metadata = {
 const Home = () => {
   return (
     <>
+      {/* SEO JSON-LD Schemas */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "MotorcycleDealer",
+            "name": "Tags Bikez",
+            "image": "https://tagsbikez.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Ftagsbikezwhitelogo.1ndyftnt_7msy.png&w=256&q=75",
+            "@id": "https://tagsbikez.com/#motorcycledealer",
+            "url": "https://tagsbikez.com/",
+            "telephone": "+91 7594960023",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Kurichira",
+              "addressLocality": "Thrissur",
+              "postalCode": "680006",
+              "addressCountry": "IN"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 10.507215,
+              "longitude": 76.223709
+            },
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday"
+                ],
+                "opens": "09:00",
+                "closes": "18:30"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "Sunday",
+                "opens": "10:00",
+                "closes": "15:00"
+              }
+            ]
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org/",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Model",
+                "item": "https://tagsbikez.com/models"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Gallery",
+                "item": "https://tagsbikez.com/gallery"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Contact",
+                "item": "https://tagsbikez.com/contact"
+              }
+            ]
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Tags Bikez",
+            "alternateName": "Tags Bikez",
+            "url": "https://tagsbikez.com/",
+            "logo": "https://tagsbikez.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Ftagsbikezwhitelogo.1ndyftnt_7msy.png&w=256&q=75",
+            "sameAs": [
+              "https://www.facebook.com/tagsbikez",
+              "https://www.instagram.com/tagsbikez?igsh=YzNqbWZ5YnhmOWRi",
+              "https://www.youtube.com/@imfranciz"
+            ]
+          }),
+        }}
+      />
+
       <HeroSection />
       <div id="models">
         <PopularBikes />
