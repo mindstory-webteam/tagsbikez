@@ -4,6 +4,36 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ChevronLeft } from 'lucide-react';
 
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const post = await getPost(slug);
+
+  if (!post) {
+    return { title: 'Blog Not Found' };
+  }
+
+  const seo = post.seo || {};
+
+  return {
+    title: seo.title || post.title,
+    description: seo.description || post.excerpt,
+    keywords: seo.keywords || '',
+    ...(seo.canonical_url && {
+      alternates: {
+        canonical: seo.canonical_url,
+      },
+    }),
+    openGraph: {
+      title: seo.title || post.title,
+      description: seo.description || post.excerpt,
+      images: seo.image ? [{ url: seo.image }] : [],
+    },
+    ...(seo.noindex && {
+      robots: { index: false, follow: false },
+    }),
+  };
+}
+
 export async function generateStaticParams() {
   try {
     const res = await fetch('https://api.tagsbikez.com/api/blog/');
