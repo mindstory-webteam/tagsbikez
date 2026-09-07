@@ -3,16 +3,44 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ChevronLeft } from 'lucide-react';
+import { getPostBySlug } from '@/data/blogs';
+
+export const dynamic = 'force-dynamic';
+
+const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'https://api.tagsbikez.com/api';
+
+async function getPost(slug) {
+  if (!slug) return null;
+  try {
+    const res = await fetch(`${API_BASE}/blog/${slug}/`, {
+      cache: 'no-store',
+      headers: {
+        'Accept': 'application/json',
+      },
+    });
+    if (!res.ok) return null;
+    return await res.json();
+  } catch (error) {
+    console.error(`Error fetching blog post ${slug}:`, error);
+    return null;
+  }
+}
 
 export async function generateMetadata({ params }) {
-  const { slug } = await params;
-  const post = await getPost(slug);
+  const resolvedParams = await params;
+  const slug = resolvedParams?.slug;
+  if (!slug) return { title: 'Blog Not Found | TagsBikez' };
+
+  const post = (await getPost(slug)) || getPostBySlug(slug);
 
   if (!post) {
-    return { title: 'Blog Not Found' };
+    return { title: 'Blog Not Found | TagsBikez' };
   }
 
   const seo = post.seo || {};
+  const heroImage = (typeof post.image === 'string' && post.image)
+    ? post.image
+    : (typeof post.image === 'object' && post.image?.src ? post.image.src : "https://images.pexels.com/photos/2116475/pexels-photo-2116475.jpeg?auto=compress&cs=tinysrgb&w=1200");
 
   return {
     title: seo.title || post.title,
@@ -26,7 +54,7 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: seo.title || post.title,
       description: seo.description || post.excerpt,
-      images: seo.image ? [{ url: seo.image }] : [],
+      images: seo.image ? [{ url: seo.image }] : (typeof heroImage === 'string' ? [{ url: heroImage }] : []),
     },
     ...(seo.noindex && {
       robots: { index: false, follow: false },
@@ -34,31 +62,12 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export async function generateStaticParams() {
-  try {
-    const res = await fetch('https://api.tagsbikez.com/api/blog/');
-    const data = await res.json();
-    return (data.results || []).map((post) => ({ 
-      slug: post.slug,
-    }));
-  } catch (error) {
-    return [];
-  }
-}
-
-async function getPost(slug) {
-  try {
-    const res = await fetch(`https://api.tagsbikez.com/api/blog/${slug}/`, { cache: 'no-store' });
-    if (!res.ok) return null;
-    return await res.json();
-  } catch (error) {
-    return null;
-  }
-}
-
 export default async function BlogDetail({ params }) {
-  const { slug } = await params;
-  const post = await getPost(slug);
+  const resolvedParams = await params;
+  const slug = resolvedParams?.slug;
+  if (!slug) notFound();
+
+  const post = (await getPost(slug)) || getPostBySlug(slug);
 
   if (!post) {
     notFound();
@@ -67,15 +76,25 @@ export default async function BlogDetail({ params }) {
   const prevPost = post.previous_post && typeof post.previous_post === 'object' ? post.previous_post : null;
   const nextPost = post.next_post && typeof post.next_post === 'object' ? post.next_post : null;
 
-  const heroImage = post.image || "https://images.pexels.com/photos/2116475/pexels-photo-2116475.jpeg?auto=compress&cs=tinysrgb&w=1200";
+  const heroImage = (typeof post.image === 'string' && post.image)
+    ? post.image
+    : (typeof post.image === 'object' && post.image?.src ? post.image.src : "https://images.pexels.com/photos/2116475/pexels-photo-2116475.jpeg?auto=compress&cs=tinysrgb&w=1200");
   
   // Extract day from date if possible (e.g., "Mar 20, 2026" -> "20")
   let day = "23";
-  if (post.date) {
+  if (post.date && typeof post.date === 'string') {
     const parts = post.date.split(' ');
     if (parts.length > 1) {
       day = parts[1].replace(',', '');
     }
+  }
+
+  // Safely normalize content to an array of paragraphs
+  let contentParagraphs = [];
+  if (Array.isArray(post.content)) {
+    contentParagraphs = post.content;
+  } else if (typeof post.content === 'string') {
+    contentParagraphs = post.content.split(/\r?\n\r?\n/).map(p => p.trim()).filter(Boolean);
   }
 
   return (
@@ -89,7 +108,6 @@ export default async function BlogDetail({ params }) {
           padding-bottom: 0;
         }
 
-
         /* --- Main Content Layout --- */
         .content-container {
           max-width: 1200px;
@@ -97,10 +115,6 @@ export default async function BlogDetail({ params }) {
           position: relative;
           padding: 60px 20px 80px;
         }
-
-
-      
-      
 
         /* Header */
         .header-section {
@@ -202,8 +216,6 @@ export default async function BlogDetail({ params }) {
           flex: 1;
           font-family: var(--font-inter), sans-serif;
         }
-        
-
 
         /* Footer Nav */
         .footer-nav {
@@ -294,8 +306,6 @@ export default async function BlogDetail({ params }) {
         }
       `}</style>
 
-
-
       <div className="content-container">
         
         <div className="header-section">
@@ -305,26 +315,27 @@ export default async function BlogDetail({ params }) {
 
         <div className="article-grid">
 
-
           {/* Right Content */}
           <div className="article-body">
-            {post.content && post.content.length > 0 ? (
-              <p>{post.content[0]}</p>
+            {contentParagraphs.length > 0 ? (
+              <p>{contentParagraphs[0]}</p>
             ) : null}
 
-            <div className="pull-quote-container">
-              <div className="pull-quote">
-                {post.excerpt}
+            {post.excerpt && (
+              <div className="pull-quote-container">
+                <div className="pull-quote">
+                  {post.excerpt}
+                </div>
               </div>
-            </div>
+            )}
 
             <div>
               <div className="embedded-image">
-                <Image src={heroImage} alt="Article Image" fill style={{ objectFit: 'cover' }} />
+                <Image src={heroImage} alt={post.title || "Article Image"} fill style={{ objectFit: 'cover' }} />
                 <div className="embedded-caption">1/3 Scenic riding route captured</div>
               </div>
-              {post.content && post.content.length > 2 ? (
-                post.content.slice(1, -1).map((paragraph, idx) => (
+              {contentParagraphs.length > 2 ? (
+                contentParagraphs.slice(1, -1).map((paragraph, idx) => (
                   <p key={idx}>{paragraph}</p>
                 ))
               ) : null}
@@ -332,11 +343,11 @@ export default async function BlogDetail({ params }) {
             
             <div className="clear-float"></div>
 
-            {post.content && post.content.length > 1 ? (
+            {contentParagraphs.length > 1 ? (
               <div className="rating-section">
                 <div className="rating-text">
                   <p>
-                    {post.content[post.content.length - 1]}
+                    {contentParagraphs[contentParagraphs.length - 1]}
                   </p>
                 </div>
               </div>
