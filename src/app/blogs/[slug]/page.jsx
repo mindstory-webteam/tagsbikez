@@ -7,23 +7,47 @@ import { getPostBySlug } from '@/data/blogs';
 
 export const dynamic = 'force-dynamic';
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'https://api.tagsbikez.com/api';
+function getBlogApiBase() {
+  const envUrl = (process.env.NEXT_PUBLIC_API_URL || 'https://api.tagsbikez.com').trim().replace(/\/+$/, '');
+  return envUrl.endsWith('/api') ? envUrl : `${envUrl}/api`;
+}
 
 async function getPost(slug) {
   if (!slug) return null;
-  try {
-    const res = await fetch(`${API_BASE}/blog/${slug}/`, {
-      cache: 'no-store',
-      headers: {
-        'Accept': 'application/json',
-      },
-    });
-    if (!res.ok) return null;
-    return await res.json();
-  } catch (error) {
-    console.error(`Error fetching blog post ${slug}:`, error);
-    return null;
+  const apiBase = getBlogApiBase();
+
+  const raw = String(slug).trim();
+  const decoded = decodeURIComponent(raw).trim();
+
+  const candidates = [
+    ...new Set([
+      decoded,
+      decoded.replace(/\s+/g, '-'),
+      decoded.toLowerCase(),
+      decoded.toLowerCase().replace(/\s+/g, '-'),
+      raw,
+      raw.replace(/\s+/g, '-'),
+    ])
+  ].filter(Boolean);
+
+  for (const s of candidates) {
+    try {
+      const res = await fetch(`${apiBase}/blog/${encodeURIComponent(s)}/`, {
+        cache: 'no-store',
+        headers: {
+          'Accept': 'application/json',
+          'User-Agent': 'TagsBikez-Web/1.0',
+        },
+      });
+      if (res.ok) {
+        return await res.json();
+      }
+    } catch (error) {
+      console.error(`Error fetching blog post candidate "${s}":`, error);
+    }
   }
+
+  return null;
 }
 
 export async function generateMetadata({ params }) {
@@ -153,6 +177,7 @@ export default async function BlogDetail({ params }) {
         }
         .article-body p {
           margin-bottom: 24px;
+          white-space: pre-line;
         }
         
         .pull-quote-container {

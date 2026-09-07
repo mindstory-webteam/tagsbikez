@@ -228,6 +228,12 @@ export const blogsData = [
 ];
 
 export const getPostBySlug = (slug) => {
-  return blogsData.find((p) => p.slug === slug) || null;
+  if (!slug) return null;
+  const clean = decodeURIComponent(String(slug)).trim().toLowerCase();
+  const hyphenated = clean.replace(/\s+/g, '-');
+  return blogsData.find((p) => {
+    const pSlug = (p.slug || '').trim().toLowerCase();
+    return pSlug === clean || pSlug === hyphenated || pSlug === String(slug).trim().toLowerCase();
+  }) || null;
 };
 
