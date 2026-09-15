@@ -58,6 +58,21 @@ export default function RootLayout({ children }) {
             })(window,document,'script','dataLayer','GTM-WV2CDTM9');
           `}
         </Script>
+      
+        <Script
+          id="google-ads-loader"
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=AW-11304690764"
+        />
+        <Script id="google-ads-config" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-11304690764');
+          `}
+        </Script>
+        
       </head>
       <body className="min-h-full flex flex-col bg-[#0a0a0a] text-white">
         <noscript>
