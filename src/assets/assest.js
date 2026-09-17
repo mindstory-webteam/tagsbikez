@@ -11,7 +11,7 @@ import banner3 from './banner/banner3.png'
 import bannerSmall3 from './banner/banner-small-3.png'
 import banner4 from './banner/banner4.jpg'
 import banner5 from './banner/banner5.jpg'
-import testRideBanner from './banner/test-ride-royal-enfield.webp'
+import testRideBanner from './banner/test-ride-royal-enfield.jpg'
 
 import lifestyle from './life-style.png'
 import parts from './royal-enfield-parts.png'
