@@ -9,8 +9,9 @@ export default function TestDriveSection({
   heading = <>Free Test Ride <br />Feel the Thrill First</>,
   subtitle = "Book a free test ride today and experience the power, comfort, and style before you commit. No pressure  just pure ride.",
   buttonText = "Book a Ride",
-  buttonLink = "https://wa.me/917594960023?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Royal%20Enfield."
+  buttonLink,
 }) {
+  const targetLink = buttonLink || (location ? `/testride?location=${encodeURIComponent(location)}` : "/testride");
   return (
     <section style={{
       position: "relative",
@@ -70,7 +71,7 @@ export default function TestDriveSection({
 
         {/* CTA Button */}
         <div>
-          <AnimatedBtn bgColor="red" href={buttonLink}>
+          <AnimatedBtn bgColor="red" href={targetLink}>
             {buttonText}
           </AnimatedBtn>
         </div>

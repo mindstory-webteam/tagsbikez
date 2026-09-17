@@ -34,7 +34,7 @@ const Breadcrumb = () => {
   // Some hosting environments (proxies, static exports) resolve the root as '/index' instead of '/', so guard all variants.
   const normalizedPath = pathname ? pathname.toLowerCase().replace(/\/$/, '') : '';
   const locationPaths = locations.map(loc => `/${loc.slug}`);
-  const hiddenPaths = ['', '/index', ...locationPaths];
+  const hiddenPaths = ['', '/index', '/test-ride', '/testride', '/test-drive', '/testdrive', ...locationPaths];
   
   if (!pathname || hiddenPaths.includes(normalizedPath)) return null;
 

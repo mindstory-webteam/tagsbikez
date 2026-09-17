@@ -9,6 +9,8 @@ export default function sitemap() {
     "/contact",
     "/gallery",
     "/models",
+    "/testride",
+    "/test-ride",
     "/privacy",
     "/service",
     "/terms",
