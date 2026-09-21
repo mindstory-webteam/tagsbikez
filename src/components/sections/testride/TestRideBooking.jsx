@@ -2,9 +2,9 @@
 import React, { useState, useEffect, useMemo } from "react";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
-import { 
-  ChevronDown, 
-  ChevronUp, 
+import {
+  ChevronDown,
+  ChevronUp,
   MapPin,
   Phone,
   Clock,
@@ -24,7 +24,7 @@ const SHOWROOMS = [
     name: "TagsBikez Kuriachira",
     city: "Thrissur",
     rating: "4.9",
-    desc: "Welcome to Tags Bikez, Authorized Royal Enfield Dealer in Kuriachira, Thrissur. Experience Pure Motorcycling at its best with Genuine Accessories and Apparel. Plan your visit to our authorised dealership for superior services and free test rides.",
+    desc: "Welcome to TagsBikez, an Authorized Royal Enfield Dealer in Kuriachira, Thrissur. Visit our showroom to explore Royal Enfield motorcycles, genuine accessories, and apparel. You can also enquire about available models and test rides before making your decision. For customers searching for a royal enfiled test drive in Thrissur, our Kuriachira showroom provides a convenient location to enquire about available test rides and experience a Royal Enfield motorcycle in person.",
     address: "Kuriachira, Thrissur, Kerala - 680006",
     phone: "+91 7594960023",
     waPhone: "917594960023",
@@ -69,28 +69,44 @@ const TIME_SLOTS = [
 
 const FAQS = [
   {
-    q: "Is the Royal Enfield test ride completely free?",
-    a: "Yes, 100% free! There are no hidden fees, fuel charges, or obligations. We want you to experience the authentic power, smooth chassis, and signature thump before deciding.",
+    q: "How can I book a Royal Enfield test ride in Thrissur?",
+    a: "Contact TagsBikez by phone, WhatsApp, or enquiry form to request a test ride.",
   },
   {
-    q: "What documents do I need to bring to the showroom?",
-    a: "You must carry your original valid Driving License for Two-Wheelers (Motorcycle with Gear). Digital copies on DigiLocker / mParivahan are also accepted.",
+    q: "Can I choose the Royal Enfield model I want to test ride?",
+    a: "Yes. Tell the showroom team your preferred model and check its test-drive availability.",
   },
   {
-    q: "Can I test ride multiple Royal Enfield models?",
-    a: "Absolutely! If you are debating between models (e.g., Hunter 350 vs Classic 350, or Himalayan 450 vs Guerrilla 450), let our Ride Specialist know and we will arrange back-to-back rides for you.",
+    q: "Where can I take a Royal Enfield test ride in Thrissur?",
+    a: "You can contact your nearest TagsBikez showroom to check available test rides.",
   },
   {
-    q: "Do I need to bring my own helmet?",
-    a: "We strongly encourage bringing your own DOT/ISI-certified helmet for personal comfort and hygiene. However, sanitized helmets are also readily available at all Tags Bikez showrooms.",
+    q: "Do I need to book a test ride in advance?",
+    a: "It is recommended to contact the showroom before visiting to confirm availability.",
   },
   {
-    q: "Can a pillion rider accompany me on the test ride?",
-    a: "Yes, you are welcome to bring a pillion rider so you can both evaluate pillion comfort, ergonomics, and posture. The pillion must also wear a helmet and closed footwear.",
+    q: "What should I carry for a test ride?",
+    a: "Check with the showroom team about the documents or identification required for the test ride.",
   },
   {
-    q: "Can I get an on-road quotation and exchange valuation during the visit?",
-    a: "Yes! Our finance and exchange evaluators are on-site at all Tags Bikez branches. You can get a spot valuation of your existing bike and a customized EMI breakdown on the same day.",
+    q: "How long does a Royal Enfield test ride take?",
+    a: "The test-ride duration can vary by showroom and test-drive arrangement. Confirm when booking.",
+  },
+  {
+    q: "What should I check during the test ride?",
+    a: "Check the riding position, handling, engine response, braking and overall comfort.",
+  },
+  {
+    q: "Can I test ride more than one Royal Enfield model?",
+    a: "You can ask the showroom about test-drive availability for multiple models.",
+  },
+  {
+    q: "Can I discuss the motorcycle price after the test ride?",
+    a: "Yes. You can discuss pricing, finance, exchange, and purchase options with the showroom team.",
+  },
+  {
+    q: "Should I confirm test-drive availability before visiting?",
+    a: "Yes. Contact TagsBikez in advance to confirm your preferred model and test-drive arrangements.",
   },
 ];
 
@@ -1061,7 +1077,7 @@ _Booked via Tags Bikez Website_`;
         <div className="tr-map-header">
           <h2>Find Your Nearest Showroom</h2>
           <p>
-            Experience the motorcycle in person. Explore our showroom locations, contact details, and directions below.
+            Looking for a Royal Enfield test drive in Thrissur? Visit TagsBikez to explore your preferred Royal Enfield motorcycle and experience its comfort, handling, and performance before making your purchase.
           </p>
         </div>
 

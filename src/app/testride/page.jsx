@@ -2,18 +2,18 @@ import React, { Suspense } from "react";
 import TestRideBooking from "@/components/sections/testride/TestRideBooking";
 
 export const metadata = {
-  title: "Book a Royal Enfield Test Ride | Tags Bikez Kerala",
+  title: "Royal Enfield Test Drive in Thrissur | TagsBikez",
   description:
-    "Experience the pure thrill of Royal Enfield. Book your free test ride for Classic 350, Hunter 350, Bullet 350, Himalayan 450, Guerrilla 450, or 650 Twins at Tags Bikez showrooms across Thrissur and Central Kerala.",
+    "Book a Royal Enfield test drive in Thrissur with TagsBikez. Find your nearest showroom and experience your preferred Royal Enfield motorcycle.",
   alternates: {
     canonical: "https://tagsbikez.com/testride",
   },
   openGraph: {
-    title: "Book a Royal Enfield Test Ride | Tags Bikez Kerala",
+    title: "Royal Enfield Test Drive in Thrissur | TagsBikez",
     description:
-      "Schedule a free Royal Enfield test ride today. Select your machine and choose from 8 authorized Tags Bikez showrooms in Kerala.",
+      "Book a Royal Enfield test drive in Thrissur with TagsBikez. Find your nearest showroom and experience your preferred Royal Enfield motorcycle.",
     url: "https://tagsbikez.com/testride",
-    siteName: "Tags Bikez",
+    siteName: "TagsBikez",
     locale: "en_IN",
     type: "website",
   },
