@@ -10,7 +10,6 @@ export default function sitemap() {
     "/gallery",
     "/models",
     "/testride",
-    "/test-ride",
     "/privacy",
     "/service",
     "/terms",

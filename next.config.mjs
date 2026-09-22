@@ -13,6 +13,11 @@ const nextConfig = {
         destination: 'https://tagsbikez.com/:path*',
         permanent: true,
       },
+      {
+        source: '/test-ride',
+        destination: '/testride',
+        permanent: true,
+      },
     ];
   },
   images: {
