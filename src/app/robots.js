@@ -1,9 +1,33 @@
 export default function robots() {
   return {
-    rules: {
-      userAgent: '*',
-      allow: '/',
-    },
+    rules: [
+      {
+        userAgent: '*',
+        allow: '/',
+      },
+      {
+        userAgent: [
+          'ClaudeBot',
+          'Claude-Web',
+          'anthropic-ai',
+          'GPTBot',
+          'ChatGPT-User',
+          'OAI-SearchBot',
+          'PerplexityBot',
+          'Google-Extended',
+          'Applebot-Extended',
+          'Meta-ExternalAgent',
+          'FacebookBot',
+          'cohere-ai',
+          'Bytespider',
+          'CCBot',
+          'Amazonbot',
+          'Diffbot',
+        ],
+        allow: '/',
+      },
+    ],
     sitemap: 'https://tagsbikez.com/sitemap.xml',
   };
 }
+
