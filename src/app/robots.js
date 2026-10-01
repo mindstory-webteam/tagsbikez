@@ -7,6 +7,8 @@ export default function robots() {
       },
       {
         userAgent: [
+          'Claude-User',
+          'Claude-SearchBot',
           'ClaudeBot',
           'Claude-Web',
           'anthropic-ai',
