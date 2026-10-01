@@ -1,5 +1,5 @@
 export default function sitemap() {
-  const baseUrl = "https://tagsbikez.com/";
+  const baseUrl = "https://tagsbikez.com";
 
   const routes = [
     "",
@@ -24,7 +24,7 @@ export default function sitemap() {
   ];
 
   return routes.map((route) => ({
-    url: `${baseUrl}${route}`,
+    url: route === "" ? `${baseUrl}/` : `${baseUrl}${route}`,
     lastModified: new Date(),
     changeFrequency: route === "" ? "yearly" : "weekly",
     priority: route === "" ? 1 : 0.8,
