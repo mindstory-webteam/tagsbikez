@@ -150,10 +150,10 @@ const FloatingActionButton = () => {
       `}</style>
 
       <ul className={`fab-menu ${isOpen ? 'active' : ''}`}>
-   
-       
+
+
         <li>
-          <a href="https://wa.me/917594960023?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Royal%20Enfield." target="_blank" rel="noopener noreferrer" className="fab-item">
+          <a href="https://wa.me/917594960023?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Royal%20Enfield%20motorcycle." target="_blank" rel="noopener noreferrer" className="fab-item">
             <span className="fab-label">Sales</span>
             <div className="fab-icon-sub">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -172,7 +172,7 @@ const FloatingActionButton = () => {
             </div>
           </a>
         </li>
-         <li>
+        <li>
           <a href="https://wa.me/7594960032?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Royal%20Enfield%20Insurance" target="_blank" rel="noopener noreferrer" className="fab-item">
             <span className="fab-label">Insurance</span>
             <div className="fab-icon-sub">
@@ -182,7 +182,7 @@ const FloatingActionButton = () => {
             </div>
           </a>
         </li>
-             <li>
+        <li>
           <a href="https://wa.me/917594960003?text=Hi!%20I%20have%20an%20enquiry%20regarding%20Royal%20Enfield%20Ride" target="_blank" rel="noopener noreferrer" className="fab-item">
             <span className="fab-label">Ride</span>
             <div className="fab-icon-sub">
