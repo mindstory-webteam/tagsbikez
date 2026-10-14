@@ -51,6 +51,31 @@ export const metadata = {
   verification: {
     google: "kvnVEngId6kiWU3VFQArCDKyqa75MvuDCX3K0dDVeTE",
   },
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    url: "https://tagsbikez.com/",
+    siteName: "Tags Bikez",
+    title: "Tags Bikez | Royal Enfield Dealer in Thrissur, Kerala",
+    description:
+      "Explore the latest Royal Enfield motorcycles, offers, accessories, and services at Tags Bikez, your trusted Royal Enfield dealership in Thrissur, Kerala.",
+    images: [
+      {
+        url: "https://tagsbikez.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Tags Bikez - Authorised Royal Enfield Dealership in Thrissur, Kerala",
+        type: "image/png",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Tags Bikez | Royal Enfield Dealer in Thrissur, Kerala",
+    description:
+      "Explore the latest Royal Enfield motorcycles, offers, accessories, and services at Tags Bikez, your trusted Royal Enfield dealership in Thrissur, Kerala.",
+    images: ["https://tagsbikez.com/og-image.png"],
+  },
 };
 
 export default function RootLayout({ children }) {
