@@ -8,6 +8,58 @@ gsap.registerPlugin(ScrollTrigger);
 
 const fallbackGalleryItems = [];
 
+const galleryAltDescriptions = [
+  "Royal Enfield Himalayan 450 adventure motorcycle touring in Kerala",
+  "Royal Enfield Classic 350 showroom display at Tags Bikez Thrissur",
+  "Royal Enfield Hunter 350 urban roadster ride moments",
+  "Royal Enfield Bullet 350 pure undiluted heritage roadster",
+  "Tags Bikez Sunday morning riders community breakfast ride",
+  "Royal Enfield motorcycle convoy on Kerala coastal highways",
+  "Royal Enfield riders mountain expedition and scenic trail riding",
+  "Royal Enfield authorised dealership showroom floor at Tags Bikez Kerala",
+  "Royal Enfield genuine motorcycle accessories, riding apparel and gear",
+  "Royal Enfield certified service workshop and expert technicians",
+  "Royal Enfield new motorcycle delivery celebration at Tags Bikez",
+  "Royal Enfield Continental GT 650 cafe racer motorcycle showcase",
+  "Royal Enfield Interceptor 650 twin cylinder touring motorcycle",
+  "Royal Enfield Super Meteor 650 highway cruiser showroom display",
+  "Royal Enfield Guerrilla 450 roadster motorcycle at Tags Bikez",
+  "Royal Enfield Shotgun 650 custom-inspired roadster showcase",
+  "Royal Enfield authorized service center inspection and maintenance",
+  "Royal Enfield weekend road trip and community bikers gathering in Kerala",
+  "Royal Enfield test ride experience at Tags Bikez dealership",
+  "Royal Enfield custom motorcycle styling and genuine accessories display",
+  "Royal Enfield rider moments exploring Kerala hills and backwaters",
+  "Royal Enfield showroom motorcycle key handover to happy customer",
+  "Royal Enfield certified technician inspecting motorcycle engine",
+  "Royal Enfield rider brotherhood convoy on Kerala highways",
+  "Royal Enfield classic roadster parked at Tags Bikez showroom",
+  "Royal Enfield adventure touring gear and luggage accessories",
+  "Royal Enfield motorcycle handover ceremony at Tags Bikez showroom",
+  "Royal Enfield riders exploring off-road terrain in Kerala",
+  "Royal Enfield showroom display of genuine parts and apparel",
+  "Royal Enfield community ride event organized by Tags Bikez Thrissur"
+];
+
+function getGalleryAlt(item, index) {
+  if (item?.caption && item.caption.trim()) return item.caption.trim();
+  if (item?.title && item.title.trim()) return item.title.trim();
+  if (item?.alt && item.alt.trim()) return item.alt.trim();
+
+  const src = item?.src || item?.image_url || "";
+  if (typeof src === "string") {
+    const filename = src.split("/").pop()?.split(".")[0];
+    if (filename && !/^\d+$/.test(filename) && filename.length > 3) {
+      const cleanName = filename
+        .replace(/[-_]+/g, " ")
+        .replace(/\b\w/g, (c) => c.toUpperCase());
+      return `Royal Enfield ${cleanName} - Tags Bikez Kerala`;
+    }
+  }
+
+  return galleryAltDescriptions[index % galleryAltDescriptions.length];
+}
+
 export default function Gallery() {
   const sectionRef = useRef(null);
   const itemRefs = useRef([]);
@@ -236,19 +288,25 @@ export default function Gallery() {
         {loading ? (
           <p style={{ gridColumn: "1 / -1", textAlign: "center", padding: "40px" }}>Loading gallery...</p>
         ) : currentItems.length > 0 ? (
-          currentItems.map((item, i) => (
-            <div
-              key={item.id}
-              className="g-item"
-              ref={(el) => (itemRefs.current[i] = el)}
-            >
-              <img
-                src={item.src && item.src.includes("pexels.com") ? `${item.src}?auto=compress&cs=tinysrgb&w=800` : (item.src || "")}
-                alt=""
-                className="g-img"
-              />
-            </div>
-          ))
+          currentItems.map((item, i) => {
+            const photoIndex = (currentPage - 1) * itemsPerPage + i;
+            const altText = getGalleryAlt(item, photoIndex);
+
+            return (
+              <div
+                key={item.id || i}
+                className="g-item"
+                ref={(el) => (itemRefs.current[i] = el)}
+              >
+                <img
+                  src={item.src && item.src.includes("pexels.com") ? `${item.src}?auto=compress&cs=tinysrgb&w=800` : (item.src || "")}
+                  alt={altText}
+                  className="g-img"
+                  loading="lazy"
+                />
+              </div>
+            );
+          })
         ) : (
           <p style={{ gridColumn: "1 / -1", textAlign: "center", padding: "40px", fontSize: "18px", color: "#666" }}>
             No gallery available
