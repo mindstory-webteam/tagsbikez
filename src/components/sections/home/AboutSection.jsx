@@ -561,14 +561,22 @@ export default function AboutSection({
             <div className="as-img-col" ref={colARef}>
               {colA.map((src, i) => (
                 <div className="as-img-box" key={`a-${i}`}>
-                  <img src={src?.src || src}  loading="lazy" />
+                  <img
+                    src={src?.src || src}
+                    alt={`Royal Enfield motorcycle highlight ${i + 1} at Tags Bikez showroom ${location || 'Thrissur'}`}
+                    loading="lazy"
+                  />
                 </div>
               ))}
             </div>
             <div className="as-img-col" ref={colBRef} style={{ marginTop: "-120px" }}>
               {colB.map((src, i) => (
                 <div className="as-img-box" key={`b-${i}`}>
-                  <img src={src?.src || src}  loading="lazy" />
+                  <img
+                    src={src?.src || src}
+                    alt={`Royal Enfield motorcycle showcase ${i + 1} at Tags Bikez showroom ${location || 'Thrissur'}`}
+                    loading="lazy"
+                  />
                 </div>
               ))}
             </div>
@@ -580,7 +588,11 @@ export default function AboutSection({
             <div className="as-scroll-strip" ref={scrollStripRef}>
               {[...allImgs, ...allImgs].map((src, i) => (
                 <div className="as-scroll-img" key={i}>
-                  <img src={src?.src || src}  loading="lazy" />
+                  <img
+                    src={src?.src || src}
+                    alt={`Royal Enfield rider moment ${(i % (allImgs.length || 1)) + 1} at Tags Bikez ${location || 'Kerala'}`}
+                    loading="lazy"
+                  />
                 </div>
               ))}
             </div>
