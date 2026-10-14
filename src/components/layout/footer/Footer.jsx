@@ -480,14 +480,20 @@ export default function Footer() {
             <span className="ft-bottom-copy">© {new Date().getFullYear()} <span className="text-red-500">Tagsbikez.</span> All rights reserved.</span>
           </div>
           <div className="ft-bottom-cell ft-bottom-dev">
-            <a href="https://mpxcode.com/" aria-label="MyndPixel" style={{ display: "flex", alignItems: "center", gap: "6px", textDecoration: "none" }}>
-              <span style={{ fontSize: "11px", color: "#868686", letterSpacing: "0.07em", textTransform: "uppercase", whiteSpace: "nowrap" }}>Designed by</span>
+            <a 
+              href="https://mpxcode.com/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              aria-label="MyndPixel" 
+              style={{ display: "flex", alignItems: "center", gap: "4px", textDecoration: "none", opacity: 0.8 }}
+            >
+              <span style={{ fontSize: "8px", color: "#868686", letterSpacing: "0.06em", textTransform: "uppercase", whiteSpace: "nowrap" }}>Designed by</span>
               <Image
                 src={img.mindpixel}
                 alt="MyndPixel"
-                width={90}
-                height={22}
-                style={{ objectFit: "contain" }}
+                width={45}
+                height={11}
+                style={{ objectFit: "contain", height: "10px", width: "auto" }}
               />
             </a>
           </div>
