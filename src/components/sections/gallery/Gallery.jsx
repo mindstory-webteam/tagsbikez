@@ -183,13 +183,14 @@ export default function Gallery() {
           overflow: hidden;
           cursor: pointer;
           background: #f5f5f5;
-          aspect-ratio: 4 / 3;
+          aspect-ratio: 4 / 5;
         }
 
         .g-img {
           width: 100%;
           height: 100%;
           object-fit: cover;
+          object-position: center 15%;
           display: block;
           transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
                       filter 0.6s ease;
