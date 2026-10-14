@@ -68,7 +68,7 @@ import bikereveal from './bike-reveal.png'
 
 
 import classic350 from './models/classic350/classic350.png'
-import classic350handlebar from './models/classic350/bullethandlebar.png'
+import classic350handlebar from './models/classic350/classic350handlebar.png'
 import classic350engine from './models/classic350/classic350engine.png'
 import classic350front from './models/classic350/front.png'
 import classic350rear from './models/classic350/rear.png'
@@ -84,6 +84,7 @@ import bullet350 from './models/bullet350/bullet350.webp'
 import bullet350front from './models/bullet350/bullet350front.png'
 import bullet350rear from './models/bullet350/bullet350rear.png'
 import bullet350engine from './models/bullet350/bullet350engine.png'
+import bullet350handlebar from './models/bullet350/bullet350handlebar.png'
 
 import bajajfinserv from './partnerbrand/bajajfinserv.png'
 import hdfc from './partnerbrand/hdfc.png'
@@ -184,6 +185,7 @@ export const img = {
   bullet350engine,
   bullet350rear,
   bullet350front,
+  bullet350handlebar,
   hunter350rear,
   hunter350engine,
   hunter350front,

@@ -48,7 +48,7 @@ const slides = [
     { id: 1, img: img.hunter350front, label: "Retro Headlamp" },
     { id: 2, img: img.hunter350rear, label: "Contoured Seat" },
     { id: 3, img: img.hunter350handlebar, label: "Flat Handlebar" },
-    { id: 4, img: img.classic350engine, label: "J-Series Engine" },
+    { id: 4, img: img.hunter350engine, label: "J-Series Engine" },
   ],
 },
  {
@@ -68,8 +68,8 @@ const slides = [
   thumbnails: [
     { id: 1, img: img.bullet350front, label: "Hand-Painted Tank" },
     { id: 2, img: img.bullet350rear, label: "Single-Piece Seat" },
-    { id: 3, img: img.classic350handlebar, label: "Upright Handlebar" },
-    { id: 4, img: img.classic350engine, label: "J-Series Engine" },
+    { id: 3, img: img.bullet350handlebar, label: "Upright Handlebar" },
+    { id: 4, img: img.bullet350engine, label: "J-Series Engine" },
   ],
 },
 ];
