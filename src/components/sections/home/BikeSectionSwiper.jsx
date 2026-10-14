@@ -4,14 +4,32 @@ import Image from "next/image";
 import Link from "next/link";
 import { img } from "@/assets/assest";
 import { fetchCategories, fetchBikes } from "@/lib/api";
+import { bikeData } from "@/lib/data/bikes";
 
 const CARD_WIDTH = 300;
+
+const staticBikes = (bikeData || []).map((b) => ({
+  id: b.id,
+  name: b.name,
+  slug: b.slug,
+  category: typeof b.category === "object" ? b.category?.name : b.category,
+  image: b.image || b.featured_image_url,
+  comingSoon: b.comingSoon ?? b.coming_soon ?? false,
+  colors: Array.isArray(b.colors)
+    ? b.colors.map((c) => ({
+        name: c.name,
+        hex: c.hex,
+        image: c.image || c.image_url,
+        price: c.price ? (String(c.price).startsWith("₹") ? c.price : `₹${c.price}`) : null,
+      }))
+    : [],
+}));
 
 export default function BikeSectionSwiper() {
   const [categories, setCategories] = useState(["All", "Classic", "Roadster", "Cruiser", "Cafe Racer", "Adventure"]);
   const [activeTab, setActiveTab] = useState("All");
-  const [bikes, setBikes] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [bikes, setBikes] = useState(staticBikes);
+  const [loading, setLoading] = useState(false);
   const trackRef = useRef(null);
   const isDragging = useRef(false);
   const startX = useRef(0);
@@ -33,30 +51,33 @@ export default function BikeSectionSwiper() {
       }
     }
     async function loadBikes() {
-      const data = await fetchBikes();
-      if (data && Array.isArray(data) && data.length > 0) {
-        const mapped = data.map((b) => ({
-          ...b,
-          id: b.id,
-          name: b.name,
-          slug: b.slug,
-          category: typeof b.category === "object" ? b.category?.name : b.category,
-          image: b.featured_image_url || b.image,
-          comingSoon: b.coming_soon ?? b.comingSoon ?? false,
-          colors: Array.isArray(b.colors)
-            ? b.colors.map((c) => ({
-                name: c.name,
-                hex: c.hex,
-                image: c.image_url,
-                price: c.price ? (String(c.price).startsWith("₹") ? c.price : `₹${c.price}`) : null,
-              }))
-            : [],
-        }));
-        setBikes(mapped);
-      } else {
-        setBikes([]);
+      try {
+        const data = await fetchBikes();
+        if (data && Array.isArray(data) && data.length > 0) {
+          const mapped = data.map((b) => ({
+            ...b,
+            id: b.id,
+            name: b.name,
+            slug: b.slug,
+            category: typeof b.category === "object" ? b.category?.name : b.category,
+            image: b.featured_image_url || b.image,
+            comingSoon: b.coming_soon ?? b.comingSoon ?? false,
+            colors: Array.isArray(b.colors)
+              ? b.colors.map((c) => ({
+                  name: c.name,
+                  hex: c.hex,
+                  image: c.image_url || c.image,
+                  price: c.price ? (String(c.price).startsWith("₹") ? c.price : `₹${c.price}`) : null,
+                }))
+              : [],
+          }));
+          setBikes(mapped);
+        }
+      } catch (err) {
+        console.warn("fetchBikes error, using pre-rendered catalogue:", err);
+      } finally {
+        setLoading(false);
       }
-      setLoading(false);
     }
     loadCategories();
     loadBikes();
@@ -396,7 +417,7 @@ export default function BikeSectionSwiper() {
 
       {/* Infinite scroll track */}
       <div className="fv-track-outer">
-        {loading ? (
+        {loading && bikes.length === 0 ? (
           <p style={{ textAlign: "center", padding: "40px" }}>Loading models</p>
         ) : items.length > 0 ? (
           <div

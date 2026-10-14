@@ -4,6 +4,26 @@ import Image from "next/image";
 import Link from "next/link";
 import { IoIosArrowForward } from "react-icons/io";
 import { fetchCategories, fetchBikes } from "@/lib/api";
+import { bikeData } from "@/lib/data/bikes";
+
+const staticBikes = (bikeData || []).map((b) => ({
+  ...b,
+  id: b.id,
+  name: b.name,
+  slug: b.slug,
+  category: typeof b.category === "object" ? b.category?.name : b.category,
+  image: b.image || b.featured_image_url,
+  comingSoon: b.comingSoon ?? b.coming_soon ?? false,
+  emiStarting: b.emiStarting ?? b.emi_starts_at ?? b.emi_starting ?? null,
+  colors: Array.isArray(b.colors)
+    ? b.colors.map((c) => ({
+        name: c.name,
+        hex: c.hex,
+        image: c.image || c.image_url,
+        price: c.price ? (String(c.price).startsWith("₹") ? c.price : `₹${c.price}`) : null,
+      }))
+    : [],
+}));
 
 
 function Card({ title, img, slug, category, price, comingSoon, emiStarting }) {
@@ -80,8 +100,8 @@ function ModelCardSkeleton() {
 export default function ModelsSection() {
   const [categories, setCategories] = useState(["All", "Classic", "Roadster", "Cruiser", "Cafe Racer", "Adventure"]);
   const [active, setActive] = useState("All");
-  const [bikes, setBikes] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [bikes, setBikes] = useState(staticBikes);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     async function loadCategories() {
@@ -97,36 +117,38 @@ export default function ModelsSection() {
       }
     }
     async function loadBikes() {
-      const data = await fetchBikes();
-      const bikesList = (data && Array.isArray(data) && data.length > 0) ? data : [];
+      try {
+        const data = await fetchBikes();
+        const bikesList = (data && Array.isArray(data) && data.length > 0) ? data : [];
 
-      if (bikesList && bikesList.length > 0) {
-        const mapped = bikesList.map((b) => {
-
-          return {
-            ...b,
-            id: b.id,
-            name: b.name,
-            slug: b.slug,
-            category: typeof b.category === "object" ? b.category?.name : b.category,
-            image: b.featured_image_url || b.image,
-            comingSoon: b.coming_soon ?? b.comingSoon ?? false,
-            emiStarting: b.emi_starts_at ?? b.emi_starting ?? b.emiStarting ?? null,
-            colors: Array.isArray(b.colors)
-              ? b.colors.map((c) => ({
-                name: c.name,
-                hex: c.hex,
-                image: c.image_url || c.image,
-                price: c.price ? (String(c.price).startsWith("₹") ? c.price : `₹${c.price}`) : null,
-              }))
-              : [],
-          };
-        });
-        setBikes(mapped);
-      } else {
-        setBikes([]);
+        if (bikesList && bikesList.length > 0) {
+          const mapped = bikesList.map((b) => {
+            return {
+              ...b,
+              id: b.id,
+              name: b.name,
+              slug: b.slug,
+              category: typeof b.category === "object" ? b.category?.name : b.category,
+              image: b.featured_image_url || b.image,
+              comingSoon: b.coming_soon ?? b.comingSoon ?? false,
+              emiStarting: b.emi_starts_at ?? b.emi_starting ?? b.emiStarting ?? null,
+              colors: Array.isArray(b.colors)
+                ? b.colors.map((c) => ({
+                  name: c.name,
+                  hex: c.hex,
+                  image: c.image_url || c.image,
+                  price: c.price ? (String(c.price).startsWith("₹") ? c.price : `₹${c.price}`) : null,
+                }))
+                : [],
+            };
+          });
+          setBikes(mapped);
+        }
+      } catch (err) {
+        console.warn("fetchBikes error, using pre-rendered catalogue:", err);
+      } finally {
+        setLoading(false);
       }
-      setLoading(false);
     }
     loadCategories();
     loadBikes();
@@ -401,7 +423,7 @@ export default function ModelsSection() {
           </div>
 
           <div className="models-grid">
-            {loading ? (
+            {loading && bikes.length === 0 ? (
               Array.from({ length: 8 }).map((_, i) => (
                 <ModelCardSkeleton key={i} />
               ))
