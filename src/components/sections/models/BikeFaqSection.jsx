@@ -189,7 +189,7 @@ const BikeFaqSection = ({ faqs = [], bikeName = "" }) => {
         <div className="bike-faq-header">
           <span className="bike-faq-eyebrow">Got Questions?</span>
           <h2 className="bike-faq-title">
-            {bikeName ? `${bikeName} FAQs` : "Frequently Asked Questions"}
+        Frequently Asked Questions
           </h2>
         </div>
 
