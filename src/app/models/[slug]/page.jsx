@@ -3,6 +3,8 @@ import { notFound } from 'next/navigation';
 import { bikeData } from '@/lib/data/bikes';
 import { fetchBikeBySlug } from '@/lib/api';
 import BikeDetailView from '@/components/sections/models/BikeDetailView';
+import BikeFaqSection from '@/components/sections/models/BikeFaqSection';
+import { getBikeFaqs } from '@/lib/data/bikeFaqs';
 
 /** Normalize both API and static bike objects into a single consistent shape */
 function normalizeBike(b) {
@@ -137,10 +139,30 @@ const BikeSlugPage = async ({ params }) => {
   if (!rawBike) notFound();
 
   const bike = normalizeBike(rawBike);
+  const faqs = getBikeFaqs(bike.slug, bike.name, bike);
 
   return (
     <div className="bike-slug-page">
+      {/* FAQ Schema for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map((faq) => ({
+              "@type": "Question",
+              "name": faq.question,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.answer,
+              },
+            })),
+          }),
+        }}
+      />
       <BikeDetailView bike={bike} />
+      <BikeFaqSection faqs={faqs} bikeName={bike.name} />
     </div>
   );
 };
