@@ -7,392 +7,391 @@ export const bikeFaqs = {
   "hunter-350": [
     {
       id: 1,
-      question: "What is the real-world mileage of the Royal Enfield Hunter 350?",
-      answer: "The Hunter 350 delivers an average real-world fuel economy of 36 to 40 km/l under mixed city and highway riding conditions, making it one of the most fuel-efficient motorcycles in the 350cc category."
+      question: "What is the price of the Royal Enfield Hunter 350 in Thrissur?",
+      answer: "The on-road price depends on the variant, insurance, registration charges and applicable fees. Contact TagsBikez for the latest on-road quotation."
     },
     {
       id: 2,
-      question: "Is the Hunter 350 suitable for daily city commuting and shorter riders?",
-      answer: "Yes, absolutely. With an accessible seat height of 790 mm, a lightweight kerb weight of 181 kg, and nimble 17-inch alloy wheels, the Hunter 350 is specifically engineered for easy city commuting and confidence for riders of all heights."
+      question: "Is the Hunter 350 suitable for daily commuting?",
+      answer: "Yes, its roadster design and manageable dimensions make it a candidate for everyday commuting. A test ride can help you assess comfort in your regular traffic conditions."
     },
     {
       id: 3,
-      question: "What are the lowest down payment and EMI options for the Hunter 350 at Tags Bikez?",
-      answer: "At Tags Bikez, down payment options for the Hunter 350 start as low as ₹4,999 with flexible EMI tenures ranging from 12 to 60 months through leading finance partners."
+      question: "Can I enquire about the Hunter 350 at TagsBikez?",
+      answer: "Yes. Contact TagsBikez to enquire about current availability, colours, finance options and test-ride arrangements."
     },
     {
       id: 4,
-      question: "Does the Hunter 350 come with dual-channel ABS and tubeless tyres?",
-      answer: "Yes, the Hunter 350 Dapper and Rebel series come equipped with dual-channel ABS, front and rear disc brakes, and tubeless tyres on cast alloy wheels for superior braking and puncture safety."
-    },
-    {
-      id: 5,
-      question: "How can I book a test ride for the Hunter 350 at Tags Bikez?",
-      answer: "You can book a free test ride directly on our website or by contacting any of our Tags Bikez showrooms across Thrissur, Chalakudy, Irinjalakuda, Kodakara, Kunnamkulam, Patturaikkal, Thriprayar, and Vadakkencherry."
+      question: "What should I compare before buying the Hunter 350?",
+      answer: "Compare its price, seat height, weight, fuel efficiency, maintenance requirements and riding comfort with other motorcycles in the same category."
     }
   ],
 
   "bullet-350": [
     {
       id: 1,
-      question: "What engine powers the new Royal Enfield Bullet 350?",
-      answer: "The new Bullet 350 is powered by the refined J-series 349cc single-cylinder, air-oil cooled engine that produces 20.2 bhp of peak power and 27 Nm of low-end torque for smooth, effortless cruising."
+      question: "What is the Bullet 350 on-road price in Thrissur?",
+      answer: "The final price varies by variant, insurance and registration. Request an updated quotation from TagsBikez."
     },
     {
       id: 2,
-      question: "Does the new Bullet 350 retain the classic Royal Enfield thump?",
-      answer: "Yes! While the modern engine features a balancer shaft to eliminate harsh vibrations, Royal Enfield has carefully tuned the exhaust note to preserve the signature heavy Bullet thump."
+      question: "Is the Royal Enfield Bullet 350 good for long rides?",
+      answer: "It can suit relaxed highway and weekend rides, depending on your comfort preferences, route and riding conditions. Take a test ride before deciding."
     },
     {
       id: 3,
-      question: "What is the average fuel efficiency (mileage) of the Bullet 350?",
-      answer: "The Bullet 350 delivers an average mileage of 35 to 38 km/l on highways and around 32 to 35 km/l in urban traffic conditions."
+      question: "What makes the Bullet 350 different from the Classic 350?",
+      answer: "Both have heritage-inspired styling, but they differ in design details, appearance and variant offerings. Compare the current models in person to decide which suits your preferences."
     },
     {
       id: 4,
-      question: "What are the differences between Bullet 350 Military, Standard, and Black Gold?",
-      answer: "The Military variant features single-channel ABS with rear drum brake; the Standard variant adds dual-channel ABS, rear disc brake, and chrome engine details; and the Black Gold edition offers premium matte-and-gloss black finishes, 3D gold badging, and copper pinstriping."
-    },
-    {
-      id: 5,
-      question: "Is the Bullet 350 comfortable for long family rides with a pillion passenger?",
-      answer: "Yes, the Bullet 350 features a long, plush single-piece bench seat, an upright ergonomic handlebar, and well-positioned footpegs designed for superior comfort during long family journeys."
+      question: "Where can I enquire about the Bullet 350 in Thrissur?",
+      answer: "You can contact TagsBikez to ask about availability, colours, finance and test rides."
     }
   ],
 
   "classic-350": [
     {
       id: 1,
-      question: "What is the on-road mileage of the Royal Enfield Classic 350?",
-      answer: "The Classic 350 returns an impressive mileage of 35 to 40 km/l on open highways and approximately 32 to 36 km/l in regular city riding."
+      question: "What is the Royal Enfield Classic 350 price in Thrissur?",
+      answer: "The on-road price depends on the chosen variant, insurance and registration charges. Contact TagsBikez for current pricing."
     },
     {
       id: 2,
-      question: "Does the Classic 350 come with Tripper Navigation and LED lighting?",
-      answer: "The latest Classic 350 updates include an all-LED headlamp and pilot lamps. The Royal Enfield Tripper turn-by-turn navigation pod is standard on top variants and available as a genuine accessory for all trims."
+      question: "Is the Classic 350 suitable for daily use?",
+      answer: "It can be used for daily commuting as well as leisure rides. Your comfort in traffic and ability to manage the motorcycle's weight are important considerations."
     },
     {
       id: 3,
-      question: "What is the recommended service schedule for the Classic 350?",
-      answer: "The initial service is scheduled at 500 km (or 45 days). Subsequent routine periodic services are recommended every 5,000 km or 6 months to keep your motorcycle performing at its best."
+      question: "What is the difference between the Classic 350 and Bullet 350?",
+      answer: "The Classic 350 emphasises its vintage-inspired styling, while the Bullet 350 has its own traditional design identity. Compare their features and seating positions before choosing."
     },
     {
       id: 4,
-      question: "What are the finance and down payment schemes available for the Classic 350?",
-      answer: "Tags Bikez offers custom finance plans with down payments starting from ₹11,999, instant loan approvals, and competitive interest rates with top banking partners."
-    },
-    {
-      id: 5,
-      question: "How does the Classic 350 compare to the Hunter 350 and Meteor 350?",
-      answer: "The Classic 350 offers timeless post-war vintage styling and an upright riding posture; the Hunter 350 is sportier, lighter, and agile for city traffic; while the Meteor 350 is a relaxed, feet-forward highway cruiser."
+      question: "How can I enquire about Classic 350 colours and variants?",
+      answer: "Contact TagsBikez for the latest available colour options, variants and booking details."
     }
   ],
 
   "goan-classic-350": [
     {
       id: 1,
-      question: "What makes the Goan Classic 350 unique?",
-      answer: "The Goan Classic 350 is a custom factory bobber featuring mini ape-hanger handlebars, a low-slung 750 mm seat height, tubeless wire-spoke wheels with whitewall tyres, and a detachable pillion seat."
+      question: "What is the Goan Classic 350 price in Thrissur?",
+      answer: "The current on-road price depends on the variant and applicable charges. Request a quotation from TagsBikez."
     },
     {
       id: 2,
-      question: "Are the wire-spoke wheels on the Goan Classic 350 tubeless?",
-      answer: "Yes, the Goan Classic 350 comes equipped with specially engineered tubeless spoke wheels paired with classic whitewall tyres, giving you iconic vintage cruiser looks with modern puncture safety."
+      question: "How is the Goan Classic 350 different from the Classic 350?",
+      answer: "The Goan Classic 350 features bobber-inspired styling, a different seat and handlebar arrangement, and distinctive wheel and tyre styling. The Classic 350 has a more traditional roadster profile."
     },
     {
       id: 3,
-      question: "Can I ride with a pillion on the Goan Classic 350?",
-      answer: "Yes. It comes with a floating detachable pillion seat. You can remove it in minutes for a clean solo-rider bobber aesthetic or mount it whenever you want to ride with a passenger."
+      question: "Is the Goan Classic 350 suitable for city riding?",
+      answer: "It can be considered for city use, but its riding position and dimensions should be assessed in person to ensure they suit your needs."
     },
     {
       id: 4,
-      question: "What is the mileage and engine output of the Goan Classic 350?",
-      answer: "Powered by the 349cc J-series engine producing 20.2 bhp and 27 Nm of torque, the Goan Classic 350 delivers an average mileage of 34 to 38 km/l."
-    },
-    {
-      id: 5,
-      question: "Where can I view and test ride the Goan Classic 350?",
-      answer: "You can experience the Goan Classic 350 in person and book a test ride at any Tags Bikez showroom located across Thrissur district and surrounding areas in Kerala."
+      question: "Where can I check Goan Classic 350 colours?",
+      answer: "Contact TagsBikez for the latest colour options and availability."
     }
   ],
 
   "scram-440": [
     {
       id: 1,
-      question: "What are the engine specifications of the new Royal Enfield Scram 440?",
-      answer: "The Scram 440 is powered by an updated 443cc air-oil cooled single-cylinder engine that generates 25 bhp of power and 34 Nm of torque, tuned for punchy mid-range acceleration and versatile all-terrain performance."
+      question: "What is the Royal Enfield Scram 440 price in Thrissur?",
+      answer: "Contact TagsBikez for the latest on-road price and variant availability."
     },
     {
       id: 2,
-      question: "How does the Scram 440 perform on broken roads and light off-road trails?",
-      answer: "Equipped with a 19-inch front wheel, 200 mm of ground clearance, long-travel suspension, and dual-purpose block-pattern tyres, the Scram 440 effortlessly tackles potholes, gravel tracks, and mountain roads."
+      question: "Is the Scram 440 suitable for daily commuting?",
+      answer: "It may be suitable for everyday use, depending on its ergonomics and your route. A test ride can help you evaluate low-speed handling and comfort."
     },
     {
       id: 3,
-      question: "What is the fuel economy (mileage) of the Scram 440?",
-      answer: "The Scram 440 delivers an average fuel efficiency of 30 to 34 km/l depending on highway cruising speeds and throttle response."
+      question: "What is the difference between the Scram 440 and Himalayan models?",
+      answer: "Compare their design priorities, ergonomics, touring equipment, wheel setup and intended riding conditions using official specifications."
     },
     {
       id: 4,
-      question: "Is the Scram 440 comfortable for everyday urban commuting?",
-      answer: "Yes, thanks to its single-piece contoured seat, accessible 795 mm seat height, upright handlebar, and lightweight agility compared to larger adventure tourers, it excels as an everyday commuter."
+      question: "How can I enquire about the Scram 440?",
+      answer: "Contact TagsBikez to ask about current stock, pricing and test-ride arrangements."
+    }
+  ],
+
+  "himalayan-440": [
+    {
+      id: 1,
+      question: "What is the Himalayan 440 price in Thrissur?",
+      answer: "Contact TagsBikez for the current price, variant details and availability."
     },
     {
-      id: 5,
-      question: "What exchange and finance options are available for the Scram 440?",
-      answer: "Tags Bikez offers attractive exchange bonuses for your old motorcycle and down payment options starting from ₹24,999 with quick on-the-spot documentation."
+      id: 2,
+      question: "What type of riding is the Himalayan 440 designed for?",
+      answer: "Its adventure-oriented positioning makes it relevant to riders exploring touring and mixed-road use. Confirm the exact features of the version offered."
+    },
+    {
+      id: 3,
+      question: "How should I compare the Himalayan 440 and Himalayan 450?",
+      answer: "Compare their official engine specifications, suspension, equipment, seat height, weight and intended use. Ask TagsBikez to confirm the exact versions available."
+    },
+    {
+      id: 4,
+      question: "Can I enquire about the Himalayan 440 test ride?",
+      answer: "Contact TagsBikez to confirm whether a test ride is available for this model."
     }
   ],
 
   "guerrilla-450": [
     {
       id: 1,
-      question: "What engine powers the Royal Enfield Guerrilla 450?",
-      answer: "The Guerrilla 450 is powered by the 452cc liquid-cooled, DOHC 4-valve 'Sherpa' engine that delivers an exhilarating 40.02 PS of peak power at 8,000 rpm and 40 Nm of torque at 5,500 rpm."
+      question: "What is the Guerrilla 450 on-road price in Thrissur?",
+      answer: "The final price depends on the variant and applicable charges. Ask TagsBikez for an updated quotation."
     },
     {
       id: 2,
-      question: "How does the Guerrilla 450 differ from the Himalayan 450?",
-      answer: "While both share the potent Sherpa 450 liquid-cooled engine, the Guerrilla 450 is an urban roadster with 17-inch alloy wheels, super-wide performance tyres, a lower 780 mm seat height, telescopic front suspension, and aggressive street geometry."
+      question: "Is the Guerrilla 450 suitable for city riding?",
+      answer: "It is a roadster-oriented model that may suit urban and weekend riding. Assess its power delivery, weight and handling on a test ride."
     },
     {
       id: 3,
-      question: "Does the Guerrilla 450 feature riding modes and Google Maps navigation?",
-      answer: "Yes, the top variants feature a 4-inch full-color circular Tripper-Dash TFT display with integrated Google Maps navigation, smartphone connectivity, and dual ride modes (Performance and Eco mode)."
+      question: "How is the Guerrilla 450 different from the Himalayan 450?",
+      answer: "The Guerrilla 450 is roadster-oriented, whereas the Himalayan 450 is adventure-oriented. Their ergonomics and equipment suit different riding priorities."
     },
     {
       id: 4,
-      question: "What is the expected mileage of the Guerrilla 450?",
-      answer: "The liquid-cooled Guerrilla 450 delivers around 28 to 32 km/l under highway cruising and around 26 to 28 km/l in spirited city riding."
-    },
-    {
-      id: 5,
-      question: "Can I test ride the Guerrilla 450 at Tags Bikez?",
-      answer: "Yes! Test ride motorcycles are available at all Tags Bikez showrooms across Thrissur, Chalakudy, Irinjalakuda, Kodakara, Kunnamkulam, Patturaikkal, Thriprayar, and Vadakkencherry."
+      question: "Where can I enquire about Guerrilla 450 availability?",
+      answer: "Contact TagsBikez in Thrissur to check available variants, colours and test-ride options."
     }
   ],
 
   "himalayan-450": [
     {
       id: 1,
-      question: "What makes the Himalayan 450 a premier adventure motorcycle?",
-      answer: "The Himalayan 450 features the 452cc liquid-cooled Sherpa engine (40 PS / 40 Nm), Showa 43mm upside-down cartridge forks with 200 mm travel, 230 mm ground clearance, 21-inch front spoke wheel, and a 17-litre fuel tank."
+      question: "What is the Himalayan 450 price in Thrissur?",
+      answer: "Contact TagsBikez for current variant pricing and an on-road quotation."
     },
     {
       id: 2,
-      question: "Can the rear ABS be turned off on the Himalayan 450 for off-roading?",
-      answer: "Yes, the Himalayan 450 features switchable dual-channel ABS with a dedicated Off-Road mode that deactivates the rear ABS, giving you total slide control on dirt, sand, and gravel trails."
+      question: "Is the Himalayan 450 suitable for off-road riding?",
+      answer: "It is designed for adventure-oriented use, including suitable unpaved terrain. Rider skill, tyres, conditions and equipment affect how safely it can be used off-road."
     },
     {
       id: 3,
-      question: "Is the seat height on the Himalayan 450 adjustable?",
-      answer: "Yes, the standard seat offers two height adjustments at 825 mm and 845 mm. Royal Enfield also offers an optional low-seat accessory that brings the seat height down to 805 mm."
+      question: "Is the Himalayan 450 good for long rides?",
+      answer: "It is worth considering for touring because of its adventure-oriented design. A test ride with attention to seat comfort and ergonomics is advisable."
     },
     {
       id: 4,
-      question: "What is the touring range and fuel efficiency of the Himalayan 450?",
-      answer: "With an average mileage of 28 to 32 km/l and a large 17-litre fuel capacity, the Himalayan 450 comfortably delivers a highway range of 450 to 500 km per full tank."
-    },
-    {
-      id: 5,
-      question: "What genuine adventure accessories are available at Tags Bikez?",
-      answer: "Tags Bikez stocks genuine Royal Enfield adventure accessories including aluminium panniers, top boxes, touring screens, engine rally guards, headlight grilles, and radiator guards."
+      question: "How can I compare the Himalayan 450 with the Scram 440?",
+      answer: "Compare their official specifications, suspension, wheel setup, ergonomics and intended riding conditions to identify which better suits your needs."
     }
   ],
 
   "interceptor-650": [
     {
       id: 1,
-      question: "What engine and transmission does the Royal Enfield Interceptor 650 feature?",
-      answer: "The Interceptor 650 features a 648cc air-oil cooled parallel-twin engine with a 270-degree crankshaft, producing 47 bhp and 52 Nm of torque, mated to a smooth 6-speed gearbox with an assist-and-slipper clutch."
+      question: "What is the Interceptor 650 price in Thrissur?",
+      answer: "Contact TagsBikez for current variant pricing, insurance and registration details."
     },
     {
       id: 2,
-      question: "Do the new Interceptor 650 models come with alloy wheels and LED lighting?",
-      answer: "Yes, editions such as Blackray and Barcelona Blue come factory standard with 7-spoke cast alloy wheels and tubeless tyres, an LED headlamp, updated aluminium switch cubes, and a USB charging port."
+      question: "Is the Interceptor 650 suitable for highway rides?",
+      answer: "Its roadster design and twin-cylinder engine make it worth considering for highway journeys. Comfort and performance should be assessed during a test ride."
     },
     {
       id: 3,
-      question: "What is the top speed and highway touring capability of the Interceptor 650?",
-      answer: "The Interceptor 650 comfortably cruises at speeds of 120 to 130 km/h with zero vibrations and has a top speed exceeding 160 km/h, making it ideal for interstate touring."
+      question: "Is the Interceptor 650 suitable for beginners?",
+      answer: "Its performance and weight may require experience and confidence. New riders should assess their skills and comfort level before choosing a 650cc motorcycle."
     },
     {
       id: 4,
-      question: "What is the mileage of the Interceptor 650 twin cylinder?",
-      answer: "The Interceptor 650 yields an average fuel economy of 22 to 26 km/l on highways and around 18 to 22 km/l in city riding."
-    },
-    {
-      id: 5,
-      question: "What down payment and finance options are available at Tags Bikez?",
-      answer: "Tags Bikez provides competitive twin-cylinder financing with down payments starting from ₹49,999, low interest rates, and flexible repayment tenures up to 5 years."
+      question: "What is the difference between the Interceptor 650 and Continental GT 650?",
+      answer: "The Interceptor 650 has a more upright roadster-oriented riding position, while the Continental GT 650 has a sportier café-racer layout."
     }
   ],
 
   "continental-gt-650": [
     {
       id: 1,
-      question: "What riding position does the Royal Enfield Continental GT 650 feature?",
-      answer: "The Continental GT 650 is a traditional cafe racer featuring clip-on handlebars, rear-set foot controls, and a sculpted fuel tank that encourage an aggressive, committed, and aerodynamic riding posture."
+      question: "What is the Continental GT 650 price in Thrissur?",
+      answer: "Contact TagsBikez for the current on-road price of your preferred variant."
     },
     {
       id: 2,
-      question: "What engine specifications does the Continental GT 650 have?",
-      answer: "It is driven by Royal Enfield's 648cc parallel-twin engine delivering 47 bhp at 7,150 rpm and 52 Nm of torque at 5,250 rpm, paired with a 6-speed gearbox and slipper clutch."
+      question: "Is the Continental GT 650 comfortable for daily commuting?",
+      answer: "Comfort depends on your body proportions, traffic conditions and tolerance for its sportier riding position. A test ride is recommended."
     },
     {
       id: 3,
-      question: "Are cast alloy wheels with tubeless tyres available on the Continental GT 650?",
-      answer: "Yes, variants like Apex Grey and Slipstream Blue come with black cast alloy wheels and tubeless tyres, giving you cafe racer aesthetics with worry-free puncture safety."
+      question: "How is the Continental GT 650 different from the Interceptor 650?",
+      answer: "The Continental GT 650 has café-racer styling and a sportier riding posture, while the Interceptor 650 has a more upright roadster setup."
     },
     {
       id: 4,
-      question: "What is the fuel economy of the Continental GT 650?",
-      answer: "The Continental GT 650 delivers a mileage of around 22 to 25 km/l on open highways and approximately 19 to 21 km/l in city conditions."
-    },
-    {
-      id: 5,
-      question: "How can I book a test ride for the Continental GT 650 in Kerala?",
-      answer: "You can book a test ride directly through the Tags Bikez website or contact our showrooms across Thrissur, Chalakudy, Irinjalakuda, Kodakara, Kunnamkulam, Patturaikkal, Thriprayar, or Vadakkencherry."
+      question: "Can I enquire about the Continental GT 650 at TagsBikez?",
+      answer: "Yes. Contact the dealership for available variants, colours, pricing and test-ride details."
     }
   ],
 
   "super-meteor-650": [
     {
       id: 1,
-      question: "What makes the Super Meteor 650 the ultimate highway cruiser?",
-      answer: "The Super Meteor 650 features a dedicated cruiser chassis with Showa 43mm USD forks, forward-set foot controls, a low 740 mm seat height, wide handlebars, and a 15.7-litre teardrop fuel tank for effortless all-day highway comfort."
+      question: "What is the Super Meteor 650 price in Thrissur?",
+      answer: "Contact TagsBikez for a current on-road quotation for your preferred variant."
     },
     {
       id: 2,
-      question: "Does the Super Meteor 650 come with Tripper Navigation as standard?",
-      answer: "Yes, the Royal Enfield Tripper turn-by-turn navigation pod is standard equipment across all variants of the Super Meteor 650."
+      question: "Is the Super Meteor 650 suitable for long-distance rides?",
+      answer: "Its cruiser design is suited to riders seeking relaxed highway travel. Comfort depends on road conditions, riding position and individual preference."
     },
     {
       id: 3,
-      question: "What are the differences between Astral, Interstellar, and Celestial variants?",
-      answer: "Astral is the single-color edition; Interstellar features striking two-tone paint; and Celestial is the top-tier Grand Tourer trim featuring a factory touring windscreen, touring seat, and pillion backrest."
+      question: "How does it differ from the Meteor 350?",
+      answer: "The Super Meteor 650 uses a larger-capacity twin-cylinder engine and occupies a different performance and equipment category. Compare their costs and riding ergonomics."
     },
     {
       id: 4,
-      question: "What is the mileage and power output of the Super Meteor 650?",
-      answer: "The 648cc parallel-twin produces 47 bhp and 52.3 Nm of torque with cruiser-tuned low-end pull, achieving a real-world mileage of 22 to 25 km/l."
-    },
-    {
-      id: 5,
-      question: "Can I customize the Super Meteor 650 with touring accessories at Tags Bikez?",
-      answer: "Yes, Tags Bikez provides the full range of genuine touring accessories including hard panniers, touring mirrors, passenger footboards, and deluxe touring seats."
+      question: "Can I enquire about Super Meteor 650 finance?",
+      answer: "Contact TagsBikez to ask about available financing schemes, eligibility and booking requirements."
     }
   ],
 
   "shotgun-650": [
     {
       id: 1,
-      question: "What is the design concept of the Royal Enfield Shotgun 650?",
-      answer: "The Shotgun 650 is a custom-inspired neo-retro roadster designed with modular flexibility, allowing you to easily switch between a single-seater bobber, a dual-seater, or a luggage-ready tourer."
+      question: "What is the Shotgun 650 price in Thrissur?",
+      answer: "The final on-road price depends on the variant and applicable charges. Request an updated quotation from TagsBikez."
     },
     {
       id: 2,
-      question: "How is the riding posture on the Shotgun 650 compared to the Super Meteor 650?",
-      answer: "The Shotgun 650 features mid-mounted footpegs, a wide and flatter handlebar, and a higher 795 mm seat height, creating an upright, engaging, and commanding street-fighting ergonomics."
+      question: "What makes the Shotgun 650 different from other 650cc Royal Enfield bikes?",
+      answer: "Its custom-inspired styling distinguishes it from the Interceptor roadster, Continental GT café racer and Super Meteor cruiser."
     },
     {
       id: 3,
-      question: "What wheel and suspension setup is on the Shotgun 650?",
-      answer: "It features Showa USD Big Piston front forks, twin rear shock absorbers, an 18-inch front wheel, and a 17-inch rear wheel for sharp, nimble city and canyon handling."
+      question: "Is the Shotgun 650 suitable for daily use?",
+      answer: "It can be considered for daily rides, but ergonomics, weight and comfort should be evaluated in your usual riding conditions."
     },
     {
       id: 4,
-      question: "What is the fuel efficiency of the Shotgun 650?",
-      answer: "The Shotgun 650 delivers approximately 22 to 24 km/l on highways and around 19 to 21 km/l in mixed urban conditions."
-    },
-    {
-      id: 5,
-      question: "Where can I take a test ride of the Shotgun 650 in Kerala?",
-      answer: "Visit any Tags Bikez showroom in Thrissur, Chalakudy, Irinjalakuda, Kodakara, Kunnamkulam, Patturaikkal, Thriprayar, or Vadakkencherry to test ride the Shotgun 650."
+      question: "Where can I check Shotgun 650 availability?",
+      answer: "Contact TagsBikez for the latest information on variants, colours, pricing and test rides."
     }
   ],
 
   "classic-650": [
     {
       id: 1,
-      question: "What is the Royal Enfield Classic 650?",
-      answer: "The Classic 650 brings the iconic vintage styling of the legendary Classic—such as teardrop tank, casquette headlight, and loop frame—into the parallel-twin 650cc lineup for effortless power and regal charm."
+      question: "What is the Classic 650 on-road price in Thrissur?",
+      answer: "Contact TagsBikez for current pricing and the variant-specific quotation."
     },
     {
       id: 2,
-      question: "What are the performance figures for the Classic 650?",
-      answer: "Powered by the 648cc parallel-twin engine, the Classic 650 produces 47 bhp and 52 Nm of torque, matched with a 6-speed transmission and assist/slipper clutch for vibration-free highway cruising."
+      question: "What is the difference between the Classic 650 and Classic 350?",
+      answer: "The Classic 650 uses a twin-cylinder 650cc platform, while the Classic 350 uses a 349cc single-cylinder platform. Their performance, weight and ownership costs differ."
     },
     {
       id: 3,
-      question: "What is the seat height and riding comfort on the Classic 650?",
-      answer: "The Classic 650 offers an 800 mm seat height with a wide, sprung saddle and relaxed upright posture, providing unmatched comfort on both day tours and daily rides."
+      question: "Is the Classic 650 suitable for touring?",
+      answer: "It may suit leisure and highway rides, depending on your comfort and experience. A test ride helps you assess its ergonomics."
     },
     {
       id: 4,
-      question: "Does the Classic 650 have twin exhaust silencers?",
-      answer: "Yes, it features dual authentic pea-shooter chrome exhaust pipes that emit a rich, rumbling parallel-twin exhaust note."
+      question: "How can I enquire about the Classic 650 at TagsBikez?",
+      answer: "Contact TagsBikez to confirm availability, colours, finance options and test-ride arrangements."
+    }
+  ],
+
+  "bullet-650": [
+    {
+      id: 1,
+      question: "What is the Royal Enfield Bullet 650 price in Thrissur?",
+      answer: "Contact TagsBikez for current pricing and a quotation covering the applicable registration and insurance charges."
     },
     {
-      id: 5,
-      question: "What financing options does Tags Bikez offer for the Classic 650?",
-      answer: "Tags Bikez provides attractive down payment options starting from ₹49,999, customized EMI schemes, and hassle-free vehicle delivery assistance."
+      id: 2,
+      question: "How is the Bullet 650 different from the Bullet 350?",
+      answer: "The Bullet 650 belongs to the 650cc twin-cylinder category, while the Bullet 350 uses a 349cc single-cylinder engine. Their performance and ownership requirements differ."
+    },
+    {
+      id: 3,
+      question: "Is the Bullet 650 suitable for long rides?",
+      answer: "Its suitability depends on the final specifications, ergonomics and your riding preferences. Confirm the model details and take a test ride before purchase."
+    },
+    {
+      id: 4,
+      question: "Where can I enquire about the Bullet 650?",
+      answer: "Contact TagsBikez in Thrissur to verify availability, current pricing and test-ride options."
     }
   ],
 
   "meteor-350": [
     {
       id: 1,
-      question: "Why is the Royal Enfield Meteor 350 considered one of the best beginner cruisers?",
-      answer: "The Meteor 350 offers forward-set footpegs, a low 765 mm seat height, swept-back handlebars, and an ultra-smooth counterbalanced J-series engine that makes cruising effortless for riders of all experience levels."
+      question: "What is the Meteor 350 on-road price in Thrissur?",
+      answer: "The final price varies by variant and local charges. Contact TagsBikez for an updated quotation."
     },
     {
       id: 2,
-      question: "What is the mileage of the Royal Enfield Meteor 350?",
-      answer: "The Meteor 350 delivers 36 to 40 km/l on highways and about 32 to 35 km/l in city traffic, aided by its precise electronic fuel injection system."
+      question: "Is the Meteor 350 good for highway touring?",
+      answer: "Its cruiser-oriented ergonomics make it worth considering for highway trips. Comfort varies by rider, distance and road conditions, so a test ride is recommended."
     },
     {
       id: 3,
-      question: "What are the differences between Fireball, Stellar, and Supernova trims?",
-      answer: "Fireball is the vibrant single-tone starter; Stellar adds a pillion backrest and chrome exhaust; Supernova is the premium luxury variant with dual-tone paint, a touring windscreen, and machined wheels."
+      question: "Is the Meteor 350 suitable for beginners?",
+      answer: "It may suit some newer riders, but its weight and cruiser riding position should be assessed before purchase."
     },
     {
       id: 4,
-      question: "Does the Meteor 350 come with tubeless tyres on alloy wheels?",
-      answer: "Yes, all variants of the Meteor 350 come standard with tubeless tyres mounted on lightweight alloy wheels for reliable touring."
-    },
-    {
-      id: 5,
-      question: "How can I book a Meteor 350 test ride at Tags Bikez?",
-      answer: "You can book a test ride online at tagsbikez.com or visit any of our 8 convenient showrooms across Thrissur district."
+      question: "Can I enquire about Meteor 350 finance options?",
+      answer: "Yes. Contact TagsBikez to enquire about available finance schemes and eligibility requirements."
     }
   ],
 
   "interceptor-bear-650": [
     {
       id: 1,
-      question: "What is the Royal Enfield Bear 650?",
-      answer: "The Bear 650 is a scrambler-style twin-cylinder motorcycle inspired by Eddie Mulder's 1960 Big Bear Run victory, featuring a 2-into-1 scrambler exhaust, Showa USD forks, competition number board, and dual-purpose tyres."
+      question: "What is the Royal Enfield Bear 650 price in Thrissur?",
+      answer: "Contact TagsBikez for current pricing and variant availability."
     },
     {
       id: 2,
-      question: "How much torque and power does the Bear 650 produce?",
-      answer: "Thanks to its newly engineered 2-into-1 exhaust, the 648cc parallel-twin engine produces 47 bhp and an increased peak torque of 56.5 Nm (the highest among all Royal Enfield 650 twins)."
+      question: "Is the Bear 650 an off-road motorcycle?",
+      answer: "It has scrambler-oriented design features, but the suitability of any off-road route depends on the bike's equipment, terrain and rider skill."
     },
     {
       id: 3,
-      question: "What wheel and suspension setup is on the Bear 650?",
-      answer: "It features a 19-inch front and 17-inch rear spoke wheel setup with chunky MRF Nylorex scrambler tyres and premium Showa USD front forks with long travel for light trails and rough tarmac."
+      question: "How does the Bear 650 differ from the Interceptor 650?",
+      answer: "The Bear 650 has a scrambler-inspired setup, while the Interceptor 650 is a retro roadster. Compare suspension, tyres, ergonomics and equipment."
     },
     {
       id: 4,
-      question: "Does the Bear 650 feature a full-color TFT display?",
-      answer: "Yes, the Bear 650 is fitted with the circular 4-inch Tripper-Dash full-color TFT screen with built-in Google Maps navigation and Bluetooth media integration."
+      question: "Where can I enquire about the Bear 650?",
+      answer: "Contact TagsBikez in Thrissur for available colours, specifications and test-ride information."
+    }
+  ],
+
+  "bear-650": [
+    {
+      id: 1,
+      question: "What is the Royal Enfield Bear 650 price in Thrissur?",
+      answer: "Contact TagsBikez for current pricing and variant availability."
     },
     {
-      id: 5,
-      question: "How can I book or enquire about the Bear 650 at Tags Bikez?",
-      answer: "You can enquire directly via WhatsApp (+91 7594960023) or visit your nearest Tags Bikez showroom in Kerala for priority booking and test rides."
+      id: 2,
+      question: "Is the Bear 650 an off-road motorcycle?",
+      answer: "It has scrambler-oriented design features, but the suitability of any off-road route depends on the bike's equipment, terrain and rider skill."
+    },
+    {
+      id: 3,
+      question: "How does the Bear 650 differ from the Interceptor 650?",
+      answer: "The Bear 650 has a scrambler-inspired setup, while the Interceptor 650 is a retro roadster. Compare suspension, tyres, ergonomics and equipment."
+    },
+    {
+      id: 4,
+      question: "Where can I enquire about the Bear 650?",
+      answer: "Contact TagsBikez in Thrissur for available colours, specifications and test-ride information."
     }
   ]
 };
