@@ -3,42 +3,50 @@ import React, { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { fetchGallery } from "@/lib/api";
+import { img } from "@/assets/assest";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const fallbackGalleryItems = [];
+const fallbackGalleryItems = [
+  { id: 1, src: img.Himalayan?.src || img.Himalayan, alt: "Royal Enfield Himalayan 450 at Tags Bikez Thrissur showroom" },
+  { id: 2, src: img.aboutchalakudyimg1?.src || img.aboutchalakudyimg1, alt: "Royal Enfield Classic 350 display at Tags Bikez Chalakudy branch" },
+  { id: 3, src: img.scram1?.src || img.scram1, alt: "Royal Enfield Scram 440 at Tags Bikez Irinjalakuda showroom" },
+  { id: 4, src: img.aboutkodakaraimg1?.src || img.aboutkodakaraimg1, alt: "Royal Enfield Hunter 350 at Tags Bikez Kodakara branch" },
+  { id: 5, src: img.Himalayan2?.src || img.Himalayan2, alt: "Royal Enfield Himalayan 450 adventure expedition at Tags Bikez Kunnamkulam showroom" },
+  { id: 6, src: img.aboutpatturaikkalimg1?.src || img.aboutpatturaikkalimg1, alt: "Royal Enfield Bullet 350 vintage style at Tags Bikez Patturaikkal showroom" },
+  { id: 7, src: img.royalenfield1?.src || img.royalenfield1, alt: "Royal Enfield Continental GT 650 at Tags Bikez Thriprayar branch" },
+  { id: 8, src: img.aboutvadakkencherryimg1?.src || img.aboutvadakkencherryimg1, alt: "Royal Enfield Interceptor 650 at Tags Bikez Vadakkencherry showroom" },
+  { id: 9, src: img.royalenfieldfury?.src || img.royalenfieldfury, alt: "Royal Enfield Super Meteor 650 at Tags Bikez Kuriachira Thrissur showroom" },
+  { id: 10, src: img.ride1?.src || img.ride1, alt: "Royal Enfield Guerrilla 450 ride convoy organized by Tags Bikez Chalakudy branch" },
+  { id: 11, src: img.ride2?.src || img.ride2, alt: "Royal Enfield Shotgun 650 weekend community ride from Tags Bikez Thrissur" },
+  { id: 12, src: img.ride3?.src || img.ride3, alt: "Royal Enfield Goan Classic 350 coastal ride with Tags Bikez Thriprayar riders" },
+];
 
 const galleryAltDescriptions = [
-  "Royal Enfield Himalayan 450 adventure motorcycle touring in Kerala",
-  "Royal Enfield Classic 350 showroom display at Tags Bikez Thrissur",
-  "Royal Enfield Hunter 350 urban roadster ride moments",
-  "Royal Enfield Bullet 350 pure undiluted heritage roadster",
-  "Tags Bikez Sunday morning riders community breakfast ride",
-  "Royal Enfield motorcycle convoy on Kerala coastal highways",
-  "Royal Enfield riders mountain expedition and scenic trail riding",
-  "Royal Enfield authorised dealership showroom floor at Tags Bikez Kerala",
-  "Royal Enfield genuine motorcycle accessories, riding apparel and gear",
-  "Royal Enfield certified service workshop and expert technicians",
-  "Royal Enfield new motorcycle delivery celebration at Tags Bikez",
-  "Royal Enfield Continental GT 650 cafe racer motorcycle showcase",
-  "Royal Enfield Interceptor 650 twin cylinder touring motorcycle",
-  "Royal Enfield Super Meteor 650 highway cruiser showroom display",
-  "Royal Enfield Guerrilla 450 roadster motorcycle at Tags Bikez",
-  "Royal Enfield Shotgun 650 custom-inspired roadster showcase",
-  "Royal Enfield authorized service center inspection and maintenance",
-  "Royal Enfield weekend road trip and community bikers gathering in Kerala",
-  "Royal Enfield test ride experience at Tags Bikez dealership",
-  "Royal Enfield custom motorcycle styling and genuine accessories display",
-  "Royal Enfield rider moments exploring Kerala hills and backwaters",
-  "Royal Enfield showroom motorcycle key handover to happy customer",
-  "Royal Enfield certified technician inspecting motorcycle engine",
-  "Royal Enfield rider brotherhood convoy on Kerala highways",
-  "Royal Enfield classic roadster parked at Tags Bikez showroom",
-  "Royal Enfield adventure touring gear and luggage accessories",
-  "Royal Enfield motorcycle handover ceremony at Tags Bikez showroom",
-  "Royal Enfield riders exploring off-road terrain in Kerala",
-  "Royal Enfield showroom display of genuine parts and apparel",
-  "Royal Enfield community ride event organized by Tags Bikez Thrissur"
+  "Royal Enfield Himalayan 450 adventure motorcycle at Tags Bikez Thrissur showroom",
+  "Royal Enfield Classic 350 showroom display at Tags Bikez Chalakudy branch",
+  "Royal Enfield Hunter 350 urban roadster at Tags Bikez Irinjalakuda showroom",
+  "Royal Enfield Bullet 350 vintage roadster at Tags Bikez Kodakara branch",
+  "Royal Enfield Continental GT 650 cafe racer at Tags Bikez Kunnamkulam showroom",
+  "Royal Enfield Interceptor 650 twin cylinder at Tags Bikez Patturaikkal branch",
+  "Royal Enfield Super Meteor 650 highway cruiser at Tags Bikez Thriprayar showroom",
+  "Royal Enfield Guerrilla 450 roadster motorcycle at Tags Bikez Vadakkencherry branch",
+  "Royal Enfield Shotgun 650 custom-inspired roadster at Tags Bikez Kuriachira Thrissur",
+  "Royal Enfield Goan Classic 350 bobber motorcycle at Tags Bikez Chalakudy showroom",
+  "Royal Enfield Scram 440 scrambler touring motorcycle at Tags Bikez Irinjalakuda branch",
+  "Royal Enfield Meteor 350 highway cruiser at Tags Bikez Kodakara showroom",
+  "Royal Enfield genuine motorcycle accessories and apparel at Tags Bikez Kunnamkulam branch",
+  "Royal Enfield authorized service center inspection at Tags Bikez Patturaikkal",
+  "Royal Enfield new motorcycle delivery celebration at Tags Bikez Thriprayar branch",
+  "Royal Enfield test ride lineup at Tags Bikez Vadakkencherry showroom",
+  "Royal Enfield certified technician inspecting motorcycle at Tags Bikez Thrissur",
+  "Royal Enfield riders community weekend rally from Tags Bikez Chalakudy showroom",
+  "Royal Enfield classic roadster parked at Tags Bikez Irinjalakuda showroom floor",
+  "Royal Enfield adventure touring gear and luggage at Tags Bikez Kodakara branch",
+  "Royal Enfield motorcycle key handover ceremony at Tags Bikez Kunnamkulam showroom",
+  "Royal Enfield Himalayan 450 off-road ride experience at Tags Bikez Patturaikkal",
+  "Royal Enfield showroom display of genuine parts and apparel at Tags Bikez Thriprayar",
+  "Royal Enfield community ride event organized by Tags Bikez Vadakkencherry showroom"
 ];
 
 function getGalleryAlt(item, index) {
@@ -48,12 +56,37 @@ function getGalleryAlt(item, index) {
 
   const src = item?.src || item?.image_url || "";
   if (typeof src === "string") {
+    const lower = src.toLowerCase();
+    let model = "";
+    if (lower.includes("himalayan")) model = "Royal Enfield Himalayan 450";
+    else if (lower.includes("hunter")) model = "Royal Enfield Hunter 350";
+    else if (lower.includes("classic")) model = "Royal Enfield Classic 350";
+    else if (lower.includes("bullet")) model = "Royal Enfield Bullet 350";
+    else if (lower.includes("continental")) model = "Royal Enfield Continental GT 650";
+    else if (lower.includes("interceptor")) model = "Royal Enfield Interceptor 650";
+    else if (lower.includes("meteor")) model = "Royal Enfield Super Meteor 650";
+    else if (lower.includes("scram")) model = "Royal Enfield Scram 440";
+    else if (lower.includes("guerrilla")) model = "Royal Enfield Guerrilla 450";
+
+    let branch = "Thrissur";
+    if (lower.includes("chalakudy")) branch = "Chalakudy";
+    else if (lower.includes("irinjalakuda")) branch = "Irinjalakuda";
+    else if (lower.includes("kodakara")) branch = "Kodakara";
+    else if (lower.includes("kunnamkulam")) branch = "Kunnamkulam";
+    else if (lower.includes("patturaikkal")) branch = "Patturaikkal";
+    else if (lower.includes("thriprayar")) branch = "Thriprayar";
+    else if (lower.includes("vadakkencherry")) branch = "Vadakkencherry";
+
+    if (model) {
+      return `${model} on display at Tags Bikez ${branch} showroom`;
+    }
+
     const filename = src.split("/").pop()?.split(".")[0];
     if (filename && !/^\d+$/.test(filename) && filename.length > 3) {
       const cleanName = filename
         .replace(/[-_]+/g, " ")
         .replace(/\b\w/g, (c) => c.toUpperCase());
-      return `Royal Enfield ${cleanName} - Tags Bikez Kerala`;
+      return `Royal Enfield ${cleanName} - Tags Bikez ${branch}`;
     }
   }
 
@@ -71,9 +104,17 @@ export default function Gallery() {
     async function loadGallery() {
       const data = await fetchGallery();
       if (data && data.length > 0) {
-        setGalleryItems(data);
+        // Remove repeated images
+        const seen = new Set();
+        const unique = data.filter((item) => {
+          const key = item.src || item.image_url || item.id;
+          if (!key || seen.has(key)) return false;
+          seen.add(key);
+          return true;
+        });
+        setGalleryItems(unique.length > 0 ? unique : fallbackGalleryItems);
       } else {
-        setGalleryItems([]);
+        setGalleryItems(fallbackGalleryItems);
       }
       setLoading(false);
     }
