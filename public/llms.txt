@@ -48,3 +48,4 @@
 ## Machine-Readable Resources
 - [XML Sitemap](https://tagsbikez.com/sitemap.xml): Complete XML sitemap of all indexed URLs.
 - [Robots File](https://tagsbikez.com/robots.txt): Search crawler rules and sitemap declaration.
+
