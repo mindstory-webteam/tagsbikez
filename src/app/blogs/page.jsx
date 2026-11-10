@@ -7,6 +7,28 @@ export const metadata = {
   alternates: {
     canonical: 'https://tagsbikez.com/blogs',
   },
+  openGraph: {
+    type: 'website',
+    locale: 'en_IN',
+    siteName: 'Tags Bikez',
+    url: 'https://tagsbikez.com/blogs',
+    title: 'Royal Enfield Blogs - Riding Tips, Motorcycle Features & RE Community | TagsBikez',
+    description: 'Stay updated with the latest Royal Enfield blogs. Read expert riding tips, motorcycle feature insights, road trip stories, and community highlights from TagsBikez in Kunnamkulam, Thrissur.',
+    images: [
+      {
+        url: 'https://tagsbikez.com/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Royal Enfield Blogs - Tags Bikez',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Royal Enfield Blogs - Riding Tips, Motorcycle Features & RE Community | TagsBikez',
+    description: 'Stay updated with the latest Royal Enfield blogs. Read expert riding tips, motorcycle feature insights, road trip stories, and community highlights from TagsBikez in Kunnamkulam, Thrissur.',
+    images: ['https://tagsbikez.com/og-image.png'],
+  },
 };
 
 function getBlogApiBase() {

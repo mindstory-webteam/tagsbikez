@@ -17,6 +17,28 @@ export const metadata = {
   alternates: {
     canonical: "https://tagsbikez.com/royal-enfield-showroom-kunnamkulam",
   },
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    siteName: "Tags Bikez",
+    url: "https://tagsbikez.com/royal-enfield-showroom-kunnamkulam",
+    title: "Royal Enfield Showroom Kunnamkulam | TagsBikez",
+    description: "Visit the Royal Enfield showroom in Kunnamkulam at TagsBikez. Discover the latest Royal Enfield motorcycles, test rides, finance assistance, servicing, and genuine accessories.",
+    images: [
+      {
+        url: "https://tagsbikez.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Royal Enfield Showroom Kunnamkulam | TagsBikez",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Royal Enfield Showroom Kunnamkulam | TagsBikez",
+    description: "Visit the Royal Enfield showroom in Kunnamkulam at TagsBikez. Discover the latest Royal Enfield motorcycles, test rides, finance assistance, servicing, and genuine accessories.",
+    images: ["https://tagsbikez.com/og-image.png"],
+  },
 };
 
 

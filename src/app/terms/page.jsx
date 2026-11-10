@@ -7,6 +7,30 @@ export const metadata = {
   alternates: {
     canonical: "https://tagsbikez.com/terms",
   },
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    siteName: "Tags Bikez",
+    url: "https://tagsbikez.com/terms",
+    title: "Terms & Conditions | Tags Bikez",
+    description:
+      "Review the Terms and Conditions governing the use of the Tags Bikez website and services.",
+    images: [
+      {
+        url: "https://tagsbikez.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Terms & Conditions | Tags Bikez",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Terms & Conditions | Tags Bikez",
+    description:
+      "Review the Terms and Conditions governing the use of the Tags Bikez website and services.",
+    images: ["https://tagsbikez.com/og-image.png"],
+  },
 };
 
 export default function TermsConditionsPage() {

@@ -17,6 +17,28 @@ export const metadata = {
   alternates: {
     canonical: "https://tagsbikez.com/royal-enfield-showroom-irinjalakuda",
   },
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    siteName: "Tags Bikez",
+    url: "https://tagsbikez.com/royal-enfield-showroom-irinjalakuda",
+    title: "Royal Enfield Showroom Irinjalakuda | TagsBikez",
+    description: "Visit the Royal Enfield showroom in Irinjalakuda at TagsBikez. Explore the latest motorcycles, book a test ride, access finance options, servicing, and genuine accessories.",
+    images: [
+      {
+        url: "https://tagsbikez.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Royal Enfield Showroom Irinjalakuda | TagsBikez",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Royal Enfield Showroom Irinjalakuda | TagsBikez",
+    description: "Visit the Royal Enfield showroom in Irinjalakuda at TagsBikez. Explore the latest motorcycles, book a test ride, access finance options, servicing, and genuine accessories.",
+    images: ["https://tagsbikez.com/og-image.png"],
+  },
 };
 
 

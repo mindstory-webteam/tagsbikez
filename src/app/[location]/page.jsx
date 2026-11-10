@@ -22,21 +22,54 @@ export async function generateStaticParams() {
 
 // 2. Generate Metadata (SEO)
 export async function generateMetadata({ params }) {
-  const locData = locations.find((l) => l.slug === params.location);
+  const resolvedParams = await params;
+  const location = resolvedParams?.location;
+  const locData = locations.find((l) => l.slug === location);
   
   if (!locData) {
     return { title: 'Location Not Found' };
   }
 
+  const title = `Royal Enfield Showroom in ${locData.name} | TagsBikez`;
+  const description = `Visit TagsBikez, the authorized Royal Enfield dealership in ${locData.name}. Explore the latest models, genuine accessories, and book a test ride today.`;
+  const pageUrl = `https://tagsbikez.com/${locData.slug}`;
+
   return {
-    title: `Royal Enfield Showroom in ${locData.name} | TagsBikez`,
-    description: `Visit TagsBikez, the authorized Royal Enfield dealership in ${locData.name}. Explore the latest models, genuine accessories, and book a test ride today.`,
+    title,
+    description,
+    alternates: {
+      canonical: pageUrl,
+    },
+    openGraph: {
+      type: "website",
+      locale: "en_IN",
+      siteName: "Tags Bikez",
+      url: pageUrl,
+      title,
+      description,
+      images: [
+        {
+          url: "https://tagsbikez.com/og-image.png",
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: ["https://tagsbikez.com/og-image.png"],
+    },
   };
 }
 
 // 3. Page Component
-export default function LocationPage({ params }) {
-  const locData = locations.find((l) => l.slug === params.location);
+export default async function LocationPage({ params }) {
+  const resolvedParams = await params;
+  const location = resolvedParams?.location;
+  const locData = locations.find((l) => l.slug === location);
   
   if (!locData) {
     notFound();
@@ -55,7 +88,7 @@ export default function LocationPage({ params }) {
             "@type": "MotorcycleDealer",
             "name": `TagsBikez Royal Enfield ${name}`,
             "description": `Authorized Royal Enfield dealership in ${name}.`,
-            "url": `https://tagsbikez.com/${params.location}`,
+            "url": `https://tagsbikez.com/${location}`,
           }),
         }}
       />

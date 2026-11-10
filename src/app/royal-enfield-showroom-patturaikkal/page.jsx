@@ -17,6 +17,28 @@ export const metadata = {
   alternates: {
     canonical: "https://tagsbikez.com/royal-enfield-showroom-patturaikkal",
   },
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    siteName: "Tags Bikez",
+    url: "https://tagsbikez.com/royal-enfield-showroom-patturaikkal",
+    title: "Royal Enfield Showroom Patturaikkal, Thrissur | TagsBikez",
+    description: "Visit the Royal Enfield showroom in Patturaikkal, Thrissur at TagsBikez. Explore the latest bikes, book a test ride, service, finance options, and genuine accessories.",
+    images: [
+      {
+        url: "https://tagsbikez.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Royal Enfield Showroom Patturaikkal, Thrissur | TagsBikez",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Royal Enfield Showroom Patturaikkal, Thrissur | TagsBikez",
+    description: "Visit the Royal Enfield showroom in Patturaikkal, Thrissur at TagsBikez. Explore the latest bikes, book a test ride, service, finance options, and genuine accessories.",
+    images: ["https://tagsbikez.com/og-image.png"],
+  },
 };
 
 

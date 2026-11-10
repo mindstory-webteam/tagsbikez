@@ -53,6 +53,24 @@ function normalizeBike(b) {
   };
 }
 
+function toAbsoluteImageUrl(img) {
+  if (!img) return 'https://tagsbikez.com/og-image.png';
+  let path = '';
+  if (typeof img === 'string') {
+    path = img.trim();
+  } else if (typeof img === 'object' && img?.src) {
+    path = String(img.src).trim();
+  }
+  if (!path) return 'https://tagsbikez.com/og-image.png';
+  if (path.startsWith('http://') || path.startsWith('https://')) {
+    return path;
+  }
+  if (path.startsWith('/media/')) {
+    return `https://api.tagsbikez.com${path}`;
+  }
+  return `https://tagsbikez.com${path.startsWith('/') ? '' : '/'}${path}`;
+}
+
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const apiData = await fetchBikeBySlug(slug);
@@ -119,13 +137,39 @@ export async function generateMetadata({ params }) {
   };
 
   const matched = metadataMap[slug];
-  
+  const title = matched ? matched.title : `${bike.name} in Kerala | Tags Bikez`;
+  const description = matched ? matched.description : (bike.description || `Explore the Royal Enfield ${bike.name} at Tags Bikez, Kerala.`);
+  const pageUrl = `https://tagsbikez.com/models/${slug}`;
+  const ogImageUrl = toAbsoluteImageUrl(bike.image || (bike.colors && bike.colors[0]?.image));
+
   return {
-    title: matched ? matched.title : `${bike.name} | Tags Bikez`,
-    description: matched ? matched.description : bike.description,
+    title,
+    description,
     alternates: {
-      canonical: `https://tagsbikez.com/models/${slug}`,
-    }
+      canonical: pageUrl,
+    },
+    openGraph: {
+      type: "website",
+      locale: "en_IN",
+      siteName: "Tags Bikez",
+      url: pageUrl,
+      title,
+      description,
+      images: [
+        {
+          url: ogImageUrl,
+          width: 1200,
+          height: 630,
+          alt: `${bike.name} | Tags Bikez`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [ogImageUrl],
+    },
   };
 }
 

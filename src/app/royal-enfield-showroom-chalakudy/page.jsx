@@ -17,6 +17,28 @@ export const metadata = {
   alternates: {
     canonical: "https://tagsbikez.com/royal-enfield-showroom-chalakudy",
   },
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    siteName: "Tags Bikez",
+    url: "https://tagsbikez.com/royal-enfield-showroom-chalakudy",
+    title: "Royal Enfield Showroom Chalakudy | TagsBikez",
+    description: "Visit the Royal Enfield showroom in Chalakudy at TagsBikez. Explore the newest Royal Enfield bikes, test ride booking, finance options, service, and accessories.",
+    images: [
+      {
+        url: "https://tagsbikez.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Royal Enfield Showroom Chalakudy | TagsBikez",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Royal Enfield Showroom Chalakudy | TagsBikez",
+    description: "Visit the Royal Enfield showroom in Chalakudy at TagsBikez. Explore the newest Royal Enfield bikes, test ride booking, finance options, service, and accessories.",
+    images: ["https://tagsbikez.com/og-image.png"],
+  },
 };
 
 

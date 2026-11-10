@@ -13,9 +13,24 @@ export const metadata = {
     description:
       "Book a Royal Enfield test drive in Thrissur with TagsBikez. Find your nearest showroom and experience your preferred Royal Enfield motorcycle.",
     url: "https://tagsbikez.com/testride",
-    siteName: "TagsBikez",
+    siteName: "Tags Bikez",
     locale: "en_IN",
     type: "website",
+    images: [
+      {
+        url: "https://tagsbikez.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Royal Enfield Test Drive in Thrissur | TagsBikez",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Royal Enfield Test Drive in Thrissur | TagsBikez",
+    description:
+      "Book a Royal Enfield test drive in Thrissur with TagsBikez. Find your nearest showroom and experience your preferred Royal Enfield motorcycle.",
+    images: ["https://tagsbikez.com/og-image.png"],
   },
 };
 

@@ -17,6 +17,28 @@ export const metadata = {
   alternates: {
     canonical: "https://tagsbikez.com/royal-enfield-showroom-thriprayar",
   },
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    siteName: "Tags Bikez",
+    url: "https://tagsbikez.com/royal-enfield-showroom-thriprayar",
+    title: "Royal Enfield Showroom Thriprayar | TagsBikez",
+    description: "Explore the Royal Enfield showroom in Thriprayar with TagsBikez. Browse new motorcycles, book a test ride, avail finance support, servicing, and authentic accessories.",
+    images: [
+      {
+        url: "https://tagsbikez.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Royal Enfield Showroom Thriprayar | TagsBikez",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Royal Enfield Showroom Thriprayar | TagsBikez",
+    description: "Explore the Royal Enfield showroom in Thriprayar with TagsBikez. Browse new motorcycles, book a test ride, avail finance support, servicing, and authentic accessories.",
+    images: ["https://tagsbikez.com/og-image.png"],
+  },
 };
 
 

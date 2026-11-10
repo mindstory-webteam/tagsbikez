@@ -7,6 +7,30 @@ export const metadata = {
   alternates: {
     canonical: "https://tagsbikez.com/privacy",
   },
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    siteName: "Tags Bikez",
+    url: "https://tagsbikez.com/privacy",
+    title: "Privacy Policy | Tags Bikez",
+    description:
+      "Read the Tags Bikez Privacy Policy to understand how we collect, use, and protect your personal information.",
+    images: [
+      {
+        url: "https://tagsbikez.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Privacy Policy | Tags Bikez",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Privacy Policy | Tags Bikez",
+    description:
+      "Read the Tags Bikez Privacy Policy to understand how we collect, use, and protect your personal information.",
+    images: ["https://tagsbikez.com/og-image.png"],
+  },
 };
 export default function PrivacyPolicyPage() {
   return (

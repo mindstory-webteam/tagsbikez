@@ -11,6 +11,30 @@ export const metadata = {
   alternates: {
     canonical: "https://tagsbikez.com/about",
   },
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    siteName: "Tags Bikez",
+    url: "https://tagsbikez.com/about",
+    title: "About Tags Bikez | Authorized Royal Enfield Dealer",
+    description:
+      "Learn about Tags Bikez, an authorized Royal Enfield dealership committed to delivering exceptional motorcycle sales and service experiences.",
+    images: [
+      {
+        url: "https://tagsbikez.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "About Tags Bikez",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Tags Bikez | Authorized Royal Enfield Dealer",
+    description:
+      "Learn about Tags Bikez, an authorized Royal Enfield dealership committed to delivering exceptional motorcycle sales and service experiences.",
+    images: ["https://tagsbikez.com/og-image.png"],
+  },
 };
 
 const AboutPage = () => {

@@ -70,18 +70,56 @@ export async function generateMetadata({ params }) {
     ? (seo.canonical_url.startsWith('http') ? seo.canonical_url : `https://tagsbikez.com${seo.canonical_url.startsWith('/') ? '' : '/'}${seo.canonical_url}`)
     : `https://tagsbikez.com/blogs/${slug}`;
 
+  const rawOgImg = seo.image || heroImage;
+  let ogImageUrl = 'https://tagsbikez.com/og-image.png';
+  if (typeof rawOgImg === 'string' && rawOgImg) {
+    if (rawOgImg.startsWith('http://') || rawOgImg.startsWith('https://')) {
+      ogImageUrl = rawOgImg;
+    } else if (rawOgImg.startsWith('/media/')) {
+      ogImageUrl = `https://api.tagsbikez.com${rawOgImg}`;
+    } else {
+      ogImageUrl = `https://tagsbikez.com${rawOgImg.startsWith('/') ? '' : '/'}${rawOgImg}`;
+    }
+  } else if (typeof rawOgImg === 'object' && rawOgImg?.src) {
+    const src = String(rawOgImg.src);
+    if (src.startsWith('http://') || src.startsWith('https://')) {
+      ogImageUrl = src;
+    } else {
+      ogImageUrl = `https://tagsbikez.com${src.startsWith('/') ? '' : '/'}${src}`;
+    }
+  }
+
+  const title = seo.title || post.title;
+  const description = seo.description || post.excerpt;
+
   return {
-    title: seo.title || post.title,
-    description: seo.description || post.excerpt,
+    title,
+    description,
     keywords: seo.keywords || '',
     alternates: {
       canonical: canonicalUrl,
     },
     openGraph: {
-      title: seo.title || post.title,
-      description: seo.description || post.excerpt,
+      type: "article",
+      locale: "en_IN",
+      siteName: "Tags Bikez",
       url: canonicalUrl,
-      images: seo.image ? [{ url: seo.image }] : (typeof heroImage === 'string' ? [{ url: heroImage }] : []),
+      title,
+      description,
+      images: [
+        {
+          url: ogImageUrl,
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [ogImageUrl],
     },
     ...(seo.noindex && {
       robots: { index: false, follow: false },

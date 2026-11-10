@@ -17,6 +17,28 @@ export const metadata = {
   alternates: {
     canonical: "https://tagsbikez.com/royal-enfield-showroom-vadakkencherry",
   },
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    siteName: "Tags Bikez",
+    url: "https://tagsbikez.com/royal-enfield-showroom-vadakkencherry",
+    title: "Royal Enfield Showroom Vadakkencherry | TagsBikez",
+    description: "Visit the Royal Enfield showroom in Vadakkencherry by TagsBikez. Find the latest motorcycles, book a test ride, explore finance plans, servicing, and genuine accessories.",
+    images: [
+      {
+        url: "https://tagsbikez.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Royal Enfield Showroom Vadakkencherry | TagsBikez",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Royal Enfield Showroom Vadakkencherry | TagsBikez",
+    description: "Visit the Royal Enfield showroom in Vadakkencherry by TagsBikez. Find the latest motorcycles, book a test ride, explore finance plans, servicing, and genuine accessories.",
+    images: ["https://tagsbikez.com/og-image.png"],
+  },
 };
 
 

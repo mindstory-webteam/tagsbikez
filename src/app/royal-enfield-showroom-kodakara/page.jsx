@@ -17,6 +17,28 @@ export const metadata = {
   alternates: {
     canonical: "https://tagsbikez.com/royal-enfield-showroom-kodakara",
   },
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    siteName: "Tags Bikez",
+    url: "https://tagsbikez.com/royal-enfield-showroom-kodakara",
+    title: "Royal Enfield Showroom Kodakara | TagsBikez",
+    description: "Explore the Royal Enfield showroom in Kodakara with TagsBikez. Discover new Royal Enfield bikes, test rides, finance options, expert service, and genuine accessories.",
+    images: [
+      {
+        url: "https://tagsbikez.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Royal Enfield Showroom Kodakara | TagsBikez",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Royal Enfield Showroom Kodakara | TagsBikez",
+    description: "Explore the Royal Enfield showroom in Kodakara with TagsBikez. Discover new Royal Enfield bikes, test rides, finance options, expert service, and genuine accessories.",
+    images: ["https://tagsbikez.com/og-image.png"],
+  },
 };
 
 
