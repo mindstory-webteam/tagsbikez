@@ -30,12 +30,17 @@ export default function BikeSectionSwiper() {
   const [activeTab, setActiveTab] = useState("All");
   const [bikes, setBikes] = useState(staticBikes);
   const [loading, setLoading] = useState(false);
+  const [isClient, setIsClient] = useState(false);
   const trackRef = useRef(null);
   const isDragging = useRef(false);
   const startX = useRef(0);
   const savedScroll = useRef(0);
   const animFrameRef = useRef(null);
   const hasDragged = useRef(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   useEffect(() => {
     async function loadCategories() {
@@ -84,7 +89,7 @@ export default function BikeSectionSwiper() {
   }, []);
 
   const items = activeTab === "All" ? bikes : bikes.filter(b => b.category?.toLowerCase() === activeTab.toLowerCase());
-  const loopedItems = [...items, ...items, ...items, ...items, ...items, ...items];
+  const loopedItems = isClient ? [...items, ...items, ...items, ...items, ...items, ...items] : items;
   const singleSetWidth = items.length * CARD_WIDTH;
 
   const startAuto = () => {
@@ -111,11 +116,12 @@ export default function BikeSectionSwiper() {
   };
 
   useEffect(() => {
+    if (!isClient) return;
     const el = trackRef.current;
     if (el) el.scrollLeft = singleSetWidth * 2;
     startAuto();
     return () => stopAuto();
-  }, [activeTab, singleSetWidth]);
+  }, [isClient, activeTab, singleSetWidth]);
 
   const onMouseDown = (e) => {
     isDragging.current = true;
@@ -432,6 +438,7 @@ export default function BikeSectionSwiper() {
             onTouchEnd={onTouchEnd}
           >
             {loopedItems.map((bike, i) => {
+              const isClone = isClient && i >= items.length;
               const price = bike.colors && bike.colors.length > 0 ? bike.colors[0].price : null;
               const CardWrapper = bike.comingSoon ? "div" : Link;
               const hrefProp = bike.comingSoon ? {} : { href: `/models/${bike.slug}` };
@@ -441,6 +448,7 @@ export default function BikeSectionSwiper() {
                   className="fv-card" 
                   key={`${bike.id}-${i}`}
                   {...hrefProp}
+                  {...(isClone ? { 'aria-hidden': 'true', tabIndex: -1 } : {})}
                   style={bike.comingSoon ? { cursor: "default" } : { textDecoration: "none" }}
                   onClick={(e) => {
                     if (hasDragged.current) {
@@ -452,7 +460,7 @@ export default function BikeSectionSwiper() {
                   <div className="fv-card-img-wrap">
                     <Image
                       src={bike.image}
-                      alt={bike.name}
+                      alt={isClone ? "" : bike.name}
                       className="fv-card-img"
                       width={260}
                       height={160}
