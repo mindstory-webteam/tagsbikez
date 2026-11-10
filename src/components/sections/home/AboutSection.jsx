@@ -5,8 +5,8 @@ import { ShieldCheck, Wrench, Clock,BadgeCheck } from "lucide-react";
 import { img } from "@/assets/assest";
 import { fetchGallery } from "@/lib/api";
 
-const fallbackColA = [img.Himalayan, img.royalenfieldfury, img.scram1, img.ride1];
-const fallbackColB = [img.Himalayan2, img.royalenfield1, img.ride2, img.ride3];
+const fallbackColA = [img.Himalayan, img.royalenfieldfury, img.scram1, img.ride1, img.companysectionimg];
+const fallbackColB = [img.Himalayan2, img.royalenfield1, img.ride2, img.ride3, img.about_bike];
 
 const locationData = {
   Chalakudy: {
@@ -18,8 +18,8 @@ const locationData = {
       { icon: <Wrench size={20} strokeWidth={1.6} color="#e8282b" />, title: "Expert Service Guidance", desc: "For Royal Enfield service and maintenance support in Chalakudy, you can contact TagsBikez for proper guidance. Our team helps you understand service options, technical support, and trusted care through the dealership network." },
       { icon: <Clock size={20} strokeWidth={1.6} color="#e8282b" />, title: "Book a Royal Enfield Test Ride", desc: "Before booking your bike, experience the ride quality first-hand. You can book a Royal Enfield test ride in Chalakudy and understand the comfort, power, and road presence of your preferred model." },
     ],
-    colA: [img.aboutchalakudyimg1, img.aboutchalakudyimg2, img.aboutchalakudyimg3],
-    colB: [img.aboutchalakudyimg4, img.aboutchalakudyimg5, img.Himalayan],
+    colA: [img.aboutchalakudyimg1, img.aboutchalakudyimg2, img.aboutchalakudyimg3, img.scram1, img.ride1],
+    colB: [img.aboutchalakudyimg4, img.aboutchalakudyimg5, img.Himalayan, img.royalenfield1, img.ride2],
   },
   Irinjalakuda: {
     bannerHeading: "Discover Royal Enfield in Irinjalakuda",
@@ -30,8 +30,8 @@ const locationData = {
       { icon: <Wrench size={20} strokeWidth={1.6} color="#e8282b" />, title: "Expert Service Guidance", desc: "For Royal Enfield service and maintenance enquiries in Irinjalakuda, you can contact TagsBikez for proper guidance. We help riders understand service support, technical care, and trusted maintenance assistance." },
       { icon: <Clock size={20} strokeWidth={1.6} color="#e8282b" />, title: "Book a Royal Enfield Test Ride", desc: "Before choosing your bike, experience the comfort, power, and riding feel firsthand. You can book a Royal Enfield test ride in Irinjalakuda and understand which model suits you best." },
     ],
-    colA: [img.aboutirinjalakudaimg1, img.aboutirinjalakudaimg2, img.scram1],
-    colB: [img.aboutirinjalakudaimg3, img.aboutirinjalakudaimg4, img.royalenfield1],
+    colA: [img.aboutirinjalakudaimg1, img.aboutirinjalakudaimg2, img.Himalayan, img.scram1, img.ride1],
+    colB: [img.aboutirinjalakudaimg3, img.aboutirinjalakudaimg4, img.royalenfieldfury, img.Himalayan2, img.ride3],
   },
   Kodakara: {
     bannerHeading: "Royal Enfield Excellence in Kodakara",
@@ -42,8 +42,8 @@ const locationData = {
       { icon: <Wrench size={20} strokeWidth={1.6} color="#e8282b" />, title: "Expert Service Guidance", desc: "If you need help with Royal Enfield maintenance or service enquiries, you can contact TagsBikez Kodakara. We help you get proper service support, technical guidance, and trusted care through the dealership network." },
       { icon: <Clock size={20} strokeWidth={1.6} color="#e8282b" />, title: "Book a Royal Enfield Test Ride", desc: "Before making a decision, experience the comfort, road presence, and riding feel of your preferred model. By booking a Royal Enfield test ride in Kodakara, you can experience the bike first-hand." },
     ],
-    colA: [img.aboutkodakaraimg1, img.aboutkodakaraimg2, img.Himalayan2],
-    colB: [img.aboutkodakaraimg3, img.aboutkodakaraimg4, img.ride1],
+    colA: [img.aboutkodakaraimg1, img.aboutkodakaraimg2, img.scram1, img.Himalayan2, img.ride1],
+    colB: [img.aboutkodakaraimg3, img.aboutkodakaraimg4, img.Himalayan, img.royalenfield1, img.ride2],
   },
 
   Patturaikkal: {
@@ -55,8 +55,8 @@ const locationData = {
       { icon: <Wrench size={20} strokeWidth={1.6} color="#e8282b" />, title: "Expert Service Guidance", desc: "For Royal Enfield service and maintenance enquiries in Patturaikkal, you can contact TagsBikez for proper guidance. We help riders understand service support, technical care, and trusted maintenance assistance." },
       { icon: <Clock size={20} strokeWidth={1.6} color="#e8282b" />, title: "Book a Royal Enfield Test Ride", desc: "Before booking your bike, experience the comfort and riding feel firsthand. You can book a Royal Enfield test ride in Patturaikkal and understand which model suits your riding style best." },
     ],
-    colA: [img.aboutpatturaikkalimg1, img.aboutpatturaikkalimg2, img.ride2],
-    colB: [img.aboutpatturaikkalimg3, img.aboutpatturaikkalimg4, img.ride3],
+    colA: [img.aboutpatturaikkalimg1, img.aboutpatturaikkalimg2, img.Himalayan, img.scram1, img.ride1],
+    colB: [img.aboutpatturaikkalimg3, img.aboutpatturaikkalimg4, img.royalenfield1, img.Himalayan2, img.ride2],
   },
   Vadakkencherry: {
     bannerHeading: "TagsBikez Vadakkencherry Showroom",
@@ -67,8 +67,8 @@ const locationData = {
       { icon: <Wrench size={20} strokeWidth={1.6} color="#e8282b" />, title: "Expert Service Guidance", desc: "For Royal Enfield maintenance or service enquiries in Vadakkencherry, you can contact TagsBikez for proper support. We help you understand service guidance, technical care, and trusted maintenance assistance." },
       { icon: <Clock size={20} strokeWidth={1.6} color="#e8282b" />, title: "Book a Royal Enfield Test Ride", desc: "A test ride helps you understand the real riding feel of your preferred motorcycle. You can book a Royal Enfield test ride in Vadakkencherry and experience the comfort, power, and road presence first-hand." },
     ],
-    colA: [img.aboutvadakkencherryimg1, img.aboutvadakkencherryimg2, img.scram1],
-    colB: [img.aboutvadakkencherryimg3, img.aboutvadakkencherryimg4, img.Himalayan],
+    colA: [img.aboutvadakkencherryimg1, img.aboutvadakkencherryimg2, img.Himalayan, img.scram1, img.ride2],
+    colB: [img.aboutvadakkencherryimg3, img.aboutvadakkencherryimg4, img.royalenfieldfury, img.Himalayan2, img.ride1],
   },
   Kunnamkulam: {
     bannerHeading: "Discover Royal Enfield in Kunnamkulam",
@@ -79,8 +79,8 @@ const locationData = {
       { icon: <Wrench size={20} strokeWidth={1.6} color="#e8282b" />, title: "Expert Service Guidance", desc: "For Royal Enfield maintenance or service enquiries in Kunnamkulam, you can contact TagsBikez for proper guidance. We help riders get clear service support, technical care, and trusted maintenance assistance." },
       { icon: <Clock size={20} strokeWidth={1.6} color="#e8282b" />, title: "Book a Royal Enfield Test Ride", desc: "Before making your final decision, experience your preferred bike first-hand. You can book a Royal Enfield test ride in Kunnamkulam and understand the comfort, road presence, and riding feel of the model." },
     ],
-    colA: [img.aboutkunnamkulamimg1, img.aboutkunnamkulamimg2, img.royalenfieldfury],
-    colB: [img.aboutkunnamkulamimg3, img.aboutkunnamkulamimg4, img.Himalayan2],
+    colA: [img.aboutkunnamkulamimg1, img.aboutkunnamkulamimg2, img.royalenfieldfury, img.Himalayan2, img.ride1],
+    colB: [img.aboutkunnamkulamimg3, img.aboutkunnamkulamimg4, img.Himalayan, img.scram1, img.ride3],
   },
   Thriprayar: {
     bannerHeading: "Your Trusted Royal Enfield Partner in Thriprayar",
@@ -91,8 +91,8 @@ const locationData = {
       { icon: <Wrench size={20} strokeWidth={1.6} color="#e8282b" />, title: "Factory-Trained Technicians", desc: "For Royal Enfield service and maintenance enquiries in Thriprayar, our team helps you get proper support, technical guidance, and trusted care." },
       { icon: <Clock size={20} strokeWidth={1.6} color="#e8282b" />, title: "Seamless Test Rides", desc: "Before booking your bike, experience the ride firsthand. You can book a Royal Enfield test ride in Thriprayar and understand the comfort, power, and road feel of your preferred model." },
     ],
-    colA: [img.aboutthriprayarimg1, img.aboutthriprayarimg2, img.ride1],
-    colB: [img.aboutthriprayarimg3, img.aboutthriprayarimg4, img.ride2],
+    colA: [img.aboutthriprayarimg1, img.aboutthriprayarimg2, img.ride1, img.scram1, img.Himalayan],
+    colB: [img.aboutthriprayarimg3, img.aboutthriprayarimg4, img.ride2, img.royalenfield1, img.Himalayan2],
   }
 };
 
@@ -186,16 +186,18 @@ export default function AboutSection({
   const colBRef = useRef(null);
   const scrollStripRef = useRef(null);
 
-  const initialColA = customColA || locInfo.colA || fallbackColA;
-  const initialColB = customColB || locInfo.colB || fallbackColB;
-  const initialAllImgs = customMobileImgs || Array.from(new Set([...initialColA, ...initialColB]));
+  const branchColA = (customColA || locInfo.colA || fallbackColA).filter(Boolean);
+  const branchColB = (customColB || locInfo.colB || fallbackColB).filter(Boolean);
+  const branchAllImgs = (customMobileImgs || Array.from(new Set([...branchColA, ...branchColB]))).filter(Boolean);
 
   const finalBannerHeading = bannerHeading || locInfo.bannerHeading || <>Your Trusted Royal Enfield<br />Showroom.</>;
   const finalBannerSub = bannerSub || locInfo.bannerSub || `TagsBikez is ${location}'s authorised Royal Enfield dealership offering the full 2026 lineup and expert servicing.`;
 
-  const [colA, setColA] = useState(initialColA);
-  const [colB, setColB] = useState(initialColB);
-  const [allImgs, setAllImgs] = useState(initialAllImgs);
+  const [galleryImages, setGalleryImages] = useState(null);
+
+  const colA = galleryImages?.colA || branchColA;
+  const colB = galleryImages?.colB || branchColB;
+  const allImgs = galleryImages?.allImgs || branchAllImgs;
 
   useEffect(() => {
     if (customColA || customColB || locInfo.colA || locInfo.colB) return;
@@ -218,9 +220,11 @@ export default function AboutSection({
             }
           });
           if (a.length > 0 && b.length > 0) {
-            setColA(a.slice(0, 6));
-            setColB(b.slice(0, 6));
-            setAllImgs([...a.slice(0, 6), ...b.slice(0, 6)]);
+            setGalleryImages({
+              colA: a.slice(0, 6),
+              colB: b.slice(0, 6),
+              allImgs: [...a.slice(0, 6), ...b.slice(0, 6)],
+            });
           }
         }
       } catch (error) {
@@ -228,7 +232,7 @@ export default function AboutSection({
       }
     }
     loadGalleryData();
-  }, [customColA, customColB]);
+  }, [customColA, customColB, locInfo.colA, locInfo.colB]);
 
   useEffect(() => {
     let ctx;
@@ -628,11 +632,11 @@ export default function AboutSection({
         <div className="as-mobile-img-section">
           <div className="as-scroll-viewport">
             <div className="as-scroll-strip" ref={scrollStripRef}>
-              {allImgs.map((src, i) => (
+              {[...allImgs, ...allImgs].map((src, i) => (
                 <div className="as-scroll-img" key={i}>
                   <img
                     src={src?.src || src}
-                    alt={getAboutImageAlt(src, i, location)}
+                    alt={getAboutImageAlt(src, i % allImgs.length, location)}
                     loading="lazy"
                   />
                 </div>

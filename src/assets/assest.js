@@ -155,6 +155,7 @@ export const img = {
   aboutpatturaikkalimg1,
   aboutpatturaikkalimg2,
   aboutpatturaikkalimg3,
+  aboutpatturaikkalimg4,
   aboutkunnamkulamimg1,
   aboutkunnamkulamimg2,
   aboutkunnamkulamimg3,
