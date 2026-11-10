@@ -31,8 +31,34 @@ export default async function sitemap() {
     priority: route === "" ? 1 : 0.8,
   }));
 
-  const modelEntries = (bikeData || []).map((bike) => ({
-    url: `${baseUrl}/models/${bike.slug}`,
+  let apiBikes = [];
+  try {
+    const envUrl = (process.env.NEXT_PUBLIC_API_URL || 'https://api.tagsbikez.com').trim().replace(/\/+$/, '');
+    const apiBase = envUrl.endsWith('/api') ? envUrl : `${envUrl}/api`;
+    const res = await fetch(`${apiBase}/motorcycles/`, {
+      headers: {
+        'Accept': 'application/json',
+        'User-Agent': 'TagsBikez-Web/1.0',
+      },
+      next: { revalidate: 3600 },
+    });
+    if (res.ok) {
+      const data = await res.json();
+      apiBikes = Array.isArray(data.results) ? data.results : (Array.isArray(data) ? data : []);
+    }
+  } catch (error) {
+    // API not reachable, fallback to static bikeData
+  }
+
+  const allBikeSlugs = Array.from(
+    new Set([
+      ...(bikeData || []).map((b) => b.slug),
+      ...apiBikes.map((b) => b.slug),
+    ])
+  ).filter(Boolean);
+
+  const modelEntries = allBikeSlugs.map((slug) => ({
+    url: `${baseUrl}/models/${slug}`,
     lastModified: new Date(),
     changeFrequency: "weekly",
     priority: 0.8,
@@ -61,12 +87,14 @@ export default async function sitemap() {
     blogs = blogsData || [];
   }
 
-  const blogEntries = blogs.map((post) => ({
-    url: `${baseUrl}/blogs/${post.slug}`,
-    lastModified: post.updated_at ? new Date(post.updated_at) : new Date(),
-    changeFrequency: "weekly",
-    priority: 0.7,
-  }));
+  const blogEntries = (blogs || [])
+    .filter((post) => Boolean(post?.slug))
+    .map((post) => ({
+      url: `${baseUrl}/blogs/${post.slug}`,
+      lastModified: post.updated_at ? new Date(post.updated_at) : new Date(),
+      changeFrequency: "weekly",
+      priority: 0.7,
+    }));
 
   return [...staticEntries, ...modelEntries, ...blogEntries];
 }

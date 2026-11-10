@@ -10,6 +10,6 @@ export default function robots() {
       allow: '/',
       disallow: ['/api/'],
     },
-    sitemap: siteOrigin + 'sitemap.xml',
+    sitemap: `${siteOrigin.replace(/\/+$/, '')}/sitemap.xml`,
   };
 }
