@@ -11,6 +11,20 @@ const BikeDetailView = ({ bike }) => {
 
   if (!bike) return null;
 
+  const displayName = bike.name
+    ? bike.name
+        .split(' ')
+        .map((w) => {
+          const u = w.toUpperCase();
+          if (u === 'GT') return u;
+          return w.charAt(0).toUpperCase() + w.slice(1).toLowerCase();
+        })
+        .join(' ')
+    : 'Hunter 350';
+
+  const waEmiLink = `https://wa.me/917594960023?text=${encodeURIComponent(`I'm interested in the ${displayName}`)}`;
+  const waEnquireLink = `https://wa.me/917594960023?text=${encodeURIComponent(`I'm interested in the ${displayName}${selectedColor?.name ? ` in ${selectedColor.name}` : ''}`)}`;
+
   return (
     <div className="bdv-root">
       <style>{`
@@ -541,13 +555,13 @@ const BikeDetailView = ({ bike }) => {
 
         <div className="bdv-content-side">
           <div className="bdv-text-wrap">
-            <h1 className="bdv-title">{bike.name}</h1>
+            <h1 className="bdv-title">{displayName}</h1>
             {selectedColor.price && (
               <div className="bdv-price-wrap">
                 <span className="bdv-price">{selectedColor.price}</span>
                 {bike.emiStarting > 0 && !bike.comingSoon && (
                   <a
-                    href={`https://wa.me/917594960023?text=I'm%20interested%20in%20the%20${bike.name}`}
+                    href={waEmiLink}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bdv-emi-circle-btn"
@@ -598,7 +612,7 @@ const BikeDetailView = ({ bike }) => {
 
           <div className="bdv-footer">
             <a
-              href={`https://wa.me/917594960023?text=I'm%20interested%20in%20the%20${bike.name}%20in%20${selectedColor.name}`}
+              href={waEnquireLink}
               target="_blank"
               rel="noopener noreferrer"
               className="bdv-anim-btn bdv-anim-btn-primary"

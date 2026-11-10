@@ -53,7 +53,8 @@ function Card({ title, img, slug, category, price, comingSoon, emiStarting }) {
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
-                window.open(`https://wa.me/917594960023?text=I'm%20interested%20in%20the%20${title}`, '_blank', 'noopener,noreferrer');
+                const waMsg = encodeURIComponent(`I'm interested in the ${title}`);
+                window.open(`https://wa.me/917594960023?text=${waMsg}`, '_blank', 'noopener,noreferrer');
               }}
             >
               Lowest Down Payment @ ₹{emiStarting.toLocaleString('en-IN')}

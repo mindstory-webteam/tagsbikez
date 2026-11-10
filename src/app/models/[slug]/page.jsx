@@ -6,6 +6,19 @@ import BikeDetailView from '@/components/sections/models/BikeDetailView';
 import BikeFaqSection from '@/components/sections/models/BikeFaqSection';
 import { getBikeFaqs } from '@/lib/data/bikeFaqs';
 
+function formatBikeName(name, slug) {
+  const raw = name || (slug ? slug.replace(/-/g, ' ') : '');
+  if (!raw) return 'Royal Enfield';
+  return raw
+    .split(' ')
+    .map((w) => {
+      const u = w.toUpperCase();
+      if (u === 'GT') return u;
+      return w.charAt(0).toUpperCase() + w.slice(1).toLowerCase();
+    })
+    .join(' ');
+}
+
 /** Normalize both API and static bike objects into a single consistent shape */
 function normalizeBike(b) {
   // colors from API have image_url and price without ₹
@@ -39,7 +52,7 @@ function normalizeBike(b) {
 
   return {
     id: b.id,
-    name: b.name,
+    name: formatBikeName(b.name, b.slug),
     slug: b.slug,
     category: typeof b.category === 'object' ? b.category?.name : b.category,
     description: b.description || b.short_description || '',

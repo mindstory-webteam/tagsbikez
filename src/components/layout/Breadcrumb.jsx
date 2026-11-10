@@ -39,7 +39,26 @@ const Breadcrumb = () => {
   if (!pathname || hiddenPaths.includes(normalizedPath)) return null;
 
   const pathSegments = pathname.split('/').filter(s => s);
-  const pageName = pathSegments[pathSegments.length - 1]?.replace(/-/g, ' ') || 'Page';
+  const lastSegment = pathSegments[pathSegments.length - 1] || 'Page';
+  const matchedBike = bikes.find((b) => b.slug === lastSegment);
+  const pageName = matchedBike?.name
+    ? matchedBike.name
+        .split(' ')
+        .map((w) => {
+          const u = w.toUpperCase();
+          if (u === 'GT') return u;
+          return w.charAt(0).toUpperCase() + w.slice(1).toLowerCase();
+        })
+        .join(' ')
+    : lastSegment
+        .replace(/-/g, ' ')
+        .split(' ')
+        .map((w) => {
+          const u = w.toUpperCase();
+          if (u === 'GT') return u;
+          return w.charAt(0).toUpperCase() + w.slice(1).toLowerCase();
+        })
+        .join(' ');
 
   const bgImage = img.banner5?.src || img.banner5;
   const isModelsPage = pathname.startsWith('/models');
@@ -275,15 +294,26 @@ const Breadcrumb = () => {
           {pathSegments.map((segment, index) => {
             const href = `/${pathSegments.slice(0, index + 1).join('/')}`;
             const isLast = index === pathSegments.length - 1;
+            const segmentTitle = isLast
+              ? pageName
+              : segment
+                  .replace(/-/g, ' ')
+                  .split(' ')
+                  .map((w) => {
+                    const u = w.toUpperCase();
+                    if (u === 'GT') return u;
+                    return w.charAt(0).toUpperCase() + w.slice(1).toLowerCase();
+                  })
+                  .join(' ');
 
             return (
               <React.Fragment key={href}>
                 <span className="crumb-sep"><ChevronRight size={14} /></span>
                 {isLast ? (
-                  <span className="crumb-current">{segment.replace(/-/g, ' ')}</span>
+                  <span className="crumb-current">{segmentTitle}</span>
                 ) : (
                   <Link href={href} className="crumb-link">
-                    {segment.replace(/-/g, ' ')}
+                    {segmentTitle}
                   </Link>
                 )}
               </React.Fragment>
