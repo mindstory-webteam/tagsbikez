@@ -66,18 +66,21 @@ export async function generateMetadata({ params }) {
     ? post.image
     : (typeof post.image === 'object' && post.image?.src ? post.image.src : "https://images.pexels.com/photos/2116475/pexels-photo-2116475.jpeg?auto=compress&cs=tinysrgb&w=1200");
 
+  const canonicalUrl = seo.canonical_url
+    ? (seo.canonical_url.startsWith('http') ? seo.canonical_url : `https://tagsbikez.com${seo.canonical_url.startsWith('/') ? '' : '/'}${seo.canonical_url}`)
+    : `https://tagsbikez.com/blogs/${slug}`;
+
   return {
     title: seo.title || post.title,
     description: seo.description || post.excerpt,
     keywords: seo.keywords || '',
-    ...(seo.canonical_url && {
-      alternates: {
-        canonical: seo.canonical_url,
-      },
-    }),
+    alternates: {
+      canonical: canonicalUrl,
+    },
     openGraph: {
       title: seo.title || post.title,
       description: seo.description || post.excerpt,
+      url: canonicalUrl,
       images: seo.image ? [{ url: seo.image }] : (typeof heroImage === 'string' ? [{ url: heroImage }] : []),
     },
     ...(seo.noindex && {
