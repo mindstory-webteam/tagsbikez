@@ -89,16 +89,22 @@ function EventCard({ event }) {
           )}
         </p>
 
-        <div className="ev-locations">
-          <div className="ev-loc">
-            <span className="ev-loc-label">Starting Point</span>
-            <span className="ev-loc-val">{event.startingPoint}</span>
+        {(event.startingPoint || event.destination) ? (
+          <div className="ev-locations">
+            {event.startingPoint ? (
+              <div className="ev-loc">
+                <span className="ev-loc-label">Starting Point</span>
+                <span className="ev-loc-val">{event.startingPoint}</span>
+              </div>
+            ) : null}
+            {event.destination ? (
+              <div className="ev-loc" style={{ textAlign: "right", marginLeft: "auto" }}>
+                <span className="ev-loc-label">Destination</span>
+                <span className="ev-loc-val">{event.destination}</span>
+              </div>
+            ) : null}
           </div>
-          <div className="ev-loc" style={{ textAlign: "right" }}>
-            <span className="ev-loc-label">Destination</span>
-            <span className="ev-loc-val">{event.destination}</span>
-          </div>
-        </div>
+        ) : null}
 
         <div className="ev-dates-wrap">
           <div className="ev-date">
@@ -178,11 +184,11 @@ function EventCardSkeleton() {
         
         <div className="ev-locations">
           <div className="ev-loc">
-            <span className="ev-loc-label">Starting Point</span>
+            <div className="skeleton-line" style={{ width: "55px", height: "10px", marginBottom: "6px" }} />
             <div className="skeleton-line skeleton-loc-val" />
           </div>
-          <div className="ev-loc" style={{ textAlign: "right", alignItems: "flex-end" }}>
-            <span className="ev-loc-label">Destination</span>
+          <div className="ev-loc" style={{ textAlign: "right", alignItems: "flex-end", marginLeft: "auto" }}>
+            <div className="skeleton-line" style={{ width: "55px", height: "10px", marginBottom: "6px" }} />
             <div className="skeleton-line skeleton-loc-val" />
           </div>
         </div>
@@ -256,16 +262,13 @@ export default function UpcomingEvents() {
     const source = axios.CancelToken.source();
 
     async function loadEvents() {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-      if (!apiUrl) {
-        setEvents([]);
-        setLoading(false);
-        return;
-      }
+      const rawApiUrl = process.env.NEXT_PUBLIC_API_URL || "https://api.tagsbikez.com";
+      const cleanBase = rawApiUrl.trim().replace(/\/api\/?$/, "").replace(/\/+$/, "");
+      const endpoint = `${cleanBase}/api/events/`;
 
       try {
         setLoading(true);
-        const response = await axios.get(`${apiUrl}/api/events/`, {
+        const response = await axios.get(endpoint, {
           cancelToken: source.token,
         });
         const data = response.data;
@@ -275,7 +278,7 @@ export default function UpcomingEvents() {
           } else if (Array.isArray(data)) {
             setEvents(data);
           } else {
-            throw new Error("Invalid API response format");
+            setEvents([]);
           }
           setLoading(false);
         }
@@ -283,7 +286,7 @@ export default function UpcomingEvents() {
         if (axios.isCancel(err)) {
           return;
         }
-        console.error("Error fetching events from backend:", err);
+        console.warn("Error fetching events from backend:", err.message);
         if (active) {
           setError(err.message);
           setEvents([]);
@@ -298,6 +301,11 @@ export default function UpcomingEvents() {
       source.cancel("Component unmounted");
     };
   }, []);
+
+  // Hide the Events section completely when there are no events
+  if (sorted.length === 0) {
+    return null;
+  }
 
   return (
     <>

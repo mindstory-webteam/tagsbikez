@@ -1,7 +1,8 @@
 import axios from "axios";
 
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || "";
+const rawApi = process.env.NEXT_PUBLIC_API_URL || "";
+const API_BASE = rawApi.trim().replace(/\/api\/?$/, "").replace(/\/+$/, "");
 
 // Create a reusable axios instance with defaults
 const apiClient = axios.create({
