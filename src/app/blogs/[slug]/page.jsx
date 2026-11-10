@@ -154,6 +154,15 @@ export default async function BlogDetail({ params }) {
     }
   }
 
+  function linkifyHtml(html) {
+    if (typeof html !== 'string') return html;
+    if (/<a\s+[^>]*href=/i.test(html)) return html;
+    return html.replace(
+      /(https?:\/\/[^\s<"']+)/g,
+      '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>'
+    );
+  }
+
   // Safely normalize content to an array of paragraphs
   let contentParagraphs = [];
   if (Array.isArray(post.content)) {
@@ -161,6 +170,7 @@ export default async function BlogDetail({ params }) {
   } else if (typeof post.content === 'string') {
     contentParagraphs = post.content.split(/\r?\n\r?\n/).map(p => p.trim()).filter(Boolean);
   }
+  contentParagraphs = contentParagraphs.map(linkifyHtml);
 
   return (
     <div className="blog-detail-page">
@@ -220,6 +230,17 @@ export default async function BlogDetail({ params }) {
         .article-body .blog-paragraph {
           margin-bottom: 24px;
           white-space: pre-line;
+        }
+        .article-body .blog-paragraph a,
+        .blog-paragraph a {
+          color: #1a73e8 !important;
+          text-decoration: underline !important;
+          font-weight: 500;
+        }
+        .article-body .blog-paragraph a:hover,
+        .blog-paragraph a:hover {
+          text-decoration: none !important;
+          color: #1557b0 !important;
         }
         
         .pull-quote-container {
