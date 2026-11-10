@@ -216,7 +216,8 @@ export default async function BlogDetail({ params }) {
           color: #555;
           text-align: justify;
         }
-        .article-body p {
+        .article-body p,
+        .article-body .blog-paragraph {
           margin-bottom: 24px;
           white-space: pre-line;
         }
@@ -384,7 +385,10 @@ export default async function BlogDetail({ params }) {
           {/* Right Content */}
           <div className="article-body">
             {contentParagraphs.length > 0 ? (
-              <p>{contentParagraphs[0]}</p>
+              <div
+                className="blog-paragraph"
+                dangerouslySetInnerHTML={{ __html: contentParagraphs[0] }}
+              />
             ) : null}
 
             {post.excerpt && (
@@ -401,8 +405,12 @@ export default async function BlogDetail({ params }) {
                 <div className="embedded-caption">1/3 Scenic riding route captured</div>
               </div>
               {contentParagraphs.length > 2 ? (
-                contentParagraphs.slice(1, -1).map((paragraph, idx) => (
-                  <p key={idx}>{paragraph}</p>
+                contentParagraphs.slice(1, -1).map((html, idx) => (
+                  <div
+                    key={idx}
+                    className="blog-paragraph"
+                    dangerouslySetInnerHTML={{ __html: html }}
+                  />
                 ))
               ) : null}
             </div>
@@ -412,9 +420,10 @@ export default async function BlogDetail({ params }) {
             {contentParagraphs.length > 1 ? (
               <div className="rating-section">
                 <div className="rating-text">
-                  <p>
-                    {contentParagraphs[contentParagraphs.length - 1]}
-                  </p>
+                  <div
+                    className="blog-paragraph"
+                    dangerouslySetInnerHTML={{ __html: contentParagraphs[contentParagraphs.length - 1] }}
+                  />
                 </div>
               </div>
             ) : null}

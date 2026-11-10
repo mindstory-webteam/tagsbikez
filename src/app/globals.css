@@ -50,3 +50,38 @@ html.lenis body {
 .lenis.lenis-scrolling iframe {
   pointer-events: none;
 }
+
+/* Blog paragraph content & rich text styles */
+.blog-paragraph a {
+  color: #e10600; /* TagsBikez red */
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.blog-paragraph a:hover {
+  text-decoration: none;
+}
+
+.blog-paragraph p {
+  margin: 0 0 1em;
+}
+
+.blog-paragraph ul,
+.blog-paragraph ol {
+  padding-left: 1.5em;
+  margin: 0 0 1em;
+}
+
+.blog-paragraph ul {
+  list-style: disc;
+}
+
+.blog-paragraph ol {
+  list-style: decimal;
+}
+
+.blog-paragraph h2,
+.blog-paragraph h3 {
+  font-weight: 700;
+  margin: 1em 0 0.5em;
+}
