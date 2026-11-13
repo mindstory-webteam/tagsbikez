@@ -6,6 +6,8 @@ import BikeDetailView from '@/components/sections/models/BikeDetailView';
 import BikeFaqSection from '@/components/sections/models/BikeFaqSection';
 import { getBikeFaqs } from '@/lib/data/bikeFaqs';
 
+export const dynamic = 'force-dynamic';
+
 function formatBikeName(name, slug) {
   const raw = name || (slug ? slug.replace(/-/g, ' ') : '');
   if (!raw) return 'Royal Enfield';

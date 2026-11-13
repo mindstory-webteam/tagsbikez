@@ -210,13 +210,13 @@ export default function Navbar() {
         transition: "transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.35s ease, background 0.3s ease",
       }}>
         {/* Logo */}
-        <Link href="/" style={{ position: "relative", height: 48, width: 160 }}>
+        <Link href="/" style={{ position: "relative", height: 48, width: 160, display: "flex", alignItems: "center" }}>
           <Image
             src={img.tagsbikezwhite}
             alt="Logo"
-            fill
-            sizes="160px"
-            style={{ objectFit: "contain" }}
+            width={160}
+            height={48}
+            style={{ objectFit: "contain", height: "100%", width: "auto" }}
             priority
           />
         </Link>

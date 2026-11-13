@@ -526,7 +526,7 @@ const BikeDetailView = ({ bike }) => {
                     alt={story.title}
                     fill
                     className="bdv-story-img"
-                    sizes="(max-width: 1100px) 100vw, 50vw"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 650px"
                   />
                 </div>
                 <div className="bdv-story-content">
@@ -547,7 +547,7 @@ const BikeDetailView = ({ bike }) => {
             alt={bike.name}
             fill
             className="bdv-img"
-            sizes="(max-width: 1100px) 100vw, 60vw"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
             priority
             key={selectedColor.name}
           />
@@ -655,7 +655,7 @@ const BikeDetailView = ({ bike }) => {
                     alt={story.title}
                     fill
                     className="bdv-story-img"
-                    sizes="(max-width: 900px) 100vw, 50vw"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 650px"
                   />
                 </div>
                 <div className="bdv-story-content">
