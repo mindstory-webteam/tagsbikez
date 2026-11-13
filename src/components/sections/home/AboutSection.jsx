@@ -8,6 +8,16 @@ import { fetchGallery } from "@/lib/api";
 const fallbackColA = [img.Himalayan, img.royalenfieldfury, img.scram1, img.ride1, img.companysectionimg];
 const fallbackColB = [img.Himalayan2, img.royalenfield1, img.ride2, img.ride3, img.about_bike];
 
+const homepageMobileImgs = [
+  img.aboutpatturaikkalimg1,
+  img.aboutchalakudyimg1,
+  img.aboutirinjalakudaimg1,
+  img.aboutkodakaraimg1,
+  img.aboutvadakkencherryimg1,
+  img.aboutkunnamkulamimg1,
+  img.aboutthriprayarimg1,
+];
+
 const locationData = {
   Chalakudy: {
     bannerHeading: "Your Trusted Royal Enfield Partner in Chalakudy",
@@ -122,6 +132,57 @@ const getFeatures = (location = "Thrissur") => {
   ];
 };
 
+const uniqueImageAltMap = new Map([
+  // Fallback / Desktop Col A & B
+  [img.Himalayan, "Royal Enfield Himalayan 450 Kamet White adventure motorcycle parked at Tags Bikez showroom"],
+  [img.scram1, "Royal Enfield Scram 440 scrambler motorcycle in Skyline Blue on display at Tags Bikez showroom"],
+  [img.royalenfieldfury, "Royal Enfield heritage classic motorcycle showcase at Tags Bikez Thrissur main branch"],
+  [img.ride1, "Tags Bikez Sunday morning riders club convoy touring on Kerala highway"],
+  [img.companysectionimg, "Tags Bikez authorized service station and certified technician inspection bay in Thrissur"],
+  [img.Himalayan2, "Royal Enfield Himalayan 450 expedition ready with touring luggage in Western Ghats trail"],
+  [img.royalenfield1, "Royal Enfield Continental GT 650 British Racing Green cafe racer on showroom display"],
+  [img.ride2, "Community riders group convoy passing through scenic coastal route in Kerala"],
+  [img.ride3, "Weekend rider brotherhood gathering and safety briefing organized by Tags Bikez dealership"],
+  [img.about_bike, "Royal Enfield custom build showcase featuring genuine accessories at Tags Bikez Thrissur"],
+
+  // Branch Showroom Photos (Mobile strip on homepage & branch pages)
+  [img.aboutpatturaikkalimg1, "Tags Bikez flagship Royal Enfield showroom entrance in Patturaikkal Thrissur"],
+  [img.aboutpatturaikkalimg2, "Royal Enfield Interceptor 650 and Super Meteor 650 premium twins at Patturaikkal branch"],
+  [img.aboutpatturaikkalimg3, "Rider apparel zone featuring Royal Enfield jackets, helmets, and boots at Patturaikkal"],
+  [img.aboutpatturaikkalimg4, "State-of-the-art service workshop with certified technicians at Tags Bikez Patturaikkal"],
+
+  [img.aboutchalakudyimg1, "Royal Enfield showroom front entrance and new model delivery area at Tags Bikez Chalakudy"],
+  [img.aboutchalakudyimg2, "Customer motorcycle key handover celebration at Tags Bikez Chalakudy branch"],
+  [img.aboutchalakudyimg3, "Royal Enfield Classic 350 and Bullet 350 showroom floor display in Chalakudy"],
+  [img.aboutchalakudyimg4, "Authorized Royal Enfield genuine accessories and protective gear counter in Chalakudy"],
+  [img.aboutchalakudyimg5, "Tags Bikez Chalakudy service reception and express maintenance bay"],
+
+  [img.aboutirinjalakudaimg1, "Tags Bikez Royal Enfield dealership showroom exterior and customer parking in Irinjalakuda"],
+  [img.aboutirinjalakudaimg2, "Royal Enfield Hunter 350 and Meteor 350 on display at Irinjalakuda branch"],
+  [img.aboutirinjalakudaimg3, "Customer sales consultation and motorcycle finance enquiry desk in Irinjalakuda"],
+  [img.aboutirinjalakudaimg4, "Genuine Royal Enfield spare parts stock and service workstation at Irinjalakuda"],
+
+  [img.aboutkodakaraimg1, "Tags Bikez Kodakara Royal Enfield showroom along Thrissur National Highway corridor"],
+  [img.aboutkodakaraimg2, "Royal Enfield Himalayan 450 and Guerrilla 450 adventure display at Kodakara branch"],
+  [img.aboutkodakaraimg3, "Air-conditioned customer waiting lounge and test ride desk at Tags Bikez Kodakara"],
+  [img.aboutkodakaraimg4, "Factory-trained service team conducting pre-delivery inspection at Kodakara showroom"],
+
+  [img.aboutvadakkencherryimg1, "Tags Bikez Royal Enfield dealership building and showroom entrance in Vadakkencherry"],
+  [img.aboutvadakkencherryimg2, "Full lineup of Royal Enfield 350cc roadsters on display at Vadakkencherry branch"],
+  [img.aboutvadakkencherryimg3, "Customer test ride orientation for Royal Enfield Hunter 350 at Vadakkencherry"],
+  [img.aboutvadakkencherryimg4, "Authorized Royal Enfield quick maintenance and periodic service bay in Vadakkencherry"],
+
+  [img.aboutkunnamkulamimg1, "Tags Bikez Royal Enfield dealership showroom floor in Kunnamkulam"],
+  [img.aboutkunnamkulamimg2, "Royal Enfield Classic 350 Medallion Bronze customer delivery in Kunnamkulam"],
+  [img.aboutkunnamkulamimg3, "New motorcycle display section featuring Royal Enfield roadsters at Kunnamkulam branch"],
+  [img.aboutkunnamkulamimg4, "Periodic maintenance and oil service bay at Tags Bikez Kunnamkulam"],
+
+  [img.aboutthriprayarimg1, "Tags Bikez Royal Enfield coastal showroom building in Thriprayar"],
+  [img.aboutthriprayarimg2, "Royal Enfield Goan Classic 350 and Bullet lineup at Thriprayar showroom floor"],
+  [img.aboutthriprayarimg3, "Customer service assistance and genuine rider accessories counter in Thriprayar"],
+  [img.aboutthriprayarimg4, "Certified technician tuning Royal Enfield motorcycle engine at Thriprayar workshop"],
+]);
+
 const branchModels = [
   "Royal Enfield Himalayan 450",
   "Royal Enfield Hunter 350",
@@ -136,36 +197,49 @@ const branchModels = [
 ];
 
 function getAboutImageAlt(src, index, location = "Thrissur") {
+  // First, check explicit image object or static asset in map
+  if (uniqueImageAltMap.has(src)) {
+    return uniqueImageAltMap.get(src);
+  }
+  for (const [key, alt] of uniqueImageAltMap.entries()) {
+    if (key?.src && src === key.src) return alt;
+    if (typeof src === "string" && key?.src && src.includes(key.src.split(".")[0])) return alt;
+  }
+
+  // Fallback for dynamic/API images
   const branchName = location || "Thrissur";
   const raw = typeof src === "string" ? src : (src?.src || "");
   const lower = raw.toLowerCase();
 
+  const actions = [
+    "on showroom display",
+    "customer delivery moment",
+    "ready for test ride",
+    "at service inspection bay",
+    "accessories and styling showcase",
+    "riders community meetup",
+    "vintage heritage presentation",
+    "adventure tourer highlight",
+  ];
+  const action = actions[index % actions.length];
+
   let model = "";
-  if (lower.includes("himalayan2") || lower.includes("himalayan-450") || lower.includes("himalayan")) {
-    model = "Royal Enfield Himalayan 450 adventure motorcycle";
-  } else if (lower.includes("hunter350") || lower.includes("hunter")) {
-    model = "Royal Enfield Hunter 350 urban roadster";
-  } else if (lower.includes("classic350") || lower.includes("classic")) {
-    model = "Royal Enfield Classic 350 retro roadster";
-  } else if (lower.includes("bullet350") || lower.includes("bullet")) {
-    model = "Royal Enfield Bullet 350 timeless classic";
-  } else if (lower.includes("continental")) {
-    model = "Royal Enfield Continental GT 650 cafe racer";
-  } else if (lower.includes("interceptor")) {
-    model = "Royal Enfield Interceptor 650 twin cylinder";
-  } else if (lower.includes("super-meteor") || lower.includes("meteor")) {
-    model = "Royal Enfield Super Meteor 650 highway cruiser";
-  } else if (lower.includes("scram")) {
-    model = "Royal Enfield Scram 440 scrambler motorcycle";
-  } else if (lower.includes("guerrilla")) {
-    model = "Royal Enfield Guerrilla 450 roadster";
-  }
+  if (lower.includes("himalayan2")) model = "Royal Enfield Himalayan 450 Rally";
+  else if (lower.includes("himalayan")) model = "Royal Enfield Himalayan 450";
+  else if (lower.includes("hunter")) model = "Royal Enfield Hunter 350";
+  else if (lower.includes("classic")) model = "Royal Enfield Classic 350";
+  else if (lower.includes("bullet")) model = "Royal Enfield Bullet 350";
+  else if (lower.includes("continental")) model = "Royal Enfield Continental GT 650";
+  else if (lower.includes("interceptor")) model = "Royal Enfield Interceptor 650";
+  else if (lower.includes("meteor")) model = "Royal Enfield Super Meteor 650";
+  else if (lower.includes("scram")) model = "Royal Enfield Scram 440";
+  else if (lower.includes("guerrilla")) model = "Royal Enfield Guerrilla 450";
 
   if (!model) {
     model = branchModels[index % branchModels.length];
   }
 
-  return `${model} on display at Tags Bikez ${branchName} showroom`;
+  return `${model} ${action} at Tags Bikez ${branchName} showroom`;
 }
 
 export default function AboutSection({ 
@@ -188,7 +262,7 @@ export default function AboutSection({
 
   const branchColA = (customColA || locInfo.colA || fallbackColA).filter(Boolean);
   const branchColB = (customColB || locInfo.colB || fallbackColB).filter(Boolean);
-  const branchAllImgs = (customMobileImgs || Array.from(new Set([...branchColA, ...branchColB]))).filter(Boolean);
+  const branchAllImgs = (customMobileImgs || (isHomePage ? homepageMobileImgs : Array.from(new Set([...branchColA, ...branchColB])))).filter(Boolean);
 
   const finalBannerHeading = bannerHeading || locInfo.bannerHeading || <>Your Trusted Royal Enfield<br />Showroom.</>;
   const finalBannerSub = bannerSub || locInfo.bannerSub || `TagsBikez is ${location}'s authorised Royal Enfield dealership offering the full 2026 lineup and expert servicing.`;
@@ -632,11 +706,22 @@ export default function AboutSection({
         <div className="as-mobile-img-section">
           <div className="as-scroll-viewport">
             <div className="as-scroll-strip" ref={scrollStripRef}>
-              {[...allImgs, ...allImgs].map((src, i) => (
-                <div className="as-scroll-img" key={i}>
+              {allImgs.map((src, i) => (
+                <div className="as-scroll-img" key={`m-real-${i}`}>
                   <img
                     src={src?.src || src}
-                    alt={getAboutImageAlt(src, i % allImgs.length, location)}
+                    alt={getAboutImageAlt(src, i, location)}
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+              {/* Animation duplicate clone - marked decorative for screen readers and SEO crawlers */}
+              {allImgs.map((src, i) => (
+                <div className="as-scroll-img" key={`m-clone-${i}`} aria-hidden="true">
+                  <img
+                    src={src?.src || src}
+                    alt=""
+                    role="presentation"
                     loading="lazy"
                   />
                 </div>

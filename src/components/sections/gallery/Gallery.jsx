@@ -78,7 +78,16 @@ function getGalleryAlt(item, index) {
     else if (lower.includes("vadakkencherry")) branch = "Vadakkencherry";
 
     if (model) {
-      return `${model} on display at Tags Bikez ${branch} showroom`;
+      const actions = [
+        "on showroom floor display",
+        "customer test ride showcase",
+        "delivery moment and celebration",
+        "genuine accessories setup",
+        "community riders highlight",
+        "inspection and maintenance bay",
+      ];
+      const action = actions[index % actions.length];
+      return `${model} ${action} at Tags Bikez ${branch} showroom`;
     }
 
     const filename = src.split("/").pop()?.split(".")[0];
