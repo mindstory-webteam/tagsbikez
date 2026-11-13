@@ -2,7 +2,7 @@ import BlogsPage from '@/components/sections/blogs/BlogsPage';
 
 export const metadata = {
   title: 'Royal Enfield Blogs - Riding Tips, Motorcycle Features & RE Community | TagsBikez',
-  description: 'Stay updated with the latest Royal Enfield blogs. Read expert riding tips, motorcycle feature insights, road trip stories, and community highlights from TagsBikez in Thrissur.',
+  description: 'Stay updated with the latest Royal Enfield blogs. Read expert riding tips, motorcycle feature insights, road trip stories, and community highlights from TagsBikez in Thrissur & Palakkad.',
   keywords: 'Royal Enfield blogs, riding tips, motorcycle features, RE community, TagsBikez blogs, bike riding guide, Thrissur motorcycle stories',
   alternates: {
     canonical: 'https://tagsbikez.com/blogs',
@@ -13,7 +13,7 @@ export const metadata = {
     siteName: 'Tags Bikez',
     url: 'https://tagsbikez.com/blogs',
     title: 'Royal Enfield Blogs - Riding Tips, Motorcycle Features & RE Community | TagsBikez',
-    description: 'Stay updated with the latest Royal Enfield blogs. Read expert riding tips, motorcycle feature insights, road trip stories, and community highlights from TagsBikez in Thrissur.',
+    description: 'Stay updated with the latest Royal Enfield blogs. Read expert riding tips, motorcycle feature insights, road trip stories, and community highlights from TagsBikez in Thrissur & Palakkad.',
     images: [
       {
         url: 'https://tagsbikez.com/og-image.png',
