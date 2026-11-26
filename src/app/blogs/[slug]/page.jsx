@@ -156,21 +156,46 @@ export default async function BlogDetail({ params }) {
 
   function linkifyHtml(html) {
     if (typeof html !== 'string') return html;
-    if (/<a\s+[^>]*href=/i.test(html)) return html;
-    return html.replace(
-      /(https?:\/\/[^\s<"']+)/g,
-      '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>'
-    );
+    // Split by HTML tags so URLs inside attributes (e.g. <img src="...">, <a href="...">) are never corrupted
+    const tokens = html.split(/(<[^>]+>)/g);
+    let insideAnchor = false;
+    return tokens
+      .map((token) => {
+        if (token.startsWith('<')) {
+          if (/^<a\b/i.test(token)) insideAnchor = true;
+          else if (/^<\/a>/i.test(token)) insideAnchor = false;
+          return token;
+        }
+        if (insideAnchor) return token;
+        return token.replace(
+          /(https?:\/\/[^\s<"']+)/g,
+          '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>'
+        );
+      })
+      .join('');
   }
 
-  // Safely normalize content to an array of paragraphs
+  function formatPlainTextBlocks(text) {
+    return text
+      .split(/\r?\n\s*\r?\n/)
+      .map((block) => block.trim())
+      .filter(Boolean)
+      .map((block) => block.replace(/\r?\n+/g, ' ').replace(/\s{2,}/g, ' ').trim());
+  }
+
+  const isHtmlContent =
+    typeof post.content === 'string' &&
+    /<(p|h[1-6]|div|ul|ol|li|blockquote|table|section|article|figure|img|br)\b/i.test(post.content);
+
+  const rawHtmlContent = isHtmlContent ? linkifyHtml(post.content) : null;
+
+  // Safely normalize non-HTML content to an array of clean paragraphs
   let contentParagraphs = [];
   if (Array.isArray(post.content)) {
-    contentParagraphs = post.content;
-  } else if (typeof post.content === 'string') {
-    contentParagraphs = post.content.split(/\r?\n\r?\n/).map(p => p.trim()).filter(Boolean);
+    contentParagraphs = post.content.map((p) => linkifyHtml(String(p || '').trim())).filter(Boolean);
+  } else if (typeof post.content === 'string' && !isHtmlContent) {
+    contentParagraphs = formatPlainTextBlocks(post.content).map(linkifyHtml);
   }
-  contentParagraphs = contentParagraphs.map(linkifyHtml);
 
   return (
     <div className="blog-detail-page">
@@ -221,26 +246,129 @@ export default async function BlogDetail({ params }) {
         /* Article Body */
         .article-body {
           font-family: var(--font-inter), sans-serif;
-          font-size: 18px;
+          font-size: 17px;
           line-height: 1.8;
-          color: #555;
-          text-align: justify;
+          color: #333;
+          text-align: left;
+          white-space: normal;
+          word-break: break-word;
         }
         .article-body p,
         .article-body .blog-paragraph {
-          margin-bottom: 24px;
-          white-space: pre-line;
+          margin: 0 0 20px 0;
+          white-space: normal;
         }
+        .article-body h1,
+        .article-body h2 {
+          font-family: var(--font-inter), sans-serif;
+          font-size: clamp(22px, 3vw, 28px);
+          font-weight: 800;
+          color: #111;
+          line-height: 1.3;
+          margin: 36px 0 14px;
+        }
+        .article-body h3 {
+          font-family: var(--font-inter), sans-serif;
+          font-size: clamp(19px, 2.4vw, 22px);
+          font-weight: 700;
+          color: #111;
+          line-height: 1.35;
+          margin: 28px 0 12px;
+        }
+        .article-body h4 {
+          font-family: var(--font-inter), sans-serif;
+          font-size: 18px;
+          font-weight: 700;
+          color: #111;
+          line-height: 1.4;
+          margin: 24px 0 10px;
+        }
+        .article-body h1:first-child,
+        .article-body h2:first-child,
+        .article-body h3:first-child {
+          margin-top: 0;
+        }
+        .article-body ul {
+          list-style-type: disc;
+          margin: 0 0 20px 24px;
+          padding-left: 8px;
+        }
+        .article-body ol {
+          list-style-type: decimal;
+          margin: 0 0 20px 24px;
+          padding-left: 8px;
+        }
+        .article-body li {
+          margin-bottom: 8px;
+          line-height: 1.75;
+          color: #333;
+        }
+        .article-body strong,
+        .article-body b {
+          font-weight: 700;
+          color: #111;
+        }
+        .article-body blockquote {
+          border-left: 4px solid #e8282b;
+          background: #fafafa;
+          padding: 16px 20px;
+          margin: 24px 0;
+          color: #333;
+          font-style: italic;
+        }
+        .article-body table {
+          width: 100%;
+          border-collapse: collapse;
+          margin: 24px 0;
+          font-size: 15px;
+          display: block;
+          overflow-x: auto;
+        }
+        .article-body th,
+        .article-body td {
+          border: 1px solid #e5e7eb;
+          padding: 12px 14px;
+          text-align: left;
+        }
+        .article-body th {
+          background: #f8f9fa;
+          font-weight: 700;
+          color: #111;
+        }
+        .article-body img {
+          max-width: 100%;
+          height: auto;
+          border-radius: 6px;
+          margin: 20px 0;
+        }
+        .article-body hr {
+          border: 0;
+          border-top: 1px solid #e5e7eb;
+          margin: 32px 0;
+        }
+        .article-body a,
         .article-body .blog-paragraph a,
         .blog-paragraph a {
           color: #1a73e8 !important;
           text-decoration: underline !important;
           font-weight: 500;
         }
+        .article-body a:hover,
         .article-body .blog-paragraph a:hover,
         .blog-paragraph a:hover {
           text-decoration: none !important;
           color: #1557b0 !important;
+        }
+
+        .featured-cover-image {
+          position: relative;
+          width: 100%;
+          max-width: 900px;
+          aspect-ratio: 16 / 9;
+          margin: 0 auto 36px;
+          border-radius: 8px;
+          overflow: hidden;
+          background: #f5f5f5;
         }
         
         .pull-quote-container {
@@ -405,50 +533,79 @@ export default async function BlogDetail({ params }) {
 
           {/* Right Content */}
           <div className="article-body">
-            {contentParagraphs.length > 0 ? (
-              <div
-                className="blog-paragraph"
-                dangerouslySetInnerHTML={{ __html: contentParagraphs[0] }}
-              />
-            ) : null}
+            {isHtmlContent ? (
+              <>
+                {post.excerpt && (
+                  <div className="pull-quote-container" style={{ marginTop: 0 }}>
+                    <div className="pull-quote">
+                      {post.excerpt}
+                    </div>
+                  </div>
+                )}
 
-            {post.excerpt && (
-              <div className="pull-quote-container">
-                <div className="pull-quote">
-                  {post.excerpt}
+                <div className="featured-cover-image">
+                  <Image
+                    src={heroImage}
+                    alt={post.title || "Article Image"}
+                    fill
+                    sizes="(max-width: 900px) 100vw, 900px"
+                    style={{ objectFit: 'cover' }}
+                    priority
+                  />
                 </div>
-              </div>
+
+                <div
+                  className="blog-rich-content"
+                  dangerouslySetInnerHTML={{ __html: rawHtmlContent }}
+                />
+              </>
+            ) : (
+              <>
+                {contentParagraphs.length > 0 ? (
+                  <div
+                    className="blog-paragraph"
+                    dangerouslySetInnerHTML={{ __html: contentParagraphs[0] }}
+                  />
+                ) : null}
+
+                {post.excerpt && (
+                  <div className="pull-quote-container">
+                    <div className="pull-quote">
+                      {post.excerpt}
+                    </div>
+                  </div>
+                )}
+
+                <div>
+                  <div className="embedded-image">
+                    <Image src={heroImage} alt={post.title || "Article Image"} fill style={{ objectFit: 'cover' }} />
+                    <div className="embedded-caption">1/3 Scenic riding route captured</div>
+                  </div>
+                  {contentParagraphs.length > 2 ? (
+                    contentParagraphs.slice(1, -1).map((html, idx) => (
+                      <div
+                        key={idx}
+                        className="blog-paragraph"
+                        dangerouslySetInnerHTML={{ __html: html }}
+                      />
+                    ))
+                  ) : null}
+                </div>
+                
+                <div className="clear-float"></div>
+
+                {contentParagraphs.length > 1 ? (
+                  <div className="rating-section">
+                    <div className="rating-text">
+                      <div
+                        className="blog-paragraph"
+                        dangerouslySetInnerHTML={{ __html: contentParagraphs[contentParagraphs.length - 1] }}
+                      />
+                    </div>
+                  </div>
+                ) : null}
+              </>
             )}
-
-            <div>
-              <div className="embedded-image">
-                <Image src={heroImage} alt={post.title || "Article Image"} fill style={{ objectFit: 'cover' }} />
-                <div className="embedded-caption">1/3 Scenic riding route captured</div>
-              </div>
-              {contentParagraphs.length > 2 ? (
-                contentParagraphs.slice(1, -1).map((html, idx) => (
-                  <div
-                    key={idx}
-                    className="blog-paragraph"
-                    dangerouslySetInnerHTML={{ __html: html }}
-                  />
-                ))
-              ) : null}
-            </div>
-            
-            <div className="clear-float"></div>
-
-            {contentParagraphs.length > 1 ? (
-              <div className="rating-section">
-                <div className="rating-text">
-                  <div
-                    className="blog-paragraph"
-                    dangerouslySetInnerHTML={{ __html: contentParagraphs[contentParagraphs.length - 1] }}
-                  />
-                </div>
-              </div>
-            ) : null}
-
           </div>
         </div>
       </div>
